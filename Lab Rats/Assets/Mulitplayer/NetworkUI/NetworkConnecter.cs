@@ -82,7 +82,7 @@ namespace Mulitplayer.NetworkUI
                 
                 _currentAllocationId = allocation.AllocationId;
                 
-                var serverData = new RelayServerData(allocation, "dlts");
+                var serverData = new RelayServerData(allocation, "dtls");
                 
                 NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(serverData);
 
