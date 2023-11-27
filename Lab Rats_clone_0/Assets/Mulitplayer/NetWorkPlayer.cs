@@ -1,4 +1,3 @@
-using System;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -30,8 +29,7 @@ namespace Mulitplayer
 
             _vrRigReferences = VRRigReferences.Singelton; 
         }
-
-        // Update is called once per frame
+        
         private void Update()
         {
             if (!IsOwner || _isVRRigReferencesNull) return;

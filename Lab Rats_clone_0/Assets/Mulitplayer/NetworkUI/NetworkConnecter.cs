@@ -12,7 +12,6 @@ namespace Mulitplayer.NetworkUI
 {
     public class NetworkConnecter : MonoBehaviour
     {
-
         private Lobby _currentLobby;
 
         [SerializeField] private int maximumConnections = 2;
@@ -22,8 +21,37 @@ namespace Mulitplayer.NetworkUI
         {
             await UnityServices.InitializeAsync();
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            
+            JoinOrCreate();
         }
 
+        private async void JoinOrCreate()
+        {
+            try
+            {
+                _currentLobby = await LobbyService.Instance.QuickJoinLobbyAsync();
+                var joinCode = _currentLobby.Data["JoinCode"].Value;
+                var joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
+                
+                transport.SetHostRelayData(
+                    joinAllocation.RelayServer.IpV4,
+                    (ushort) joinAllocation.RelayServer.Port,
+                    joinAllocation.AllocationIdBytes,
+                    joinAllocation.Key,
+                    joinAllocation.HostConnectionData
+                );
+                
+                NetworkManager.Singleton.StartClient(); 
+            }
+            catch 
+            {
+                Create();
+            }
+        }
+
+        /// <summary>
+        ///  Create a lobby and start the host
+        /// </summary>
         public async void Create()
         {
             var allocation = await RelayService.Instance.CreateAllocationAsync(maximumConnections);
@@ -52,9 +80,11 @@ namespace Mulitplayer.NetworkUI
             NetworkManager.Singleton.StartHost();
         }
 
+        /// <summary>
+        ///  Join a lobby and start the client
+        /// </summary>
         public async void Join()
         {
-
             _currentLobby = await LobbyService.Instance.QuickJoinLobbyAsync();
             
             var joinCode = _currentLobby.Data["JoinCode"].Value;
