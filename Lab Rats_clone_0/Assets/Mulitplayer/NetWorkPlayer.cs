@@ -12,6 +12,13 @@ namespace Mulitplayer
         [SerializeField] private Transform rightHand;
         
         public Renderer[] meshToDisable;
+        private VRRigReferences _vrRigReferences;
+        private bool _isVRRigReferencesNull;
+
+        private void Start()
+        {
+            _isVRRigReferencesNull = _vrRigReferences == null;
+        }
 
         public override void OnNetworkSpawn()
         {
@@ -19,27 +26,31 @@ namespace Mulitplayer
             
             if (!IsOwner) return;
             
-            print("trying to disable mesh");
-            
             foreach (var mesh in meshToDisable) mesh.enabled = false;
+
+            _vrRigReferences = VRRigReferences.Singelton; 
         }
 
         // Update is called once per frame
         private void Update()
         {
-            if (!IsOwner) return; 
+            if (!IsOwner || _isVRRigReferencesNull) return;
             
-            root.position = VRRigReferences.Singelton.root.position;
-            root.rotation = VRRigReferences.Singelton.root.rotation;
-
-            head.position = VRRigReferences.Singelton.head.position;
-            head.rotation = VRRigReferences.Singelton.head.rotation;
-
-            leftHand.position = VRRigReferences.Singelton.leftHand.position;
-            leftHand.rotation = VRRigReferences.Singelton.leftHand.rotation;
-
-            rightHand.position = VRRigReferences.Singelton.rightHand.position;
-            rightHand.rotation = VRRigReferences.Singelton.rightHand.rotation;
+            SetTransform(root, _vrRigReferences.root);
+            SetTransform(head, _vrRigReferences.head);
+            SetTransform(leftHand, _vrRigReferences.leftHand);
+            SetTransform(rightHand, _vrRigReferences.rightHand);
+        }
+        
+        /// <summary>
+        ///   Set the transform of the target to the source
+        /// </summary>
+        /// <param name="target"> target object to set the transform to </param>
+        /// <param name="source"> source transform </param>
+        private static void SetTransform(Transform target, Transform source)
+        {
+            target.position = source.position;
+            target.rotation = source.rotation;
         }
     }
 }
