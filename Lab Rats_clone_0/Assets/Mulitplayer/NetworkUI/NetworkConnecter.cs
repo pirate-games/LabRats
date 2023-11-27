@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
@@ -13,6 +14,7 @@ namespace Mulitplayer.NetworkUI
     public class NetworkConnecter : MonoBehaviour
     {
         private Lobby _currentLobby;
+        private float _heartBeatTimer;
 
         [SerializeField] private int maximumConnections = 2;
         [SerializeField] private UnityTransport transport;
@@ -21,9 +23,21 @@ namespace Mulitplayer.NetworkUI
         {
             await UnityServices.InitializeAsync();
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
-            
+
             JoinOrCreate();
         }
+
+        private void Update()
+        {
+            _heartBeatTimer += Time.deltaTime;
+
+            if (!(_heartBeatTimer > 15)) return;
+            
+            _heartBeatTimer -= 15;
+                
+            if (_currentLobby == null || _currentLobby.HostId != AuthenticationService.Instance.PlayerId) return;
+            LobbyService.Instance.SendHeartbeatPingAsync(_currentLobby.Id);
+    }
 
         private async void JoinOrCreate()
         {
