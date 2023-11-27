@@ -24,11 +24,8 @@ namespace Mulitplayer.NetworkUI
         {
             await UnityServices.InitializeAsync();
 
-            AuthenticationService.Instance.SignedIn += () =>
-            {
-                Debug.Log("Signed in");
-            };
-            
+            AuthenticationService.Instance.SignedIn += () => { Debug.Log("Signed in"); };
+
             await AuthenticationService.Instance.SignInAnonymouslyAsync();
         }
 
@@ -37,36 +34,11 @@ namespace Mulitplayer.NetworkUI
             _heartBeatTimer += Time.deltaTime;
 
             if (!(_heartBeatTimer > 15)) return;
-            
+
             _heartBeatTimer -= 15;
-                
+
             if (_currentLobby == null || _currentLobby.HostId != AuthenticationService.Instance.PlayerId) return;
             LobbyService.Instance.SendHeartbeatPingAsync(_currentLobby.Id);
-    }
-
-        private async void JoinOrCreate()
-        {
-            try
-            {
-                _currentLobby = await LobbyService.Instance.QuickJoinLobbyAsync();
-                var joinCode = _currentLobby.Data["JoinCode"].Value;
-                var joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
-                
-                transport.SetClientRelayData(
-                    joinAllocation.RelayServer.IpV4,
-                    (ushort) joinAllocation.RelayServer.Port,
-                    joinAllocation.AllocationIdBytes,
-                    joinAllocation.Key,
-                    joinAllocation.ConnectionData,
-                    joinAllocation.HostConnectionData
-                );
-                
-                NetworkManager.Singleton.StartClient(); 
-            }
-            catch 
-            {
-                Create();
-            }
         }
 
         /// <summary>
@@ -78,16 +50,15 @@ namespace Mulitplayer.NetworkUI
             {
                 var allocation = await RelayService.Instance.CreateAllocationAsync(maximumConnections);
                 var joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-                
+
                 var serverData = new RelayServerData(allocation, "dtls");
-                
-                NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(serverData);
+                transport.SetRelayServerData(serverData);   
 
                 Debug.Log($"Join Code: {joinCode}");
-                
+
                 NetworkManager.Singleton.StartServer();
             }
-            catch(RelayServiceException e)
+            catch (RelayServiceException e)
             {
                 Debug.LogError(e.Message);
             }
@@ -104,12 +75,12 @@ namespace Mulitplayer.NetworkUI
                 
                 var joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
                 var serverData = new RelayServerData(joinAllocation, "dtls");
-                
+
                 NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(serverData);
 
-                NetworkManager.Singleton.StartClient(); 
+                NetworkManager.Singleton.StartClient();
             }
-            catch(RelayServiceException e)
+            catch (RelayServiceException e)
             {
                 Debug.LogError(e.Message);
             }
