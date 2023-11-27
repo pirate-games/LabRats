@@ -16,7 +16,6 @@ namespace Mulitplayer.NetworkUI
     {
         private Lobby _currentLobby;
         private float _heartBeatTimer;
-        private Guid _currentAllocationId;
 
         [SerializeField] private int maximumConnections = 2;
         [SerializeField] private UnityTransport transport;
@@ -80,8 +79,6 @@ namespace Mulitplayer.NetworkUI
                 var allocation = await RelayService.Instance.CreateAllocationAsync(maximumConnections);
                 var joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
                 
-                _currentAllocationId = allocation.AllocationId;
-                
                 var serverData = new RelayServerData(allocation, "dtls");
                 
                 NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(serverData);
@@ -105,7 +102,7 @@ namespace Mulitplayer.NetworkUI
             {
                 Debug.Log("Joining lobby...");
                 
-                var joinAllocation = await RelayService.Instance.JoinAllocationAsync(_currentAllocationId.ToString());
+                var joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
                 var serverData = new RelayServerData(joinAllocation, "dtls");
                 
                 NetworkManager.Singleton.GetComponent<UnityTransport>().SetRelayServerData(serverData);
