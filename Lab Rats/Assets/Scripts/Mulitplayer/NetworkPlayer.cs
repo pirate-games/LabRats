@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Mulitplayer
 {
-    public class NetWorkPlayer : NetworkBehaviour
+    public class NetworkPlayer : NetworkBehaviour
     {
         [SerializeField] private Transform root;
         [SerializeField] private Transform head;
@@ -11,6 +11,7 @@ namespace Mulitplayer
         [SerializeField] private Transform rightHand;
         
         public Renderer[] meshToDisable;
+        
         private VRRigReferences _vrRigReferences;
         private bool _isVRRigReferencesNull;
 

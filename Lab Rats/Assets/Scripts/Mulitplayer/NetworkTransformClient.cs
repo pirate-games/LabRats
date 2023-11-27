@@ -1,5 +1,4 @@
-﻿using Unity.Netcode;
-using Unity.Netcode.Components;
+﻿using Unity.Netcode.Components;
 
 namespace Mulitplayer
 {
