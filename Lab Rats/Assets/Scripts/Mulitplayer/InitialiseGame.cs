@@ -7,6 +7,9 @@ using Random = UnityEngine.Random;
 
 namespace Mulitplayer
 {
+    /// <summary>
+    ///  This class is used to initialise the game and sign in the player anonymously behind the scenes 
+    /// </summary>
     public class InitialiseGame : MonoBehaviour
     {
         private const string BaseUsername = "Player";
@@ -29,8 +32,8 @@ namespace Mulitplayer
             // switch to the main menu scene
             SceneManager.LoadSceneAsync($"MainMenu");
         }
-        
-        private void CheckUsername()
+
+        private static void CheckUsername()
         {
             var username = PlayerPrefs.GetString("username");
             
