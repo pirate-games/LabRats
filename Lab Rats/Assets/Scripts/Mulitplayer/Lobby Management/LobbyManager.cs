@@ -21,6 +21,7 @@ namespace Mulitplayer.Lobby_Management
         private async void OnApplicationQuit()
         {
             // when the application is closed, delete the lobby if the player is the host 
+            // and the lobby is not null
             if (_lobby != null && _lobby.HostId == AuthenticationService.Instance.PlayerId)
             {
                 await LobbyService.Instance.DeleteLobbyAsync(_lobby.Id);
@@ -99,6 +100,31 @@ namespace Mulitplayer.Lobby_Management
 
                 yield return new WaitForSeconds(heartbeatTime);
             }
+        }
+
+        public async Task JoinLobby(string code, Dictionary<string, string> dictionary)
+        {
+            var playerData = SerializePlayerData(dictionary);
+            var player = new Player(AuthenticationService.Instance.PlayerId, null, playerData);
+            
+            var options = new JoinLobbyByCodeOptions
+            {
+                Player = player
+            };
+
+            try
+            {
+                _lobby = await LobbyService.Instance.JoinLobbyByCodeAsync(code, options);
+            }
+            catch (LobbyServiceException e)
+            {
+                Debug.LogError($"Failed to join lobby: {e.Message}");
+                return;
+            }
+
+            _refreshLobbyCoroutine = StartCoroutine(RefreshLobby());
+            
+            Debug.Log($"Joined lobby with code: {LobbyCode}");
         }
     }
 }

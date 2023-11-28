@@ -24,5 +24,19 @@ namespace Mulitplayer.Lobby_Management
             }
             return true;
         }
+
+        public async Task<bool> JoinGameLobby(string code)
+        {
+            try
+            {
+                await LobbyManager.Instance.JoinLobby(code, new Dictionary<string, string> {{"GamerTag", "JoinPlayer"}});
+            }
+            catch (System.Exception e)
+            {
+                Debug.LogError($"Failed to join lobby: {e.Message}");
+                return false;
+            }
+            return true;
+        }
     }
 }
