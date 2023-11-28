@@ -1,41 +1,20 @@
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
-using Unity.Services.Authentication;
 using UnityEngine;
-using Unity.Services.Core;
-using Unity.Services.Lobbies;
-using Unity.Services.Lobbies.Models;
 using Unity.Services.Relay;
 
 namespace Mulitplayer.NetworkUI
 {
     public class NetworkConnecter : MonoBehaviour
     {
-        private Lobby _currentLobby;
-        private float _heartBeatTimer;
-        
         private const string ConnectionType = "dtls";
-        private const int HeartBeatInterval = 15;
 
         [SerializeField] private int maximumConnections = 2;
         [SerializeField] private UnityTransport transport;
 
-        private void Update()
-        {
-            _heartBeatTimer += Time.deltaTime;
-
-            if (!(_heartBeatTimer > HeartBeatInterval)) return;
-
-            _heartBeatTimer -= HeartBeatInterval;
-
-            if (_currentLobby == null || _currentLobby.HostId != AuthenticationService.Instance.PlayerId) return;
-            
-            LobbyService.Instance.SendHeartbeatPingAsync(_currentLobby.Id);
-        }
-
         /// <summary>
-        ///  Create a lobby and start the host
+        ///  Create a session and start the host
         /// </summary>
         public async void Create()
         {
@@ -58,7 +37,7 @@ namespace Mulitplayer.NetworkUI
         }
 
         /// <summary>
-        ///  Join a lobby and start the client
+        ///  Join a session
         /// </summary>
         public async void Join(string joinCode)
         {

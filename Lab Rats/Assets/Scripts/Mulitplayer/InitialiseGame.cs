@@ -24,19 +24,22 @@ namespace Mulitplayer
             
             if (! AuthenticationService.Instance.IsSignedIn) return;
             
+           CheckUsername();
+            
+            // switch to the main menu scene
+            SceneManager.LoadSceneAsync($"MainMenu");
+        }
+        
+        private void CheckUsername()
+        {
             var username = PlayerPrefs.GetString("username");
             
             // If the player has not set a username, set a random one for them 
             // this can be used to identify players in the lobby and in game
-            if (string.IsNullOrEmpty(username))
-            {
-                username = BaseUsername + Random.Range(RandomUsernameRange.Item1, RandomUsernameRange.Item2);
-                
-                PlayerPrefs.SetString("username", username);
-            }
+            if (!string.IsNullOrEmpty(username)) return;
             
-            // switch to the main menu scene
-            SceneManager.LoadSceneAsync($"MainMenu");
+            username = BaseUsername + Random.Range(RandomUsernameRange.Item1, RandomUsernameRange.Item2);
+            PlayerPrefs.SetString("username", username);
         }
     }
 }
