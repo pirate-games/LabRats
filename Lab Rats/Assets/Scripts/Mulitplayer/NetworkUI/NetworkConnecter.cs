@@ -21,12 +21,6 @@ namespace Mulitplayer.NetworkUI
         [SerializeField] private int maximumConnections = 2;
         [SerializeField] private UnityTransport transport;
 
-        private async void Start()
-        {
-            await UnityServices.InitializeAsync();
-            await AuthenticationService.Instance.SignInAnonymouslyAsync();
-        }
-
         private void Update()
         {
             _heartBeatTimer += Time.deltaTime;
