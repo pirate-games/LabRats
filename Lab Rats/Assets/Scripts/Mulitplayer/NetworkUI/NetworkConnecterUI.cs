@@ -1,3 +1,4 @@
+using System;
 using Mulitplayer.Lobby_Management;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +9,12 @@ namespace Mulitplayer.NetworkUI
     {
         [SerializeField] private GameObject mainMenu;
         [SerializeField] private GameObject joinMenu;
-        
+
+        private void Start()
+        {
+            joinMenu.SetActive(false);
+        }
+
         /// <summary>
         ///  Join a game lobby
         /// </summary>
