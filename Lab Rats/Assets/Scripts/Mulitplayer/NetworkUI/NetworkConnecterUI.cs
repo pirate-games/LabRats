@@ -1,4 +1,3 @@
-using System;
 using Mulitplayer.Lobby_Management;
 using TMPro;
 using UnityEngine;
@@ -42,8 +41,8 @@ namespace Mulitplayer.NetworkUI
         {
             var code = codeText.text;
             // remove the last character from the code (which is a space)
-            code = code.Substring(0, code.Length - 1);
-            
+            if (code.Length >= 1) code = code[..^1];
+
             var succeeded = await GameLobby.Instance.JoinGameLobby(code);
             if (succeeded) SceneManager.LoadSceneAsync($"Lobby");
         }

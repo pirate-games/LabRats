@@ -12,28 +12,27 @@ namespace Mulitplayer.Lobby_Management
     public class LobbyManager : Singleton<LobbyManager>
     {
         private Lobby _lobby;
-
         private Coroutine _heartbeatCoroutine;
         private Coroutine _refreshLobbyCoroutine;
 
+        /// <summary>
+        ///     The code of the lobby
+        /// </summary>
         public string LobbyCode => _lobby?.LobbyCode;
 
         private async void OnApplicationQuit()
         {
-            // when the application is closed, delete the lobby if the player is the host 
-            // and the lobby is not null
+            // when the host player leaves the lobby, delete the lobby
             if (_lobby != null && _lobby.HostId == AuthenticationService.Instance.PlayerId)
-            {
                 await LobbyService.Instance.DeleteLobbyAsync(_lobby.Id);
-            }
         }
 
         /// <summary>
-        ///  Create a lobby with the given data and options
+        ///     Create a game lobby and wait for players to join
         /// </summary>
-        /// <param name="data"> the player data </param>
-        /// <param name="isPrivate"> the lobby state </param>
-        /// <param name="maxPlayers"> the maximum amount of players that can join the lobby </param>
+        /// <param name="data"> the player data object </param>
+        /// <param name="isPrivate"> the state of the lobby (private or public) </param>
+        /// <param name="maxPlayers"> maximum amount of players that can join the lobby at given time </param>
         public async Task CreateLobby(Dictionary<string, string> data, bool isPrivate = true, int maxPlayers = 2)
         {
             var playerData = SerializePlayerData(data);
@@ -45,38 +44,39 @@ namespace Mulitplayer.Lobby_Management
                 _lobby = await LobbyService.Instance.CreateLobbyAsync("My Lobby", maxPlayers, lobbyOptions);
                 Debug.Log($"Lobby created with code: {LobbyCode}");
             }
-
             catch (LobbyServiceException e)
             {
                 Debug.LogError($"Failed to create lobby: {e.Message}");
                 return;
             }
 
+            // start the heartbeat and refresh lobby coroutines
             _heartbeatCoroutine = StartCoroutine(Heartbeat());
             _refreshLobbyCoroutine = StartCoroutine(RefreshLobby());
         }
 
         /// <summary>
-        ///  Serialize the player data into a dictionary of PlayerDataObjects
+        ///     Join a game lobby with a code
         /// </summary>
-        /// <param name="data"> data to serialize </param>
-        /// <returns> a dictionary containing the serialized player data </returns>
+        /// <param name="data"></param>
+        /// <returns></returns>
         private Dictionary<string, PlayerDataObject> SerializePlayerData(Dictionary<string, string> data)
         {
             var playerData = new Dictionary<string, PlayerDataObject>();
 
-            // iterate through the data and add it to the dictionary as a PlayerDataObject
             foreach (var (key, value) in data)
-            {
                 playerData.Add(key, new PlayerDataObject(
-                    visibility: PlayerDataObject.VisibilityOptions.Member,
-                    value: value
+                    PlayerDataObject.VisibilityOptions.Member,
+                    value
                 ));
-            }
 
             return playerData;
         }
 
+        /// <summary>
+        ///     Send a heartbeat ping to the server every 5 seconds
+        /// </summary>
+        /// <param name="heartbeatTime"> the amount of time before each ping </param>
         private IEnumerator Heartbeat(float heartbeatTime = 5f)
         {
             while (true)
@@ -86,31 +86,39 @@ namespace Mulitplayer.Lobby_Management
             }
         }
 
-        private IEnumerator RefreshLobby(float heartbeatTime = 1f)
+        /// <summary>
+        ///     Refresh the lobby data every second
+        /// </summary>
+        /// <param name="refreshTime"> the amount of time before a refresh </param>
+        private IEnumerator RefreshLobby(float refreshTime = 1f)
         {
             while (true)
             {
+                // get the lobby data from the server
                 var task = LobbyService.Instance.GetLobbyAsync(_lobby.Id);
+                // wait until the task is completed
                 yield return new WaitUntil(() => task.IsCompleted);
 
+                // get the result of the data from the task 
                 var lobby = task.Result;
 
-                // check if the lobby's last updated time is greater than the current lobby's last updated time
+                // checks if the lobby has been updated since the last refresh 
                 if (lobby.LastUpdated > _lobby.LastUpdated) _lobby = lobby;
 
-                yield return new WaitForSeconds(heartbeatTime);
+                yield return new WaitForSeconds(refreshTime);
             }
         }
 
+        /// <summary>
+        ///     Join a game lobby with a code
+        /// </summary>
+        /// <param name="code"> the code to join the lobby </param>
+        /// <param name="dictionary"> the player data object dictionary </param>
         public async Task JoinLobby(string code, Dictionary<string, string> dictionary)
         {
             var playerData = SerializePlayerData(dictionary);
             var player = new Player(AuthenticationService.Instance.PlayerId, null, playerData);
-            
-            var options = new JoinLobbyByCodeOptions
-            {
-                Player = player
-            };
+            var options = new JoinLobbyByCodeOptions {Player = player};
 
             try
             {
@@ -122,8 +130,7 @@ namespace Mulitplayer.Lobby_Management
                 return;
             }
 
-            _refreshLobbyCoroutine = StartCoroutine(RefreshLobby());
-            
+            StartCoroutine(RefreshLobby());
             Debug.Log($"Joined lobby with code: {LobbyCode}");
         }
     }
