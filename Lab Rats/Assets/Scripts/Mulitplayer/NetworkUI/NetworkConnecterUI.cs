@@ -30,8 +30,13 @@ namespace Mulitplayer.NetworkUI
         /// </summary>
         public async void HostGame()
         { 
-           var succeeded =  await GameLobby.Instance.CreateGameLobby();
-           if (succeeded) SceneManager.LoadSceneAsync($"Lobby");
+            Debug.Log("Loading Lab");
+            var succeeded =  await GameLobby.Instance.CreateGameLobby();
+            //load into the lab / lobby scene
+            if (succeeded)
+            {
+                Loader.LoadNetwork(Loader.Scene.Lab);
+            }
         }
 
         /// <summary>
@@ -44,7 +49,6 @@ namespace Mulitplayer.NetworkUI
             if (code.Length >= 1) code = code[..^1];
 
             var succeeded = await GameLobby.Instance.JoinGameLobby(code);
-            if (succeeded) SceneManager.LoadSceneAsync($"Lobby");
         }
     }
 }

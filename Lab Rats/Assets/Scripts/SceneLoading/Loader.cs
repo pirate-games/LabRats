@@ -16,8 +16,8 @@ public static class Loader
     {
         NetworkManager.Singleton.SceneManager.LoadScene(scene.ToString(), LoadSceneMode.Single);
     }
-    public static void Load(Scene scene)
+    public static void LoadAsync(Scene scene)
     {
-        SceneManager.LoadScene(scene.ToString(), LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync(scene.ToString(), LoadSceneMode.Single);
     }
 }
