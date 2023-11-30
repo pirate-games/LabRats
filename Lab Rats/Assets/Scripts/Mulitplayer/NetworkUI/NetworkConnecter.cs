@@ -55,7 +55,10 @@ namespace Mulitplayer.NetworkUI
 
                 Debug.Log($"Join Code: {joinCode}");
                 
-                NetworkManager.Singleton.StartHost(); 
+                NetworkManager.Singleton.StartHost();
+
+                //load into the lab / lobby scene
+                Loader.LoadNetwork(Loader.Scene.Lab);
             }
             catch (RelayServiceException e)
             {
