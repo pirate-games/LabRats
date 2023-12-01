@@ -23,10 +23,4 @@ public class Sphere : MonoBehaviour
             var senderClientId = serverRpcParams.Receive.SenderClientId;
             thisNetworkObject.ChangeOwnership(senderClientId);
     }
-
-    [ClientRpc]
-    public void GiveBackServer()
-    {
-        thisNetworkObject.RemoveOwnership();
-    }
 }
