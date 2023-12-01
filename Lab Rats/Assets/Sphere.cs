@@ -16,7 +16,7 @@ public class Sphere : MonoBehaviour
     {
 
     }
-    [ClientRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void TryGrabServerRpc()
     {
         ServerRpcParams serverRpcParams = default;
