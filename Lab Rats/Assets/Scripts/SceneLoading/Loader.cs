@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using Unity.Netcode;
+using System;
+using Global.Tools;
 
-public static class Loader
+public class Loader : Singleton<Loader>
 {
     public enum Scene
     {
@@ -12,12 +14,24 @@ public static class Loader
         Lab,
         Loading,
     }
-    public static void LoadNetwork(Scene scene)
+    public async void LoadNetwork(Scene scene)
     {
-        NetworkManager.Singleton.SceneManager.LoadScene(scene.ToString(), LoadSceneMode.Single);
+        var m_SceneName = scene.ToString();
+
+        var succeeded = NetworkManager.Singleton.SceneManager != null;
+        Debug.Log(succeeded);
+        if (!string.IsNullOrEmpty(m_SceneName) && succeeded)
+        {
+            var status = NetworkManager.Singleton.SceneManager.LoadScene(m_SceneName, LoadSceneMode.Single);
+            if (status != SceneEventProgressStatus.Started)
+            {
+                Debug.LogWarning($"Failed to load {m_SceneName} " +
+                      $"with a {nameof(SceneEventProgressStatus)}: {status}");
+            }
+        }
     }
-    public static void LoadAsync(Scene scene)
-    {
-        SceneManager.LoadSceneAsync(scene.ToString(), LoadSceneMode.Single);
-    }
+    //public static void LoadAsync(Scene scene)
+    //{
+    //    SceneManager.LoadSceneAsync(scene.ToString(), LoadSceneMode.Single);
+    //}
 }
