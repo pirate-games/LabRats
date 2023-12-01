@@ -16,7 +16,7 @@ public class Sphere : MonoBehaviour
     {
 
     }
-    [ServerRpc(RequireOwnership = false)]
+    [ClientRpc]
     public void TryGrabServerRpc()
     {
         ServerRpcParams serverRpcParams = default;
@@ -24,7 +24,7 @@ public class Sphere : MonoBehaviour
             thisNetworkObject.ChangeOwnership(senderClientId);
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    [ClientRpc]
     public void GiveBackServer()
     {
         thisNetworkObject.RemoveOwnership();
