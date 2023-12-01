@@ -24,6 +24,7 @@ public class Sphere : MonoBehaviour
             thisNetworkObject.ChangeOwnership(senderClientId);
     }
 
+    [ServerRpc(RequireOwnership = false)]
     public void GiveBackServer()
     {
         thisNetworkObject.RemoveOwnership();
