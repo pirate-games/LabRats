@@ -30,8 +30,8 @@ public class Loader : Singleton<Loader>
             }
         }
     }
-    //public static void LoadAsync(Scene scene)
-    //{
-    //    SceneManager.LoadSceneAsync(scene.ToString(), LoadSceneMode.Single);
-    //}
+    public async void LoadAsync(Scene scene)
+    {
+        SceneManager.LoadSceneAsync(scene.ToString(), LoadSceneMode.Single);
+    }
 }

@@ -4,7 +4,9 @@ using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.SceneManagement;
 using System;
-using UnityEditor.PackageManager;
+using Unity.Netcode.Transports.UTP;
+using UnityEditor.Experimental.GraphView;
+using UnityEngine.InputSystem;
 
 public class LabManager : NetworkBehaviour
 { 
@@ -15,6 +17,22 @@ public class LabManager : NetworkBehaviour
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Start()
+    {
+        if (RelayManager.Instance.IsHost)
+        {
+            (byte[] allocationId, byte[] key, byte[] connectionData, string ip, int port) = RelayManager.Instance.GetHostConnectionInfo();
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetHostRelayData(ip, (ushort)port, allocationId, key, connectionData, true);
+            NetworkManager.Singleton.StartHost();
+        }
+        else
+        {
+            (byte[] allocationId, byte[] key, byte[] connectionData, byte[] hostConnectionData, string ip, int port) = RelayManager.Instance.GetClientConnectionInfo();
+            NetworkManager.Singleton.GetComponent<UnityTransport>().SetClientRelayData(ip, (ushort)port, allocationId, key, connectionData, hostConnectionData, true);
+            NetworkManager.Singleton.StartClient();
+        }
     }
 
     public override void OnNetworkSpawn()

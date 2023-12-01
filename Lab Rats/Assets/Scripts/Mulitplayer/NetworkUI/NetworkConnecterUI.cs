@@ -7,6 +7,7 @@ using Unity.Networking.Transport.Relay;
 using Unity.Services.Relay;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Video;
 
 namespace Mulitplayer.NetworkUI
 {
@@ -38,13 +39,15 @@ namespace Mulitplayer.NetworkUI
         /// </summary>
         public async void HostGame()
         { 
-            Debug.Log("Loading Lab");
             var succeeded =  await GameLobby.Instance.CreateGameLobby();
             //load into the lab / lobby scene
             var relayStarted =  await StartRelay();
             if (succeeded && relayStarted)
             {
-                Loader.Instance.LoadNetwork(Loader.Scene.Lab);
+                Debug.Log("Loading Lab");
+
+                //Loader.Instance.LoadNetwork(Loader.Scene.Lab);
+                Loader.Instance.LoadAsync(Loader.Scene.Lab);
             }
         }
 
@@ -60,19 +63,21 @@ namespace Mulitplayer.NetworkUI
             await GameLobby.Instance.JoinGameLobby(code);
 
             await StartRelayClient(code);
+
+            Loader.Instance.LoadAsync(Loader.Scene.Lab);
+
         }
 
         private async Task<bool> StartRelay()
         {
             try
             {
-                var allocation = await RelayService.Instance.CreateAllocationAsync(maximumConnections);
-                var joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-                var serverData = new RelayServerData(allocation, "dtls");
+                var code = await RelayManager.Instance.CreateRelay(2);
 
-                transport.SetRelayServerData(serverData);
+                if (code != default)
+                {
 
-                NetworkManager.Singleton.StartHost();
+                }
             }
             catch (RelayServiceException e)
             {
@@ -85,11 +90,12 @@ namespace Mulitplayer.NetworkUI
         {
             try
             {
-                var joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
-                var serverData = new RelayServerData(joinAllocation, "dtls");
+                var succeed = await RelayManager.Instance.JoinRelay(joinCode);
 
-                transport.SetRelayServerData(serverData);
-                NetworkManager.Singleton.StartClient();
+                if (succeed)
+                {
+
+                }
             }
             catch(RelayServiceException e)
             {
