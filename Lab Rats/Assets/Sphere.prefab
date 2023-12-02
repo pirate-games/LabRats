@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 1610463731646769749}
   - component: {fileID: 6214801329670867031}
   - component: {fileID: 2200699619995894563}
-  - component: {fileID: 8614401228978083277}
   - component: {fileID: 3342897723606582447}
+  - component: {fileID: 1476286552424391421}
   - component: {fileID: 4410858912076910046}
   - component: {fileID: 2352184381350029489}
   m_Layer: 7
@@ -189,9 +189,9 @@ MonoBehaviour:
   m_SelectEntered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8614401228978083277}
+      - m_Target: {fileID: 1476286552424391421}
         m_TargetAssemblyTypeName: Sphere, Assembly-CSharp
-        m_MethodName: TryGrabServerRpc
+        m_MethodName: GrabObject
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -203,19 +203,7 @@ MonoBehaviour:
         m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8614401228978083277}
-        m_TargetAssemblyTypeName: Sphere, Assembly-CSharp
-        m_MethodName: GiveBackServer
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -314,19 +302,6 @@ MonoBehaviour:
   m_StartingSingleGrabTransformers: []
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
---- !u!114 &8614401228978083277
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7516265992300842976}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6e343075ec7cb345a7ab386ae2b12d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  thisNetworkObject: {fileID: 3342897723606582447}
 --- !u!114 &3342897723606582447
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,7 +314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2424065419
+  GlobalObjectIdHash: 1028894247
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -347,6 +322,18 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
+--- !u!114 &1476286552424391421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7516265992300842976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e343075ec7cb345a7ab386ae2b12d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &4410858912076910046
 MonoBehaviour:
   m_ObjectHideFlags: 0

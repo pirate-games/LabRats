@@ -1,26 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 
-public class Sphere : MonoBehaviour
+public class Sphere : NetworkBehaviour
 {
-    public NetworkObject thisNetworkObject;
-    // Start is called before the first frame update
-    void Start()
+    private NetworkObject thisNetworkObject;
+
+    private void Start()
     {
+        thisNetworkObject = GetComponent<NetworkObject>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     [ServerRpc(RequireOwnership = false)]
-    public void TryGrabServerRpc()
+    private void TryGrabServerRpc(ServerRpcParams serverRpcParams = default)
     {
-        ServerRpcParams serverRpcParams = default;
-            var senderClientId = serverRpcParams.Receive.SenderClientId;
-            thisNetworkObject.ChangeOwnership(senderClientId);
+        Debug.Log("TransferOwnership to " + serverRpcParams.Receive.SenderClientId);
+        thisNetworkObject.ChangeOwnership(serverRpcParams.Receive.SenderClientId);
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void TryGiveServerRpc()
+    {
+        Debug.Log("removing ownership");
+        thisNetworkObject.RemoveOwnership();
+    }
+
+    // Call this method to initiate grabbing (e.g., when a VR hand touches the object)
+    public void GrabObject()
+    {
+        if (thisNetworkObject.IsOwner)
+        {
+            Debug.Log("I'm the owner");
+            TryGiveServerRpc();
+        }
+        else
+        {
+            Debug.Log("Try grab");
+            TryGrabServerRpc();
+        }
+    }
+
+    // Example code to manually sync transform if needed
+    private void Update()
+    {
+        if (thisNetworkObject.IsOwner)
+        {
+            // Perform actions that require ownership, e.g., syncing transform
+            // thisNetworkObject.transform.position = newPosition;
+            // thisNetworkObject.transform.rotation = newRotation;
+        }
     }
 }
