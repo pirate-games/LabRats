@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using JetBrains.Annotations;
 using Unity.Services.Lobbies.Models;
 
-namespace Mulitplayer
+namespace Mulitplayer.Data
 {
     public class PlayerData
     {
@@ -20,15 +22,15 @@ namespace Mulitplayer
             UpdateState(playerData);
         }
 
-        public void UpdateState(Dictionary<string, PlayerDataObject> playerData)
+        private void UpdateState([NotNull] Dictionary<string, PlayerDataObject> playerData)
         {
-            if (playerData.TryGetValue("Id", out var idObject)) Id = idObject.Value;
-
-            if (playerData.TryGetValue("GamerTag", out var gamerTag)) GamerTag = gamerTag.Value;
-
-            if (playerData.TryGetValue("IsReady", out var isReadyObject) &&
-                bool.TryParse(isReadyObject.Value, out var isReady))
-                IsReady = isReady;
+            if (playerData == null) throw new ArgumentNullException(nameof(playerData));
+            
+            if(playerData.TryGetValue("Id", out var value)) Id = value.Value;
+            
+            if(playerData.TryGetValue("GamerTag", out var value1)) GamerTag = value1.Value;
+            
+            if(playerData.TryGetValue("IsReady", out var value2)) IsReady = value2.Value == "True";
         }
 
         public Dictionary<string, string> Serialize()
@@ -37,8 +39,7 @@ namespace Mulitplayer
             {
                 {"Id", Id},
                 {"GamerTag", GamerTag},
-                {"IsReady", IsReady.ToString()},
-                {"Attribute1", "sadasdsa"}
+                {"IsReady", IsReady.ToString()}
             };
         }
     }
