@@ -10,7 +10,7 @@ namespace Mulitplayer
     /// <summary>
     ///  This class is used to initialise the game and sign in the player anonymously behind the scenes 
     /// </summary>
-    public class InitialiseGame : MonoBehaviour
+    public class AuthorisePlayer : MonoBehaviour
     {
         private const string BaseUsername = "Player";
         private static readonly Tuple<int, int> RandomUsernameRange = new (0, 3);
@@ -27,12 +27,15 @@ namespace Mulitplayer
             
             if (! AuthenticationService.Instance.IsSignedIn) return;
             
-           CheckUsername();
+            CheckUsername();
             
             // switch to the main menu scene
             SceneManager.LoadSceneAsync($"MainMenu");
         }
 
+        /// <summary>
+        ///  Check if the player has set a username, if not set a random one for them
+        /// </summary>
         private static void CheckUsername()
         {
             var username = PlayerPrefs.GetString("username");

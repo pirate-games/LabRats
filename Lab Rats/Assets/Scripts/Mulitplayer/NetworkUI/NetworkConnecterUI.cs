@@ -5,6 +5,10 @@ using UnityEngine.SceneManagement;
 
 namespace Mulitplayer.NetworkUI
 {
+    /// <summary>
+    ///  Manages the network connection UI
+    ///  This class references behaviour from the GameLobby class
+    /// </summary>
     public class NetworkConnecterUI : MonoBehaviour
     {
         [SerializeField] private GameObject mainMenu;
@@ -17,7 +21,7 @@ namespace Mulitplayer.NetworkUI
         }
 
         /// <summary>
-        ///  Join a game lobby
+        ///  UI changes to join a game
         /// </summary>
         public void JoinGame()
         {
@@ -30,7 +34,7 @@ namespace Mulitplayer.NetworkUI
         /// </summary>
         public async void HostGame()
         { 
-           var succeeded =  await GameLobby.Instance.CreateGameLobby();
+           var succeeded =  await GameLobby.CreateGameLobby();
            if (succeeded) SceneManager.LoadSceneAsync($"Lobby");
         }
 
@@ -43,7 +47,7 @@ namespace Mulitplayer.NetworkUI
             // remove the last character from the code (which is a space)
             if (code.Length >= 1) code = code[..^1];
 
-            var succeeded = await GameLobby.Instance.JoinGameLobby(code);
+            var succeeded = await GameLobby.Instance.JoinLobby(code);
             if (succeeded) SceneManager.LoadSceneAsync($"Lobby");
         }
     }

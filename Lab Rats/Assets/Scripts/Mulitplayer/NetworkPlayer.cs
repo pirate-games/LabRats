@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ namespace Mulitplayer
 {
     public class NetworkPlayer : NetworkBehaviour
     {
+        [Header("XR Rig Setup")]
         [SerializeField] private Transform root;
         [SerializeField] private Transform head;
         [SerializeField] private Transform leftHand;

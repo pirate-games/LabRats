@@ -4,6 +4,9 @@ using TMPro;
 
 namespace Mulitplayer.NetworkUI
 {
+    /// <summary>
+    ///  Manages the lobby UI behaviour
+    /// </summary>
     public class LobbyUI: MonoBehaviour
     {
         [SerializeField] private TMP_Text lobbyNameText;
