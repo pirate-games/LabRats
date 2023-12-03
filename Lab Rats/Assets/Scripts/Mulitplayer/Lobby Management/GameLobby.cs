@@ -2,9 +2,9 @@
 using System.Threading.Tasks;
 using Global.Tools;
 using Mulitplayer.Data;
+using Mulitplayer.Relay;
 using Unity.Services.Authentication;
 using Unity.Services.Lobbies.Models;
-using UnityEngine;
 
 namespace Mulitplayer.Lobby_Management
 {
@@ -70,6 +70,9 @@ namespace Mulitplayer.Lobby_Management
             
             var success = await LobbyManager.Instance.CreateLobby(playerData.Serialize());
             
+            // start relay 
+            if (success) RelayManager.Instance.InitialiseHostRelay();
+            
             return success;
         }
 
@@ -85,6 +88,9 @@ namespace Mulitplayer.Lobby_Management
             
             var serializedData = _localPlayerData.Serialize();
             var succeeded = await LobbyManager.Instance.JoinLobby(code, serializedData);
+            
+            // start relay
+            if (succeeded) RelayManager.Instance.InitialiseJoinRelay(code);
             
             return succeeded;
         }

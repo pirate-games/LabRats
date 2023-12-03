@@ -1,82 +1,53 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
 using Global.Tools;
+using Mulitplayer.Lobby_Management;
+using Unity.Netcode;
+using Unity.Netcode.Transports.UTP;
+using Unity.Networking.Transport.Relay;
 using Unity.Services.Relay;
+using UnityEngine;
 
 namespace Mulitplayer.Relay
 {
     public class RelayManager : Singleton<RelayManager>
     {
+        [SerializeField] private UnityTransport transport;
+        
         private const string ConnectionType = "dtls";
         
-        private string _joinCode;
-        private string _ip;
-        private int _port;
-        private byte[] _key;
-        private byte[] _connectionData;
-        private byte[] _hostConnectionData;
-        private System.Guid _allocationId;
-        private byte[] _allocationIdBytes;
-        
-        public bool IsHost { get; private set; } = false;
-
-        public string GetAllocationId()
+        public async void InitialiseHostRelay()
         {
-            return _allocationId.ToString();
-        }
+            try
+            {
+                var allocation = await RelayService.Instance.CreateAllocationAsync(LobbyManager.MaxPlayers);
+                var serverData = new RelayServerData(allocation, ConnectionType);
+                
+                transport.SetRelayServerData(serverData);   
+                NetworkManager.Singleton.StartHost();
 
-        public string GetConnectionData()
-        {
-            return _connectionData.ToString();
-        }
-
-        public async Task<string> CreateRelay(int maxConnection)
-        {
-            var allocation = await RelayService.Instance.CreateAllocationAsync(maxConnection);
-            _joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
-            var dtlsEndpoint = allocation.ServerEndpoints.First(conn => conn.ConnectionType == ConnectionType);
+                Debug.Log($"Hosting lobby with code: {allocation.AllocationId}");
+            }
             
-            _ip = dtlsEndpoint.Host;
-            _port = dtlsEndpoint.Port;
-
-            _allocationId = allocation.AllocationId;
-            _allocationIdBytes = allocation.AllocationIdBytes;
-            _connectionData = allocation.ConnectionData;
-            _key = allocation.Key;
-
-            IsHost = true;
-
-            return _joinCode;
+            catch (RelayServiceException e)
+            {
+                Debug.LogError($"Relay Service Exception: {e.Message}");
+            }
         }
 
-        public async Task<bool> JoinRelay(string joinCode)
+        public async void InitialiseJoinRelay(string joinCode)
         {
-            _joinCode = joinCode;
-            
-            var allocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
-            var dtlsEndpoint = allocation.ServerEndpoints.First(conn => conn.ConnectionType == ConnectionType);
-            
-            _ip = dtlsEndpoint.Host;
-            _port = dtlsEndpoint.Port;
-
-            _allocationId = allocation.AllocationId;
-            _allocationIdBytes = allocation.AllocationIdBytes;
-            _connectionData = allocation.ConnectionData;
-            _hostConnectionData = allocation.HostConnectionData;
-            
-            _key = allocation.Key;
-
-            return true;
-        }
-
-        public (byte[] AllocationId, byte[] Key, byte[] ConnectionData, string _dtlsAddress, int _dtlsPort) GetHostConnectionInfo()
-        {
-            return (_allocationIdBytes, _key, _connectionData, _ip, _port);
-        }
-
-        public (byte[] AllocationId, byte[] Key, byte[] ConnectionData, byte[] HostConnectionData, string _dtlsAddress, int _dtlsPort) GetClientConnectionInfo()
-        {
-            return (_allocationIdBytes, _key, _connectionData, _hostConnectionData, _ip, _port);
+            try
+            {
+                var joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
+                var serverData = new RelayServerData(joinAllocation, ConnectionType);
+                
+                transport.SetRelayServerData(serverData);
+                
+                NetworkManager.Singleton.StartClient();
+            }
+            catch (RelayServiceException e)
+            {
+                Debug.LogError($"Relay Service Exception: {e.Message}");
+            }
         }
     }
 }

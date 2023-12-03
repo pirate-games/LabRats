@@ -25,7 +25,7 @@ namespace Mulitplayer.Lobby_Management
 
         private const float RefreshTime = 1f;
         private const int HeartbeatTime = 5;
-        private const int MaxPlayers = 2;
+        public const int MaxPlayers = 2;
 
         /// <summary>
         ///     The join code for the lobby
