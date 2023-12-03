@@ -14,9 +14,10 @@ namespace Mulitplayer.Lobby_Management
     public class GameLobby : Singleton<GameLobby>
     {
         // each time the lobby is updated, the player data should be updated as well
-        private readonly List<PlayerData> _playerDataList = new();
         private PlayerData _localPlayerData = new();
         
+        public List<PlayerData> PlayerDataList { get; } = new();
+
         private void OnEnable()
         {
             LobbyEvents.OnLobbyUpdated += OnLobbyUpdated;
@@ -27,12 +28,16 @@ namespace Mulitplayer.Lobby_Management
             LobbyEvents.OnLobbyUpdated -= OnLobbyUpdated;
         }
 
+        /// <summary>
+        ///  Updates the player data list with the new player data
+        /// </summary>
+        /// <param name="lobby"> the lobby that has been updated </param>
         private void OnLobbyUpdated(Lobby lobby)
         {
             var playerData = LobbyManager.Instance.GetPlayerData();
             
             // called if new data is received, so the list should be cleared first
-            _playerDataList.Clear();
+            PlayerDataList.Clear();
             
             foreach (var pdata in playerData)
             {
@@ -45,7 +50,7 @@ namespace Mulitplayer.Lobby_Management
                     _localPlayerData = data; 
                 }
                 
-                _playerDataList.Add(data);
+                PlayerDataList.Add(data);
             }
             
             LobbyEvents.OnGameLobbyUpdated?.Invoke();
@@ -81,10 +86,11 @@ namespace Mulitplayer.Lobby_Management
             
             return succeeded;
         }
-        
-        public List<PlayerData> GetPlayers()
+
+        public async Task<bool> SetPlayerReady()
         {
-            return _playerDataList;
+            _localPlayerData.IsReady = true;
+            return await LobbyManager.Instance.UpdatePlayerData(_localPlayerData.Id, _localPlayerData.Serialize());
         }
     }
 }

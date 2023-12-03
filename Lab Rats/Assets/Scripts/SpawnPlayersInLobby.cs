@@ -8,22 +8,25 @@ public class SpawnPlayersInLobby: MonoBehaviour
     
     private void OnEnable()
     {
-        LobbyEvents.OnGameLobbyUpdated += OnLobbyUpdated;
+        LobbyEvents.OnGameLobbyUpdated += OnGameLobbyUpdated;
     }
     
     private void OnDisable()
     {
-        LobbyEvents.OnGameLobbyUpdated -= OnLobbyUpdated;
+        LobbyEvents.OnGameLobbyUpdated -= OnGameLobbyUpdated;
     }
 
-    private void Start()
+    private void Awake()
     {
-        OnLobbyUpdated();
+        OnGameLobbyUpdated();
     }
 
-    private void OnLobbyUpdated()
+    /// <summary>
+    ///  Updates the players in the game lobby with the new player data
+    /// </summary>
+    private void OnGameLobbyUpdated()
     {
-        var playerData = GameLobby.Instance.GetPlayers(); 
+        var playerData = GameLobby.Instance.PlayerDataList;
         
         for(var i = 0; i < playerData.Count; i++)
         {

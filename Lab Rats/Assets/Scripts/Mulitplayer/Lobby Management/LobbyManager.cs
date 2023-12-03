@@ -23,7 +23,7 @@ namespace Mulitplayer.Lobby_Management
         private bool _isHeartbeatRunning = true;
         private bool _isRefreshLobbyRunning = true;
 
-        private const int RefreshTime = 1;
+        private const float RefreshTime = 1f;
         private const int HeartbeatTime = 5;
         private const int MaxPlayers = 2;
 
@@ -64,6 +64,7 @@ namespace Mulitplayer.Lobby_Management
             catch (LobbyServiceException e)
             {
                 HandleLobbyServiceException(e, "create");
+                return false;
             }
 
             // start the heartbeat and refresh lobby coroutines
@@ -147,6 +148,7 @@ namespace Mulitplayer.Lobby_Management
             catch (LobbyServiceException e)
             {
                 HandleLobbyServiceException(e, "join");
+                return false;
             }
 
             StartCoroutine(RefreshLobby());
@@ -159,7 +161,7 @@ namespace Mulitplayer.Lobby_Management
         /// </summary>
         /// <param name="exception"> the exception currently occuring </param>
         /// <param name="operation"> which type of operation failed </param>
-        private void HandleLobbyServiceException(Exception exception, string operation)
+        private static void HandleLobbyServiceException(Exception exception, string operation)
         {
             Debug.LogError($"Failed to {operation} lobby: {exception.Message}");
         }
@@ -179,8 +181,34 @@ namespace Mulitplayer.Lobby_Management
         /// <returns></returns>
         public List<Dictionary<string, PlayerDataObject>> GetPlayerData()
         {
+            // get the player data from the lobby & convert it to a list
             var playerData = _lobby.Players.Select(player => player.Data).ToList();
             return playerData;
+        }
+
+        /// <summary>
+        ///  Update the player data in the lobby
+        /// </summary>
+        /// <param name="id"> the id of the player to update </param>
+        /// <param name="serializedData"> the serialized data of the player </param>
+        public async Task<bool> UpdatePlayerData(string id, Dictionary<string, string> serializedData)
+        {
+            var playerData = SerializePlayerData(serializedData);
+            var updatedPlayerOptions = new UpdatePlayerOptions {Data = playerData};
+
+            try
+            {
+                await LobbyService.Instance.UpdatePlayerAsync(_lobby.Id, id, updatedPlayerOptions);
+            }
+            catch (LobbyServiceException e)
+            {
+                HandleLobbyServiceException(e, "update");
+                return false;
+            }
+
+            LobbyEvents.OnLobbyUpdated(_lobby);
+
+            return true;
         }
     }
 }
