@@ -16,7 +16,6 @@ GameObject:
   - component: {fileID: -7778175879777489938}
   - component: {fileID: -24210578053858040}
   - component: {fileID: -8729131428457619595}
-  - component: {fileID: -4837977163496015289}
   - component: {fileID: 4149610019077718921}
   m_Layer: 0
   m_Name: Lab Equip D
@@ -341,9 +340,9 @@ MonoBehaviour:
   SyncRotAngleX: 1
   SyncRotAngleY: 1
   SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
   PositionThreshold: 0.001
   RotAngleThreshold: 0.01
   ScaleThreshold: 0.01
@@ -353,18 +352,6 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &-4837977163496015289
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6640642169898845540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4149610019077718921
 MonoBehaviour:
   m_ObjectHideFlags: 0
