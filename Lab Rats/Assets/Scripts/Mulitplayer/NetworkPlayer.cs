@@ -10,6 +10,9 @@ namespace Mulitplayer
         [SerializeField] private Transform body;
         [SerializeField] private Transform leftHand;
         [SerializeField] private Transform rightHand;
+
+        [Header("Offset Fixes")]
+        [SerializeField] private Vector3 bodyOffset;
         
         public Renderer[] meshToDisable;
         
@@ -38,9 +41,12 @@ namespace Mulitplayer
             
             SetTransform(root, _vrRigReferences.root);
             SetTransform(head, _vrRigReferences.head);
-            Transform bodyTransform = _vrRigReferences.head;
-            bodyTransform.rotation = Quaternion.Euler(0, _vrRigReferences.head.rotation.y,0);
-            SetTransform(body, bodyTransform);
+
+            var bodyTransform = _vrRigReferences.head;
+            bodyTransform.rotation = Quaternion.Euler(0, _vrRigReferences.head.rotation.y, 0);
+            bodyTransform.position += bodyOffset;
+
+            SetTransform(bodyTransform, bodyTransform);
             SetTransform(leftHand, _vrRigReferences.leftHand);
             SetTransform(rightHand, _vrRigReferences.rightHand);
         }
