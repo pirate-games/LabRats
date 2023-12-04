@@ -21,7 +21,7 @@ public class Sphere : NetworkBehaviour
     private void TryGiveServerRpc()
     {
         Debug.Log("removing ownership");
-        //thisNetworkObject.RemoveOwnership();
+        thisNetworkObject.RemoveOwnership();
     }
 
     // Call this method to initiate grabbing (e.g., when a VR hand touches the object)
