@@ -7,6 +7,7 @@ namespace Mulitplayer
     {
         [SerializeField] private Transform root;
         [SerializeField] private Transform head;
+        [SerializeField] private Transform body;
         [SerializeField] private Transform leftHand;
         [SerializeField] private Transform rightHand;
         
@@ -37,6 +38,9 @@ namespace Mulitplayer
             
             SetTransform(root, _vrRigReferences.root);
             SetTransform(head, _vrRigReferences.head);
+            Transform bodyTransform = _vrRigReferences.head;
+            bodyTransform.rotation = Quaternion.Euler(0, _vrRigReferences.head.rotation.y,0);
+            SetTransform(body, bodyTransform);
             SetTransform(leftHand, _vrRigReferences.leftHand);
             SetTransform(rightHand, _vrRigReferences.rightHand);
         }
