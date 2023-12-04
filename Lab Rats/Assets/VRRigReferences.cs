@@ -1,18 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
+using Global.Tools;
 using UnityEngine;
 
-public class VRRigReferences : MonoBehaviour
+public class VRRigReferences : Singleton<VRRigReferences>
 {
-    public static VRRigReferences Singelton;
-
     public Transform root;
     public Transform head;
     public Transform leftHand;
     public Transform rightHand;
-
-    private void Awake()
-    {
-        Singelton = this;
-    }
 }
