@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2479129523
+  GlobalObjectIdHash: 2783180169
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -75,6 +75,7 @@ MonoBehaviour:
   body: {fileID: 1843606676653908984}
   leftHand: {fileID: 357171719199986035}
   rightHand: {fileID: 5311747111255649558}
+  bodyOffset: {x: 0, y: 0, z: -0.5}
   meshToDisable:
   - {fileID: 5206338467922516424}
   - {fileID: 2648037903608441686}

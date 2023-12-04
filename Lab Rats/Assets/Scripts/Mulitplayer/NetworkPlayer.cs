@@ -40,13 +40,16 @@ namespace Mulitplayer
             if (!IsOwner || _isVRRigReferencesNull) return;
             
             SetTransform(root, _vrRigReferences.root);
-            SetTransform(head, _vrRigReferences.head);
+            var headTransform = _vrRigReferences.head;
+            headTransform.rotation = Quaternion.Euler(-_vrRigReferences.head.rotation.x, _vrRigReferences.head.rotation.y, _vrRigReferences.head.rotation.z);
+            SetTransform(headTransform, _vrRigReferences.head);
 
             var bodyTransform = _vrRigReferences.head;
             bodyTransform.rotation = Quaternion.Euler(0, _vrRigReferences.head.rotation.y, 0);
             bodyTransform.position += bodyOffset;
 
             SetTransform(bodyTransform, bodyTransform);
+
             SetTransform(leftHand, _vrRigReferences.leftHand);
             SetTransform(rightHand, _vrRigReferences.rightHand);
         }
