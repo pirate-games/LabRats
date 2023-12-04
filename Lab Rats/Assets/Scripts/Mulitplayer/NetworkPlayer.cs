@@ -13,6 +13,7 @@ namespace Mulitplayer
 
         [Header("Offset Fixes")]
         [SerializeField] private Vector3 bodyOffset;
+        [SerializeField] private Vector3 headOffset; 
         
         public Renderer[] meshToDisable;
         
@@ -40,16 +41,13 @@ namespace Mulitplayer
             if (!IsOwner || _isVRRigReferencesNull) return;
             
             SetTransform(root, _vrRigReferences.root);
-            var headTransform = _vrRigReferences.head;
-            headTransform.rotation = Quaternion.Euler(-_vrRigReferences.head.rotation.x, _vrRigReferences.head.rotation.y, _vrRigReferences.head.rotation.z);
-            SetTransform(headTransform, _vrRigReferences.head);
+            SetTransform(head, _vrRigReferences.head);
 
-            var bodyTransform = _vrRigReferences.head;
-            bodyTransform.rotation = Quaternion.Euler(0, _vrRigReferences.head.rotation.y, 0);
-            bodyTransform.position += bodyOffset;
+            _vrRigReferences.head.rotation = Quaternion.Euler(new(-90, _vrRigReferences.head.transform.rotation.eulerAngles.y -180, Quaternion.identity.z));
 
-            SetTransform(bodyTransform, bodyTransform);
+            _vrRigReferences.head.position = new Vector3(head.transform.position.x, head.transform.position.y + bodyOffset.y, head.transform.position.z);
 
+            SetTransform(body, _vrRigReferences.head);
             SetTransform(leftHand, _vrRigReferences.leftHand);
             SetTransform(rightHand, _vrRigReferences.rightHand);
         }
