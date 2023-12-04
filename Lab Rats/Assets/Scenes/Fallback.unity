@@ -398,7 +398,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3342897723606582447, guid: cef12cfa8abf8c348a85cd24b72720cc, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3225532209
+      value: 721869294
       objectReference: {fileID: 0}
     - target: {fileID: 7516265992300842976, guid: cef12cfa8abf8c348a85cd24b72720cc, type: 3}
       propertyPath: m_Name
@@ -869,7 +869,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1149310905}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f54a785ce8d91154abf5ad6db585bb11, type: 3}
+  m_Script: {fileID: 11500000, guid: 417b61e9268f9d3418279904a2ce1216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maximumConnections: 2
@@ -1957,7 +1957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 1874351534}
-  networkConnecter: {fileID: 1149310909}
+  networkConnecter: {fileID: 0}
 --- !u!1 &1671258216
 GameObject:
   m_ObjectHideFlags: 0
@@ -2041,7 +2041,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1149310909}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: NetworkConnecter, Assembly-CSharp
         m_MethodName: Create
         m_Mode: 1
