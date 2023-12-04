@@ -3,7 +3,6 @@ using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
 using Unity.Services.Authentication;
 using UnityEngine;
-using Unity.Services.Core;
 using Unity.Services.Lobbies;
 using Unity.Services.Lobbies.Models;
 using Unity.Services.Relay;
@@ -22,6 +21,9 @@ namespace Mulitplayer.NetworkUI
         [SerializeField] private UnityTransport transport;
         [SerializeField] private LobbyCode lobbyCode;
 
+        /// <summary>
+        ///  The join code of the lobby
+        /// </summary>
         public string JoinCode
         {
             set => lobbyCode.SetLobbyCode(value);
@@ -29,8 +31,7 @@ namespace Mulitplayer.NetworkUI
 
         private async void Start()
         {
-            await UnityServices.InitializeAsync();
-            await AuthenticationService.Instance.SignInAnonymouslyAsync();
+            await InitialiseGame.AuthenticateUser();
         }
 
         private void Update()
@@ -79,7 +80,9 @@ namespace Mulitplayer.NetworkUI
                 var joinAllocation = await RelayService.Instance.JoinAllocationAsync(joinCode);
                 var serverData = new RelayServerData(joinAllocation, ConnectionType);
 
+                // transport the server data to the transport so it can connect to the server
                 transport.SetRelayServerData(serverData);
+                
                 NetworkManager.Singleton.StartClient();
             }
             catch (RelayServiceException e)
