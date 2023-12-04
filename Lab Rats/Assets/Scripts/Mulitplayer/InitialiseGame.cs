@@ -1,9 +1,7 @@
-using System;
 using Unity.Services.Core;
 using UnityEngine;
 using Unity.Services.Authentication;
 using UnityEngine.SceneManagement;
-using Random = UnityEngine.Random;
 
 namespace Mulitplayer
 {
@@ -12,9 +10,6 @@ namespace Mulitplayer
     /// </summary>
     public class InitialiseGame : MonoBehaviour
     {
-        private const string BaseUsername = "Player";
-        private static readonly Tuple<int, int> RandomUsernameRange = new (0, 3);
-
         private async void Start()
         {
             await UnityServices.InitializeAsync();
@@ -27,22 +22,8 @@ namespace Mulitplayer
             
             if (! AuthenticationService.Instance.IsSignedIn) return;
             
-           CheckUsername();
-            
             // switch to the main menu scene
             SceneManager.LoadSceneAsync($"MainMenu");
-        }
-
-        private static void CheckUsername()
-        {
-            var username = PlayerPrefs.GetString("username");
-            
-            // If the player has not set a username, set a random one for them 
-            // this can be used to identify players in the lobby and in game
-            if (!string.IsNullOrEmpty(username)) return;
-            
-            username = BaseUsername + Random.Range(RandomUsernameRange.Item1, RandomUsernameRange.Item2);
-            PlayerPrefs.SetString("username", username);
         }
     }
 }

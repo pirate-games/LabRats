@@ -20,6 +20,12 @@ namespace Mulitplayer.NetworkUI
 
         [SerializeField] private int maximumConnections = 2;
         [SerializeField] private UnityTransport transport;
+        [SerializeField] private LobbyCode lobbyCode;
+
+        public string JoinCode
+        {
+            set => lobbyCode.SetLobbyCode(value);
+        }
 
         private async void Start()
         {
@@ -53,7 +59,7 @@ namespace Mulitplayer.NetworkUI
                 
                 transport.SetRelayServerData(serverData);   
 
-                Debug.Log($"Join Code: {joinCode}");
+                JoinCode = joinCode;
                 
                 NetworkManager.Singleton.StartHost(); 
             }

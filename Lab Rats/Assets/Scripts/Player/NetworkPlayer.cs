@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 
-namespace Mulitplayer
+namespace Player
 {
     public class NetworkPlayer : NetworkBehaviour
     {
@@ -47,7 +47,7 @@ namespace Mulitplayer
             SetTransform(root, _vrRigReferences.root);
             SetTransform(head, _vrRigReferences.head);
             
-            RectifyHeadRotation();
+            RectifyBodyRotation();
             
             SetTransform(body, _vrRigReferences.head);
             SetTransform(leftHand, _vrRigReferences.leftHand);
@@ -68,13 +68,15 @@ namespace Mulitplayer
         /// <summary>
         ///  Rectify the head rotation to be the same as the body rotation on the correct axes
         /// </summary>
-        private void RectifyHeadRotation()
+        private void RectifyBodyRotation()
         {
-            _vrRigReferences.head.rotation = Quaternion.Euler(new(BodyOffsetAngleX,
+            // ensures the body is rotated correctly based on the head
+            _vrRigReferences.head.rotation = Quaternion.Euler(new Vector3(BodyOffsetAngleX,
                 _vrRigReferences.head.transform.rotation.eulerAngles.y - BodyOffsetAngleY,
                 Quaternion.identity.z)
             );
             
+            // ensures the body is offset from the head
             _vrRigReferences.head.position = new Vector3(head.transform.position.x,
                 head.transform.position.y + bodyOffset.y, head.transform.position.z);
         }
