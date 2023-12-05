@@ -1,7 +1,7 @@
 using Global.Tools;
 using UnityEngine;
 
-namespace Player
+namespace Player.Scripts
 {
     public class VRRigReferences : Singleton<VRRigReferences>
     {

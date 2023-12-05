@@ -1,52 +1,55 @@
 using Unity.Netcode;
 using UnityEngine;
 
-public class Sphere : NetworkBehaviour
+namespace BackUpSphere
 {
-    private NetworkObject thisNetworkObject;
-
-    private void Start()
+    public class Sphere : NetworkBehaviour
     {
-        thisNetworkObject = GetComponent<NetworkObject>();
-    }
+        private NetworkObject _thisNetworkObject;
 
-    [ServerRpc(RequireOwnership = false)]
-    private void TryGrabServerRpc(ServerRpcParams serverRpcParams = default)
-    {
-        Debug.Log("TransferOwnership to " + serverRpcParams.Receive.SenderClientId);
-        thisNetworkObject.ChangeOwnership(serverRpcParams.Receive.SenderClientId);
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    private void TryGiveServerRpc()
-    {
-        Debug.Log("removing ownership");
-        thisNetworkObject.RemoveOwnership();
-    }
-
-    // Call this method to initiate grabbing (e.g., when a VR hand touches the object)
-    public void GrabObject()
-    {
-        if (thisNetworkObject.IsOwner)
+        private void Start()
         {
-            Debug.Log("I'm the owner");
-            TryGiveServerRpc();
+            _thisNetworkObject = GetComponent<NetworkObject>();
         }
-        else
-        {
-            Debug.Log("Try grab");
-            TryGrabServerRpc();
-        }
-    }
 
-    // Example code to manually sync transform if needed
-    private void Update()
-    {
-        if (thisNetworkObject.IsOwner)
+        [ServerRpc(RequireOwnership = false)]
+        private void TryGrabServerRpc(ServerRpcParams serverRpcParams = default)
         {
-            // Perform actions that require ownership, e.g., syncing transform
-            // thisNetworkObject.transform.position = newPosition;
-            // thisNetworkObject.transform.rotation = newRotation;
+            Debug.Log("TransferOwnership to " + serverRpcParams.Receive.SenderClientId);
+            _thisNetworkObject.ChangeOwnership(serverRpcParams.Receive.SenderClientId);
+        }
+
+        [ServerRpc(RequireOwnership = false)]
+        private void TryGiveServerRpc()
+        {
+            Debug.Log("removing ownership");
+            _thisNetworkObject.RemoveOwnership();
+        }
+
+        // Call this method to initiate grabbing (e.g., when a VR hand touches the object)
+        public void GrabObject()
+        {
+            if (_thisNetworkObject.IsOwner)
+            {
+                Debug.Log("I'm the owner");
+                TryGiveServerRpc();
+            }
+            else
+            {
+                Debug.Log("Try grab");
+                TryGrabServerRpc();
+            }
+        }
+
+        // Example code to manually sync transform if needed
+        private void Update()
+        {
+            if (_thisNetworkObject.IsOwner)
+            {
+                // Perform actions that require ownership, e.g., syncing transform
+                // thisNetworkObject.transform.position = newPosition;
+                // thisNetworkObject.transform.rotation = newRotation;
+            }
         }
     }
 }

@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 
-namespace Player
+namespace Player.Scripts
 {
     public class NetworkPlayer : NetworkBehaviour
     {

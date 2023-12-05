@@ -1,9 +1,12 @@
 using UnityEngine;
 
-public class ContinuousRotation : MonoBehaviour
+namespace Gerald
 {
-    [SerializeField] private float rotationSpeed = 30f;
+    public class ContinuousRotation : MonoBehaviour
+    {
+        [SerializeField] private float rotationSpeed = 30f;
 
-    private void Update() => transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
+        private void Update() => transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
+    }
 }
 
