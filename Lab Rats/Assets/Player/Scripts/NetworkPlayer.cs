@@ -47,9 +47,9 @@ namespace Player.Scripts
             SetTransform(root, _vrRigReferences.root);
             SetTransform(head, _vrRigReferences.head);
             
-            RectifyBodyRotation();
+            //RectifyBodyRotation();
             
-            SetTransform(body, _vrRigReferences.head);
+            //SetTransform(body, _vrRigReferences.head);
             SetTransform(leftHand, _vrRigReferences.leftHand);
             SetTransform(rightHand, _vrRigReferences.rightHand);
         }
