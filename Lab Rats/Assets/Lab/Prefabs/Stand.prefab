@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2432756509940222098}
-  - component: {fileID: 3371868610106722793}
   m_Layer: 0
   m_Name: Stand
   m_TagString: Untagged
@@ -35,28 +34,6 @@ Transform:
   - {fileID: 5249907538398434457}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &3371868610106722793
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3065037665757942312}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &3297824433112014109
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,6 +45,7 @@ GameObject:
   - component: {fileID: 1563670161330574327}
   - component: {fileID: 7804197377763566953}
   - component: {fileID: 1821734367366330806}
+  - component: {fileID: 9089540550139935963}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -140,6 +118,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &9089540550139935963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3297824433112014109}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6215478, y: 0.7778336, z: 0.8008704}
+  m_Center: {x: -0.0000072568655, y: 0.39244986, z: -0.011275306}
 --- !u!1 &4222739210673931016
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,6 +150,7 @@ GameObject:
   - component: {fileID: 5249907538398434457}
   - component: {fileID: 6052595306522511442}
   - component: {fileID: 5953018250808542727}
+  - component: {fileID: 6056155435839576591}
   m_Layer: 0
   m_Name: Cube.003
   m_TagString: Untagged
@@ -223,6 +223,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6056155435839576591
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4222739210673931016}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.62154794, y: 0.17381513, z: 0.7887356}
+  m_Center: {x: 0.0005633682, y: 0.0145151615, z: -0.3626396}
 --- !u!1 &5946089174278745756
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,6 +255,7 @@ GameObject:
   - component: {fileID: 7538208425057382208}
   - component: {fileID: 1120853617941446825}
   - component: {fileID: 5826937772396382388}
+  - component: {fileID: 5887597834620980819}
   m_Layer: 0
   m_Name: Cube.002
   m_TagString: Untagged
@@ -306,3 +328,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &5887597834620980819
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5946089174278745756}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.6215479, y: 0.6101969, z: 0.10028595}
+  m_Center: {x: 0.29839543, y: -0.0023403466, z: 0.048536837}
