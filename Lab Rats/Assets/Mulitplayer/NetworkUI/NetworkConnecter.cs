@@ -61,6 +61,7 @@ namespace Mulitplayer.NetworkUI
                 transport.SetRelayServerData(serverData);   
 
                 JoinCode = joinCode;
+                Debug.Log(joinCode);
                 
                 NetworkManager.Singleton.StartHost(); 
             }
