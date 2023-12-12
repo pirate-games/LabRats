@@ -9,7 +9,7 @@ namespace Mulitplayer.NetworkUI
         
         public void SetLobbyCode(string code)
         {
-            lobbyNameText.text = $"Lobby: {code}";
+            lobbyNameText.text = $"Lobby: {code.ToFormattedCode()}";
         }
     }
 }
