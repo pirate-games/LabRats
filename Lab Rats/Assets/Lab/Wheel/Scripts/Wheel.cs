@@ -5,7 +5,9 @@ using UnityEngine;
 public class Wheel : MonoBehaviour
 {
     [SerializeField]
+    private Exothermicreaction exo;
     private Door door; //This can be changed to be any object that reacts to wheelturning
+
     [SerializeField]
     private float turnTreshold;
 
@@ -46,12 +48,14 @@ public class Wheel : MonoBehaviour
         //check if wheel has turned a specific amount, treshold value in angles changed in inspector
         if (this.gameObject.transform.rotation.eulerAngles.z >= originalVec.z + turnTreshold)
         {
+            exo.oxygenFlowing = true;
+
 
             //insert reaction to wheel turning, for example:
-            if (!door.isOpen)
+/*            if (!door.isOpen)
             {
                 door.Open();
-            }
+            }*/
         }
         
     }

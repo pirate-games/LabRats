@@ -5,7 +5,9 @@ using UnityEngine;
 public class Exothermicreaction : MonoBehaviour
 {
     [SerializeField]//only for testing, REMOVE WHEN RELEASING
-    private bool iron, salt, oxygenFlowing; //ingrediënts needed for exothermic reaction
+    private bool iron, salt; //ingrediënts needed for exothermic reaction
+    public bool oxygenFlowing;
+
 
     private bool react;
 
