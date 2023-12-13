@@ -52,10 +52,14 @@ public class Wheel : MonoBehaviour
 
 
             //insert reaction to wheel turning, for example:
-/*            if (!door.isOpen)
-            {
-                door.Open();
-            }*/
+            /*            if (!door.isOpen)
+                        {
+                            door.Open();
+                        }*/
+        }
+        else
+        {
+            exo.oxygenFlowing = false;
         }
         
     }

@@ -12,7 +12,7 @@ public class Exothermicreaction : MonoBehaviour
     private bool react;
 
     [SerializeField]
-    private GameObject mercury;
+    private GameObject mercury, indicatorOff, indicatorOn;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +28,16 @@ public class Exothermicreaction : MonoBehaviour
         {
             react = true;
             mercury.gameObject.SetActive(true);
+        }
+        if (oxygenFlowing)
+        {
+            indicatorOff.gameObject.SetActive(false);
+            indicatorOn.gameObject.SetActive(true);
+        }
+        else
+        {
+            indicatorOff.gameObject.SetActive(true);
+            indicatorOn.gameObject.SetActive(false);
         }
     }
 
