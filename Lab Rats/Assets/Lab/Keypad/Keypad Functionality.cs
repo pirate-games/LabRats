@@ -29,7 +29,8 @@ public class KeypadFunctionality : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(pressed >= codeLength)
+        //when input length is equal to the length of the correct code
+        if (pressed >= codeLength)
         {
             if(input.text == correctCode)
             {
@@ -43,6 +44,7 @@ public class KeypadFunctionality : MonoBehaviour
         }
     }
 
+    //Reset text field completely
     public void clearAll()
     {
         input.text = null;
@@ -50,6 +52,7 @@ public class KeypadFunctionality : MonoBehaviour
         pressed = 0;
     }
 
+    //Short visual feedback for correct answer
     IEnumerator CorrectAnswer()
     {
         input.color = Color.green;
@@ -57,6 +60,7 @@ public class KeypadFunctionality : MonoBehaviour
         clearAll();
     }
     
+    //Short visual feedback for wrong answer
     IEnumerator WrongAnswer()
     {
         input.color = Color.red;
@@ -64,6 +68,7 @@ public class KeypadFunctionality : MonoBehaviour
         clearAll();
     }
 
+    //When button is pressed, add that number to the input text
     public void numberPress(int number)
     {
         if (pressed < codeLength)
@@ -73,6 +78,7 @@ public class KeypadFunctionality : MonoBehaviour
         }
     }
 
+    //Remove the last number from input
     public void backspace()
     {
         if (input.text != null && pressed < codeLength)
