@@ -52,4 +52,16 @@ public class Exothermicreaction : MonoBehaviour
             salt = true;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Iron")
+        {
+            iron = true;
+        }
+        if (other.gameObject.tag == "Salt")
+        {
+            salt = true;
+        }
+    }
 }
