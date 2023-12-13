@@ -13,8 +13,7 @@ public class KeypadInteract : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        keypad.codeLength = length;
-        keypad.correctCode = code;
+
     }
 
     // Update is called once per frame
@@ -31,6 +30,9 @@ public class KeypadInteract : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 keypad.gameObject.SetActive(true);
+                keypad.codeLength = length;
+                keypad.correctCode = code;
+                keypad.clearAll();
             }
         }
     }

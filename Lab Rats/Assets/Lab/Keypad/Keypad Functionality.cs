@@ -11,6 +11,7 @@ public class KeypadFunctionality : MonoBehaviour
 
     [HideInInspector]
     public int codeLength;
+    [HideInInspector]
     public string correctCode;
 
     private int pressed = 0;
@@ -19,6 +20,9 @@ public class KeypadFunctionality : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+/*        //can be used for individual testing
+        codeLength = 4;
+        correctCode = "1234";*/
         clearAll();
     }
 
@@ -30,18 +34,51 @@ public class KeypadFunctionality : MonoBehaviour
             if(input.text == correctCode)
             {
                 correct = true;
+                StartCoroutine(CorrectAnswer());
+            }
+            else
+            {
+                StartCoroutine(WrongAnswer());
             }
         }
     }
 
-    private void clearAll()
+    public void clearAll()
     {
         input.text = null;
+        input.color = Color.white;
+        pressed = 0;
+    }
+
+    IEnumerator CorrectAnswer()
+    {
+        input.color = Color.green;
+        yield return new WaitForSeconds(1);
+        clearAll();
+    }
+    
+    IEnumerator WrongAnswer()
+    {
+        input.color = Color.red;
+        yield return new WaitForSeconds(1);
+        clearAll();
     }
 
     public void numberPress(int number)
     {
-        pressed++;
-        input.text = input.text + number;
+        if (pressed < codeLength)
+        {
+            input.text = input.text + number;
+            pressed++;
+        }
+    }
+
+    public void backspace()
+    {
+        if (input.text != null && pressed < codeLength)
+        {
+            pressed--;
+            input.text = input.text.Substring(0, input.text.Length - 1);
+        }
     }
 }
