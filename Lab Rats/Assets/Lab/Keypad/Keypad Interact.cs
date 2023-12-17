@@ -53,6 +53,11 @@ public class KeypadInteract : MonoBehaviour
                 keypad.correctCode = code;
                 keypad.clearAll();
             }
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                keypad.gameObject.SetActive(false);
+                keypad.clearAll();
+            }
         }
     }
     private void OnTriggerExit(Collider collision)
@@ -60,6 +65,8 @@ public class KeypadInteract : MonoBehaviour
         if(collision.gameObject.tag == "MainCamera")
         {
             popupText.SetActive(false);
+            keypad.gameObject.SetActive(false);
+            keypad.clearAll();
         }
     }
 }
