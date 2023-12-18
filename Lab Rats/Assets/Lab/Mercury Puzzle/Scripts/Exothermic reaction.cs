@@ -5,31 +5,39 @@ using UnityEngine;
 public class Exothermicreaction : MonoBehaviour
 {
     [SerializeField]//only for testing, REMOVE WHEN RELEASING
-    private bool iron, salt; //ingrediënts needed for exothermic reaction
+    private bool fire;
+    private int fireCount;
     public bool oxygenFlowing;
 
 
     private bool react;
 
     [SerializeField]
-    private GameObject mercury, indicatorOff, indicatorOn;
+    private GameObject piston, indicatorOff, indicatorOn;
+    private Vector3 pistonDown;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        pistonDown = piston.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         //when all requirements for exothermic reaction are met
-        if(iron & salt & oxygenFlowing) 
+        if (fire && oxygenFlowing && fireCount >= 2) 
         {
             react = true;
-            mercury.gameObject.SetActive(true);
+            movePistonUp(fireCount);
         }
-        if (oxygenFlowing)
+        else
+        {
+            movePistonDown();
+        }
+
+
+        if (oxygenFlowing) //oxygentank pressure meter "visual"
         {
             indicatorOff.gameObject.SetActive(false);
             indicatorOn.gameObject.SetActive(true);
@@ -41,27 +49,47 @@ public class Exothermicreaction : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void movePistonUp(int fuel)
     {
-        if(collision.gameObject.tag == "Iron")
+        float speed = fuel * 0.25f; //nerf speed
+        if(piston.transform.position.y < 1.4f)
         {
-            iron = true;
+            piston.transform.position += transform.up * speed * Time.deltaTime;
         }
-        if(collision.gameObject.tag == "Salt")
+        else
         {
-            salt = true;
+            piston.transform.position = piston.transform.position;
+        }
+
+    }
+
+    private void movePistonDown()
+    {
+        if (piston.transform.position.y > pistonDown.y)
+        {
+            piston.transform.position -= transform.up * Time.deltaTime;
+        }
+        else
+        {
+            piston.transform.position = pistonDown;
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Iron")
+        if (other.gameObject.tag == "Fire")
         {
-            iron = true;
+            fire = true;
+            fireCount++;
         }
-        if (other.gameObject.tag == "Salt")
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.tag == "Fire")
         {
-            salt = true;
+            fire = true;
+            fireCount--;
         }
     }
 }
