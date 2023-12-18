@@ -16,7 +16,8 @@ public class KeypadFunctionality : MonoBehaviour
 
     private int pressed = 0;
 
-    private bool correct;
+    [HideInInspector]
+    public bool closing;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,14 +28,13 @@ public class KeypadFunctionality : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //when input length is equal to the length of the correct code
         if (pressed >= codeLength)
         {
             if(input.text == correctCode)
             {
-                correct = true;
                 StartCoroutine(CorrectAnswer());
             }
             else
@@ -57,7 +57,7 @@ public class KeypadFunctionality : MonoBehaviour
     {
         input.color = Color.green;
         yield return new WaitForSeconds(1);
-        clearAll();
+        exit();
     }
     
     //Short visual feedback for wrong answer
@@ -86,5 +86,12 @@ public class KeypadFunctionality : MonoBehaviour
             pressed--;
             input.text = input.text.Substring(0, input.text.Length - 1);
         }
+    }
+
+    public void exit()
+    {
+        closing = true;
+        clearAll();
+        this.gameObject.SetActive(false);
     }
 }
