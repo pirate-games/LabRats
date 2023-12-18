@@ -1,16 +1,27 @@
 using UnityEngine;
 using TMPro;
 using Mulitplayer.NetworkUI;
+using Palmmedia.ReportGenerator.Core.Parser.Analysis;
+using UnityEngine.UI;
+
 
 public class JoinScript : MonoBehaviour
 {
     public TMP_InputField input;
     public NetworkConnecter networkConnecter;
-    // Start is called before the first frame update
 
+    [SerializeField] private Button submitButton;
+
+    //Temporary Solution
+    private const int MinimalCodeLenght = 6;
+    
     public void Joining()
     {
         networkConnecter.Join(input.text);
-    
+    }
+
+    public void ToggleButton()
+    {
+        submitButton.interactable = input.text.Length >= MinimalCodeLenght;
     }
 }
