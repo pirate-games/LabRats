@@ -20,6 +20,7 @@ public class JSONReader : MonoBehaviour
         public float Density;
         public float MeltingPoint;
         public float BoilingPoint;
+        public Color color = Color.red;
     }
 
     [System.Serializable]

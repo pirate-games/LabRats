@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Element : MonoBehaviour
@@ -19,14 +18,18 @@ public class Element : MonoBehaviour
     public float MeltingPoint { get; private set; }
     public float BoilingPoint { get; private set; }
 
+    public Color myColor;
+
     // Start is called before the first frame update
     void Start()
     {
-        InitializeElement();
+        StartCoroutine(DelayedStart());
     }
 
-    private void InitializeElement()
+    private IEnumerator DelayedStart()
     {
+        yield return null; // Wait for the end of the frame
+
         var currentElement = elementList.myElementListWrapper.elements[listNumber];
         AtomicNumber = currentElement.AtomicNumber;
         element = currentElement.Element;
@@ -39,5 +42,9 @@ public class Element : MonoBehaviour
         Density = currentElement.Density;
         MeltingPoint = currentElement.MeltingPoint;
         BoilingPoint = currentElement.BoilingPoint;
+        myColor = currentElement.color;
+
+        Renderer thisRenderer = this.transform.gameObject.GetComponent<Renderer>();
+        thisRenderer.material.color = myColor;
     }
 }
