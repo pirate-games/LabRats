@@ -23,26 +23,9 @@ public class KeypadInteract : MonoBehaviour
     {
         
     }
-
-/*    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if(collision.gameObject.tag == "MainCamera")
-        {
-            popupText.SetActive(true);
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                popupText.SetActive(false);
-                keypad.gameObject.SetActive(true);
-                keypad.codeLength = length;
-                keypad.correctCode = code;
-                keypad.clearAll();
-            }
-        }
-    }*/
-
-    private void OnTriggerEnter(Collider collision)
-    {
-        if (collision.gameObject.tag == "MainCamera")
+        if (other.gameObject.tag == "Player")
         {
             Debug.Log("collision");
             popupText.SetActive(true);
@@ -61,9 +44,9 @@ public class KeypadInteract : MonoBehaviour
             }
         }
     }
-    private void OnTriggerExit(Collider collision)
+    private void OnTriggerExit(Collider other)
     {
-        if(collision.gameObject.tag == "MainCamera")
+        if(other.gameObject.tag == "Player")
         {
             popupText.SetActive(false);
             keypad.gameObject.SetActive(false);
