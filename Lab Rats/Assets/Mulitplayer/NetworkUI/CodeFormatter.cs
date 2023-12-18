@@ -5,7 +5,7 @@ namespace Mulitplayer.NetworkUI
 {
     public static class CodeFormatter
     {
-        private const int CodeLength = 6;
+        public const int CodeLength = 6;
         /// <summary>
         /// Function that formats the lobby code to a 6 alphanumeric-code without white spaces or special characters
         /// </summary>
