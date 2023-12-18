@@ -44,6 +44,7 @@ public class KeypadInteract : MonoBehaviour
     {
         if (collision.gameObject.tag == "MainCamera")
         {
+            Debug.Log("collision");
             popupText.SetActive(true);
             if (Input.GetKeyDown(KeyCode.E))
             {
