@@ -1,46 +1,50 @@
 using System.Collections;
 using UnityEngine;
 
-public class Element : MonoBehaviour
+namespace Global.JSON
 {
-    public JSONReader elementList;
-    public int listNumber = 0;
-
-    public int AtomicNumber { get; private set; }
-    public string element { get; private set; }
-    public string Symbol { get; private set; }
-    public float AtomicMass { get; private set; }
-    public int NumberofNeutrons { get; private set; }
-    public int NumberofProtons { get; private set; }
-    public int NumberofElectrons { get; private set; }
-    public string Type { get; private set; }
-    public float Density { get; private set; }
-    public float MeltingPoint { get; private set; }
-    public float BoilingPoint { get; private set; }
-
-    // Start is called before the first frame update
-    void Start()
+    public class Element : MonoBehaviour
     {
-        StartCoroutine(DelayedStart());
-    }
+        public JsonReader elementList;
+        public int listNumber;
+        
+        private void Start()
+        {
+            StartCoroutine(DelayedStart());
+        }
 
-    private IEnumerator DelayedStart()
-    {
-        yield return null; // Wait for the end of the frame
+        /// <summary>
+        ///  Waits for JsonReader to start and populate myElementListWrapper before assigning properties.
+        /// </summary>
+        private IEnumerator DelayedStart()
+        {
+            yield return null; // Wait for JsonReader to Start and populate myElementListWrapper
 
-        var currentElement = elementList.myElementListWrapper.elements[listNumber];
-        AtomicNumber = currentElement.AtomicNumber;
-        element = currentElement.Element;
-        Symbol = currentElement.Symbol;
-        AtomicMass = currentElement.AtomicMass;
-        NumberofNeutrons = currentElement.NumberofNeutrons;
-        NumberofProtons = currentElement.NumberofProtons;
-        NumberofElectrons = currentElement.NumberofElectrons;
-        Type = currentElement.Type;
-        Density = currentElement.Density;
-        MeltingPoint = currentElement.MeltingPoint;
-        BoilingPoint = currentElement.BoilingPoint;
+            var currentElement = elementList.myElementListWrapper.elements[listNumber];
+            AssignProperties(currentElement);
+        }
 
+        /// <summary>
+        ///   Assigns the properties of the current element to this object. 
+        /// </summary>
+        /// <param name="element"> the current element in use </param>
+        private void AssignProperties(object element)
+        {
+            var elementType = element.GetType();
+            var properties = elementType.GetProperties();
 
+            foreach (var property in properties)
+            {
+                // Get the property from this object 
+                var elementProp = elementType.GetProperty(property.Name);
+                
+                if (elementProp == null) continue;
+                if (elementProp.PropertyType != property.PropertyType || !elementProp.CanRead) continue;
+                
+                // Get the value of the property from the element and set it to this object 
+                var val = elementProp.GetValue(element, null);
+                property.SetValue(this, val, null);
+            }
+        }
     }
 }
