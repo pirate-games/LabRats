@@ -4,32 +4,42 @@ using UnityEngine;
 
 namespace Global.JSON
 {
+    /// <summary>
+    ///  This class is used to read a JSON file and populate a list of elements.
+    /// </summary>
     public class JsonReader : MonoBehaviour
     {
         [SerializeField] private TextAsset jsonFile;
 
+        /// <summary>
+        ///  This class is used to store the properties of an element.
+        /// </summary>
         [Serializable]
         public class BaseElement
         {
-            public int AtomicNumber;
-            public string Element;
-            public string Symbol;
-            public float AtomicMass;
-            public int NumberofNeutrons;
-            public int NumberofProtons;
-            public int NumberofElectrons;
-            public string Type;
-            public float Density;
-            public float MeltingPoint;
-            public float BoilingPoint;
+            public int atomicNumber;
+            public string element;
+            public string symbol;
+            public float atomicMass;
+            public int numberOfNeutrons;
+            public int numberOfProtons;
+            public int numberOfElectrons;
+            public string type;
+            public float density;
+            public float meltingPoint;
+            public float boilingPoint;
+            public float[] color;
         }
 
+        /// <summary>
+        ///  This class is used to wrap the list of elements.
+        /// </summary>
         [Serializable]
         public class ElementListWrapper
         {
             public List<BaseElement> elements;
         }
-
+        
         public ElementListWrapper myElementListWrapper = new();
 
         private void Start()

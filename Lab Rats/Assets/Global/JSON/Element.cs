@@ -3,13 +3,25 @@ using UnityEngine;
 
 namespace Global.JSON
 {
+    /// <summary>
+    ///  This class is used to assign properties to objects from a JSON file.
+    /// </summary>
     public class Element : MonoBehaviour
     {
-        public JsonReader elementList;
-        public int listNumber;
+        private Renderer _renderer;
+        
+        [SerializeField] private JsonReader elementList;
+        
+        [Header("What element in the list to use")]
+        [SerializeField] private int listNumber;
+        
+        [Header("What colour am I?")]
+        [SerializeField] private Color colour;
         
         private void Start()
         {
+            _renderer = GetComponent<Renderer>();
+            
             StartCoroutine(DelayedStart());
         }
 
@@ -22,6 +34,8 @@ namespace Global.JSON
 
             var currentElement = elementList.myElementListWrapper.elements[listNumber];
             AssignProperties(currentElement);
+            
+            _renderer.material.color = colour;
         }
 
         /// <summary>
@@ -41,10 +55,30 @@ namespace Global.JSON
                 if (elementProp == null) continue;
                 if (elementProp.PropertyType != property.PropertyType || !elementProp.CanRead) continue;
                 
-                // Get the value of the property from the element and set it to this object 
                 var val = elementProp.GetValue(element, null);
-                property.SetValue(this, val, null);
+                
+                // If the property is a colour, set the colour value
+                if (property.Name == "Color")
+                {
+                   // SetColorValue(val);
+                }
+                else
+                { 
+                    property.SetValue(this, val, null);
+                }
             }
+        }
+
+        private void SetColorValue(object colorValue)
+        {
+            if (colorValue is not object[] {Length: 4} colorArray) return;
+
+            var r = (float) colorArray[0] / 255;
+            var g = (float) colorArray[1] / 255;
+            var b = (float) colorArray[2] / 255;
+            var a = (float) colorArray[3] / 255;
+                
+            colour = new Color(r, g, b, a);
         }
     }
 }

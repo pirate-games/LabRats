@@ -8,7 +8,6 @@ namespace Player.Scripts
         [Header("Body Parts")]
         [SerializeField] private Transform root;
         [SerializeField] private Transform head;
-        [SerializeField] private Transform body;
         [SerializeField] private Transform leftHand;
         [SerializeField] private Transform rightHand;
 
