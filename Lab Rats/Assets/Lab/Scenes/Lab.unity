@@ -16095,8 +16095,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   elementList: {fileID: 230064530}
-  listNumber: 8
-  myColor: {r: 1, g: 0.051886797, b: 0.051886797, a: 0}
+  listNumber: 0
+  colour: {r: 0.6754716, g: 0.1924457, b: 0.1924457, a: 1}
 --- !u!65 &849027610
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -24306,6 +24306,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6913157148338184807, guid: a07ef9535c572394cb2e4d7b80f71d15, type: 3}
+      propertyPath: jsonFile
+      value: 
+      objectReference: {fileID: 4900000, guid: ada22d6eebd34221b010510b7168db9f, type: 3}
     - target: {fileID: 7449864470192144860, guid: a07ef9535c572394cb2e4d7b80f71d15, type: 3}
       propertyPath: m_Name
       value: ElementHolder
