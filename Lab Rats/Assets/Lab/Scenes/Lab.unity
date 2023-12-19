@@ -15803,8 +15803,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 1681011250
+  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 0.39215687}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -17892,6 +17892,7 @@ MonoBehaviour:
   input: {fileID: 1162196051}
   networkConnecter: {fileID: 1149310909}
   submitButton: {fileID: 923941873}
+  submitText: {fileID: 0}
 --- !u!114 &923941873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17931,7 +17932,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 923941874}
   m_OnClick:
     m_PersistentCalls:
@@ -27383,6 +27384,7 @@ MonoBehaviour:
   input: {fileID: 1162196051}
   networkConnecter: {fileID: 1149310909}
   submitButton: {fileID: 0}
+  submitText: {fileID: 0}
 --- !u!114 &1386202246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30009,7 +30011,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1534718748
 RectTransform:
   m_ObjectHideFlags: 0
@@ -39733,7 +39735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2066459348
 RectTransform:
   m_ObjectHideFlags: 0
