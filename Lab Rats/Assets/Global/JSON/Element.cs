@@ -18,8 +18,6 @@ public class Element : MonoBehaviour
     public float MeltingPoint { get; private set; }
     public float BoilingPoint { get; private set; }
 
-    public Color myColor;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -42,9 +40,7 @@ public class Element : MonoBehaviour
         Density = currentElement.Density;
         MeltingPoint = currentElement.MeltingPoint;
         BoilingPoint = currentElement.BoilingPoint;
-        myColor = currentElement.color;
 
-        Renderer thisRenderer = this.transform.gameObject.GetComponent<Renderer>();
-        thisRenderer.material.color = myColor;
+
     }
 }
