@@ -9,10 +9,12 @@ namespace Global.JSON
     /// </summary>
     public class JsonReader : MonoBehaviour
     {
+        [Header("Feed me a JSON file!")]
         [SerializeField] private TextAsset jsonFile;
 
         /// <summary>
         ///  This class is used to store the properties of an element.
+        ///  NB: The names of the properties must match the names of the properties in the JSON file.
         /// </summary>
         [Serializable]
         public class BaseElement
@@ -28,7 +30,7 @@ namespace Global.JSON
             public float density;
             public float meltingPoint;
             public float boilingPoint;
-            public float[] color;
+            public int[] color;
         }
 
         /// <summary>

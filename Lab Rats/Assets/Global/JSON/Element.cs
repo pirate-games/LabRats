@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Global.JSON
@@ -9,19 +10,20 @@ namespace Global.JSON
     public class Element : MonoBehaviour
     {
         private Renderer _renderer;
-        
+
+        [Header("What JSON file to use")] 
         [SerializeField] private JsonReader elementList;
-        
+
         [Header("What element in the list to use")]
+        [Tooltip("Not the atomic number, but the index in the list")]
         [SerializeField] private int listNumber;
-        
+
         [Header("What colour am I?")]
         [SerializeField] private Color colour;
-        
+
         private void Start()
         {
             _renderer = GetComponent<Renderer>();
-            
             StartCoroutine(DelayedStart());
         }
 
@@ -30,10 +32,13 @@ namespace Global.JSON
         /// </summary>
         private IEnumerator DelayedStart()
         {
-            yield return null; // Wait for JsonReader to Start and populate myElementListWrapper
+            // Wait for JsonReader to Start and populate myElementListWrapper
+            yield return null;
 
             var currentElement = elementList.myElementListWrapper.elements[listNumber];
+            
             AssignProperties(currentElement);
+            SetColorValue(currentElement.color);
             
             _renderer.material.color = colour;
         }
@@ -47,37 +52,31 @@ namespace Global.JSON
             var elementType = element.GetType();
             var properties = elementType.GetProperties();
 
+            // Loop through all the properties of the element and assign them to this object
             foreach (var property in properties)
             {
-                // Get the property from this object 
                 var elementProp = elementType.GetProperty(property.Name);
+
+                // If the property doesn't exist, isn't the same type, or can't be read, skip it
+                if (elementProp == null || elementProp.PropertyType != property.PropertyType || !elementProp.CanRead) continue;
                 
-                if (elementProp == null) continue;
-                if (elementProp.PropertyType != property.PropertyType || !elementProp.CanRead) continue;
-                
+                // Get the value of the property and assign it to this object
                 var val = elementProp.GetValue(element, null);
-                
-                // If the property is a colour, set the colour value
-                if (property.Name == "Color")
-                {
-                   // SetColorValue(val);
-                }
-                else
-                { 
-                    property.SetValue(this, val, null);
-                }
+                property.SetValue(this, val, null);
             }
         }
 
-        private void SetColorValue(object colorValue)
+        /// <summary>
+        ///  Converts the color array from the JSON file to a Color object.
+        /// </summary>
+        /// <param name="colorValue"> the colour value to convert </param>
+        private void SetColorValue(IReadOnlyList<int> colorValue)
         {
-            if (colorValue is not object[] {Length: 4} colorArray) return;
+            var r = (float) colorValue[0] / 255;
+            var g = (float) colorValue[1] / 255;
+            var b = (float) colorValue[2] / 255;
+            var a = (float) colorValue[3] / 255;
 
-            var r = (float) colorArray[0] / 255;
-            var g = (float) colorArray[1] / 255;
-            var b = (float) colorArray[2] / 255;
-            var a = (float) colorArray[3] / 255;
-                
             colour = new Color(r, g, b, a);
         }
     }
