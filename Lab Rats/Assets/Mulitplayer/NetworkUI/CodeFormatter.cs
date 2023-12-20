@@ -18,7 +18,7 @@ namespace Mulitplayer.NetworkUI
 
             var formattedInput = cleanedInput.ToUpper();
 
-            formattedInput = formattedInput[..Mathf.Min(cleanedInput.Length, CodeLength)];
+            formattedInput = formattedInput.Substring(0,Mathf.Min(cleanedInput.Length, CodeLength));
 
             return formattedInput;
         }
