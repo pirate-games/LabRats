@@ -51,35 +51,13 @@ public class FlameController : MonoBehaviour
     }
 
     [Serializable]
-    public struct FlameElement
+    private struct FlameElement
     {
         public string name;
         public FlameColor color;
     }
 
-    private FlameColor _flameColor = FlameColor.Default;
-
-    private FlameColor CurrentFlameColor
-    {
-        get { return _flameColor; }
-        set 
-        { 
-            if (particles == null) return;
-
-            _flameColor = value;
-            color.color = value switch
-            {
-                FlameColor.Red => redGradient,
-                FlameColor.Orange => orangeGradient,
-                FlameColor.Pink => pinkGradient,
-                FlameColor.Purple => purpleGradient,
-                FlameColor.Green => greenGradient,
-                FlameColor.WhiteBlue => whiteBlueGradient,
-                FlameColor.White => whiteGradient,
-                _ => defaultGradient
-            };
-        }
-    }
+    private FlameColor flameColor = FlameColor.Default;
 
     private List<GameObject> collidingObjects = new();
 
@@ -118,6 +96,28 @@ public class FlameController : MonoBehaviour
         velocity.yMultiplier = velocityChangeY * size;
     }
 
+    /// <summary>
+    ///   Adjusts the color of the flame
+    /// </summary>
+    /// <param name="gradient"> The new color gradient for the flame </param>
+    public void SetFlameColor(FlameColor gradient)
+    {
+        if (particles == null) return;
+
+        flameColor = gradient;
+        this.color.color = gradient switch
+        {
+            FlameColor.Red => redGradient,
+            FlameColor.Orange => orangeGradient,
+            FlameColor.Pink => pinkGradient,
+            FlameColor.Purple => purpleGradient,
+            FlameColor.Green => greenGradient,
+            FlameColor.WhiteBlue => whiteBlueGradient,
+            FlameColor.White => whiteGradient,
+            _ => defaultGradient
+        };
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (particles == null) return;
@@ -130,7 +130,7 @@ public class FlameController : MonoBehaviour
 
         //changes color of flame based on newest collision
         if (flameDict.TryGetValue(other.name, out var flame))
-            CurrentFlameColor = flame.color;
+            flameColor = flame.color;
     }
 
     private void OnTriggerExit(Collider other)
@@ -144,12 +144,12 @@ public class FlameController : MonoBehaviour
         }
 
         //checks wether the color needs to be adjusted
-        if (flameDict.TryGetValue(other.name, out var oldFlame) && oldFlame.color == CurrentFlameColor)
+        if (flameDict.TryGetValue(other.name, out var oldFlame) && oldFlame.color == flameColor)
         {
             if (collidingObjects.Count > 0 && flameDict.TryGetValue(collidingObjects[0].name, out var flame))
-                CurrentFlameColor = flame.color;
+                flameColor = flame.color;
             else
-                CurrentFlameColor = FlameColor.Default;
+                flameColor = FlameColor.Default;
         }
     }
 }
