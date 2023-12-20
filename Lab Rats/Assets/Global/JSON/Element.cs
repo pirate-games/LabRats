@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Global.JSON
@@ -20,10 +21,14 @@ namespace Global.JSON
 
         [Header("What colour am I?")]
         [SerializeField] private Color colour;
+        
+        [Header("What is my symbol?")]
+        [SerializeField] private TMP_Text symbolText;
 
         private void Start()
         {
             _renderer = GetComponent<Renderer>();
+            
             StartCoroutine(DelayedStart());
         }
 
@@ -41,6 +46,7 @@ namespace Global.JSON
             SetColorValue(currentElement.color);
             
             _renderer.material.color = colour;
+            symbolText.text = currentElement.symbol;
         }
 
         /// <summary>
