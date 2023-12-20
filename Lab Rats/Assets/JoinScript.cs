@@ -1,7 +1,6 @@
 using UnityEngine;
 using TMPro;
 using Mulitplayer.NetworkUI;
-using Palmmedia.ReportGenerator.Core.Parser.Analysis;
 using UnityEngine.UI;
 
 
@@ -19,10 +18,15 @@ public class JoinScript : MonoBehaviour
     public void Joining()
     {
 
-        var inputCode = input.text;
+        var inputCode = input.text.ToFormattedCode();
 
-        if (inputCode.Length == 6) networkConnecter.Join(inputCode);
+        if (inputCode.Length == CodeFormatter.CodeLength) networkConnecter.Join(inputCode);
         else  Debug.Log("LOL code wrong, be better donut");
+    }
+
+    public void CorrectCode()
+    {
+        input.text = input.text.ToFormattedCode();
     }
     
     public void ToggleButton()

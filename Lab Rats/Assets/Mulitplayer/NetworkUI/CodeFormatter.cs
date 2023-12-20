@@ -22,5 +22,6 @@ namespace Mulitplayer.NetworkUI
 
             return formattedInput;
         }
+        
     }
 }
