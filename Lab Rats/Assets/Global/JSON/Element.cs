@@ -16,7 +16,7 @@ namespace Global.JSON
         [SerializeField] private JsonReader elementList;
 
         [Header("What element in the list to use")]
-        [Tooltip("Not the atomic number, but the index in the list")]
+        [Range(0, 96)]
         [SerializeField] private int listNumber;
 
         [Header("What colour am I?")]
@@ -28,7 +28,7 @@ namespace Global.JSON
         private void Start()
         {
             _renderer = GetComponent<Renderer>();
-            
+
             StartCoroutine(DelayedStart());
         }
 
