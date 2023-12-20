@@ -14,7 +14,7 @@ namespace Mulitplayer.NetworkUI
         public static string ToFormattedCode(this string input)
         {
             var cleanedInput = Regex.Replace(input, "[^a-zA-Z0-9]", "")
-                .Replace(@"\s", "");
+                .Replace(" ", "");
 
             var formattedInput = cleanedInput.ToUpper();
 
