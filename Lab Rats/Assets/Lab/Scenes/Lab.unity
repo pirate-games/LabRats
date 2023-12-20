@@ -25834,20 +25834,51 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1146476004458479105, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: flameElements.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146476004458479105, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: flameElements.Array.data[0].name
+      value: Microscope
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146476004458479105, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: flameElements.Array.data[1].name
+      value: Base
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146476004458479105, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: flameElements.Array.data[2].name
+      value: Lens
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146476004458479105, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: flameElements.Array.data[3].name
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146476004458479105, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: flameElements.Array.data[4].name
+      value: Platform
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146476004458479105, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: flameElements.Array.data[1].color
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146476004458479105, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: flameElements.Array.data[2].color
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146476004458479105, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: flameElements.Array.data[3].color
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1146476004458479105, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: flameElements.Array.data[4].color
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 2549565281901587335, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2685484988
       objectReference: {fileID: 0}
-    - target: {fileID: 4599318920114602100, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 69645850
-      objectReference: {fileID: 0}
-    - target: {fileID: 7482251989822767538, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 3671120048
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9218695441049904114, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
