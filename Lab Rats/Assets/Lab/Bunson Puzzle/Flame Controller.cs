@@ -1,3 +1,4 @@
+using Global.JSON;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -36,7 +37,7 @@ public class FlameController : MonoBehaviour
     [Header("Colored Objects")]
     [SerializeField]
     FlameElement[] flameElements;
-    Dictionary<string, FlameElement> flameDict = new();
+    Dictionary<int, FlameElement> flameDict = new();
 
     public enum FlameColor
     {
@@ -53,20 +54,20 @@ public class FlameController : MonoBehaviour
     [Serializable]
     private struct FlameElement
     {
-        public string name;
+        public int atomicNumber;
         public FlameColor color;
     }
 
     private FlameColor flameColor = FlameColor.Default;
 
-    private List<GameObject> collidingObjects = new();
+    private List<Element> collidingElements = new();
 
     private void Start()
     {
         //initialise the dict with the elements from the inspector
         foreach (var flameElement in flameElements)
         {
-            flameDict[flameElement.name] = flameElement;
+            flameDict[flameElement.atomicNumber] = flameElement;
         }
 
         if (!TryGetComponent(out particles)) return;
@@ -120,36 +121,40 @@ public class FlameController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (particles == null) return;
+        Debug.Log("Hit");
+        if (particles == null || !other.TryGetComponent(out Element element) || element.CurrentElement == null) return;
+        Debug.Log(element.CurrentElement.atomicNumber);
+
 
         //adds new collision to list
-        if (!collidingObjects.Contains(other.gameObject))
+        if (!collidingElements.Contains(element))
         {
-            collidingObjects.Add(other.gameObject);
+            collidingElements.Add(element);
         }
 
         //changes color of flame based on newest collision
-        if (flameDict.TryGetValue(other.name, out var flame))
-            flameColor = flame.color;
+        if (flameDict.TryGetValue(element.CurrentElement.atomicNumber, out var flame))
+            SetFlameColor(flame.color);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (particles == null) return;
+        if (particles == null || !other.TryGetComponent(out Element element)) return;
 
         //removes object from collisions list
-        if (collidingObjects.Contains(other.gameObject))
+        if (collidingElements.Contains(element))
         {
-            collidingObjects.Remove(other.gameObject);
+            collidingElements.Remove(element);
         }
+        else return;
 
         //checks wether the color needs to be adjusted
-        if (flameDict.TryGetValue(other.name, out var oldFlame) && oldFlame.color == flameColor)
+        if (flameDict.TryGetValue(element.CurrentElement.atomicNumber, out var oldFlame) && oldFlame.color == flameColor)
         {
-            if (collidingObjects.Count > 0 && flameDict.TryGetValue(collidingObjects[0].name, out var flame))
-                flameColor = flame.color;
+            if (collidingElements.Count > 0 && flameDict.TryGetValue(collidingElements[0].CurrentElement.atomicNumber, out var flame))
+                SetFlameColor(flame.color);
             else
-                flameColor = FlameColor.Default;
+                SetFlameColor(FlameColor.Default);
         }
     }
 }

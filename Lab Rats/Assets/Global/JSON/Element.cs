@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -25,28 +26,19 @@ namespace Global.JSON
         [Header("What is my symbol?")]
         [SerializeField] private TMP_Text symbolText;
 
-        private void Start()
+        public BaseElement CurrentElement { get; set; }
+
+        // This needs to bne done before Start so you can access elements properties on start
+        private void Awake()
         {
             _renderer = GetComponent<Renderer>();
+            CurrentElement = elementList.myElementListWrapper.elements[listNumber];
 
-            StartCoroutine(DelayedStart());
-        }
+            AssignProperties(CurrentElement);
+            SetColorValue(CurrentElement.color);
 
-        /// <summary>
-        ///  Waits for JsonReader to start and populate myElementListWrapper before assigning properties.
-        /// </summary>
-        private IEnumerator DelayedStart()
-        {
-            // Wait for JsonReader to Start and populate myElementListWrapper
-            yield return null;
-
-            var currentElement = elementList.myElementListWrapper.elements[listNumber];
-            
-            AssignProperties(currentElement);
-            SetColorValue(currentElement.color);
-            
             _renderer.material.color = colour;
-            symbolText.text = currentElement.symbol;
+            symbolText.text = CurrentElement.symbol;
         }
 
         /// <summary>
@@ -85,5 +77,26 @@ namespace Global.JSON
 
             colour = new Color(r, g, b, a);
         }
+    }
+
+    /// <summary>
+    ///  This class is used to store the properties of an element.
+    ///  NB: The names of the properties must match the names of the properties in the JSON file.
+    /// </summary>
+    [Serializable]
+    public class BaseElement
+    {
+        public int atomicNumber;
+        public string element;
+        public string symbol;
+        public float atomicMass;
+        public int numberOfNeutrons;
+        public int numberOfProtons;
+        public int numberOfElectrons;
+        public string type;
+        public float density;
+        public float meltingPoint;
+        public float boilingPoint;
+        public int[] color;
     }
 }
