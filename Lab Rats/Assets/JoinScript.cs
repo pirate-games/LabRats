@@ -26,12 +26,15 @@ public class JoinScript : MonoBehaviour
 
     public void CorrectCode()
     {
-        input.text = input.text.ToFormattedCode();
+        if (input.text.Length >= CodeFormatter.CodeLength)
+        {
+            input.text = input.text.ToFormattedCode();
+        }
     }
     
     public void ToggleButton()
     {
-        submitButton.interactable = input.text.Length >= MinimalCodeLenght;
+        submitButton.interactable = input.text.Length >= CodeFormatter.CodeLength;
         submitText.color = input.text.Length >= MinimalCodeLenght ? Color.black : new(1, 1, 1, 0.5f);
 
     }
