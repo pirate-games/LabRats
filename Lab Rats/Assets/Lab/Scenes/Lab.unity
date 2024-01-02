@@ -318,72 +318,6 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1001 &3402094
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2131410815}
-    m_Modifications:
-    - target: {fileID: 6976233700780430577, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 1372299469
-      objectReference: {fileID: 0}
-    - target: {fileID: 7086360634253226014, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_Name
-      value: Lab Equip E
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.8343363
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.8097
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.3664
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7260574
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.68763417
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 86.886
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
---- !u!4 &3402095 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-  m_PrefabInstance: {fileID: 3402094}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8904879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1215,6 +1149,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 261763853}
     m_Modifications:
+    - target: {fileID: 5626842823254075465, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: m_Name
       value: Lab Equip B (7)
@@ -1456,6 +1394,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2094476677560936093, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 2549565281901587335, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1657759682
@@ -1584,6 +1526,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2094476677560936093, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 2549565281901587335, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3791489429
@@ -1880,72 +1826,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1001 &80256242
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 2131410815}
-    m_Modifications:
-    - target: {fileID: 6976233700780430577, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 3876905201
-      objectReference: {fileID: 0}
-    - target: {fileID: 7086360634253226014, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_Name
-      value: Lab Equip E (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.87099934
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.821
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.568
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.66922116
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.63380575
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.26670408
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.28160676
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 86.886
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: -45.643
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
---- !u!4 &80256243 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
-  m_PrefabInstance: {fileID: 80256242}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &82278845 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6716489930810285067, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
@@ -2087,6 +1967,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1656619754
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9580002
@@ -2443,6 +2327,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 231168549
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.167
@@ -2980,6 +2868,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2094476677560936093, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 2549565281901587335, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2354544772
@@ -3347,6 +3239,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 554617474
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9580002
@@ -3815,6 +3711,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lab Equip C (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3900174414907765410, guid: 9ceceb37c7055ad4fab6814cd8dfc874, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5523,6 +5423,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 261763853}
     m_Modifications:
+    - target: {fileID: 5626842823254075465, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: m_Name
       value: Lab Equip B (8)
@@ -5995,6 +5899,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lab Equip C (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3900174414907765410, guid: 9ceceb37c7055ad4fab6814cd8dfc874, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6584,6 +6492,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2094476677560936093, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 2549565281901587335, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1435780470
@@ -8025,6 +7937,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 261763853}
     m_Modifications:
+    - target: {fileID: 5626842823254075465, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: m_Name
       value: Lab Equip B (3)
@@ -8222,6 +8138,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2094476677560936093, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 2549565281901587335, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 1711724241
@@ -8818,6 +8738,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 261763853}
     m_Modifications:
+    - target: {fileID: 5626842823254075465, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: m_Name
       value: Lab Equip B (9)
@@ -10152,6 +10076,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2094476677560936093, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 2549565281901587335, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2168465197
@@ -10207,6 +10135,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 671316832
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.06
@@ -11917,6 +11849,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1833767709
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.06
@@ -14129,6 +14065,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 261763853}
     m_Modifications:
+    - target: {fileID: 5626842823254075465, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: m_Name
       value: Lab Equip B (5)
@@ -14385,6 +14325,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 261763853}
     m_Modifications:
+    - target: {fileID: 5626842823254075465, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: m_Name
       value: Lab Equip B (11)
@@ -14763,6 +14707,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2094476677560936093, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 2549565281901587335, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2560576107
@@ -15276,6 +15224,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lab Equip C (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3900174414907765410, guid: 9ceceb37c7055ad4fab6814cd8dfc874, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16013,6 +15965,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 624186315
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.167
@@ -16967,6 +16923,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3965386581
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9580002
@@ -17201,6 +17161,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lab Equip C (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3900174414907765410, guid: 9ceceb37c7055ad4fab6814cd8dfc874, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17395,6 +17359,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 261763853}
     m_Modifications:
+    - target: {fileID: 5626842823254075465, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: m_Name
       value: Lab Equip B (6)
@@ -17465,6 +17433,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1212507627
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9580002
@@ -19819,6 +19791,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3694444906
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.06
@@ -20451,6 +20427,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2094476677560936093, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 2549565281901587335, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 764880405
@@ -23104,6 +23084,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 261763853}
     m_Modifications:
+    - target: {fileID: 5626842823254075465, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: m_Name
       value: Lab Equip B (10)
@@ -23705,6 +23689,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2094476677560936093, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 2549565281901587335, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2766891248
@@ -23873,6 +23861,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 261763853}
     m_Modifications:
+    - target: {fileID: 5626842823254075465, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: m_Name
       value: Lab Equip B (17)
@@ -24959,6 +24951,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2094316697
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.06
@@ -25249,6 +25245,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2181255367
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.167
@@ -25377,6 +25377,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2362689402
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.167
@@ -26223,6 +26227,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2685288727
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.06
@@ -27220,6 +27228,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 261763853}
     m_Modifications:
+    - target: {fileID: 5626842823254075465, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: m_Name
       value: Lab Equip B (14)
@@ -28052,6 +28064,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2094476677560936093, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 2549565281901587335, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2128151604
@@ -28481,7 +28497,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.805
+      value: 0.817
       objectReference: {fileID: 0}
     - target: {fileID: 7573963716912868004, guid: 80f824f30e67c8a4e9c5148eef93e08f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -31402,6 +31418,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 261763853}
     m_Modifications:
+    - target: {fileID: 5626842823254075465, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: m_Name
       value: Lab Equip B (16)
@@ -31722,6 +31742,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lab Equip C (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3900174414907765410, guid: 9ceceb37c7055ad4fab6814cd8dfc874, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31815,6 +31839,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1612537012
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9580002
@@ -33443,6 +33471,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lab Equip C (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 3900174414907765410, guid: 9ceceb37c7055ad4fab6814cd8dfc874, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34576,6 +34608,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 261763853}
     m_Modifications:
+    - target: {fileID: 5626842823254075465, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: m_Name
       value: Lab Equip B (15)
@@ -36050,6 +36086,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 261763853}
     m_Modifications:
+    - target: {fileID: 5626842823254075465, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: m_Name
       value: Lab Equip B (13)
@@ -36944,6 +36984,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lab Equip C (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 3900174414907765410, guid: 9ceceb37c7055ad4fab6814cd8dfc874, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -38562,6 +38606,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 4038963087
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.167
@@ -38694,6 +38742,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3256275030
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.167
@@ -39624,6 +39676,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 261763853}
     m_Modifications:
+    - target: {fileID: 5626842823254075465, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: m_Name
       value: Lab Equip B (12)
@@ -42695,6 +42751,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2260560872
       objectReference: {fileID: 0}
+    - target: {fileID: 5127542439411934385, guid: c589619652aa92642ab559884a48346d, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 6297048718172266462, guid: c589619652aa92642ab559884a48346d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.9580002
@@ -42786,8 +42846,6 @@ Transform:
   - {fileID: 1477331460}
   - {fileID: 1969371701}
   - {fileID: 434488527}
-  - {fileID: 3402095}
-  - {fileID: 80256243}
   - {fileID: 1911638542}
   - {fileID: 1349266763}
   - {fileID: 1020870588}
@@ -42965,6 +43023,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2094476677560936093, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
     - target: {fileID: 2549565281901587335, guid: 74723bf171d71a349a8fc76f54db2db6, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3985311833
