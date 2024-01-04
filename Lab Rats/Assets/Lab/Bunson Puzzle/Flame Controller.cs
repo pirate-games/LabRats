@@ -121,10 +121,7 @@ public class FlameController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Hit");
         if (particles == null || !other.TryGetComponent(out Element element) || element.CurrentElement == null) return;
-        Debug.Log(element.CurrentElement.atomicNumber);
-
 
         //adds new collision to list
         if (!collidingElements.Contains(element))
