@@ -1,7 +1,7 @@
 using Unity.VRTemplate;
 using UnityEngine;
 
-namespace Lab.Wheel
+namespace Lab.Steam_Puzzle.Wheel_System
 {
     /// <summary>
     ///   This class is used to control a VR wheel.

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Lab.Wheel
+namespace Lab.Steam_Puzzle.Wheel_System
 {
     /// <summary>
     ///  Activates a particle system when a trigger is activated.
@@ -15,7 +15,11 @@ namespace Lab.Wheel
         
         private ParticleSystem.VelocityOverLifetimeModule _velocityModule;
         private ParticleSystem _particleSystem;
-     
+        
+        /// <summary>
+        ///  Returns true if the particle system is activated by the trigger.
+        /// </summary>
+        public bool IsActivated => isActivated;
 
         private void Start()
         {
