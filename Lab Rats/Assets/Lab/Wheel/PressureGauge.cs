@@ -1,25 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PressureGauge : MonoBehaviour
+namespace Lab.Wheel
 {
-    [SerializeField] private GameObject followObject;
-    [SerializeField] private float rotationSpeed = 0.5f; // Adjust this value to control the rotation speed
-
-    void FixedUpdate()
+    /// <summary>
+    ///  This class is used to control a pressure gauge.
+    /// </summary>
+    public class PressureGauge : MonoBehaviour
     {
-        Quaternion targetRotation = followObject.transform.rotation;
+        [Header("Which object am I linked to?")]
+        [SerializeField] private GameObject followObject;
+        
+        [Header("How fast should I rotate with the follow object?")]
+        [Range(0f, 1f)]
+        [SerializeField] private float rotationSpeed = 0.5f; 
 
-        // Interpolate between the current rotation and the target rotation by a factor of 0.5
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed);
+        private void FixedUpdate()
+        {
+            var targetRotation = followObject.transform.rotation;
+
+            // Interpolate between the current rotation and the target rotation by a factor of 0.5
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed);
+        }
     }
-
-
-
-
-
-
-
-
 }
