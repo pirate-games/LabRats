@@ -11749,9 +11749,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3f43ee8eb175364091ab778ad47b217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Tag: Coal
+  objectTag: 
   amountOfObjects: 10
-  currentAmount: 0
 --- !u!65 &551603514
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -22541,7 +22540,6 @@ Transform:
   - {fileID: 279820568}
   - {fileID: 266523035}
   - {fileID: 1593086091}
-  - {fileID: 1300003261}
   - {fileID: 683228540}
   - {fileID: 2096609724}
   - {fileID: 156698075}
@@ -27573,80 +27571,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6547709725506150784, guid: c2a2a7414cc6aa641a78cf16f1a0e2b5, type: 3}
   m_PrefabInstance: {fileID: 1296458694}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1300003260
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1028549657}
-    m_Modifications:
-    - target: {fileID: 552588806683659729, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-      propertyPath: m_Name
-      value: Fire
-      objectReference: {fileID: 0}
-    - target: {fileID: 6396257407160429660, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.20000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 6396257407160429660, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.19999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 6396257407160429660, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.19999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 6396257407160429660, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -3.7627563
-      objectReference: {fileID: 0}
-    - target: {fileID: 6396257407160429660, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.218
-      objectReference: {fileID: 0}
-    - target: {fileID: 6396257407160429660, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 3.0308247
-      objectReference: {fileID: 0}
-    - target: {fileID: 6396257407160429660, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.50529724
-      objectReference: {fileID: 0}
-    - target: {fileID: 6396257407160429660, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.49464613
-      objectReference: {fileID: 0}
-    - target: {fileID: 6396257407160429660, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.49464732
-      objectReference: {fileID: 0}
-    - target: {fileID: 6396257407160429660, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.505296
-      objectReference: {fileID: 0}
-    - target: {fileID: 6396257407160429660, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6396257407160429660, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6396257407160429660, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
---- !u!4 &1300003261 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6396257407160429660, guid: 2d550eca23414e549a2de0d4cfe6f3f4, type: 3}
-  m_PrefabInstance: {fileID: 1300003260}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1300365858
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27789,7 +27713,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7911721902561224774, guid: 6f429b222c870e142a83872f24f49ab4, type: 3}
   m_PrefabInstance: {fileID: 6879088050223006773}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1309108896
+--- !u!114 &1309108902
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -27798,17 +27722,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1309108894}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbdab2ad08c9d5044bf8fd5026695840, type: 3}
+  m_Script: {fileID: 11500000, guid: 72ac4da626c2ecc49a8ce9c808138945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentWheel: {fileID: 1705829729}
-  thisParticleSystem: {fileID: 1309108899}
   maxVelocity: 1.12
---- !u!198 &1309108899 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 2973685600230734511, guid: 6f429b222c870e142a83872f24f49ab4, type: 3}
-  m_PrefabInstance: {fileID: 6879088050223006773}
-  m_PrefabAsset: {fileID: 0}
+  isActivated: 0
 --- !u!1 &1310468510
 GameObject:
   m_ObjectHideFlags: 0
@@ -35469,9 +35388,10 @@ MonoBehaviour:
   m_OnValueChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1309108896}
-        m_TargetAssemblyTypeName: ActivateParticleOnTrigger, Assembly-CSharp
-        m_MethodName: changeValue
+      - m_Target: {fileID: 1309108902}
+        m_TargetAssemblyTypeName: Lab.Steam_Puzzle.Wheel_System.ActivateParticleOnTrigger,
+          Assembly-CSharp
+        m_MethodName: IncreaseVelocity
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -38500,8 +38420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae62b5244b9a0d54b9e817a77845b587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followObject: {fileID: 746334683}
-  rotationSpeed: 0.5
 --- !u!1001 &1834660085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44077,7 +43995,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5387167583922187359, guid: 6f429b222c870e142a83872f24f49ab4, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1309108896}
+      addedObject: {fileID: 1309108902}
   m_SourcePrefab: {fileID: 100100000, guid: 6f429b222c870e142a83872f24f49ab4, type: 3}
 --- !u!1001 &7022242885015948263
 PrefabInstance:
