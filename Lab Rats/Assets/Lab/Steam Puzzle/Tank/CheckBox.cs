@@ -11,9 +11,10 @@ namespace Lab.Steam_Puzzle.Tank
         [SerializeField] private int amountOfObjects;
 
         public readonly List<GameObject> objectsInTank = new();
-        
+        public readonly List<CoalEmmsion> coalEmmsions = new();
+
         private bool _isActive;
-        private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
+        private string EmissionColor = "_EmissionColor";
 
         /// <summary>
         ///  Returns true if the amount of objects in the tank is equal to the amount
@@ -26,6 +27,9 @@ namespace Lab.Steam_Puzzle.Tank
             if (other.CompareTag(objectTag))
             {
                 objectsInTank.Add(other.gameObject);
+                other.gameObject.GetComponent<CoalEmmsion>().coolingDown = false;
+                coalEmmsions.Add(other.gameObject.GetComponent<CoalEmmsion>());
+
             }
         }
         private void OnTriggerExit(Collider other)
@@ -33,6 +37,9 @@ namespace Lab.Steam_Puzzle.Tank
             if (other.CompareTag(objectTag))
             {
                 objectsInTank.Remove(other.gameObject);
+                other.gameObject.GetComponent<CoalEmmsion>().coolingDown = true;
+                coalEmmsions.Remove(other.gameObject.GetComponent<CoalEmmsion>());
+
             }
         }
 
@@ -41,21 +48,29 @@ namespace Lab.Steam_Puzzle.Tank
             _isActive = objectsInTank.Count == amountOfObjects;
         }
 
-        public void UpdateCoalProperties()
+        public void heatUpCoal(float oxygen)
         {
-            foreach (var o in objectsInTank)
+            foreach (var o in coalEmmsions)
             {
-                // change emission value of gameObject
-                var objectMat = o.GetComponent<Renderer>().material;
-                var emissionColour = objectMat.GetColor(EmissionColor);
-                
-                // change emission colour
-                var newEmissionColour = new Color(emissionColour.r, emissionColour.g, emissionColour.b, 5);
-                objectMat.SetColor(EmissionColor, newEmissionColour);
-                
-                var objectInt = o.GetComponent<XRGrabInteractable>();
-                objectInt.enabled = false;
+                o.heatUp(oxygen);
             }
+        }
+        public void coolDownCoal()
+        {
+            foreach (var o in coalEmmsions)
+            {
+                o.cooldown();
+            }
+        }
+
+        public float getTemp()
+        {
+            float temp = 0;
+            foreach (var o in coalEmmsions)
+            {
+                temp += o.Temperature;
+            }
+            return temp;       
         }
     }
 }

@@ -20,6 +20,7 @@ namespace Lab.Steam_Puzzle.Wheel_System
         ///  Returns true if the particle system is activated by the trigger.
         /// </summary>
         public bool IsActivated => isActivated;
+        public Wheel wheel => currentWheel;
 
         private void Start()
         {

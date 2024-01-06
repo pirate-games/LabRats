@@ -12,8 +12,14 @@ namespace Lab.Steam_Puzzle.Wheel_System
         
         private void FixedUpdate()
         {
-            if (isSelected || !(value < 1)) return;
-            value += turnBackSpeed;
+            if (value < 1 && isSelected)
+            {
+                return;
+            }
+            else
+            {
+                value += turnBackSpeed * Time.deltaTime;
+            }
         }
     }
 }
