@@ -6673,7 +6673,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: daaa36bb70e54c542b0ee6f39e27a00b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.543813
+      value: -7.383
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: daaa36bb70e54c542b0ee6f39e27a00b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6714,7 +6714,7 @@ PrefabInstance:
     - target: {fileID: -895306380916907690, guid: daaa36bb70e54c542b0ee6f39e27a00b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 04b4eb4a1bd87074898aae1d791d7ff6, type: 2}
+      objectReference: {fileID: 2100000, guid: f1138df994b417e4cbc235385a5483d2, type: 2}
     - target: {fileID: 919132149155446097, guid: daaa36bb70e54c542b0ee6f39e27a00b, type: 3}
       propertyPath: m_Name
       value: Tank A
@@ -6723,6 +6723,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 4b3ac8d3fb5ce8341b79c7826c14de6d, type: 2}
+    - target: {fileID: 8151023354082563727, guid: daaa36bb70e54c542b0ee6f39e27a00b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f1138df994b417e4cbc235385a5483d2, type: 2}
+    - target: {fileID: 8396378743792990473, guid: daaa36bb70e54c542b0ee6f39e27a00b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f1138df994b417e4cbc235385a5483d2, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32210,7 +32218,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: f1138df994b417e4cbc235385a5483d2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -32249,8 +32257,8 @@ Transform:
   m_GameObject: {fileID: 1593086087}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.6995361, z: -0, w: 0.7145973}
-  m_LocalPosition: {x: -7.473, y: 0.586, z: 6.207}
-  m_LocalScale: {x: 1.3364052, y: 0.16705067, z: 1.3364052}
+  m_LocalPosition: {x: -7.455, y: 2.449, z: 6.211}
+  m_LocalScale: {x: 1.3364052, y: 0.04399752, z: 1.3364052}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1028549657}
