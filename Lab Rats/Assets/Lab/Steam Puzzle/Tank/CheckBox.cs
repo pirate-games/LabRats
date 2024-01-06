@@ -10,17 +10,8 @@ namespace Lab.Steam_Puzzle.Tank
         [SerializeField] private string objectTag;
         [SerializeField] private int amountOfObjects;
 
-        public readonly List<GameObject> objectsInTank = new();
+        public List<GameObject> objectsInTank = new();
         public readonly List<CoalEmmsion> coalEmmsions = new();
-
-        private bool _isActive;
-        private string EmissionColor = "_EmissionColor";
-
-        /// <summary>
-        ///  Returns true if the amount of objects in the tank is equal to the amount
-        /// of objects needed to activate the tank.
-        /// </summary>
-        public bool IsActive => _isActive;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -41,11 +32,6 @@ namespace Lab.Steam_Puzzle.Tank
                 coalEmmsions.Remove(other.gameObject.GetComponent<CoalEmmsion>());
 
             }
-        }
-
-        private void FixedUpdate()
-        {
-            _isActive = objectsInTank.Count == amountOfObjects;
         }
 
         public void heatUpCoal(float oxygen)
