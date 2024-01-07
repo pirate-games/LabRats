@@ -224,7 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 797911757170843079}
   - component: {fileID: 5761399365827044156}
-  - component: {fileID: 3189607853771971483}
+  - component: {fileID: 4431619531026813392}
   m_Layer: 0
   m_Name: Input Box
   m_TagString: Untagged
@@ -268,7 +268,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.45, y: 0.45, z: 0.45}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &3189607853771971483
+--- !u!114 &4431619531026813392
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -277,15 +277,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 389915993710195346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d552d944fbfcbb4e95099cf8956f743, type: 3}
+  m_Script: {fileID: 11500000, guid: aea04f552d9849a99df300c8da97f247, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  elementChangedEvent:
+  onTriggerEnter:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3787540303015404210}
         m_TargetAssemblyTypeName: BulbController, Assembly-CSharp
-        m_MethodName: SetLight
+        m_MethodName: set_ElementModel
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -295,7 +295,24 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  conductivities: 00000000000000000000000002000000030000000000000000000000000000000000000000000000000000000300000003000000030000000000000000000000000000000000000000000000020000000300000000000000000000000100000001000000000000000200000002000000020000000300000002000000010000000000000000000000000000000000000000000000010000000100000000000000000000000100000002000000010000000200000003000000020000000400000002000000020000000200000000000000000000000000000000000000010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000010000000200000001000000020000000200000002000000030000000000000001000000010000000000000000000000000000000000000000000000000000000000000001000000010000000000000000000000000000000000000000000000
+  onTriggerStay:
+    m_PersistentCalls:
+      m_Calls: []
+  onTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3787540303015404210}
+        m_TargetAssemblyTypeName: BulbController, Assembly-CSharp
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &792526107282791301
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,18 +365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glassMaterial: {fileID: 2100000, guid: c53572d9c3d046b429522492131c577d, type: 2}
   filamentMaterial: {fileID: 2100000, guid: 404754442b725a64eae9920b34720e20, type: 2}
-  glassColors:
-  - {r: 0.037146226, g: 0.031717043, b: 0.005782196, a: NaN}
-  - {r: 0.07429245, g: 0.06343409, b: 0.011564392, a: NaN}
-  - {r: 0.1485849, g: 0.12686817, b: 0.023128783, a: NaN}
-  - {r: 0.2971698, g: 0.25373635, b: 0.046257567, a: NaN}
-  - {r: 0.5943396, g: 0.5074727, b: 0.09251513, a: NaN}
-  filamentColors:
-  - {r: 0.10034742, g: 0.06092523, b: 0, a: 1}
-  - {r: 0.20069484, g: 0.12185046, b: 0, a: 1}
-  - {r: 0.4013897, g: 0.24370092, b: 0, a: 1}
-  - {r: 0.8027794, g: 0.48740184, b: 0, a: 1}
-  - {r: 0.7490196, g: 0.45490196, b: 0, a: 1}
+  resistanceMultiplier: 5
 --- !u!1 &929193606634922186
 GameObject:
   m_ObjectHideFlags: 0
