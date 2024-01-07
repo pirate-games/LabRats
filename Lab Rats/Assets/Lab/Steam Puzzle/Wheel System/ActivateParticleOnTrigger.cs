@@ -29,12 +29,18 @@ namespace Lab.Steam_Puzzle.Wheel_System
         }
 
         private void FixedUpdate()
-        {
-            if (!isActivated) return;
-            
+        {            
             _velocityModule.y = maxVelocity * (1 - currentWheel.value);
 
-            if (currentWheel.value >= 1) isActivated = false;
+            if (currentWheel.value >= 1)
+            {
+                isActivated = false;
+            }
+            else
+            {
+                isActivated = true;
+            }
+
         }
 
         public void IncreaseVelocity() => isActivated = true;

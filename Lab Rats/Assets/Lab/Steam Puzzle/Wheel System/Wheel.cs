@@ -12,7 +12,7 @@ namespace Lab.Steam_Puzzle.Wheel_System
         
         private void FixedUpdate()
         {
-            if (value < 1 && isSelected)
+            if (value < 1)
             {
                 return;
             }

@@ -10,15 +10,19 @@ namespace Lab.Steam_Puzzle.Tank
         [SerializeField] private CheckBox checkBox;
         [SerializeField] private ActivateParticleOnTrigger oxygen;
         [SerializeField] private XRKnob knob;
+        [SerializeField] private MoveObject plunger;
+        [SerializeField] private ParticleSystem steam;
+        [Range(0, 100)]
+        [SerializeField] private float GaugePercentageFullActivation = 75;
 
-        [Header("How slow should the temp increase")] [Range(0, 1)]
-        [SerializeField] private float increasePressureSpeed = 0.01f;
-        
+        [SerializeField] private float increasePressureSpeed = 0.000001f;
+        private bool goUp = true, goDown = true;
         private float _pressure;
         private float _temperature;
         [SerializeField] private PressureGauge gauge;
         [SerializeField]private float _maxPressure;
         [SerializeField] private float _pressureLoss;
+
 
         /// <summary>
         ///  The pressure value of the tank 
@@ -54,6 +58,27 @@ namespace Lab.Steam_Puzzle.Tank
                     _pressure = 0;
                 }
                 gauge.UpdateRotation(_pressure);
+            }
+            if (100 / _maxPressure * _pressure >= GaugePercentageFullActivation && goUp)
+            {
+                plunger.canMove = true;
+                goUp = false;
+                goDown = true;
+            }
+            else if(100 / _maxPressure * _pressure <= GaugePercentageFullActivation && goDown)
+            {
+                plunger.canMove = false;
+
+                goUp = true;
+                goDown = false;
+            }
+            if (100 / _maxPressure * _pressure > 0 && steam.isStopped)
+            {
+                steam.Play();
+            }
+            else if(100 / _maxPressure * _pressure <= 0 && steam.isPlaying)
+            {
+                steam.Stop();
             }
         }
     }
