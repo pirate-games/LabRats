@@ -39,7 +39,7 @@ namespace Lab.Steam_Puzzle.Tank
 
             if (oxygen.IsActivated && checkKnobTurned)
             {
-                _temperature = checkBox.getTemp()*1-oxygen.wheel.value;
+                _temperature = checkBox.getTemp()*(1-oxygen.wheel.value);
                 _pressure += (checkBox.getTemp() * checkBox.getTemp() * checkBox.getTemp()) * increasePressureSpeed;
                 if (_pressure > _maxPressure)
                 {
@@ -72,14 +72,19 @@ namespace Lab.Steam_Puzzle.Tank
                 goUp = true;
                 goDown = false;
             }
-            if (100 / _maxPressure * _pressure > 0 && steam.isStopped)
+            if (100 / _maxPressure * _pressure > 0)
             {
-                steam.Play();
+                // Stop and clear the particle system
+                var emmision = steam.emission;
+                emmision.enabled = true;
             }
-            else if(100 / _maxPressure * _pressure <= 0 && steam.isPlaying)
+            else if (100 / _maxPressure * _pressure <= 0)
             {
-                steam.Stop();
+                // Stop the particle system
+                var emmision = steam.emission;
+                emmision.enabled = false;
             }
+
         }
     }
 }
