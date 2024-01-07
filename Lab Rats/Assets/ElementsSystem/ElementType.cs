@@ -1,11 +1,14 @@
 ﻿namespace ElementsSystem
 {
+    /// <summary>
+    /// The type of element.
+    /// </summary>
     public enum ElementType
     {
         Unknown,
         TransitionMetal,
         Lanthanide,
-        Actinide,
+        Actinides,
         NonMetal,
         Metalloid,
         Metal,

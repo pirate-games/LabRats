@@ -1,23 +1,33 @@
-﻿using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ElementsSystem
 {
     public class ElementObject : ScriptableObject
     {
-        [SerializeField] private int atomicNumber;
-        [SerializeField] private string element;
-        [SerializeField] private string symbol;
-        [SerializeField] private float atomicMass;
-        [SerializeField] private int numberOfNeutrons;
-        [SerializeField] private int numberOfProtons;
-        [SerializeField] private int numberOfElectrons;
-        [SerializeField] private string type;
-        [SerializeField] private float density;
-        [SerializeField] private float resistance;
-        [SerializeField] private float meltingPoint;
-        [SerializeField] private float boilingPoint;
-        [SerializeField] private Color32 color;
+        [Header("General")]
+        [SerializeField] internal string element;
+        [SerializeField] internal string symbol;
+        [SerializeField] internal int atomicNumber;
+        
+        [Header("Mass")]
+        [SerializeField] internal float atomicMass;
+        
+        [Header("Structure")]
+        [SerializeField] internal int numberOfNeutrons;
+        [SerializeField] internal int numberOfProtons;
+        [SerializeField] internal int numberOfElectrons;
+        
+        [Header("Type")]
+        [SerializeField] internal ElementType type;
+        
+        [Header("Properties")]
+        [SerializeField] internal float density;
+        [SerializeField] internal float resistivity;
+        [SerializeField] internal float meltingPoint;
+        [SerializeField] internal float boilingPoint;
+        
+        [Header("Color")]
+        [SerializeField] internal Color32 color;
 
         public int AtomicNumber => atomicNumber;
         
@@ -33,11 +43,11 @@ namespace ElementsSystem
 
         public int NumberOfElectrons => numberOfElectrons;
 
-        public string ElementType => type;
+        public ElementType ElementType => type;
 
         public float Density => density;
         
-        public float Resistance => resistance;
+        public float Resistivity => resistivity;
 
         public float MeltingPoint => meltingPoint;
 
@@ -45,16 +55,15 @@ namespace ElementsSystem
 
         public Color32 Color => color;
 
-#if UNITY_EDITOR
-        [MenuItem("Assets/Generate Element Files")]
-        private static void GenerateElementFiles()
+        public override string ToString()
         {
-            // Create menu to choose json file and generate element SO's
+            // This is used to display the element name in the inspector
+            return $"ElementObject: {element}";
         }
-#endif
-
+        
         public override bool Equals(object other)
         {
+            // Since the element name is unique, we can use it to compare two ElementObjects
             return other is ElementObject elementObject && elementObject.Element == element;
         }
         
