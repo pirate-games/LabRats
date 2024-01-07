@@ -19,7 +19,7 @@ public class SafeFunctionality : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (keypad.correct)
+        if (keypad.correct & !isOpen)
         {
             openDoor();
         }
