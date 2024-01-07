@@ -1,7 +1,9 @@
+using ElementsSystem;
 using Global.JSON;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Rendering.FilterWindow;
 
 public class FlameController : MonoBehaviour
 {
@@ -60,7 +62,7 @@ public class FlameController : MonoBehaviour
 
     private FlameColor flameColor = FlameColor.Default;
 
-    private List<Element> collidingElements = new();
+    private List<ElementObject> collidingElements = new();
 
     private void Start()
     {
@@ -119,9 +121,10 @@ public class FlameController : MonoBehaviour
         };
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void ElementEnter(ElementModel model)
     {
-        if (particles == null || !other.TryGetComponent(out Element element) || element.CurrentElement == null) return;
+        var element = model.ElementObject;
+        if (particles == null || element == null) return;
 
         //adds new collision to list
         if (!collidingElements.Contains(element))
@@ -130,13 +133,14 @@ public class FlameController : MonoBehaviour
         }
 
         //changes color of flame based on newest collision
-        if (flameDict.TryGetValue(element.CurrentElement.atomicNumber, out var flame))
+        if (flameDict.TryGetValue(element.atomicNumber, out var flame))
             SetFlameColor(flame.color);
     }
 
-    private void OnTriggerExit(Collider other)
+    public void ElementExit(ElementModel model)
     {
-        if (particles == null || !other.TryGetComponent(out Element element)) return;
+        var element = model.ElementObject;
+        if (particles == null || element == null) return;
 
         //removes object from collisions list
         if (collidingElements.Contains(element))
@@ -146,9 +150,9 @@ public class FlameController : MonoBehaviour
         else return;
 
         //checks wether the color needs to be adjusted
-        if (flameDict.TryGetValue(element.CurrentElement.atomicNumber, out var oldFlame) && oldFlame.color == flameColor)
+        if (flameDict.TryGetValue(element.atomicNumber, out var oldFlame) && oldFlame.color == flameColor)
         {
-            if (collidingElements.Count > 0 && flameDict.TryGetValue(collidingElements[0].CurrentElement.atomicNumber, out var flame))
+            if (collidingElements.Count > 0 && flameDict.TryGetValue(collidingElements[0].atomicNumber, out var flame))
                 SetFlameColor(flame.color);
             else
                 SetFlameColor(FlameColor.Default);
