@@ -39,14 +39,14 @@ namespace Lab.Steam_Puzzle.Tank
 
             if (oxygen.IsActivated && checkKnobTurned)
             {
-                _temperature = checkBox.getTemp()*(1-oxygen.wheel.value);
+                _temperature = checkBox.getTemp()*(1-oxygen.wheel.Value);
                 _pressure += (checkBox.getTemp() * checkBox.getTemp() * checkBox.getTemp()) * increasePressureSpeed;
                 if (_pressure > _maxPressure)
                 {
                     _pressure = _maxPressure;
                 }
                 gauge.UpdateRotation(_pressure);
-                checkBox.heatUpCoal(oxygen.wheel.value);
+                checkBox.heatUpCoal(oxygen.wheel.Value);
             }
             else
             {

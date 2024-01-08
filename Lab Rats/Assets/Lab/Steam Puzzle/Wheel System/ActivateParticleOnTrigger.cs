@@ -30,9 +30,9 @@ namespace Lab.Steam_Puzzle.Wheel_System
 
         private void FixedUpdate()
         {            
-            _velocityModule.y = maxVelocity * (1 - currentWheel.value);
+            _velocityModule.y = maxVelocity * (1 - currentWheel.Value);
 
-            if (currentWheel.value >= 1)
+            if (currentWheel.Value >= 1)
             {
                 isActivated = false;
             }

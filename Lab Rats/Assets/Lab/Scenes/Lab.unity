@@ -999,6 +999,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2129838572}
     m_Modifications:
+    - target: {fileID: 3779654892059841090, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2686995600
+      objectReference: {fileID: 0}
     - target: {fileID: 6232441668493051569, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
       propertyPath: m_Name
       value: Shelf B
@@ -9874,6 +9878,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Steam
       objectReference: {fileID: 0}
+    - target: {fileID: 6202326084850879301, guid: 6f429b222c870e142a83872f24f49ab4, type: 3}
+      propertyPath: currentWheel
+      value: 
+      objectReference: {fileID: 1705829733}
     - target: {fileID: 7911721902561224774, guid: 6f429b222c870e142a83872f24f49ab4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.406
@@ -13264,6 +13272,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 126970827}
     m_Modifications:
+    - target: {fileID: 3779654892059841090, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2277264979
+      objectReference: {fileID: 0}
     - target: {fileID: 6232441668493051569, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
       propertyPath: m_Name
       value: Shelf B
@@ -17181,13 +17193,10 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 320d7bde7ff55ad41ba33236d16725d3, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1705829729}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 320d7bde7ff55ad41ba33236d16725d3, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1705829730}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 320d7bde7ff55ad41ba33236d16725d3, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 1705829731}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 320d7bde7ff55ad41ba33236d16725d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1705829733}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 320d7bde7ff55ad41ba33236d16725d3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1705829732}
@@ -17205,6 +17214,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2129838572}
     m_Modifications:
+    - target: {fileID: 3779654892059841090, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2605315791
+      objectReference: {fileID: 0}
     - target: {fileID: 6232441668493051569, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
       propertyPath: m_Name
       value: Shelf B (1)
@@ -24066,6 +24079,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1644321394}
     m_Modifications:
+    - target: {fileID: 3779654892059841090, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2730868154
+      objectReference: {fileID: 0}
     - target: {fileID: 6232441668493051569, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
       propertyPath: m_Name
       value: Shelf B (1)
@@ -29746,7 +29763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ac4da626c2ecc49a8ce9c808138945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWheel: {fileID: 1705829729}
+  currentWheel: {fileID: 1705829733}
   maxVelocity: 1.12
   isActivated: 0
 --- !u!114 &1309108906
@@ -38469,7 +38486,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 320d7bde7ff55ad41ba33236d16725d3, type: 3}
   m_PrefabInstance: {fileID: 746334682}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1705829729
+--- !u!114 &1705829731
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38478,7 +38495,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 746334683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1944d30330b540c4ba948e3be7334c7b, type: 3}
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 985600365
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
+--- !u!114 &1705829732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 746334683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e888dc0064d84d041818fa202b52d6be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
@@ -38513,19 +38550,7 @@ MonoBehaviour:
       m_Calls: []
   m_FirstSelectEntered:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1705829732}
-        m_TargetAssemblyTypeName: BackUpSphere.Sphere, Assembly-CSharp
-        m_MethodName: GrabObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_LastSelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -38583,32 +38608,18 @@ MonoBehaviour:
   m_OnDeactivate:
     m_PersistentCalls:
       m_Calls: []
-  m_Handle: {fileID: 1705829728}
-  m_Value: 1
+  m_Handle: {fileID: 0}
+  m_Value: 0.5
   m_ClampedMotion: 1
-  m_MaxAngle: 50
-  m_MinAngle: -270
+  m_MaxAngle: 90
+  m_MinAngle: -90
   m_AngleIncrement: 0
-  m_PositionTrackedRadius: 0.05
-  m_TwistSensitivity: 0
+  m_PositionTrackedRadius: 0.1
+  m_TwistSensitivity: 1.5
   m_OnValueChange:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1309108902}
-        m_TargetAssemblyTypeName: Lab.Steam_Puzzle.Wheel_System.ActivateParticleOnTrigger,
-          Assembly-CSharp
-        m_MethodName: IncreaseVelocity
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  turnBackSpeed: 0
---- !u!114 &1705829730
+      m_Calls: []
+--- !u!114 &1705829733
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -38617,59 +38628,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 746334683}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acb35059ee0249d887d34e10ff5599be, type: 3}
+  m_Script: {fileID: 11500000, guid: 1944d30330b540c4ba948e3be7334c7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  Interpolate: 1
-  SlerpPosition: 0
---- !u!114 &1705829731
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746334683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 985600365
-  AlwaysReplicateAsRoot: 0
-  SynchronizeTransform: 1
-  ActiveSceneSynchronization: 0
-  SceneMigrationSynchronization: 1
-  SpawnWithObservers: 1
-  DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
---- !u!114 &1705829732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 746334683}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6e343075ec7cb345a7ab386ae2b12d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  turnBackSpeed: 0.01
+  knob: {fileID: 1705829732}
 --- !u!1001 &1706799366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48729,6 +48692,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Oxygen
       objectReference: {fileID: 0}
+    - target: {fileID: 6202326084850879301, guid: 6f429b222c870e142a83872f24f49ab4, type: 3}
+      propertyPath: currentWheel
+      value: 
+      objectReference: {fileID: 1705829733}
     - target: {fileID: 7911721902561224774, guid: 6f429b222c870e142a83872f24f49ab4, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.1619654
