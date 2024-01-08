@@ -24,7 +24,9 @@ public class OvenFunctionality : MonoBehaviour
         {
             if(collider.steelCount >= 2 && collider.mouldInside)
             {
-
+                collider.steel1.SetActive(false);
+                collider.steel2.SetActive(false);
+                key.SetActive(true);
             }
         }
     }
