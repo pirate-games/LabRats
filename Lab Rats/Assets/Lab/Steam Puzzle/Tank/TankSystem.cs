@@ -6,7 +6,7 @@ using Unity.Netcode;
 
 namespace Lab.Steam_Puzzle.Tank
 {
-    public class TankSystem: MonoBehaviour
+    public class TankSystem: NetworkBehaviour
     {
         [SerializeField] private CheckBox checkBox;
         [SerializeField] private ActivateParticleOnTrigger oxygen;

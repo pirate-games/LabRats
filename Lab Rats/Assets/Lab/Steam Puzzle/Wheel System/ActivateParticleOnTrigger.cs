@@ -6,7 +6,7 @@ namespace Lab.Steam_Puzzle.Wheel_System
     /// <summary>
     ///  Activates a particle system when a trigger is activated.
     /// </summary>
-    public class ActivateParticleOnTrigger : MonoBehaviour
+    public class ActivateParticleOnTrigger : NetworkBehaviour
     {
         [SerializeField] private Wheel currentWheel;
         [SerializeField] private float maxVelocity;
