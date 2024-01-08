@@ -5,7 +5,12 @@ using UnityEngine;
 public class OvenFunctionality : MonoBehaviour
 {
     [SerializeField]
-    public OvenCollider collider;
+    private OvenCollider collider;
+    [SerializeField]
+    private KeypadFunctionality keypad;
+    [SerializeField]
+    private GameObject key;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +20,12 @@ public class OvenFunctionality : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (keypad.correct)
+        {
+            if(collider.steelCount >= 2 && collider.mouldInside)
+            {
+
+            }
+        }
     }
 }
