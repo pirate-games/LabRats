@@ -1,7 +1,9 @@
-using Unity.Netcode;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
-public class CoalEmmsion : NetworkBehaviour
+public class CoalEmmsion : MonoBehaviour
 {
     private Material myMaterial;
     private Color startEmmsion;
@@ -9,43 +11,44 @@ public class CoalEmmsion : NetworkBehaviour
     [SerializeField] private float maxTemperature;
     [SerializeField] private float tempSpeed;
     [SerializeField] private float maxEmmision;
-
     private float percentageDone;
     public bool coolingDown = false;
 
+    XRGrabInteractable myGrabInteractible;
     public float Temperature => temperature;
-
     private void Start()
     {
-        myMaterial = GetComponent<Renderer>().material;
+        myMaterial = this.GetComponent<Renderer>().material;
         startEmmsion = myMaterial.GetColor("_EmissionColor");
+        myGrabInteractible = GetComponent<XRGrabInteractable>();
     }
 
     private void Update()
     {
         if (coolingDown)
         {
-            Cooldown();
+            cooldown();
         }
     }
-    public void SetEmmsion()
+    public void setEmmsion()
     {
         myMaterial.SetColor("_EmissionColor", startEmmsion * percentageDone);
+        //myGrabInteractible.enabled = false;
     }
 
-    public void HeatUp(float oxygen)
+    public void heatUp(float oxygen)
     {
         temperature += tempSpeed*(1-oxygen);
         if(temperature > maxTemperature){ temperature = maxTemperature; }
         percentageDone = (maxTemperature * temperature)* maxEmmision;
-        SetEmmsion();
+        setEmmsion();
     }
 
-    public void Cooldown()
+    public void cooldown()
     {
         temperature -= tempSpeed;
         if (temperature < 0) { temperature = 0; }
         percentageDone = (maxTemperature * temperature) * maxEmmision;
-        SetEmmsion();
+        setEmmsion();
     }
 }
