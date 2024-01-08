@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Lab.Steam_Puzzle.Tank
 {
-    public class CheckBox : NetworkBehaviour
+    public class CheckBox : MonoBehaviour
     {
         [SerializeField] private string objectTag;
         [SerializeField] private int amountOfObjects;
