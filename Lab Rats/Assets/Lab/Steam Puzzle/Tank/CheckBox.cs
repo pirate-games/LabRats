@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
 
 namespace Lab.Steam_Puzzle.Tank
 {
-    public class CheckBox : MonoBehaviour
+    public class CheckBox : NetworkBehaviour
     {
         [SerializeField] private string objectTag;
         [SerializeField] private int amountOfObjects;
@@ -34,22 +34,22 @@ namespace Lab.Steam_Puzzle.Tank
             }
         }
 
-        public void heatUpCoal(float oxygen)
+        public void HeatUpCoal(float oxygen)
         {
             foreach (var o in coalEmmsions)
             {
-                o.heatUp(oxygen);
+                o.HeatUp(oxygen);
             }
         }
-        public void coolDownCoal()
+        public void CoolDownCoal()
         {
             foreach (var o in coalEmmsions)
             {
-                o.cooldown();
+                o.Cooldown();
             }
         }
 
-        public float getTemp()
+        public float GetTemp()
         {
             float temp = 0;
             foreach (var o in coalEmmsions)

@@ -1,3 +1,4 @@
+using Unity.Netcode;
 using UnityEngine;
 
 namespace Lab.Steam_Puzzle.Wheel_System
@@ -5,7 +6,7 @@ namespace Lab.Steam_Puzzle.Wheel_System
     /// <summary>
     ///  Activates a particle system when a trigger is activated.
     /// </summary>
-    public class ActivateParticleOnTrigger : MonoBehaviour
+    public class ActivateParticleOnTrigger : NetworkBehaviour
     {
         [SerializeField] private Wheel currentWheel;
         [SerializeField] private float maxVelocity;
@@ -20,7 +21,7 @@ namespace Lab.Steam_Puzzle.Wheel_System
         ///  Returns true if the particle system is activated by the trigger.
         /// </summary>
         public bool IsActivated => isActivated;
-        public Wheel wheel => currentWheel;
+        public Wheel Wheel => currentWheel;
 
         private void Start()
         {
