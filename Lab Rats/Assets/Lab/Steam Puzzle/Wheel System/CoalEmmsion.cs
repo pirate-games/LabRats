@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 
-public class CoalEmmsion : MonoBehaviour
+public class CoalEmmsion : NetworkBehaviour
 {
     private Material myMaterial;
     private Color startEmmsion;
