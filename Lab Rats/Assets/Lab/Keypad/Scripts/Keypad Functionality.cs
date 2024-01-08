@@ -18,6 +18,8 @@ public class KeypadFunctionality : MonoBehaviour
 
     [HideInInspector]
     public bool closing;
+
+    public bool correct;
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +58,7 @@ public class KeypadFunctionality : MonoBehaviour
     IEnumerator CorrectAnswer()
     {
         input.color = Color.green;
+        correct = true;
         yield return new WaitForSeconds(1);
         exit();
     }
