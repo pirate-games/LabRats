@@ -28,7 +28,7 @@ public class SafeFunctionality : MonoBehaviour
     private void openDoor()
     {
         float t = timer / openingTime;
-        hinge.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, 0), new Vector3(0, 90, 0), t));
+        hinge.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, 90), new Vector3(-90, 0, 90), t));
         timer += Time.deltaTime;
         if (timer >= openingTime)
         {
