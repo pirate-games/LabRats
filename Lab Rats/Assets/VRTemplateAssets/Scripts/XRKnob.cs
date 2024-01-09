@@ -247,6 +247,7 @@ namespace Unity.VRTemplate
                 {
                     UpdateRotation();
                 }
+
             }
         }
 
@@ -340,6 +341,11 @@ namespace Unity.VRTemplate
             // Reverse to get value
             var knobValue = (knobRotation - m_MinAngle) / (m_MaxAngle - m_MinAngle);
             SetValue(knobValue);
+
+            if (TryGetComponent<SynchKnob>(out var synchKnob))
+            {
+                synchKnob.ChangeValueServerRpc(value);
+            }
         }
 
         void SetKnobRotation(float angle)
@@ -352,7 +358,6 @@ namespace Unity.VRTemplate
 
             if (m_Handle != null)
                 m_Handle.localEulerAngles = new Vector3(0.0f, angle, 0.0f);
-            Debug.Log(m_Handle.localEulerAngles);
         }
 
         void SetValue(float newValue)
