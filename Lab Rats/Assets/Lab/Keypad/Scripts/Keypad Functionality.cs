@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 public class KeypadFunctionality : MonoBehaviour
 {
@@ -15,11 +14,9 @@ public class KeypadFunctionality : MonoBehaviour
     public string correctCode;
 
     private int pressed = 0;
-
-    [HideInInspector]
     public bool closing;
 
-    public bool correct;
+    public UnityEvent correctCodeEvent;
     // Start is called before the first frame update
     void Start()
     {
@@ -58,9 +55,10 @@ public class KeypadFunctionality : MonoBehaviour
     IEnumerator CorrectAnswer()
     {
         input.color = Color.green;
-        correct = true;
+        correctCodeEvent.Invoke();
         yield return new WaitForSeconds(1);
         exit();
+
     }
     
     //Short visual feedback for wrong answer
