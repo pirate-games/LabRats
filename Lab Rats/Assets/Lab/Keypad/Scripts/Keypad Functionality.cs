@@ -6,6 +6,11 @@ using UnityEngine.Events;
 public class KeypadFunctionality : MonoBehaviour
 {
     [SerializeField]
+    private int length;
+    [SerializeField]
+    private string code;
+
+    [SerializeField]
     private TextMeshProUGUI input;
 
     [HideInInspector]
@@ -14,16 +19,14 @@ public class KeypadFunctionality : MonoBehaviour
     public string correctCode;
 
     private int pressed = 0;
+    private bool pressing;
     public bool closing;
 
     public UnityEvent correctCodeEvent;
     // Start is called before the first frame update
     void Start()
     {
-/*        //can be used for individual testing
-        codeLength = 4;
-        correctCode = "1234";*/
-        clearAll();
+        ClearAll();
     }
 
     // Update is called once per frame
@@ -44,10 +47,12 @@ public class KeypadFunctionality : MonoBehaviour
     }
 
     //Reset text field completely
-    public void clearAll()
+    public void ClearAll()
     {
+        codeLength = length;
+        correctCode = code;
         input.text = null;
-        input.color = Color.white;
+        input.color = Color.black;
         pressed = 0;
     }
 
@@ -57,7 +62,7 @@ public class KeypadFunctionality : MonoBehaviour
         input.color = Color.green;
         correctCodeEvent.Invoke();
         yield return new WaitForSeconds(1);
-        exit();
+        Exit();
 
     }
     
@@ -66,21 +71,30 @@ public class KeypadFunctionality : MonoBehaviour
     {
         input.color = Color.red;
         yield return new WaitForSeconds(1);
-        clearAll();
+        ClearAll();
     }
 
     //When button is pressed, add that number to the input text
-    public void numberPress(int number)
+    public void NumberPress(int number)
     {
-        if (pressed < codeLength)
+        if (!pressing)
         {
-            input.text = input.text + number;
-            pressed++;
+            if (pressed < codeLength)
+            {
+                input.text = input.text + number;
+                pressed++;
+            }
+            pressing = true;
         }
     }
 
+    public void Pressed()
+    {
+        pressing = false;
+    }
+
     //Remove the last number from input
-    public void backspace()
+    public void Backspace()
     {
         if (input.text != null && pressed < codeLength)
         {
@@ -89,10 +103,9 @@ public class KeypadFunctionality : MonoBehaviour
         }
     }
 
-    public void exit()
+    public void Exit()
     {
         closing = true;
-        clearAll();
-        this.gameObject.SetActive(false);
+        ClearAll();
     }
 }
