@@ -7982,6 +7982,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1988847502}
     m_Modifications:
+    - target: {fileID: 55445274107002076, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: visualTarget
+      value: 
+      objectReference: {fileID: 330880158}
+    - target: {fileID: 55445274107002076, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: followAngleTreshold
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 830676396922405816, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: visualTarget
+      value: 
+      objectReference: {fileID: 330880156}
+    - target: {fileID: 830676396922405816, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: followAngleTreshold
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 897924153763240893, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7997,6 +8013,14 @@ PrefabInstance:
     - target: {fileID: 897924153763240893, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NumberPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 906751739923705860, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: visualTarget
+      value: 
+      objectReference: {fileID: 330880151}
+    - target: {fileID: 906751739923705860, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: followAngleTreshold
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 1115394239497346806, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -8030,6 +8054,14 @@ PrefabInstance:
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NumberPress
       objectReference: {fileID: 0}
+    - target: {fileID: 2106387755466116615, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: visualTarget
+      value: 
+      objectReference: {fileID: 330880153}
+    - target: {fileID: 2106387755466116615, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: followAngleTreshold
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 2402226854981582690, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8061,6 +8093,22 @@ PrefabInstance:
     - target: {fileID: 2521556617219338634, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NumberPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 3761852036433857539, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: visualTarget
+      value: 
+      objectReference: {fileID: 330880154}
+    - target: {fileID: 3761852036433857539, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: followAngleTreshold
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 3769983831789884381, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: visualTarget
+      value: 
+      objectReference: {fileID: 330880150}
+    - target: {fileID: 3769983831789884381, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: followAngleTreshold
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 3864792596368076485, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
       propertyPath: code
@@ -8102,6 +8150,14 @@ PrefabInstance:
       propertyPath: correctCodeEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 3950898606659036817, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: followAngleTreshold
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4112067620994708992, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: followAngleTreshold
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 4140099424054156967, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8133,10 +8189,26 @@ PrefabInstance:
     - target: {fileID: 5071398609160631100, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NumberPress
+      objectReference: {fileID: 0}
+    - target: {fileID: 5144360317995652614, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: visualTarget
+      value: 
+      objectReference: {fileID: 330880155}
+    - target: {fileID: 5144360317995652614, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: followAngleTreshold
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5339466816148035172, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
       propertyPath: m_Name
       value: Keypad
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662177394203407610, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: visualTarget
+      value: 
+      objectReference: {fileID: 330880157}
+    - target: {fileID: 5662177394203407610, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: followAngleTreshold
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 6393566614951557499, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
       propertyPath: m_LocalScale.x
@@ -8206,6 +8278,14 @@ PrefabInstance:
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: NumberPress
       objectReference: {fileID: 0}
+    - target: {fileID: 8155769577793134410, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: visualTarget
+      value: 
+      objectReference: {fileID: 330880152}
+    - target: {fileID: 8155769577793134410, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+      propertyPath: followAngleTreshold
+      value: 45
+      objectReference: {fileID: 0}
     - target: {fileID: 8833892501954214088, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8259,6 +8339,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72e407185a570f0448df33868475e948, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &330880150 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4305913495662405123, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+  m_PrefabInstance: {fileID: 330880147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &330880151 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3822114262466189175, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+  m_PrefabInstance: {fileID: 330880147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &330880152 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1825017235402836363, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+  m_PrefabInstance: {fileID: 330880147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &330880153 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3385859023913003936, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+  m_PrefabInstance: {fileID: 330880147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &330880154 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5373607222818099309, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+  m_PrefabInstance: {fileID: 330880147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &330880155 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5483534843782530305, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+  m_PrefabInstance: {fileID: 330880147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &330880156 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1737581496690254446, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+  m_PrefabInstance: {fileID: 330880147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &330880157 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1926555624840798447, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+  m_PrefabInstance: {fileID: 330880147}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &330880158 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7217502795789167224, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+  m_PrefabInstance: {fileID: 330880147}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &331283539
 PrefabInstance:
   m_ObjectHideFlags: 0
