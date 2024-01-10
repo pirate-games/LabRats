@@ -1,4 +1,5 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -246,6 +247,7 @@ namespace Unity.VRTemplate
                 {
                     UpdateRotation();
                 }
+
             }
         }
 
@@ -339,6 +341,11 @@ namespace Unity.VRTemplate
             // Reverse to get value
             var knobValue = (knobRotation - m_MinAngle) / (m_MaxAngle - m_MinAngle);
             SetValue(knobValue);
+
+            if (TryGetComponent<SynchKnob>(out var synchKnob))
+            {
+                synchKnob.ChangeValueServerRpc(value);
+            }
         }
 
         void SetKnobRotation(float angle)
