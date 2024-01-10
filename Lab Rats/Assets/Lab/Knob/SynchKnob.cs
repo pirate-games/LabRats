@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using Unity.VRTemplate;
-using UnityEngine;
 
 public class SynchKnob : NetworkBehaviour
 {
@@ -29,3 +26,4 @@ public class SynchKnob : NetworkBehaviour
         knob.value = value;
     }
 }
+
