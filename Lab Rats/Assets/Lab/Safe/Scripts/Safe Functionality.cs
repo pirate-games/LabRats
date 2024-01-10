@@ -14,26 +14,30 @@ public class SafeFunctionality : MonoBehaviour
     [HideInInspector]
     public bool isOpen;
 
+    private bool open;
+
     // Update is called once per frame
     void Update()
     {
-/*        if (keypad.correct & !isOpen)
+        if(!isOpen && open)
         {
             openDoor();
-        }*/
+        }
     }
 
-    public void OpenDoor()
+    public void CodeEntered()
     {
-        if (!isOpen)
+        open = true;
+    }
+
+    public void openDoor()
+    {
+        float t = timer / openingTime;
+        hinge.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, 90), new Vector3(-90, 0, 90), t));
+        timer += Time.deltaTime;
+        if (timer >= openingTime)
         {
-            float t = timer / openingTime;
-            hinge.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, 90), new Vector3(-90, 0, 90), t));
-            timer += Time.deltaTime;
-            if (timer >= openingTime)
-            {
-                isOpen = true;
-            }
+            isOpen = true;
         }
     }
 }
