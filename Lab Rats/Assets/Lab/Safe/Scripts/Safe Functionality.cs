@@ -6,9 +6,6 @@ using UnityEngine.Events;
 public class SafeFunctionality : MonoBehaviour
 {
     [SerializeField]
-    private KeypadFunctionality keypad;
-
-    [SerializeField]
     private GameObject hinge;
 
     float openingTime = 3;
