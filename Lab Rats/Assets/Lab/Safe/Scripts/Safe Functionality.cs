@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SafeFunctionality : MonoBehaviour
 {
@@ -19,20 +20,23 @@ public class SafeFunctionality : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (keypad.correct & !isOpen)
+/*        if (keypad.correct & !isOpen)
         {
             openDoor();
-        }
+        }*/
     }
 
-    private void openDoor()
+    public void OpenDoor()
     {
-        float t = timer / openingTime;
-        hinge.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, 90), new Vector3(-90, 0, 90), t));
-        timer += Time.deltaTime;
-        if (timer >= openingTime)
+        if (!isOpen)
         {
-            isOpen = true;
+            float t = timer / openingTime;
+            hinge.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, 90), new Vector3(-90, 0, 90), t));
+            timer += Time.deltaTime;
+            if (timer >= openingTime)
+            {
+                isOpen = true;
+            }
         }
     }
 }
