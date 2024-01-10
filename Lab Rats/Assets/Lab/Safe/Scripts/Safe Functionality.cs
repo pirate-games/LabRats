@@ -26,7 +26,7 @@ public class SafeFunctionality : MonoBehaviour
         }*/
     }
 
-    public void openDoor()
+    public void OpenDoor()
     {
         if (!isOpen)
         {
