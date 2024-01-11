@@ -3,3 +3,4 @@
 public class ElementTriggerDetector: TriggerDetectorT<ElementModel>
 {
 }
+

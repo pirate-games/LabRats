@@ -12495,21 +12495,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6232441668493051569, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
   m_PrefabInstance: {fileID: 887813562}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &551603513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 551603512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3f43ee8eb175364091ab778ad47b217, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectTag: Coal
-  amountOfObjects: 10
-  objectsInTank: []
 --- !u!65 &551603514
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12581,6 +12566,51 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &551603517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551603512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36e1ac52d88c7114f9429946cb191860, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1384325699}
+        m_TargetAssemblyTypeName: Lab.Steam_Puzzle.Tank.TankSystem, Assembly-CSharp
+        m_MethodName: CoalAdded
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerStay:
+    m_PersistentCalls:
+      m_Calls: []
+  onTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1384325699}
+        m_TargetAssemblyTypeName: Lab.Steam_Puzzle.Tank.TankSystem, Assembly-CSharp
+        m_MethodName: CoalRemoved
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &556033308
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20283,13 +20313,13 @@ PrefabInstance:
       addedObject: {fileID: 551603514}
     - targetCorrespondingSourceObject: {fileID: 6232441668493051569, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 551603513}
-    - targetCorrespondingSourceObject: {fileID: 6232441668493051569, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 551603516}
     - targetCorrespondingSourceObject: {fileID: 6232441668493051569, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 551603515}
+    - targetCorrespondingSourceObject: {fileID: 6232441668493051569, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 551603517}
   m_SourcePrefab: {fileID: 100100000, guid: 89945c1afc17fc344aef925c8a754c7b, type: 3}
 --- !u!1001 &892242018
 PrefabInstance:
@@ -22798,12 +22828,32 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3447867473084354712, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447867473084354712, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3447867473084354712, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447867473084354712, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1384325699}
+    - target: {fileID: 3447867473084354712, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447867473084354712, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447867473084354712, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: HeatCoal
       objectReference: {fileID: 0}
     - target: {fileID: 3447867473084354712, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -22818,8 +22868,16 @@ PrefabInstance:
       value: GrabObject
       objectReference: {fileID: 0}
     - target: {fileID: 3447867473084354712, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Lab.Steam_Puzzle.Tank.TankSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447867473084354712, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: BackUpSphere.Sphere, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3447867473084354712, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 3447867473084354712, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -29605,9 +29663,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ac4da626c2ecc49a8ce9c808138945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentWheel: {fileID: 1705829729}
   maxVelocity: 1.12
-  isActivated: 0
 --- !u!114 &1309108906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31698,13 +31754,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03b57b57e5144dcbcc79d45ba67ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checkBox: {fileID: 551603513}
-  oxygen: {fileID: 1309108902}
-  knob: {fileID: 1862886798}
   plunger: {fileID: 1593086092}
   steam: {fileID: 670159272}
   GaugePercentageFullActivation: 76.9
   increasePressureSpeed: 0.0000001
+  oxygenHeatMult: 0
   gauge: {fileID: 1823181890}
   _maxPressure: 330
   _pressureLoss: 10000000
@@ -38347,8 +38401,20 @@ MonoBehaviour:
       - m_Target: {fileID: 1309108902}
         m_TargetAssemblyTypeName: Lab.Steam_Puzzle.Wheel_System.ActivateParticleOnTrigger,
           Assembly-CSharp
-        m_MethodName: IncreaseVelocity
-        m_Mode: 1
+        m_MethodName: SetVelocity
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1384325699}
+        m_TargetAssemblyTypeName: Lab.Steam_Puzzle.Tank.TankSystem, Assembly-CSharp
+        m_MethodName: HasOxygen
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -42437,17 +42503,6 @@ Transform:
   - {fileID: 2097477717}
   m_Father: {fileID: 1644321394}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1862886798 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3447867473084354712, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
-  m_PrefabInstance: {fileID: 1013653893}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e888dc0064d84d041818fa202b52d6be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1864081557
 GameObject:
   m_ObjectHideFlags: 0

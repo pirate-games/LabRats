@@ -7,11 +7,7 @@ namespace Lab.Steam_Puzzle.Wheel_System
     /// </summary>
     public class ActivateParticleOnTrigger : MonoBehaviour
     {
-        [SerializeField] private Wheel currentWheel;
         [SerializeField] private float maxVelocity;
-        
-        [Header("Debug")]
-        [SerializeField] private bool isActivated;
         
         private ParticleSystem.VelocityOverLifetimeModule _velocityModule;
         private ParticleSystem _particleSystem;
@@ -19,30 +15,18 @@ namespace Lab.Steam_Puzzle.Wheel_System
         /// <summary>
         ///  Returns true if the particle system is activated by the trigger.
         /// </summary>
-        public bool IsActivated => isActivated;
-        public Wheel wheel => currentWheel;
 
         private void Start()
         {
-            _particleSystem = GetComponent<ParticleSystem>();
+            if (!TryGetComponent(out _particleSystem)) return;
             _velocityModule = _particleSystem.velocityOverLifetime;
         }
 
-        private void FixedUpdate()
-        {            
-            _velocityModule.y = maxVelocity * (1 - currentWheel.value);
+        public void SetVelocity(float value)
+        {
+            if (_particleSystem == null) return;
 
-            if (currentWheel.value >= 1)
-            {
-                isActivated = false;
-            }
-            else
-            {
-                isActivated = true;
-            }
-
+            _velocityModule.yMultiplier = maxVelocity * (1 - value);
         }
-
-        public void IncreaseVelocity() => isActivated = true;
     }
 }

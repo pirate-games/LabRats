@@ -14,10 +14,10 @@ GameObject:
   - component: {fileID: 5375627570344252944}
   - component: {fileID: 4057806468971539720}
   - component: {fileID: 1240107636159147980}
-  - component: {fileID: 3566698412249025790}
   - component: {fileID: -1658485130470396916}
   - component: {fileID: 445122044200717042}
   - component: {fileID: -1021350086279895993}
+  - component: {fileID: 6575699324478751567}
   m_Layer: 7
   m_Name: Coal
   m_TagString: Coal
@@ -303,22 +303,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 1d1046e2234784c459ff6c21b2260602, type: 3}
---- !u!114 &3566698412249025790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5030120896081955590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca198bcc894989f4e863095efe306435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxTemperature: 20
-  tempSpeed: 0.025
-  maxEmmision: 20
-  coolingDown: 0
 --- !u!114 &-1658485130470396916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -331,7 +315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2396265412
+  GlobalObjectIdHash: 62683003
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -381,3 +365,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e343075ec7cb345a7ab386ae2b12d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6575699324478751567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030120896081955590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f089e73c9b0e5e7499df6190ccb3d3fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTemperature: 20
+  tempSpeed: 0.005
+  maxEmmision: 20
+  coolingDown: 0
