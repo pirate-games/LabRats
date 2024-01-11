@@ -9679,7 +9679,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2973685600230734511, guid: 6f429b222c870e142a83872f24f49ab4, type: 3}
       propertyPath: playOnAwake
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2973685600230734511, guid: 6f429b222c870e142a83872f24f49ab4, type: 3}
       propertyPath: SizeModule.enabled
@@ -31782,14 +31782,72 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03b57b57e5144dcbcc79d45ba67ca53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  plunger: {fileID: 1593086092}
-  steam: {fileID: 670159272}
-  gaugePercentageFullActivation: 75
   waterBoilingTemp: 100
   increasePressureSpeed: 0.00005
+  maxPressure: 330
+  pressureLoss: 50
   gauge: {fileID: 1823181890}
-  _maxPressure: 330
-  _pressureLoss: 50
+  gaugePercentageFullActivation: 75
+  onStartBoiling:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 670159272}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onStopBoiling:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 670159272}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onPressureValueChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1823181890}
+        m_TargetAssemblyTypeName: Lab.Steam_Puzzle.Tank.PressureGauge, Assembly-CSharp
+        m_MethodName: UpdateRotation
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onMovePlunger:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1593086092}
+        m_TargetAssemblyTypeName: MoveObject, Assembly-CSharp
+        m_MethodName: set_MovePlunger
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1384325700 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f7b58c4771432c2488d53ddbc4fd47ac, type: 3}
@@ -35689,7 +35747,6 @@ MonoBehaviour:
   beginPoint: {x: -7.383, y: 0.415, z: 6.211}
   endPoint: {x: -7.383, y: 2.447, z: 6.211}
   speed: 0.1
-  canMove: 0
 --- !u!54 &1593086093
 Rigidbody:
   m_ObjectHideFlags: 0
