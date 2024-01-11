@@ -1,7 +1,4 @@
-﻿using Lab.Steam_Puzzle.Wheel_System;
-using System.Collections.Generic;
-using Unity.VRTemplate;
-using UnityEditorInternal.Profiling.Memory.Experimental;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace Lab.Steam_Puzzle.Tank
@@ -10,16 +7,18 @@ namespace Lab.Steam_Puzzle.Tank
     {
         [SerializeField] private MoveObject plunger;
         [SerializeField] private ParticleSystem steam;
+        ParticleSystem.EmissionModule steamEmmision;
         [Range(0, 100)]
-        [SerializeField] private float GaugePercentageFullActivation = 75;
+        [SerializeField] private float gaugePercentageFullActivation = 75;
+        [SerializeField] private float waterBoilingTemp = 100;
 
-        [SerializeField] private float increasePressureSpeed = 0.000001f;
-        [SerializeField] private float oxygenHeatMult;
-        private bool goUp = true, goDown = true;
+        [SerializeField] private float increasePressureSpeed = 0.001f;
         private float _pressure;
         private float _temperature;
+        private float heat;
+        private float oxygen;
         [SerializeField] private PressureGauge gauge;
-        [SerializeField]private float _maxPressure;
+        [SerializeField] private float _maxPressure;
         [SerializeField] private float _pressureLoss;
 
 
@@ -30,30 +29,39 @@ namespace Lab.Steam_Puzzle.Tank
 
         public readonly List<Coal> coalList = new();
 
+        private void Start()
+        {
+            steamEmmision = steam.emission;
+        }
+
         public void CoalAdded(Coal coal)
         {
-            this.coalList.Add(coal);
+            coal.SetHeating(heat, oxygen);
+            coalList.Add(coal);
         }
         public void CoalRemoved(Coal coal)
         {
-            coal.Heating = false;
-            this.coalList.Remove(coal);
+            coal.SetHeating(0, 0);
+            coalList.Remove(coal);
         }
 
-        public void HeatCoal(float heat)
+        public void SetHeat(float heat)
         {
-            var hasHeat = heat >= 1;
+            this.heat = heat;
+            HeatCoal();
+        }
+
+        public void SetOxygen(float oxygen)
+        {
+            this.oxygen = oxygen;
+            HeatCoal();
+        }
+
+        private void HeatCoal()
+        {
             foreach (var coal in coalList)
             {
-                coal.Heating = hasHeat;
-            }
-        }
-        public void HasOxygen(float flow)
-        {
-            var hasOxygen = flow >= 1;
-            foreach(var coal in coalList)
-            {
-                coal.HasOxygen = hasOxygen;
+                coal.SetHeating(heat, oxygen);
             }
         }
         public float GetCoalTemp()
@@ -70,37 +78,28 @@ namespace Lab.Steam_Puzzle.Tank
         {
             _temperature = GetCoalTemp();
             //exponetionally increases effect of adding extra coal
-            _pressure += (Mathf.Pow(_temperature, 3)) * increasePressureSpeed;
-            Mathf.Clamp(_temperature, 0, _maxPressure);
+            if (_temperature > waterBoilingTemp)
+            {
+                _pressure += Mathf.Pow(_temperature, 2) * increasePressureSpeed * Time.deltaTime;
+                steamEmmision.enabled = true;
+            }
+            else
+            {
+                _pressure -= _pressureLoss * Time.deltaTime;
+                steamEmmision.enabled = false;
+            }
+
+            _pressure = Mathf.Clamp(_pressure, 0, _maxPressure);
             gauge.UpdateRotation(_pressure);
 
-            //set gauge 
-            if (100 / _maxPressure * _pressure >= GaugePercentageFullActivation && goUp)
+
+            if ((_pressure / _maxPressure)* waterBoilingTemp >= gaugePercentageFullActivation)
             {
                 plunger.canMove = true;
-                goUp = false;
-                goDown = true;
             }
-            else if (100 / _maxPressure * _pressure <= GaugePercentageFullActivation && goDown)
+            else
             {
                 plunger.canMove = false;
-
-                goUp = true;
-                goDown = false;
-            }
-
-            //particlesystem activate
-            if (100 / _maxPressure * _pressure > 0)
-            {
-                // Stop and clear the particle system
-                var emmision = steam.emission;
-                emmision.enabled = true;
-            }
-            else if (100 / _maxPressure * _pressure <= 0)
-            {
-                // Stop the particle system
-                var emmision = steam.emission;
-                emmision.enabled = false;
             }
         }
     }

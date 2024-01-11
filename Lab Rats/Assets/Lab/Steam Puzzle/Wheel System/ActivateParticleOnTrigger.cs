@@ -20,6 +20,7 @@ namespace Lab.Steam_Puzzle.Wheel_System
         {
             if (!TryGetComponent(out _particleSystem)) return;
             _velocityModule = _particleSystem.velocityOverLifetime;
+            _particleSystem.Pause();
         }
 
         public void SetVelocity(float value)
@@ -27,6 +28,8 @@ namespace Lab.Steam_Puzzle.Wheel_System
             if (_particleSystem == null) return;
 
             _velocityModule.yMultiplier = maxVelocity * (1 - value);
+
+            if (_particleSystem.isPaused) _particleSystem.Play();
         }
     }
 }
