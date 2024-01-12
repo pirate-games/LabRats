@@ -26,10 +26,14 @@ public class OvenCollider : MonoBehaviour
                 steel2 = other.gameObject;
             }
             steelCount++;
-        }
-        if(other.tag == "Mould")
+        }else if(other.tag == "Mould")
         {
             mouldInside = true;
+        }
+        else
+        {
+            Debug.Log(other.attachedRigidbody.velocity);
+            other.attachedRigidbody.velocity = new Vector3(5, 3, 0);
         }
     }
 

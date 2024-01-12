@@ -7,8 +7,6 @@ public class OvenFunctionality : MonoBehaviour
     [SerializeField]
     private OvenCollider collider;
     [SerializeField]
-    private KeypadFunctionality keypad;
-    [SerializeField]
     private GameObject key, door;
     [SerializeField]
     private Light ovenLight1, ovenLight2;
