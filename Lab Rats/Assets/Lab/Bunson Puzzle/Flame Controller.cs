@@ -1,9 +1,7 @@
 using ElementsSystem;
-using Global.JSON;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Rendering.FilterWindow;
 
 public class FlameController : MonoBehaviour
 {
