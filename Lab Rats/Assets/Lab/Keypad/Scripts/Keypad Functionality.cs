@@ -2,8 +2,9 @@ using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
+using Unity.Netcode;
 
-public class KeypadFunctionality : MonoBehaviour
+public class KeypadFunctionality : NetworkBehaviour
 {
     [SerializeField]
     private int length;
@@ -11,7 +12,7 @@ public class KeypadFunctionality : MonoBehaviour
     private string code;
 
     [SerializeField]
-    private TextMeshProUGUI input;
+    private NetworkVariable<TextMeshProUGUI> input = new(default, NetworkVariableReadPermission.Everyone, NetworkVariableWritePermission.Owner);
 
     [HideInInspector]
     public int codeLength;
@@ -35,7 +36,7 @@ public class KeypadFunctionality : MonoBehaviour
         //when input length is equal to the length of the correct code
         if (pressed >= codeLength)
         {
-            if(input.text == correctCode)
+            if(input.Value.text == correctCode)
             {
                 StartCoroutine(CorrectAnswer());
             }
@@ -51,15 +52,15 @@ public class KeypadFunctionality : MonoBehaviour
     {
         codeLength = length;
         correctCode = code;
-        input.text = null;
-        input.color = Color.black;
+        input.Value.text = null;
+        input.Value.color = Color.black;
         pressed = 0;
     }
 
     //Short visual feedback for correct answer
     IEnumerator CorrectAnswer()
     {
-        input.color = Color.green;
+        input.Value.color = Color.green;
         correctCodeEvent.Invoke();
         yield return new WaitForSeconds(1);
         Exit();
@@ -69,26 +70,56 @@ public class KeypadFunctionality : MonoBehaviour
     //Short visual feedback for wrong answer
     IEnumerator WrongAnswer()
     {
-        input.color = Color.red;
+        input.Value.color = Color.red;
         yield return new WaitForSeconds(1);
         ClearAll();
     }
 
-    //When button is pressed, add that number to the input text
-    public void NumberPress(int number)
+    public void ButtonPressed(int number)
+    {
+        ButtonPressedServerRpc(number);
+    }
+    public void ButtonReleased()
+    {
+        ButtonReleasedServerRpc();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void ButtonPressedServerRpc(int number, ServerRpcParams serverRpcParams = default)
+    {
+        var clientId = serverRpcParams.Receive.SenderClientId;
+        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        {
+            ButtonPressedClientRpc(number);
+        }
+    }
+
+    [ClientRpc]
+    private void ButtonPressedClientRpc(int number)
     {
         if (!pressing)
         {
             if (pressed < codeLength)
             {
-                input.text = input.text + number;
+                input.Value.text = input.Value.text + number;
                 pressed++;
             }
             pressing = true;
         }
     }
 
-    public void Pressed()
+    [ServerRpc(RequireOwnership = false)]
+    public void ButtonReleasedServerRpc(ServerRpcParams serverRpcParams = default)
+    {
+        var clientId = serverRpcParams.Receive.SenderClientId;
+        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        {
+            ButtonReleasedClientRpc();
+        }
+    }
+
+    [ClientRpc]
+    private void ButtonReleasedClientRpc()
     {
         pressing = false;
     }
@@ -96,10 +127,10 @@ public class KeypadFunctionality : MonoBehaviour
     //Remove the last number from input
     public void Backspace()
     {
-        if (input.text != null && pressed < codeLength)
+        if (input.Value.text != null && pressed < codeLength)
         {
             pressed--;
-            input.text = input.text.Substring(0, input.text.Length - 1);
+            input.Value.text = input.Value.text.Substring(0, input.Value.text.Length - 1);
         }
     }
 
