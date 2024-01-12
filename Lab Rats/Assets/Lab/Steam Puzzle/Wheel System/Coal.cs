@@ -6,6 +6,7 @@ public class Coal : MonoBehaviour
     private Color startEmmision;
     private float temperature;
     private float multiplier = 0;
+
     [SerializeField] private float maxTemperature = 20;
     [SerializeField] private float tempSpeed = 0.05f;
     [SerializeField] private float maxEmmision = 20;
@@ -22,7 +23,6 @@ public class Coal : MonoBehaviour
 
     public void SetEmmision()
     {
-        var percentageDone = (temperature * maxTemperature) * maxEmmision;
         myMaterial.SetColor("_EmissionColor", startEmmision * temperature * temperature);
     }
 

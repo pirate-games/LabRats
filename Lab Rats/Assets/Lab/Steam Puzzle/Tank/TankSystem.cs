@@ -10,15 +10,14 @@ namespace Lab.Steam_Puzzle.Tank
         [SerializeField] private float increasePressureSpeed = 0.001f;
         [SerializeField] private float maxPressure = 330;
         [SerializeField] private float pressureLoss = 50;
-        [Range(0, 100)]
-        [SerializeField] private float gaugePercentageFullActivation = 75;
+        [SerializeField, Range(0, 100)] private float gaugePercentageFullActivation = 75;
 
         [SerializeField] UnityEvent onStartBoiling;
         [SerializeField] UnityEvent onStopBoiling;
         [SerializeField] UnityEvent<float> onPressureValueChanged;
         [SerializeField] UnityEvent<bool> onMovePlunger;
 
-        private float _pressure;
+        private float pressure;
         private float temperature;
         private float heat;
         private float oxygen;
@@ -31,10 +30,10 @@ namespace Lab.Steam_Puzzle.Tank
         /// </summary>
         public float Pressure
         {
-            get { return _pressure; }
+            get { return pressure; }
             set
             {
-                _pressure = value;
+                pressure = value;
                 onPressureValueChanged.Invoke(value);
             }
         }
@@ -101,7 +100,7 @@ namespace Lab.Steam_Puzzle.Tank
                 else
                 {
                     // Exponentially increase pressure based on temperature
-                    _pressure += Mathf.Pow(temperature, 2) * increasePressureSpeed * Time.deltaTime;
+                    pressure += Mathf.Pow(temperature, 2) * increasePressureSpeed * Time.deltaTime;
                 }
             }
             else
@@ -114,19 +113,19 @@ namespace Lab.Steam_Puzzle.Tank
                 else
                 {
                     // Decrease pressure with time
-                    _pressure -= pressureLoss * Time.deltaTime;
+                    pressure -= pressureLoss * Time.deltaTime;
                 }
             }
 
             // Clamp pressure to be within a specified range
-            Pressure = Mathf.Clamp(_pressure, 0, maxPressure);
+            Pressure = Mathf.Clamp(pressure, 0, maxPressure);
         }
 
         private void UpdatePlunger()
         {
             if (plungerMoving)
             {
-                if ((_pressure / maxPressure) * waterBoilingTemp < gaugePercentageFullActivation)
+                if ((pressure / maxPressure) * waterBoilingTemp < gaugePercentageFullActivation)
                 {
                     // Move plunger down
                     plungerMoving = false;
@@ -135,7 +134,7 @@ namespace Lab.Steam_Puzzle.Tank
             }
             else
             {
-                if ((_pressure / maxPressure) * waterBoilingTemp >= gaugePercentageFullActivation)
+                if ((pressure / maxPressure) * waterBoilingTemp >= gaugePercentageFullActivation)
                 {
                     // Move plunger up
                     plungerMoving = true;

@@ -4765,10 +4765,14 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2543529290
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4695294997634890103, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1399059066065735630, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1644248007}
   m_SourcePrefab: {fileID: 100100000, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
 --- !u!1001 &214930441
 PrefabInstance:
@@ -10119,6 +10123,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 734539483311397240, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_PhysicsTriggerInteraction
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1113042475890841843, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -10182,6 +10190,10 @@ PrefabInstance:
     - target: {fileID: 8599360764580199142, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_StartingInteractionOverridesMap.Array.data[0].groupMember
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654819624763074701, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_PhysicsTriggerInteraction
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -31786,7 +31798,6 @@ MonoBehaviour:
   increasePressureSpeed: 0.00005
   maxPressure: 330
   pressureLoss: 50
-  gauge: {fileID: 1823181890}
   gaugePercentageFullActivation: 75
   onStartBoiling:
     m_PersistentCalls:
@@ -36959,6 +36970,67 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8772996495151826746, guid: 280365a9638a57a4981915583fbc2246, type: 3}
   m_PrefabInstance: {fileID: 1644057918}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1644248000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1399059066065735630, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+  m_PrefabInstance: {fileID: 213761510}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1644248004 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1146476004458479105, guid: d2d3684b0fffbe848bb2116d44a9c1dd, type: 3}
+  m_PrefabInstance: {fileID: 213761510}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644248000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2f6d27c148c1164d8b1e637655c9694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1644248007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1644248000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35a88d51eb349974c9c8e5cd5bcb708a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1644248004}
+        m_TargetAssemblyTypeName: FlameController, Assembly-CSharp
+        m_MethodName: ElementEnter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerStay:
+    m_PersistentCalls:
+      m_Calls: []
+  onTriggerExit:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1644248004}
+        m_TargetAssemblyTypeName: FlameController, Assembly-CSharp
+        m_MethodName: ElementExit
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1644321393
 GameObject:
   m_ObjectHideFlags: 0
@@ -38402,11 +38474,32 @@ MonoBehaviour:
       m_Calls: []
   m_FirstSelectEntered:
     m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: BackUpSphere.Sphere, Assembly-CSharp
-        m_MethodName: GrabObject
-        m_Mode: 1
+      - m_Target: {fileID: 1705829729}
+        m_TargetAssemblyTypeName: Lab.Steam_Puzzle.Wheel_System.Wheel, Assembly-CSharp
+        m_MethodName: set_Selected
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1705829729}
+        m_TargetAssemblyTypeName: Lab.Steam_Puzzle.Wheel_System.Wheel, Assembly-CSharp
+        m_MethodName: set_Selected
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -38415,15 +38508,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  m_LastSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -38508,7 +38592,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  turnBackSpeed: 0
+  turnBackSpeed: 1
 --- !u!114 &1705829730
 MonoBehaviour:
   m_ObjectHideFlags: 0
