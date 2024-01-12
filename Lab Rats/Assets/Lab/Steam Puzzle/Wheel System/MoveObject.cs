@@ -6,25 +6,26 @@ public class MoveObject : MonoBehaviour
     [SerializeField] private Vector3 endPoint;
     [SerializeField] private float speed = 1;
     private float percentageDone = 1.0f; // Adjust the speed of lerping
-    public bool canMove;
 
     private bool previousCanMoveState; // Keep track of the previous value of canMove
+    public bool MovePlunger { get; set; }
 
     private void Start()
     {
-        previousCanMoveState = canMove;
+        previousCanMoveState = MovePlunger;
     }
+
 
     private void Update()
     {
-        if (canMove != previousCanMoveState)
+        if (MovePlunger != previousCanMoveState)
         {
             // canMove state has changed
             OnCanMoveStateChanged();
-            previousCanMoveState = canMove;
+            previousCanMoveState = MovePlunger;
         }
 
-        if (canMove)
+        if (MovePlunger)
         {
             LerpPosition(beginPoint, endPoint);
 

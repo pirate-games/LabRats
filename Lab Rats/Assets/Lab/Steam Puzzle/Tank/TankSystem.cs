@@ -1,90 +1,146 @@
-﻿using Lab.Steam_Puzzle.Wheel_System;
-using Unity.VRTemplate;
-using UnityEditorInternal.Profiling.Memory.Experimental;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Lab.Steam_Puzzle.Tank
 {
     public class TankSystem: MonoBehaviour
     {
-        [SerializeField] private CheckBox checkBox;
-        [SerializeField] private ActivateParticleOnTrigger oxygen;
-        [SerializeField] private XRKnob knob;
-        [SerializeField] private MoveObject plunger;
-        [SerializeField] private ParticleSystem steam;
-        [Range(0, 100)]
-        [SerializeField] private float GaugePercentageFullActivation = 75;
+        [SerializeField] private float waterBoilingTemp = 100;
+        [SerializeField] private float increasePressureSpeed = 0.001f;
+        [SerializeField] private float maxPressure = 330;
+        [SerializeField] private float pressureLoss = 50;
+        [SerializeField, Range(0, 100)] private float gaugePercentageFullActivation = 75;
 
-        [SerializeField] private float increasePressureSpeed = 0.000001f;
-        private bool goUp = true, goDown = true;
-        private float _pressure;
-        private float _temperature;
-        [SerializeField] private PressureGauge gauge;
-        [SerializeField]private float _maxPressure;
-        [SerializeField] private float _pressureLoss;
+        [SerializeField] UnityEvent onStartBoiling;
+        [SerializeField] UnityEvent onStopBoiling;
+        [SerializeField] UnityEvent<float> onPressureValueChanged;
+        [SerializeField] UnityEvent<bool> onMovePlunger;
 
+        private float pressure;
+        private float temperature;
+        private float heat;
+        private float oxygen;
+        private bool boiling;
+        private bool plungerMoving;
 
         /// <summary>
         ///  The pressure value of the tank 
+        ///  Calls onPressureValueChanged event when set
         /// </summary>
-        public float Pressure => _pressure;
+        public float Pressure
+        {
+            get { return pressure; }
+            set
+            {
+                pressure = value;
+                onPressureValueChanged.Invoke(value);
+            }
+        }
+
+        public readonly List<Coal> coalList = new();
 
         private void FixedUpdate()
         {
-            ActivateTankSystem();
-        }
-        private void ActivateTankSystem()
-        {
-            var checkKnobTurned = knob.value >= 1;
+            temperature = GetCoalTemp();
 
-            if (oxygen.IsActivated && checkKnobTurned)
+            UpdatePressure();
+            UpdatePlunger();
+        }
+
+        public void CoalAdded(Coal coal)
+        {
+            coal.SetHeating(heat, oxygen);
+            coalList.Add(coal);
+        }
+        public void CoalRemoved(Coal coal)
+        {
+            coal.SetHeating(0, 0);
+            coalList.Remove(coal);
+        }
+
+        public void SetHeat(float heat)
+        {
+            this.heat = heat;
+            HeatCoal();
+        }
+
+        public void SetOxygen(float oxygen)
+        {
+            this.oxygen = oxygen;
+            HeatCoal();
+        }
+
+        private void HeatCoal()
+        {
+            foreach (var coal in coalList)
             {
-                _temperature = checkBox.getTemp()*(1-oxygen.wheel.value);
-                _pressure += (checkBox.getTemp() * checkBox.getTemp() * checkBox.getTemp()) * increasePressureSpeed;
-                if (_pressure > _maxPressure)
+                coal.SetHeating(heat, oxygen);
+            }
+        }
+        public float GetCoalTemp()
+        {
+            float temp = 0;
+            foreach (var coal in coalList)
+            {
+                temp += coal.Temperature;
+            }
+            return temp;
+        }
+
+        private void UpdatePressure()
+        {
+            if (boiling)
+            {
+                if (temperature < waterBoilingTemp)
                 {
-                    _pressure = _maxPressure;
+                    boiling = false;
+                    onStopBoiling.Invoke();
                 }
-                gauge.UpdateRotation(_pressure);
-                checkBox.heatUpCoal(oxygen.wheel.value);
+                else
+                {
+                    // Exponentially increase pressure based on temperature
+                    pressure += Mathf.Pow(temperature, 2) * increasePressureSpeed * Time.deltaTime;
+                }
             }
             else
             {
-
-                checkBox.coolDownCoal();
-                _pressure -= _pressureLoss * increasePressureSpeed;
-                if (_pressure < 0)
+                if (temperature >= waterBoilingTemp)
                 {
-                    _pressure = 0;
+                    boiling = true;
+                    onStartBoiling.Invoke();
                 }
-                gauge.UpdateRotation(_pressure);
-            }
-            if (100 / _maxPressure * _pressure >= GaugePercentageFullActivation && goUp)
-            {
-                plunger.canMove = true;
-                goUp = false;
-                goDown = true;
-            }
-            else if(100 / _maxPressure * _pressure <= GaugePercentageFullActivation && goDown)
-            {
-                plunger.canMove = false;
-
-                goUp = true;
-                goDown = false;
-            }
-            if (100 / _maxPressure * _pressure > 0)
-            {
-                // Stop and clear the particle system
-                var emmision = steam.emission;
-                emmision.enabled = true;
-            }
-            else if (100 / _maxPressure * _pressure <= 0)
-            {
-                // Stop the particle system
-                var emmision = steam.emission;
-                emmision.enabled = false;
+                else
+                {
+                    // Decrease pressure with time
+                    pressure -= pressureLoss * Time.deltaTime;
+                }
             }
 
+            // Clamp pressure to be within a specified range
+            Pressure = Mathf.Clamp(pressure, 0, maxPressure);
+        }
+
+        private void UpdatePlunger()
+        {
+            if (plungerMoving)
+            {
+                if ((pressure / maxPressure) * waterBoilingTemp < gaugePercentageFullActivation)
+                {
+                    // Move plunger down
+                    plungerMoving = false;
+                    onMovePlunger.Invoke(false);
+                }
+            }
+            else
+            {
+                if ((pressure / maxPressure) * waterBoilingTemp >= gaugePercentageFullActivation)
+                {
+                    // Move plunger up
+                    plungerMoving = true;
+                    onMovePlunger.Invoke(true);
+                }
+            }
         }
     }
 }

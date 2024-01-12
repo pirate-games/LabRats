@@ -7,11 +7,6 @@ namespace Lab.Steam_Puzzle.Tank
     /// </summary>
     public class PressureGauge : MonoBehaviour
     {
-        //[Header("Which object am I linked to?")] 
-        //[SerializeField] private TankSystem _tankSystem;
-
-        //[Header("How fast should I rotate with the follow object?")]
-        //[Range(0f, 1f)]
         [SerializeField] private float rotationSpeed = 0.5f;
         [SerializeField] private float beginRoatation = 0;
         public void UpdateRotation(float myRotation)

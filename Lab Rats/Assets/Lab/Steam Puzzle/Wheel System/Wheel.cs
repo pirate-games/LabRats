@@ -9,17 +9,15 @@ namespace Lab.Steam_Puzzle.Wheel_System
     public class Wheel : XRKnob
     {
         [SerializeField] private float turnBackSpeed = 0.01f;
+
+        public bool Selected { get; set; }
         
         private void FixedUpdate()
         {
-            if (value < 1)
-            {
-                return;
-            }
-            else
-            {
-                value += turnBackSpeed * Time.deltaTime;
-            }
+            if (value == 1 || Selected) return;
+            
+            value += turnBackSpeed * Time.deltaTime;
         }
+
     }
 }
