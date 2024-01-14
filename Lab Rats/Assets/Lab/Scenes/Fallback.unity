@@ -874,6 +874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maximumConnections: 2
   transport: {fileID: 1149310906}
+  lobbyCode: {fileID: 0}
 --- !u!1 &1172870259
 GameObject:
   m_ObjectHideFlags: 0
@@ -1783,7 +1784,7 @@ MonoBehaviour:
   radius: 3
   speed: 2
   offsetAngle: -90
-  Offset: {x: 0, y: 0, z: 0.37}
+  offset: {x: 0, y: 0, z: 0}
 --- !u!1 &1620884244 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8513859187771203891, guid: 1c0bf7d8b4bf79e4c9b696eaa64582cc, type: 3}
@@ -1958,6 +1959,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   input: {fileID: 1874351534}
   networkConnecter: {fileID: 0}
+  submitButton: {fileID: 0}
+  submitText: {fileID: 0}
 --- !u!1 &1671258216
 GameObject:
   m_ObjectHideFlags: 0
