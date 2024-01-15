@@ -20,6 +20,7 @@ namespace Mulitplayer.NetworkUI
         [SerializeField] private int maximumConnections = 2;
         [SerializeField] private UnityTransport transport;
         [SerializeField] private LobbyCode lobbyCode;
+        [SerializeField] private EnterPlayers enterPlayers;
 
         /// <summary>
         ///  The join code of the lobby
@@ -63,7 +64,8 @@ namespace Mulitplayer.NetworkUI
                 JoinCode = joinCode;
                 Debug.Log(joinCode);
                 
-                NetworkManager.Singleton.StartHost(); 
+                NetworkManager.Singleton.StartHost();
+                enterPlayers.CheckConnectedPlayers(maximumConnections);
             }
             catch (RelayServiceException e)
             {
@@ -85,6 +87,7 @@ namespace Mulitplayer.NetworkUI
                 transport.SetRelayServerData(serverData);
                 
                 NetworkManager.Singleton.StartClient();
+
             }
             catch (RelayServiceException e)
             {

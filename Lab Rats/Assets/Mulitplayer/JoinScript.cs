@@ -11,10 +11,6 @@ public class JoinScript : MonoBehaviour
 
     [SerializeField] private Button submitButton;
     [SerializeField] private TMP_Text submitText;
-
-    //Temporary Solution
-    private const int MinimalCodeLenght = 6;
-    
     public void Joining()
     {
 
@@ -35,7 +31,7 @@ public class JoinScript : MonoBehaviour
     public void ToggleButton()
     {
         submitButton.interactable = input.text.Length >= CodeFormatter.CodeLength;
-        submitText.color = input.text.Length >= MinimalCodeLenght ? Color.black : new(1, 1, 1, 0.5f);
+        submitText.color = input.text.Length >= CodeFormatter.CodeLength ? Color.black : new(1, 1, 1, 0.5f);
 
     }
 }
