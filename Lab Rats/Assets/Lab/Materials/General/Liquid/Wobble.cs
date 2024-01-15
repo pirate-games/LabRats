@@ -29,6 +29,10 @@ public class Wobble : NetworkBehaviour
     private void Start()
     {
         rend = GetComponent<Renderer>();
+        if (!IsHost)
+        {
+            SetValuesClientRpc();
+        }
     }
 
     public override void OnNetworkSpawn()
