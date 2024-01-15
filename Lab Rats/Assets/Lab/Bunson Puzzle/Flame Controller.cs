@@ -97,7 +97,7 @@ namespace Lab.Bunson_Puzzle
             _main.startSizeMultiplier = _startParticleSize * size;
             _velocity.yMultiplier = _velocityChangeY * size;
 
-            if (size > 0 && !_audioSource.isPlaying) bunsonSound.PlayOneShot(_audioSource);
+            if (size > 0 && !_audioSource.isPlaying) bunsonSound.PlayLooping(_audioSource);
         }
 
         /// <summary>

@@ -12,5 +12,17 @@ namespace Audio
         /// </summary>
         /// <param name="source"> the audio source that the sound should play from </param>
         public abstract void PlayOneShot(AudioSource source);
+        
+        /// <summary>
+        ///  Play the sound on loop
+        /// </summary>
+        /// <param name="source"> the audio source that the sound should play from </param>
+        public abstract void PlayLooping(AudioSource source);
+        
+        /// <summary>
+        /// Stop the sound
+        /// </summary>
+        /// <param name="source"> the audio source that should stop </param>
+        public abstract void Stop(AudioSource source);
     }
 }
