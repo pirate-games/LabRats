@@ -38,6 +38,7 @@ public class SafeFunctionality : MonoBehaviour
         if (timer >= openingTime)
         {
             isOpen = true;
+            timer = 0;
         }
     }
 }

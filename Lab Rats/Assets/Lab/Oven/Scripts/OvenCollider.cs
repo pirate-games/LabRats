@@ -30,11 +30,10 @@ public class OvenCollider : MonoBehaviour
         {
             mouldInside = true;
         }
-        else
+/*        else
         {
-            Debug.Log(other.attachedRigidbody.velocity);
             other.attachedRigidbody.velocity = new Vector3(5, 3, 0);
-        }
+        }*/
     }
 
     private void OnTriggerExit(Collider other)

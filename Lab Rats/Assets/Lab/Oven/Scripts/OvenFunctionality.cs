@@ -7,7 +7,7 @@ public class OvenFunctionality : MonoBehaviour
     [SerializeField]
     private OvenCollider collider;
     [SerializeField]
-    private GameObject key, door;
+    private GameObject key, door, spinningPad;
     [SerializeField]
     private Light ovenLight1, ovenLight2;
 
@@ -36,7 +36,7 @@ public class OvenFunctionality : MonoBehaviour
         }
     }
 
-    public void updateOven()
+    public void UpdateOven()
     {
         ovenLight1.intensity = lightIntense;
         ovenLight2.intensity = lightIntense;
