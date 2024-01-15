@@ -29,5 +29,15 @@ namespace Audio
                 return;
             }
         }
+
+        public override void PlayLooping(AudioSource source)
+        {
+           // TODO: Implement this later 
+        }
+
+        public override void Stop(AudioSource source)
+        {
+           // TODO: Implement this later
+        }
     }
 }
