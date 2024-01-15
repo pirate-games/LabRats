@@ -39,12 +39,11 @@ public class Wobble : NetworkBehaviour
 
         if (IsHost)
         {
-            CalculateValues();
+            CalculateValuesServerRpc();
             SetValuesClientRpc();
         }
         else
-        {
-            CalculateValues();  
+        { 
             SetValuesClientRpc();
         }
     }
@@ -60,7 +59,8 @@ public class Wobble : NetworkBehaviour
         rend.material.SetColor("_SurfaceColor", thisColor.Value);
     }
 
-    private void CalculateValues()
+    [ServerRpc]
+    private void CalculateValuesServerRpc()
     {
         float randomHue = Random.Range(0f, 1f);
          intensity.Value = Random.Range(3, 9);
