@@ -11,7 +11,6 @@ namespace Mulitplayer.NetworkUI
 {
     public class NetworkConnecter : MonoBehaviour
     {
-        private Lobby _currentLobby;
         private float _heartBeatTimer;
         
         private const string ConnectionType = "dtls";
@@ -35,18 +34,6 @@ namespace Mulitplayer.NetworkUI
             await InitialiseGame.AuthenticateUser();
         }
 
-        private void Update()
-        {
-            _heartBeatTimer += Time.deltaTime;
-
-            if (!(_heartBeatTimer > HeartBeatInterval)) return;
-
-            _heartBeatTimer -= HeartBeatInterval;
-
-            if (_currentLobby == null || _currentLobby.HostId != AuthenticationService.Instance.PlayerId) return;
-            
-            LobbyService.Instance.SendHeartbeatPingAsync(_currentLobby.Id);
-        }
 
         /// <summary>
         ///  Create a lobby and start the host
@@ -65,7 +52,6 @@ namespace Mulitplayer.NetworkUI
                 Debug.Log(joinCode);
                 
                 NetworkManager.Singleton.StartHost();
-                enterPlayers.CheckConnectedPlayers(maximumConnections);
             }
             catch (RelayServiceException e)
             {
@@ -87,7 +73,7 @@ namespace Mulitplayer.NetworkUI
                 transport.SetRelayServerData(serverData);
                 
                 NetworkManager.Singleton.StartClient();
-
+                
             }
             catch (RelayServiceException e)
             {
