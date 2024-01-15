@@ -36,7 +36,8 @@ Transform:
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 968028385546927529}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6975028982197751931
@@ -364,3 +365,177 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e343075ec7cb345a7ab386ae2b12d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &785202817600690754
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6297048718172266462}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 122608338434328296, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+      propertyPath: m_Name
+      value: Lab Equip D
+      objectReference: {fileID: 0}
+    - target: {fileID: 7071182760956848314, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f1138df994b417e4cbc235385a5483d2, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2441006587932937831}
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+--- !u!4 &968028385546927529 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cf639f1080f06ad418c7884b4e879ad2, type: 3}
+  m_PrefabInstance: {fileID: 785202817600690754}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2768178794460932492
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 968028385546927529}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0672
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071067
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ffd67e832fc620a4cbe214dd4bdfd9bb, type: 2}
+    - target: {fileID: 919132149155446097, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      propertyPath: m_Name
+      value: Liquid Lab Equip D
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1328340023855284384}
+  m_SourcePrefab: {fileID: 100100000, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+--- !u!4 &2441006587932937831 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+  m_PrefabInstance: {fileID: 2768178794460932492}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3074799813021258973 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 28f9b9a672256eb489b02522c5b100fa, type: 3}
+  m_PrefabInstance: {fileID: 2768178794460932492}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1328340023855284384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3074799813021258973}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf697346ec3317c43875c94a8859ffce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxWobble: 0.04
+  WobbleSpeed: 1
+  Recovery: 1

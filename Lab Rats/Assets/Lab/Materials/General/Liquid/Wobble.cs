@@ -40,6 +40,8 @@ public class Wobble : MonoBehaviour
         // send it to the shader
         rend.material.SetFloat("_WobbleX", wobbleAmountX);
         rend.material.SetFloat("_WobbleZ", wobbleAmountZ);
+        
+        rend.material.SetColor("_Emission", new Color(Random.Range(0,255), Random.Range(0, 255), Random.Range(0, 255)));
 
         // velocity
         velocity = (lastPos - transform.position) / Time.deltaTime;
