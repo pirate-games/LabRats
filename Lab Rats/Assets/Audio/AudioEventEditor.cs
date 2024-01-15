@@ -31,7 +31,7 @@ namespace Audio
             GUILayout.Space(ExtraGUISpace);
             EditorGUI.BeginDisabledGroup(serializedObject.isEditingMultipleObjects);
             
-            if (GUILayout.Button("Preview")) ((AudioEvent)target).Play(preview);
+            if (GUILayout.Button("Preview")) ((AudioEvent)target).PlayOneShot(preview);
 
             GUILayout.Space(ExtraGUISpace);
 

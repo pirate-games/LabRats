@@ -12,8 +12,8 @@ namespace Audio
         
         [Range(0, 1)]
         [SerializeField] private float pitch = 1f;
-        
-        public override void Play(AudioSource source)
+
+        public override void PlayOneShot(AudioSource source)
         {
             source.clip = clip;
             source.volume = volume;

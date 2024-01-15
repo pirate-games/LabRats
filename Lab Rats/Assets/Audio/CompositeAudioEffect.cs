@@ -8,7 +8,7 @@ namespace Audio
     {
         [SerializeField] private CompositeAudioEntry[] entries;
         
-        public override void Play(AudioSource source)
+        public override void PlayOneShot(AudioSource source)
         {
             float totalWeight = 0;
             
@@ -25,7 +25,7 @@ namespace Audio
                     continue;
                 }
 
-                entries[i].audioEvent.Play(source);
+                entries[i].audioEvent.PlayOneShot(source);
                 return;
             }
         }

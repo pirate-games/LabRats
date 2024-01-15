@@ -11,6 +11,6 @@ namespace Audio
         /// Play the sound 
         /// </summary>
         /// <param name="source"> the audio source that the sound should play from </param>
-        public abstract void Play(AudioSource source);
+        public abstract void PlayOneShot(AudioSource source);
     }
 }

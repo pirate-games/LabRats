@@ -1,10 +1,12 @@
+using Audio;
+using ElementsSystem;
 using System;
 using System.Collections.Generic;
-using ElementsSystem;
 using UnityEngine;
 
 namespace Lab.Bunson_Puzzle
 {
+    [RequireComponent(typeof(AudioSource))]
     public class FlameController : MonoBehaviour
     {
         private ParticleSystem _particles;
@@ -17,7 +19,7 @@ namespace Lab.Bunson_Puzzle
 
         [SerializeField] private float minFlameSize;
 
-        [Header ("Gradient Presets")]
+        [Header("Gradient Presets")]
         [SerializeField] private Gradient defaultGradient;
         [SerializeField] private Gradient redGradient;
         [SerializeField] private Gradient orangeGradient;
@@ -27,9 +29,12 @@ namespace Lab.Bunson_Puzzle
         [SerializeField] private Gradient whiteBlueGradient;
         [SerializeField] private Gradient whiteGradient;
 
+        [Header("Bunson Burner Sound")]
+        [SerializeField] private AudioEvent bunsonSound;
+
         [Header("Colored Objects")]
         [SerializeField] private FlameElement[] flameElements;
-        
+
         private readonly Dictionary<int, FlameElement> _flameDict = new();
         private readonly List<ElementObject> _collidingElements = new();
 
@@ -54,6 +59,8 @@ namespace Lab.Bunson_Puzzle
 
         private FlameColor _flameColor = FlameColor.Default;
 
+        private AudioSource _audioSource;
+
         private void Start()
         {
             //initialise the dict with the elements from the inspector
@@ -73,6 +80,8 @@ namespace Lab.Bunson_Puzzle
 
             _main.startSizeMultiplier = 0;
             _velocity.yMultiplier = 0;
+
+            _audioSource = gameObject.GetComponent<AudioSource>();
         }
 
         /// <summary>
@@ -87,6 +96,8 @@ namespace Lab.Bunson_Puzzle
 
             _main.startSizeMultiplier = _startParticleSize * size;
             _velocity.yMultiplier = _velocityChangeY * size;
+
+            if (size > 0 && !_audioSource.isPlaying) bunsonSound.PlayOneShot(_audioSource);
         }
 
         /// <summary>
