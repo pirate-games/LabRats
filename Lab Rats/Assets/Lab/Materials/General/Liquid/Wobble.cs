@@ -44,6 +44,7 @@ public class Wobble : NetworkBehaviour
         }
         else
         {
+            CalculateValues();  
             SetValuesClientRpc();
         }
     }
@@ -58,6 +59,7 @@ public class Wobble : NetworkBehaviour
         rend.material.SetColor("_LiquidColor", thisColor.Value);
         rend.material.SetColor("_SurfaceColor", thisColor.Value);
     }
+
     private void CalculateValues()
     {
         float randomHue = Random.Range(0f, 1f);
