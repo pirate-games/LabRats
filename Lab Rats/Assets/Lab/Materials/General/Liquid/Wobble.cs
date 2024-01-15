@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 
 //https://www.youtube.com/watch?v=DKSpgFuKeb4
-public class Wobble : MonoBehaviour
+public class Wobble : NetworkBehaviour
 {
     Renderer rend;
     Vector3 lastPos;
@@ -20,14 +21,52 @@ public class Wobble : MonoBehaviour
     float pulse;
     float time = 0.5f;
 
+    NetworkVariable<Color> thisColor = new NetworkVariable<Color>();
+    NetworkVariable<float> fillHeight = new NetworkVariable<float>();
+    NetworkVariable<float> intensity = new NetworkVariable<float>();
     // Use this for initialization
-    void Start()
+
+    private void Start()
     {
         rend = GetComponent<Renderer>();
+    }
+
+    public override void OnNetworkSpawn()
+    {
+        base.OnNetworkSpawn();
+        Debug.Log("Testing");
+        rend = GetComponent<Renderer>();
+
+        if (IsHost)
+        {
+            CalculateValues();
+            SetValuesClientRpc();
+        }
+    }
+
+    [ClientRpc]
+    private void SetValuesClientRpc()
+    {
+        Debug.Log("SetValue");
+        rend.material.SetFloat("_EmissionIntemsity", intensity.Value);
+        rend.material.SetFloat("_Fill", fillHeight.Value);
+        rend.material.SetColor("_EmissonColor", thisColor.Value);  // Fix the typo here
+        rend.material.SetColor("_LiquidColor", thisColor.Value);
+        rend.material.SetColor("_SurfaceColor", thisColor.Value);
+    }
+    private void CalculateValues()
+    {
+        float randomHue = Random.Range(0f, 1f);
+         intensity.Value = Random.Range(3, 9);
+         fillHeight.Value = Random.Range(0.485f, 0.52f);
+        // Set saturation and value to their maximum for full color strength
+        thisColor.Value = Color.HSVToRGB(randomHue, 1f, 1f);
+
     }
     private void Update()
     {
         time += Time.deltaTime;
+
         // decrease wobble over time
         wobbleAmountToAddX = Mathf.Lerp(wobbleAmountToAddX, 0, Time.deltaTime * (Recovery));
         wobbleAmountToAddZ = Mathf.Lerp(wobbleAmountToAddZ, 0, Time.deltaTime * (Recovery));
@@ -41,7 +80,8 @@ public class Wobble : MonoBehaviour
         rend.material.SetFloat("_WobbleX", wobbleAmountX);
         rend.material.SetFloat("_WobbleZ", wobbleAmountZ);
         
-        rend.material.SetColor("_Emission", new Color(Random.Range(0,255), Random.Range(0, 255), Random.Range(0, 255)));
+
+        
 
         // velocity
         velocity = (lastPos - transform.position) / Time.deltaTime;
