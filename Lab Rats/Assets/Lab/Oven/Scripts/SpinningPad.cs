@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class SpinningPad : MonoBehaviour
 {
-    private bool spinning, steel;
+    [SerializeField]
+    private List<Light> lights;
+
+    [SerializeField]
+    private bool spinner2;
+
+    private bool spinning;
 
     private float spinTime = 2;
     private float timer = 0;
@@ -21,14 +27,9 @@ public class SpinningPad : MonoBehaviour
         if (spinning)
         {
             float t = timer / spinTime;
-            if (steel)
-            {
-                transform.localRotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, zRotation), new Vector3(0, 0, zRotation + 180), t)); //moves right
-            }
-            else
-            {
-                transform.localRotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, zRotation), new Vector3(0, 0, zRotation - 180), t)); // moves left
-            }
+
+            transform.localRotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, zRotation), new Vector3(0, 0, zRotation + 180), t)); //moves right            
+
             timer += Time.deltaTime;
             if (timer >= spinTime)
             {
@@ -42,34 +43,76 @@ public class SpinningPad : MonoBehaviour
     {
         if (!spinning)
         {
-            if (collision.gameObject.tag == "Steel")
+            if (spinner2)
             {
-                spinning = true;
-                steel = true;
-                //Spin(true);
+
+                if (collision.gameObject.tag == "Steel")
+                {
+                    StartCoroutine(KeepSteel());
+                }
+                else
+                {
+                    StartCoroutine(DiscardItem(collision.rigidbody));
+                }
+
             }
             else
             {
                 spinning = true;
-                steel = false;
-                //Spin(false);
+            }
+        }
+    }
+    private void OnCollisionStay(Collision collision)
+    {
+        if (!spinning)
+        {
+            if (spinner2)
+            {
+
+                if (collision.gameObject.tag == "Steel")
+                {
+                    StartCoroutine(KeepSteel());
+                }
+                else
+                {
+                    StartCoroutine(DiscardItem(collision.rigidbody));
+                }
+
+            }
+            else
+            {
+                spinning = true;
             }
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    IEnumerator DiscardItem(Rigidbody rb)
     {
-        if (collision.gameObject.tag == "Steel")
+        yield return new WaitForSeconds(1);
+        rb.velocity = new Vector3(5, 3, 0);
+        foreach (Light light in lights)
         {
-            spinning = true;
-            steel = true;
-            //Spin(true);
+            light.color = Color.red;
         }
-        else
+        yield return new WaitForSeconds(1);
+        foreach (Light light in lights)
         {
-            spinning = true;
-            steel = false;
-            //Spin(false);
+            light.color = Color.white;
+        }
+
+    }
+    IEnumerator KeepSteel()
+    {
+        yield return new WaitForSeconds(1);
+        spinning = true;
+        foreach (Light light in lights)
+        {
+            light.color = Color.green;
+        }
+        yield return new WaitForSeconds(1);
+        foreach (Light light in lights)
+        {
+            light.color = Color.white;
         }
     }
 
