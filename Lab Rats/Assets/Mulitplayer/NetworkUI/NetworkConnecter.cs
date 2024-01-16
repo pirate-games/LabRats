@@ -11,12 +11,9 @@ namespace Mulitplayer.NetworkUI
 {
     public class NetworkConnecter : MonoBehaviour
     {
-        private Lobby _currentLobby;
-        private float _heartBeatTimer;
-        
         private const string ConnectionType = "dtls";
-        private const int HeartBeatInterval = 15;
 
+        [Header("  Network Settings")]
         [SerializeField] private int maximumConnections = 2;
         [SerializeField] private UnityTransport transport;
         [SerializeField] private LobbyCode lobbyCode;
@@ -34,19 +31,6 @@ namespace Mulitplayer.NetworkUI
             await InitialiseGame.AuthenticateUser();
         }
 
-        private void Update()
-        {
-            _heartBeatTimer += Time.deltaTime;
-
-            if (!(_heartBeatTimer > HeartBeatInterval)) return;
-
-            _heartBeatTimer -= HeartBeatInterval;
-
-            if (_currentLobby == null || _currentLobby.HostId != AuthenticationService.Instance.PlayerId) return;
-            
-            LobbyService.Instance.SendHeartbeatPingAsync(_currentLobby.Id);
-        }
-
         /// <summary>
         ///  Create a lobby and start the host
         /// </summary>
@@ -54,15 +38,16 @@ namespace Mulitplayer.NetworkUI
         {
             try
             {
+                // create a relay allocation
                 var allocation = await RelayService.Instance.CreateAllocationAsync(maximumConnections);
                 var joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
                 var serverData = new RelayServerData(allocation, ConnectionType);
                 
+                // transport the server data to the transport so it can connect to the server
                 transport.SetRelayServerData(serverData);   
-
-                JoinCode = joinCode;
-                Debug.Log(joinCode);
                 
+                // start the host and set the join code
+                JoinCode = joinCode;
                 NetworkManager.Singleton.StartHost(); 
             }
             catch (RelayServiceException e)
@@ -83,7 +68,6 @@ namespace Mulitplayer.NetworkUI
 
                 // transport the server data to the transport so it can connect to the server
                 transport.SetRelayServerData(serverData);
-                
                 NetworkManager.Singleton.StartClient();
             }
             catch (RelayServiceException e)

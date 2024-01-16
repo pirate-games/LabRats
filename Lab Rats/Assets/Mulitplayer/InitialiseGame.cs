@@ -8,6 +8,9 @@ namespace Mulitplayer
     /// </summary>
     public static class InitialiseGame 
     {
+        /// <summary>
+        /// Initialise the game and sign in the player anonymously using Unity Services
+        /// </summary>
         public static async Task AuthenticateUser()
         {
             await UnityServices.InitializeAsync();

@@ -1,159 +1,165 @@
+using Audio;
 using ElementsSystem;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlameController : MonoBehaviour
+namespace Lab.Bunson_Puzzle
 {
-    ParticleSystem particles;
-    ParticleSystem.MainModule main;
-    ParticleSystem.VelocityOverLifetimeModule velocity;
-    ParticleSystem.ColorOverLifetimeModule color;
-
-    private float startParticleSize;
-    private float velocityChangeY;
-
-    [SerializeField]
-    private float minFlameSize;
-
-    [Header ("Gradient Presets")]
-    [SerializeField]
-    Gradient defaultGradient;
-    [SerializeField]
-    Gradient redGradient;
-    [SerializeField]
-    Gradient orangeGradient;
-    [SerializeField]
-    Gradient pinkGradient;
-    [SerializeField]
-    Gradient purpleGradient;
-    [SerializeField]
-    Gradient greenGradient;
-    [SerializeField]
-    Gradient whiteBlueGradient;
-    [SerializeField]
-    Gradient whiteGradient;
-
-    [Header("Colored Objects")]
-    [SerializeField]
-    FlameElement[] flameElements;
-    Dictionary<int, FlameElement> flameDict = new();
-
-    public enum FlameColor
+    [RequireComponent(typeof(AudioSource))]
+    public class FlameController : MonoBehaviour
     {
-        Red,
-        Orange,
-        Pink,
-        Purple,
-        Green,
-        WhiteBlue,
-        White,
-        Default
-    }
+        private ParticleSystem _particles;
+        private ParticleSystem.MainModule _main;
+        private ParticleSystem.VelocityOverLifetimeModule _velocity;
+        private ParticleSystem.ColorOverLifetimeModule _color;
 
-    [Serializable]
-    private struct FlameElement
-    {
-        public int atomicNumber;
-        public FlameColor color;
-    }
+        private float _startParticleSize;
+        private float _velocityChangeY;
 
-    private FlameColor flameColor = FlameColor.Default;
+        [SerializeField] private float minFlameSize;
 
-    private List<ElementObject> collidingElements = new();
+        [Header("Gradient Presets")]
+        [SerializeField] private Gradient defaultGradient;
+        [SerializeField] private Gradient redGradient;
+        [SerializeField] private Gradient orangeGradient;
+        [SerializeField] private Gradient pinkGradient;
+        [SerializeField] private Gradient purpleGradient;
+        [SerializeField] private Gradient greenGradient;
+        [SerializeField] private Gradient whiteBlueGradient;
+        [SerializeField] private Gradient whiteGradient;
 
-    private void Start()
-    {
-        //initialise the dict with the elements from the inspector
-        foreach (var flameElement in flameElements)
+        [Header("Bunson Burner Sound")]
+        [SerializeField] private AudioEvent bunsonSound;
+
+        [Header("Colored Objects")]
+        [SerializeField] private FlameElement[] flameElements;
+
+        private readonly Dictionary<int, FlameElement> _flameDict = new();
+        private readonly List<ElementObject> _collidingElements = new();
+
+        private enum FlameColor
         {
-            flameDict[flameElement.atomicNumber] = flameElement;
+            Red,
+            Orange,
+            Pink,
+            Purple,
+            Green,
+            WhiteBlue,
+            White,
+            Default
         }
 
-        if (!TryGetComponent(out particles)) return;
-
-        main = particles.main;
-        velocity = particles.velocityOverLifetime;
-        color = particles.colorOverLifetime;
-
-        startParticleSize = main.startSizeMultiplier;
-        velocityChangeY = velocity.yMultiplier;
-
-        main.startSizeMultiplier = 0;
-        velocity.yMultiplier = 0;
-    }
-
-    /// <summary>
-    ///   Adjusts the size multiplier of the flame
-    /// </summary>
-    /// <param name="size"> Is multiplied by the original values of main.startSizeMultiplier and velocity.yMultiplier from the inspector </param>
-    public void SetFlameSize(float size)
-    {
-        if (particles == null) return;
-
-        if (size < minFlameSize) size = 0;
-
-        main.startSizeMultiplier = startParticleSize * size;
-        velocity.yMultiplier = velocityChangeY * size;
-    }
-
-    /// <summary>
-    ///   Adjusts the color of the flame
-    /// </summary>
-    /// <param name="gradient"> The new color gradient for the flame </param>
-    public void SetFlameColor(FlameColor gradient)
-    {
-        if (particles == null) return;
-
-        flameColor = gradient;
-        this.color.color = gradient switch
+        [Serializable]
+        private struct FlameElement
         {
-            FlameColor.Red => redGradient,
-            FlameColor.Orange => orangeGradient,
-            FlameColor.Pink => pinkGradient,
-            FlameColor.Purple => purpleGradient,
-            FlameColor.Green => greenGradient,
-            FlameColor.WhiteBlue => whiteBlueGradient,
-            FlameColor.White => whiteGradient,
-            _ => defaultGradient
-        };
-    }
-
-    public void ElementEnter(ElementModel model)
-    {
-        var element = model.ElementObject;
-        if (particles == null || element == null) return;
-
-        //adds new collision to list
-        if (!collidingElements.Contains(element))
-        {
-            collidingElements.Add(element);
+            public int atomicNumber;
+            public FlameColor color;
         }
 
-        //changes color of flame based on newest collision
-        if (flameDict.TryGetValue(element.atomicNumber, out var flame))
-            SetFlameColor(flame.color);
-    }
+        private FlameColor _flameColor = FlameColor.Default;
 
-    public void ElementExit(ElementModel model)
-    {
-        var element = model.ElementObject;
-        if (particles == null || element == null) return;
+        private AudioSource _audioSource;
 
-        //removes object from collisions list
-        if (collidingElements.Contains(element))
+        private void Start()
         {
-            collidingElements.Remove(element);
+            //initialise the dict with the elements from the inspector
+            foreach (var flameElement in flameElements)
+            {
+                _flameDict[flameElement.atomicNumber] = flameElement;
+            }
+
+            if (!TryGetComponent(out _particles)) return;
+
+            _main = _particles.main;
+            _velocity = _particles.velocityOverLifetime;
+            _color = _particles.colorOverLifetime;
+
+            _startParticleSize = _main.startSizeMultiplier;
+            _velocityChangeY = _velocity.yMultiplier;
+
+            _main.startSizeMultiplier = 0;
+            _velocity.yMultiplier = 0;
+
+            _audioSource = gameObject.GetComponent<AudioSource>();
         }
-        else return;
 
-        //checks wether the color needs to be adjusted
-        if (flameDict.TryGetValue(element.atomicNumber, out var oldFlame) && oldFlame.color == flameColor)
+        /// <summary>
+        ///   Adjusts the size multiplier of the flame
+        /// </summary>
+        /// <param name="size"> Is multiplied by the original values of main.startSizeMultiplier and velocity.yMultiplier from the inspector </param>
+        public void SetFlameSize(float size)
         {
-            if (collidingElements.Count > 0 && flameDict.TryGetValue(collidingElements[0].atomicNumber, out var flame))
+            if (_particles == null) return;
+
+            if (size < minFlameSize) size = 0;
+
+            _main.startSizeMultiplier = _startParticleSize * size;
+            _velocity.yMultiplier = _velocityChangeY * size;
+
+            //turn sound on/off
+            if (size > minFlameSize && !_audioSource.isPlaying) bunsonSound.PlayLooping(_audioSource);
+            if (size < minFlameSize && _audioSource.isPlaying) bunsonSound.Stop(_audioSource);
+        }
+
+        /// <summary>
+        ///   Adjusts the color of the flame
+        /// </summary>
+        /// <param name="gradient"> The new color gradient for the flame </param>
+        private void SetFlameColor(FlameColor gradient)
+        {
+            if (_particles == null) return;
+
+            _flameColor = gradient;
+            _color.color = gradient switch
+            {
+                FlameColor.Red => redGradient,
+                FlameColor.Orange => orangeGradient,
+                FlameColor.Pink => pinkGradient,
+                FlameColor.Purple => purpleGradient,
+                FlameColor.Green => greenGradient,
+                FlameColor.WhiteBlue => whiteBlueGradient,
+                FlameColor.White => whiteGradient,
+                _ => defaultGradient
+            };
+        }
+
+        public void ElementEnter(ElementModel model)
+        {
+            var element = model.ElementObject;
+            if (_particles == null || element == null) return;
+
+            //adds new collision to list
+            if (!_collidingElements.Contains(element))
+            {
+                _collidingElements.Add(element);
+            }
+
+            //changes color of flame based on newest collision
+            if (_flameDict.TryGetValue(element.atomicNumber, out var flame))
                 SetFlameColor(flame.color);
-            else
-                SetFlameColor(FlameColor.Default);
+        }
+
+        public void ElementExit(ElementModel model)
+        {
+            var element = model.ElementObject;
+            if (_particles == null || element == null) return;
+
+            //removes object from collisions list
+            if (_collidingElements.Contains(element))
+            {
+                _collidingElements.Remove(element);
+            }
+            else return;
+
+            //checks whether the color needs to be adjusted
+            if (_flameDict.TryGetValue(element.atomicNumber, out var oldFlame) && oldFlame.color == _flameColor)
+            {
+                if (_collidingElements.Count > 0 && _flameDict.TryGetValue(_collidingElements[0].atomicNumber, out var flame))
+                    SetFlameColor(flame.color);
+                else
+                    SetFlameColor(FlameColor.Default);
+            }
         }
     }
 }

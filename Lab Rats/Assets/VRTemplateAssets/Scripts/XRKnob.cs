@@ -1,4 +1,5 @@
 using System;
+using Lab.Knob;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
@@ -9,6 +10,7 @@ namespace Unity.VRTemplate
     /// <summary>
     /// An interactable knob that follows the rotation of the interactor
     /// </summary>
+    [RequireComponent(typeof(SynchKnob))]
     public class XRKnob : XRBaseInteractable
     {
         const float k_ModeSwitchDeadZone = 0.1f; // Prevents rapid switching between the different rotation tracking modes
@@ -126,6 +128,7 @@ namespace Unity.VRTemplate
         ValueChangeEvent m_OnValueChange = new ValueChangeEvent();
 
         IXRSelectInteractor m_Interactor;
+        SynchKnob m_SynchKnob;
 
         bool m_PositionDriven = false;
         bool m_UpVectorDriven = false;
@@ -201,6 +204,7 @@ namespace Unity.VRTemplate
 
         void Start()
         {
+            m_SynchKnob = GetComponent<SynchKnob>();
             SetValue(m_Value);
             SetKnobRotation(ValueToRotation());
         }
@@ -342,9 +346,10 @@ namespace Unity.VRTemplate
             var knobValue = (knobRotation - m_MinAngle) / (m_MaxAngle - m_MinAngle);
             SetValue(knobValue);
 
-            if (TryGetComponent<SynchKnob>(out var synchKnob))
+            // TODO: Move getcomponent to start
+            if (m_SynchKnob != null)
             {
-                synchKnob.ChangeValueServerRpc(value);
+                m_SynchKnob.ChangeValueServerRpc(value);
             }
         }
 
