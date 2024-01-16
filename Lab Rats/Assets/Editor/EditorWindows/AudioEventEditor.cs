@@ -1,15 +1,15 @@
+using Audio;
 using UnityEditor;
 using UnityEngine;
 
-namespace Audio
+namespace Editor.EditorWindows
 {
 #if UNITY_EDITOR
 
     [CustomEditor(typeof(AudioEvent), true)]
-    public class AudioEventEditor : Editor
+    public class AudioEventEditor : UnityEditor.Editor
     {
         [SerializeField] private AudioSource preview;
-
         private const int ExtraGUISpace = 10; 
 
         private void OnEnable()
@@ -40,6 +40,5 @@ namespace Audio
             EditorGUI.EndDisabledGroup();
         }
     }
-
 #endif
 }

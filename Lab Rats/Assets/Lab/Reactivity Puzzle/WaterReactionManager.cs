@@ -27,19 +27,19 @@ namespace Lab.Reactivity_Puzzle
         public void ActivateReaction(ElementModel element)
         {
             if(element.ElementObject == null) return;
-            
-            switch (element.ElementObject.ElementType)
+
+            if (element.ElementObject.ElementType == ElementType.AlkaliMetal)
             {
-                case ElementType.AlkaliMetal:
-                    _alkaliElements.Add(element.ElementObject);
-                    heavySmoke.Play();
-                    sparkSound.PlayOneShot(_audioSource);
-                    break;
-                case ElementType.AlkalineEarthMetal:
-                    _alkalineElements.Add(element.ElementObject);
-                    lightSmoke.Play();
-                    sparkSound.PlayOneShot(_audioSource);
-                    break;
+                _alkaliElements.Add(element.ElementObject);
+                heavySmoke.Play();
+                sparkSound.PlayOneShot(_audioSource);
+            }
+            
+            else if (element.ElementObject.ElementType == ElementType.AlkalineEarthMetal)
+            {
+                _alkalineElements.Add(element.ElementObject);
+                lightSmoke.Play();
+                sparkSound.PlayOneShot(_audioSource);
             }
         }
 
@@ -47,16 +47,16 @@ namespace Lab.Reactivity_Puzzle
         {
             if (element.ElementObject == null) return;
 
-            switch (element.ElementObject.ElementType)
+            if (element.ElementObject.ElementType == ElementType.AlkaliMetal)
             {
-                case ElementType.AlkaliMetal:
-                    _alkaliElements.Remove(element.ElementObject);
-                    if (_alkaliElements.Count == 0) heavySmoke.Stop();
-                    break;
-                case ElementType.AlkalineEarthMetal:
-                    _alkalineElements.Remove(element.ElementObject);
-                    if (_alkalineElements.Count == 0) lightSmoke.Stop();
-                    break;
+                _alkaliElements.Remove(element.ElementObject);
+                if (_alkaliElements.Count == 0) heavySmoke.Stop();
+            }
+            
+            else if (element.ElementObject.ElementType == ElementType.AlkalineEarthMetal)
+            {
+                _alkalineElements.Remove(element.ElementObject);
+                if (_alkalineElements.Count == 0) lightSmoke.Stop();
             }
         }
     }

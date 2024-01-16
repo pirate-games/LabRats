@@ -32,12 +32,18 @@ namespace Audio
 
         public override void PlayLooping(AudioSource source)
         {
-           // TODO: Implement this later 
+            foreach (var entry in entries)
+            {
+                entry.audioEvent.PlayLooping(source);
+            }
         }
 
         public override void Stop(AudioSource source)
         {
-           // TODO: Implement this later
+            foreach (var entry in entries)
+            {
+                entry.audioEvent.Stop(source);
+            }
         }
     }
 }

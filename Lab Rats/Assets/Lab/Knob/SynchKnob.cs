@@ -1,29 +1,32 @@
 using Unity.Netcode;
 using Unity.VRTemplate;
 
-public class SynchKnob : NetworkBehaviour
+namespace Lab.Knob
 {
-    XRKnob knob;
-    void Start()
+    public class SynchKnob : NetworkBehaviour
     {
-        knob = GetComponent<XRKnob>();
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    public void ChangeValueServerRpc(float value, ServerRpcParams serverRpcParams = default)
-    {
-        if (knob == null) return;
-        var clientId = serverRpcParams.Receive.SenderClientId;
-        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        private XRKnob _knob;
+        
+        private void Start()
         {
-            ChangeValueClientRpc(value, clientId);
+            _knob = GetComponent<XRKnob>();
         }
-    }
 
-    [ClientRpc]
-    private void ChangeValueClientRpc(float value, ulong clientId)
-    {
-        knob.value = value;
+        [ServerRpc(RequireOwnership = false)]
+        public void ChangeValueServerRpc(float value, ServerRpcParams serverRpcParams = default)
+        {
+            if (_knob == null) return;
+            
+            var clientId = serverRpcParams.Receive.SenderClientId;
+            
+            if (NetworkManager.ConnectedClients.ContainsKey(clientId)) ChangeValueClientRpc(value, clientId);
+        }
+
+        [ClientRpc]
+        private void ChangeValueClientRpc(float value, ulong clientId)
+        {
+            _knob.value = value;
+        }
     }
 }
 
