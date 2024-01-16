@@ -7,13 +7,16 @@ namespace Audio
     public class CompositeAudioEffect: AudioEvent
     {
         [SerializeField] private CompositeAudioEntry[] entries;
+
+        private CompositeAudioEntry _chosenEntry;
         
-        public override void PlayOneShot(AudioSource source)
+        public override void Play(AudioSource source, bool fadeIn = false)
         {
             float totalWeight = 0;
             
             for (var i = 0; i < entries.Length; ++i) totalWeight += entries[i].weight;
 
+            // pick a random number between 0 and the total weight of all entries
             var pick = Random.Range(0, totalWeight);
 
             // iterate through the amount of entries in the array and play one determined by the weight 
@@ -24,26 +27,27 @@ namespace Audio
                     pick -= entries[i].weight;
                     continue;
                 }
+                
+                // store the chosen entry for stopping later
+                _chosenEntry = entries[i];
 
-                entries[i].audioEvent.PlayOneShot(source);
+                entries[i].audioEvent.Play(source);
+                
+                if (!fadeIn) return;
+                
+                FadeIn(source);
+                
                 return;
             }
         }
 
-        public override void PlayLooping(AudioSource source)
+        public override void Stop(AudioSource source, bool fadeOut = false)
         {
-            foreach (var entry in entries)
-            {
-                entry.audioEvent.PlayLooping(source);
-            }
-        }
-
-        public override void Stop(AudioSource source)
-        {
-            foreach (var entry in entries)
-            {
-                entry.audioEvent.Stop(source);
-            }
+            _chosenEntry.audioEvent.Stop(source);
+            
+            if (!fadeOut) return;
+            
+            FadeOut(source);
         }
     }
 }

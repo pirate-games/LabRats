@@ -16,6 +16,8 @@ namespace Lab.Reactivity_Puzzle
         [SerializeField] private AudioEvent sparkSound;
 
         private AudioSource _audioSource;
+        
+        // keeps track of the elements going in and out of the water 
         private readonly List<ElementObject> _alkaliElements = new();
         private readonly List<ElementObject> _alkalineElements = new();
 
@@ -31,15 +33,17 @@ namespace Lab.Reactivity_Puzzle
             if (element.ElementObject.ElementType == ElementType.AlkaliMetal)
             {
                 _alkaliElements.Add(element.ElementObject);
+                
                 heavySmoke.Play();
-                sparkSound.PlayOneShot(_audioSource);
+                sparkSound.Play(_audioSource);
             }
             
             else if (element.ElementObject.ElementType == ElementType.AlkalineEarthMetal)
             {
                 _alkalineElements.Add(element.ElementObject);
+                
                 lightSmoke.Play();
-                sparkSound.PlayOneShot(_audioSource);
+                sparkSound.Play(_audioSource);
             }
         }
 
@@ -50,12 +54,14 @@ namespace Lab.Reactivity_Puzzle
             if (element.ElementObject.ElementType == ElementType.AlkaliMetal)
             {
                 _alkaliElements.Remove(element.ElementObject);
+                
                 if (_alkaliElements.Count == 0) heavySmoke.Stop();
             }
             
             else if (element.ElementObject.ElementType == ElementType.AlkalineEarthMetal)
             {
                 _alkalineElements.Remove(element.ElementObject);
+                
                 if (_alkalineElements.Count == 0) lightSmoke.Stop();
             }
         }

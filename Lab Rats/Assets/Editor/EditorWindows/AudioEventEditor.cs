@@ -31,7 +31,7 @@ namespace Editor.EditorWindows
             GUILayout.Space(ExtraGUISpace);
             EditorGUI.BeginDisabledGroup(serializedObject.isEditingMultipleObjects);
             
-            if (GUILayout.Button("Preview")) ((AudioEvent)target).PlayOneShot(preview);
+            if (GUILayout.Button("Preview")) ((AudioEvent)target).Play(preview);
 
             GUILayout.Space(ExtraGUISpace);
 

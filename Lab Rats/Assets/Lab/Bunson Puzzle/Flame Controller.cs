@@ -29,7 +29,7 @@ namespace Lab.Bunson_Puzzle
         [SerializeField] private Gradient whiteBlueGradient;
         [SerializeField] private Gradient whiteGradient;
 
-        [Header("Bunson Burner Sound")]
+        [Header("Bunsen Burner Sound")]
         [SerializeField] private AudioEvent bunsonSound;
 
         [Header("Colored Objects")]
@@ -98,7 +98,7 @@ namespace Lab.Bunson_Puzzle
             _velocity.yMultiplier = _velocityChangeY * size;
 
             //turn sound on/off
-            if (size > minFlameSize && !_audioSource.isPlaying) bunsonSound.PlayLooping(_audioSource);
+            if (size > minFlameSize && !_audioSource.isPlaying) bunsonSound.Play(_audioSource);
             if (size < minFlameSize && _audioSource.isPlaying) bunsonSound.Stop(_audioSource);
         }
 
