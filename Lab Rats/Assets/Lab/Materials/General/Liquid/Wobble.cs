@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
+using UnityEngine.Rendering.UI;
 
 //https://www.youtube.com/watch?v=DKSpgFuKeb4
 public class Wobble : NetworkBehaviour
@@ -40,16 +41,16 @@ public class Wobble : NetworkBehaviour
         if (IsHost)
         {
             CalculateValuesServerRpc();
-            SetValuesClientRpc();
+            SetValue();
         }
         else
-        { 
-            SetValuesClientRpc();
+        {
+            Debug.Log("SetMaterial");
+            SetValue();
         }
     }
 
-    [ClientRpc]
-    private void SetValuesClientRpc()
+    private void SetValue()
     {
         Debug.Log("SetValue");
         rend.material.SetFloat("_EmissionIntemsity", intensity.Value);
@@ -67,7 +68,6 @@ public class Wobble : NetworkBehaviour
          fillHeight.Value = Random.Range(0.485f, 0.52f);
         // Set saturation and value to their maximum for full color strength
         thisColor.Value = Color.HSVToRGB(randomHue, 1f, 1f);
-
     }
     private void Update()
     {
