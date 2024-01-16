@@ -75,7 +75,9 @@ namespace Player.Scripts
                 Quaternion.identity.z)
             );
             
+            
             // ensures the body is offset from the head
+            //I think this part can be deleted? We don't have a body anymore
             _vrRigReferences.head.position = new Vector3(head.transform.position.x,
                 head.transform.position.y + bodyOffset.y, head.transform.position.z);
         }
