@@ -14,7 +14,6 @@ public class ButtonController : NetworkBehaviour
     public void OnButtonPress()
     {
         SyncButtonValueServerRpc(true);
-        onButtonPress.Invoke();
     }
 
     [ServerRpc(RequireOwnership = false)]
