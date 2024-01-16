@@ -6,14 +6,31 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class ButtonController : MonoBehaviour
+public class ButtonController : NetworkBehaviour
 {
     [SerializeField] private UnityEvent onButtonPress;
     public bool hasBeenPressed { get; private set; }
 
     public void OnButtonPress()
     {
-        hasBeenPressed = true;
+        SyncButtonValueServerRpc(true);
+        onButtonPress.Invoke();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SyncButtonValueServerRpc(bool state, ServerRpcParams serverRpcParams = default)
+    {
+        var clientId = serverRpcParams.Receive.SenderClientId;
+        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        {
+            SyncButtonValueClientRpc(state);
+        }
+    }
+
+    [ClientRpc]
+    private void SyncButtonValueClientRpc(bool state)
+    {
+        hasBeenPressed = state;
         onButtonPress.Invoke();
     }
 }
