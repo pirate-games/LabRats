@@ -9,6 +9,8 @@ public class OvenFunctionality : NetworkBehaviour
     private OvenCollider collider;
     [SerializeField]
     private GameObject key, door;
+    [SerializeField]
+    private ParticleSystem flames;
 
     private float doorClosed = 88f;
 
@@ -17,7 +19,7 @@ public class OvenFunctionality : NetworkBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        flames.Stop();
     }
 
     // Update is called once per frame
@@ -34,7 +36,26 @@ public class OvenFunctionality : NetworkBehaviour
 
     public void UpdateOven()
     {
+        UpdateOvenServerRPC();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void UpdateOvenServerRPC(ServerRpcParams serverRpcParams = default)
+    {
+        var clientId = serverRpcParams.Receive.SenderClientId;
+        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        {
+            CreateKeyClientRPC();
+        }
+    }
+
+    [ClientRpc]
+    public void UpdateOvenClientRPC()
+    {
         isActive = true;
+        flames.Play();
+        ParticleSystem.EmissionModule em = flames.emission;
+        em.enabled = true;
     }
 
     public void CreateKey()
