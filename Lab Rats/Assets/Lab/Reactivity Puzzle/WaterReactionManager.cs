@@ -12,8 +12,9 @@ namespace Lab.Reactivity_Puzzle
         [SerializeField] private ParticleSystem heavySmoke;
         [SerializeField] private ParticleSystem lightSmoke;
 
-        [Header("Sound that plays when effects start")]
+        [Header("Sounds that play when effects start")]
         [SerializeField] private AudioEvent sparkSound;
+        [SerializeField] private AudioEvent metalDrop;
 
         private AudioSource _audioSource;
         
@@ -26,6 +27,11 @@ namespace Lab.Reactivity_Puzzle
             _audioSource = GetComponent<AudioSource>();
         }
 
+        /// <summary>
+        ///   Activates the reaction if the element is an alkali or alkaline earth metal
+        ///   Called using OnTriggerEnter event 
+        /// </summary>
+        /// <param name="element"> the element that has landed in the water </param>
         public void ActivateReaction(ElementModel element)
         {
             if(element.ElementObject == null) return;
@@ -44,9 +50,15 @@ namespace Lab.Reactivity_Puzzle
                 
                 lightSmoke.Play();
                 sparkSound.Play(_audioSource);
+                metalDrop.Play(_audioSource);
             }
         }
 
+        /// <summary>
+        ///  Deactivates the reaction if the element is an alkali or alkaline earth metal
+        ///  Called using OnTriggerExit event
+        /// </summary>
+        /// <param name="element"> the element that has left the water</param>
         public void DeactivateReaction(ElementModel element)
         {
             if (element.ElementObject == null) return;

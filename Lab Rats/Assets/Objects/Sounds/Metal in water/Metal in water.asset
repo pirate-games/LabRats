@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf2beb19ba244f28ac197c3239d0628, type: 3}
+  m_Name: Metal in water
+  m_EditorClassIdentifier: 
+  entries:
+  - audioEvent: {fileID: 11400000, guid: 6a1fef58e9f8a4943ae72b0cb6b746bc, type: 2}
+    weight: 25
+  - audioEvent: {fileID: 11400000, guid: aab821c3f3fdcd74e9575ee0da79a1cb, type: 2}
+    weight: 25
+  - audioEvent: {fileID: 11400000, guid: 3ee6b52d2b250f14f80dbd935808053e, type: 2}
+    weight: 25
