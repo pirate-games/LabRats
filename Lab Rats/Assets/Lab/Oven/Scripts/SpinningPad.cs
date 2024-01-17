@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class SpinningPad : MonoBehaviour
+public class SpinningPad : NetworkBehaviour
 {
     [SerializeField]
     private List<Light> lights;
@@ -26,16 +27,7 @@ public class SpinningPad : MonoBehaviour
     {
         if (spinning)
         {
-            float t = timer / spinTime;
-
-            transform.localRotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, zRotation), new Vector3(0, 0, zRotation + 180), t)); //moves right            
-
-            timer += Time.deltaTime;
-            if (timer >= spinTime)
-            {
-                spinning = false;
-                timer = 0;
-            }
+            Spin();
         }
     }
 
@@ -48,11 +40,11 @@ public class SpinningPad : MonoBehaviour
 
                 if (collision.gameObject.tag == "Steel")
                 {
-                    StartCoroutine(KeepSteel());
+                    KeepSteel();
                 }
                 else
                 {
-                    StartCoroutine(DiscardItem(collision.rigidbody));
+                   DiscardItem(collision.rigidbody);
                 }
 
             }
@@ -71,11 +63,11 @@ public class SpinningPad : MonoBehaviour
 
                 if (collision.gameObject.tag == "Steel")
                 {
-                    StartCoroutine(KeepSteel());
+                    KeepSteel();
                 }
                 else
                 {
-                    StartCoroutine(DiscardItem(collision.rigidbody));
+                    DiscardItem(collision.rigidbody);
                 }
 
             }
@@ -86,7 +78,54 @@ public class SpinningPad : MonoBehaviour
         }
     }
 
-    IEnumerator DiscardItem(Rigidbody rb)
+    private void Spin()
+    {
+        SpinServerRPC();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void SpinServerRPC(ServerRpcParams serverRpcParams = default)
+    {
+        var clientId = serverRpcParams.Receive.SenderClientId;
+        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        {
+            SpinClientRPC();
+        }
+    }
+
+    [ClientRpc]
+    private void SpinClientRPC()
+    {
+        float t = timer / spinTime;
+
+        transform.localRotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, zRotation), new Vector3(0, 0, zRotation + 180), t)); //moves right            
+
+        timer += Time.deltaTime;
+        if (timer >= spinTime)
+        {
+            spinning = false;
+            timer = 0;
+        }
+    }
+
+    private void DiscardItem(Rigidbody rb)
+    {
+        DiscardServerRPC(rb);
+
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void DiscardServerRPC(Rigidbody rb, ServerRpcParams serverRpcParams = default)
+    {
+        var clientId = serverRpcParams.Receive.SenderClientId;
+        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        {
+            StartCoroutine(DiscardItenClientRPC(rb));
+        }
+    }
+
+    [ClientRpc]
+    IEnumerator DiscardItenClientRPC(Rigidbody rb)
     {
         yield return new WaitForSeconds(1);
         rb.velocity = new Vector3(5, 3, 0);
@@ -99,9 +138,25 @@ public class SpinningPad : MonoBehaviour
         {
             light.color = Color.white;
         }
-
     }
-    IEnumerator KeepSteel()
+
+    public void KeepSteel()
+    {
+        KeepSteelServerRPC();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void KeepSteelServerRPC(ServerRpcParams serverRpcParams = default)
+    {
+        var clientId = serverRpcParams.Receive.SenderClientId;
+        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        {
+            StartCoroutine(KeepSteelClientRPC());
+        }
+    }
+
+    [ClientRpc]
+    IEnumerator KeepSteelClientRPC()
     {
         yield return new WaitForSeconds(1);
         spinning = true;
@@ -115,23 +170,4 @@ public class SpinningPad : MonoBehaviour
             light.color = Color.white;
         }
     }
-
-    /*    private void Spin(bool steel)
-        {
-            float t = timer / spinTime;
-            if (steel)
-            {
-                transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, zRotation), new Vector3(0, 0, zRotation + 180), t)); //moves right
-            }
-            else
-            {
-                transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, zRotation), new Vector3(0, 0, zRotation - 180), t)); // moves left
-            }
-            timer += Time.deltaTime;
-            if(timer >= spinTime)
-            {
-                spinning = false;
-                timer = 0;
-            }
-        }*/
 }

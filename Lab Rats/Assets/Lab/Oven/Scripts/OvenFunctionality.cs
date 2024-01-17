@@ -1,17 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 
-public class OvenFunctionality : MonoBehaviour
+public class OvenFunctionality : NetworkBehaviour
 {
     [SerializeField]
     private OvenCollider collider;
     [SerializeField]
-    private GameObject key, door, spinningPad;
-    [SerializeField]
-    private Light ovenLight1, ovenLight2;
+    private GameObject key, door;
 
-    private float lightIntense = 0.4f, doorClosed = 88f;
+    private float doorClosed = 88f;
 
     private bool isActive;
 
@@ -28,18 +27,37 @@ public class OvenFunctionality : MonoBehaviour
         {
             if (collider.steelCount >= 2 && collider.mouldInside && door.transform.rotation.eulerAngles.y >= doorClosed)
             {
-                collider.steel1.SetActive(false);
-                collider.steel2.SetActive(false);
-                key.SetActive(true);
-                isActive = false;
+                CreateKey();
             }
         }
     }
 
     public void UpdateOven()
     {
-        ovenLight1.intensity = lightIntense;
-        ovenLight2.intensity = lightIntense;
         isActive = true;
+    }
+
+    public void CreateKey()
+    {
+        CreateKeyServerRPC();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void CreateKeyServerRPC(ServerRpcParams serverRpcParams = default)
+    {
+        var clientId = serverRpcParams.Receive.SenderClientId;
+        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        {
+            CreateKeyClientRPC();
+        }
+    }
+
+    [ClientRpc]
+    private void CreateKeyClientRPC()
+    {
+        collider.steel1.SetActive(false);
+        collider.steel2.SetActive(false);
+        key.SetActive(true);
+        isActive = false;
     }
 }
