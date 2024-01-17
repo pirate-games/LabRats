@@ -1,20 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class KeyKnob : MonoBehaviour
 {
     [SerializeField]
-    Rigidbody door1;
-    [SerializeField]
-    Rigidbody door2;
+    UnityEvent onOpenDoors;
+
+    private bool _isOpen = new();
 
     public void CheckOpenDoors(float value)
     {
-        if (value == 1)
+        if (value == 1 && !_isOpen)
         {
-            if (door1 != null) { door1.isKinematic = false; }
-            if (door2 != null) { door2.isKinematic = false; }
+            _isOpen = true; 
+            onOpenDoors.Invoke();
         }
     }
 }
