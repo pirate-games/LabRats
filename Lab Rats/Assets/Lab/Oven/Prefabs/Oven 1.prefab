@@ -5147,7 +5147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 578337156
+  GlobalObjectIdHash: 2899810180
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -5529,6 +5529,7 @@ MonoBehaviour:
   collider: {fileID: 6013941132009969698}
   key: {fileID: 8784373505372083864}
   door: {fileID: 6067301388286449625}
+  cauldron: {fileID: 1794466628440978699}
   flames: {fileID: 2461971613501500329}
 --- !u!1 &6067301388286449625
 GameObject:
@@ -5885,7 +5886,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 180889081
+  GlobalObjectIdHash: 3096707971
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -13271,7 +13272,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4203
+  m_VersionIndex: 4206
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -13868,7 +13869,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6938044457299105493, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3941866459
+      value: 397463998
       objectReference: {fileID: 0}
     - target: {fileID: 8116366372064231524, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -14176,7 +14177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815059145483570969, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1352705242
+      value: 1346665063
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14186,6 +14187,11 @@ PrefabInstance:
 --- !u!4 &1417764480430124977 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6799770649055990566, guid: 37af22221518d9748971ff573abee8b5, type: 3}
+  m_PrefabInstance: {fileID: 5616351747781442711}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1794466628440978699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6131215264629148060, guid: 37af22221518d9748971ff573abee8b5, type: 3}
   m_PrefabInstance: {fileID: 5616351747781442711}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6128919309584503477
