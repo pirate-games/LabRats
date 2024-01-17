@@ -44,7 +44,7 @@ public class SpinningPad : NetworkBehaviour
                 }
                 else
                 {
-                   DiscardItem(collision.rigidbody);
+                   StartCoroutine(DiscardItem(collision.rigidbody));
                 }
 
             }
@@ -67,7 +67,7 @@ public class SpinningPad : NetworkBehaviour
                 }
                 else
                 {
-                    DiscardItem(collision.rigidbody);
+                    StartCoroutine(DiscardItem(collision.rigidbody));
                 }
 
             }
@@ -108,27 +108,32 @@ public class SpinningPad : NetworkBehaviour
         }
     }
 
-    private void DiscardItem(Rigidbody rb)
+    IEnumerator DiscardItem(Rigidbody rb)
     {
-        DiscardServerRPC(rb);
+        yield return new WaitForSeconds(1);
+        rb.velocity = new Vector3(5, 3, 0);
+        DiscardServerRPC();
 
     }
 
     [ServerRpc(RequireOwnership = false)]
-    public void DiscardServerRPC(Rigidbody rb, ServerRpcParams serverRpcParams = default)
+    public void DiscardServerRPC(ServerRpcParams serverRpcParams = default)
     {
         var clientId = serverRpcParams.Receive.SenderClientId;
         if (NetworkManager.ConnectedClients.ContainsKey(clientId))
         {
-            StartCoroutine(DiscardItenClientRPC(rb));
+            DiscardItenClientRPC();
         }
     }
 
     [ClientRpc]
-    IEnumerator DiscardItenClientRPC(Rigidbody rb)
+    private void DiscardItenClientRPC()
     {
-        yield return new WaitForSeconds(1);
-        rb.velocity = new Vector3(5, 3, 0);
+        StartCoroutine(DiscardItemCoroutine());
+    }
+
+    IEnumerator DiscardItemCoroutine()
+    {
         foreach (Light light in lights)
         {
             light.color = Color.red;
@@ -151,12 +156,17 @@ public class SpinningPad : NetworkBehaviour
         var clientId = serverRpcParams.Receive.SenderClientId;
         if (NetworkManager.ConnectedClients.ContainsKey(clientId))
         {
-            StartCoroutine(KeepSteelClientRPC());
+            KeepSteelClientRPC();
         }
     }
 
     [ClientRpc]
-    IEnumerator KeepSteelClientRPC()
+    private void KeepSteelClientRPC()
+    {
+        StartCoroutine(KeepSteelCoroutine());
+    }
+
+    IEnumerator KeepSteelCoroutine()
     {
         yield return new WaitForSeconds(1);
         spinning = true;
