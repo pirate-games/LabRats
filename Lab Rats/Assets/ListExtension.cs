@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if UNITY_EDITOR
+using System.Collections;
 using System.Linq;
 using UnityEditorInternal;
 
@@ -28,3 +29,4 @@ public static class ListExtension
         );
     }
 }
+#endif
