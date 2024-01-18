@@ -1,5 +1,7 @@
+using Player.Scripts;
 using Unity.Netcode;
 using UnityEngine;
+using NetworkPlayer = Player.Scripts.NetworkPlayer;
 
 namespace BackUpSphere
 {
@@ -16,9 +18,14 @@ namespace BackUpSphere
         private void TryGrabServerRpc(ServerRpcParams serverRpcParams = default)
         {
             var clientId = serverRpcParams.Receive.SenderClientId;
+            var player = NetworkPlayer.Players[clientId].NetworkObject;
+
+            if (player == null) return;
+
             Debug.Log("TransferOwnership to " + clientId);
             _thisNetworkObject.ChangeOwnership(clientId);
 
+            transform.parent = player.transform;
         }
 
         [ServerRpc]

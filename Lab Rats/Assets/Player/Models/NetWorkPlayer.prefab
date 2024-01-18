@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 278441170366939010}
   - component: {fileID: 1433940139227908435}
   - component: {fileID: 8181672529200873238}
-  - component: {fileID: 4591580366446121991}
   m_Layer: 7
   m_Name: NetWorkPlayer
   m_TagString: Untagged
@@ -69,6 +68,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 47cc3f3c24eb09a48a14ab3852433d22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SyncPositionX: 1
+  SyncPositionY: 1
+  SyncPositionZ: 1
+  SyncRotAngleX: 1
+  SyncRotAngleY: 1
+  SyncRotAngleZ: 1
+  SyncScaleX: 0
+  SyncScaleY: 0
+  SyncScaleZ: 0
+  PositionThreshold: 0.001
+  RotAngleThreshold: 0.01
+  ScaleThreshold: 0.01
+  UseQuaternionSynchronization: 0
+  UseQuaternionCompression: 0
+  UseHalfFloatPrecision: 0
+  InLocalSpace: 0
+  Interpolate: 1
+  SlerpPosition: 0
   root: {fileID: 278441170366939010}
   head: {fileID: 7799501850243713349}
   leftHand: {fileID: 357171719199986035}
@@ -93,36 +110,6 @@ MonoBehaviour:
   - {fileID: 7306240895517101393}
   - {fileID: 6889310191342637891}
   - {fileID: 8955861047132426345}
---- !u!114 &4591580366446121991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 36508730670035002}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acb35059ee0249d887d34e10ff5599be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  Interpolate: 1
-  SlerpPosition: 0
 --- !u!1 &276921185088848737
 GameObject:
   m_ObjectHideFlags: 0
