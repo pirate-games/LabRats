@@ -12,7 +12,7 @@ namespace Lab.Conductivity_Puzzle.Scripts
         [SerializeField] private Material filamentMaterial;
     
         [Header("Settings")]
-        [SerializeField, Range(0, 10)] private float resistanceMultiplier = 5f;
+        [SerializeField, Range(0, 100)] private float resistanceMultiplier = 50f;
 
 
         private Color _originalGlassColor;
@@ -34,11 +34,11 @@ namespace Lab.Conductivity_Puzzle.Scripts
         {
             set
             {            
-                var resistanceScaled = 1 - value.ElementObject.Resistivity * 10_000_000;
-                var resistance = 1 + Mathf.Clamp(resistanceScaled, 0f, 1f) * resistanceMultiplier * 10f;
+                var resistanceScaled = value.ElementObject.Resistivity / 0.63f;
+                var resistance = resistanceScaled * resistanceMultiplier;
             
                 SetLightColor(glassMaterial,glassMaterial.GetColor(EmissionColor) * resistance);
-                SetLightColor(filamentMaterial,filamentMaterial.GetColor(EmissionColor) * resistance);
+                SetLightColor(filamentMaterial,filamentMaterial.GetColor(EmissionColor) * resistance * 5);
             }
         }
     
