@@ -24,8 +24,6 @@ namespace BackUpSphere
 
             Debug.Log("TransferOwnership to " + clientId);
             _thisNetworkObject.ChangeOwnership(clientId);
-
-            transform.parent = player.transform;
         }
 
         [ServerRpc]
@@ -33,7 +31,6 @@ namespace BackUpSphere
         {
             Debug.Log("removing ownership");
             _thisNetworkObject.RemoveOwnership();
-            transform.parent = null;
         }
 
         // Call this method to initiate grabbing (e.g., when a VR hand touches the object)
