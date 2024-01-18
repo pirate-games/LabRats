@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6180527203805362900}
   - component: {fileID: 333877539747579826}
   - component: {fileID: 8386962497004746584}
+  - component: {fileID: 5352483546047823395}
   m_Layer: 0
   m_Name: Lid
   m_TagString: Untagged
@@ -105,6 +106,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.2171266, y: 0.105956785, z: 1.0891552}
   m_Center: {x: 0, y: 0.052978273, z: 0.5445776}
+--- !u!114 &5352483546047823395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 336340310685689317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1106858338
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &1238679568032440639
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +241,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2129227534356487209}
+  - component: {fileID: 1392230169391733858}
   m_Layer: 0
   m_Name: Trashbox C
   m_TagString: Untagged
@@ -244,6 +266,26 @@ Transform:
   - {fileID: 2958691495688853322}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1392230169391733858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1641379020555470483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 0
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &2454186361431943274
 GameObject:
   m_ObjectHideFlags: 0
@@ -573,6 +615,7 @@ GameObject:
   - component: {fileID: 8124048764041612244}
   - component: {fileID: 7777169990284788262}
   - component: {fileID: 2384885273312814640}
+  - component: {fileID: 3901758184183900}
   m_Layer: 0
   m_Name: Container
   m_TagString: Untagged
@@ -655,6 +698,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3901758184183900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8135325296289961984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 1106858338
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 1
 --- !u!1 &8362550682832877146
 GameObject:
   m_ObjectHideFlags: 0
