@@ -15,16 +15,23 @@ namespace BackUpSphere
         [ServerRpc(RequireOwnership = false)]
         private void TryGrabServerRpc(ServerRpcParams serverRpcParams = default)
         {
-            Debug.Log("TransferOwnership to " + serverRpcParams.Receive.SenderClientId);
-            _thisNetworkObject.ChangeOwnership(serverRpcParams.Receive.SenderClientId);
+            var clientId = serverRpcParams.Receive.SenderClientId;
+            TryGrabClientRpc(clientId);
         }
 
-        [ServerRpc(RequireOwnership = false)]
-        private void TryGiveServerRpc()
+        [ClientRpc]
+        private void TryGrabClientRpc(ulong clientId)
         {
-            Debug.Log("removing ownership");
-            _thisNetworkObject.RemoveOwnership();
+            Debug.Log("TransferOwnership to " + clientId);
+            _thisNetworkObject.ChangeOwnership(clientId);
         }
+
+        //[ServerRpc(RequireOwnership = false)]
+        //private void TryGiveServerRpc()
+        //{
+        //    Debug.Log("removing ownership");
+        //    _thisNetworkObject.RemoveOwnership();
+        //}
 
         // Call this method to initiate grabbing (e.g., when a VR hand touches the object)
         public void GrabObject()
