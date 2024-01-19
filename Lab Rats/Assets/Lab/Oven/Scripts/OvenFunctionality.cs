@@ -8,7 +8,7 @@ public class OvenFunctionality : NetworkBehaviour
     [SerializeField]
     private OvenCollider collider;
     [SerializeField]
-    private GameObject key, door, cauldron;
+    private GameObject door, cauldron;
     [SerializeField]
     private ParticleSystem flames;
 
@@ -38,7 +38,6 @@ public class OvenFunctionality : NetworkBehaviour
 
             if (poured)
             {
-                key.SetActive(true);
                 isActive = false;
             }
         }
