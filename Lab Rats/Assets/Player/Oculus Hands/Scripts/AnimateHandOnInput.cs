@@ -14,6 +14,7 @@ public class AnimateHandOnInput : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(IsOwner);
         if (IsOwner)
         {
             float triggerValue = pinchAnimationAction.action.ReadValue<float>();
