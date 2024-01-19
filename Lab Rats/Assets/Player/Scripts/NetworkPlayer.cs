@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Player.Scripts
 {
-    public class NetworkPlayer : NetworkTransform
+    public class NetworkPlayer : NetworkBehaviour
     {
         [Header("Body Parts")]
         [SerializeField] private Transform root;
@@ -40,11 +40,6 @@ namespace Player.Scripts
             foreach (var mesh in meshToDisable) mesh.enabled = false;
             
             _vrRigReferences = VRRigReferences.Instance;
-        }
-
-        protected override bool OnIsServerAuthoritative()
-        {
-            return false;
         }
 
         private void FixedUpdate()
