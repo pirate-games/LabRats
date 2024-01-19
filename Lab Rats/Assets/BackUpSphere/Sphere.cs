@@ -9,6 +9,7 @@ namespace BackUpSphere
     {
         private NetworkObject _thisNetworkObject;
 
+
         private void Start()
         {
             _thisNetworkObject = GetComponent<NetworkObject>();
@@ -26,10 +27,11 @@ namespace BackUpSphere
             _thisNetworkObject.ChangeOwnership(clientId);
         }
 
-        [ServerRpc]
+        [ServerRpc(RequireOwnership = false)]
         private void TryReleaseServerRpc()
         {
             Debug.Log("removing ownership");
+
             _thisNetworkObject.RemoveOwnership();
         }
 
