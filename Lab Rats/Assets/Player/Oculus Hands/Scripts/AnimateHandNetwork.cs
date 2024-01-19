@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public class AnimateHandOnInput : NetworkBehaviour
+public class AnimateHandNetwork : NetworkBehaviour
 {
     public InputActionProperty pinchAnimationAction;
     public InputActionProperty gripAnimationAction;
@@ -14,7 +14,6 @@ public class AnimateHandOnInput : NetworkBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(IsOwner);
         if (IsOwner)
         {
             float triggerValue = pinchAnimationAction.action.ReadValue<float>();
