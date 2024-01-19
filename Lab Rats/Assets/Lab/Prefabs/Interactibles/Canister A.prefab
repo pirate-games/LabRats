@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: -8754371593190141641}
   - component: {fileID: 3048531032842614516}
   - component: {fileID: -6126659122431135759}
-  - component: {fileID: -5962039207967920849}
   m_Layer: 0
   m_Name: Canister A
   m_TagString: Untagged
@@ -207,7 +206,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3048531032842614516}
         m_TargetAssemblyTypeName: BackUpSphere.Sphere, Assembly-CSharp
-        m_MethodName: ReleaseObject
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -290,7 +289,7 @@ MonoBehaviour:
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
-  m_ThrowOnDetach: 0
+  m_ThrowOnDetach: 1
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
     serializedVersion: 2
@@ -373,19 +372,7 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   UseQuaternionSynchronization: 0
   UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 1
+  UseHalfFloatPrecision: 0
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
---- !u!114 &-5962039207967920849
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8283282414591401344}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

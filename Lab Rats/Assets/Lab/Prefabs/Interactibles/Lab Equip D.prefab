@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: -24210578053858040}
   - component: {fileID: -8729131428457619595}
   - component: {fileID: 4149610019077718921}
-  - component: {fileID: 2624922765509960806}
   m_Layer: 0
   m_Name: Lab Equip D
   m_TagString: Untagged
@@ -208,7 +207,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4149610019077718921}
         m_TargetAssemblyTypeName: BackUpSphere.Sphere, Assembly-CSharp
-        m_MethodName: ReleaseObject
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -291,7 +290,7 @@ MonoBehaviour:
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
-  m_ThrowOnDetach: 0
+  m_ThrowOnDetach: 1
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
     serializedVersion: 2
@@ -362,7 +361,7 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   UseQuaternionSynchronization: 0
   UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 1
+  UseHalfFloatPrecision: 0
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
@@ -376,18 +375,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6e343075ec7cb345a7ab386ae2b12d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2624922765509960806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6640642169898845540}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &785202817600690754

@@ -17,7 +17,6 @@ GameObject:
   - component: {fileID: 2766629642696516143}
   - component: {fileID: -5968758523061395511}
   - component: {fileID: 8952589545514544104}
-  - component: {fileID: -3839371593167670623}
   m_Layer: 0
   m_Name: Test Tube Array
   m_TagString: Untagged
@@ -185,7 +184,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -5968758523061395511}
         m_TargetAssemblyTypeName: BackUpSphere.Sphere, Assembly-CSharp
-        m_MethodName: ReleaseObject
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -268,7 +267,7 @@ MonoBehaviour:
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
-  m_ThrowOnDetach: 0
+  m_ThrowOnDetach: 1
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
     serializedVersion: 2
@@ -339,7 +338,7 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   UseQuaternionSynchronization: 0
   UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 1
+  UseHalfFloatPrecision: 0
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
@@ -376,15 +375,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.1577275, y: 0.1715852, z: 0.22275636}
   m_Center: {x: 0.0035633743, y: 0.09090209, z: 0.0009884983}
---- !u!114 &-3839371593167670623
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399539108995642443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

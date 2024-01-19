@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 445122044200717042}
   - component: {fileID: -1021350086279895993}
   - component: {fileID: 6575699324478751567}
-  - component: {fileID: -835865852473444702}
   m_Layer: 7
   m_Name: Coal
   m_TagString: Coal
@@ -186,7 +185,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: -1021350086279895993}
         m_TargetAssemblyTypeName: BackUpSphere.Sphere, Assembly-CSharp
-        m_MethodName: ReleaseObject
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -269,7 +268,7 @@ MonoBehaviour:
   m_SmoothScale: 0
   m_SmoothScaleAmount: 8
   m_TightenScale: 0.1
-  m_ThrowOnDetach: 0
+  m_ThrowOnDetach: 1
   m_ThrowSmoothingDuration: 0.25
   m_ThrowSmoothingCurve:
     serializedVersion: 2
@@ -362,7 +361,7 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   UseQuaternionSynchronization: 0
   UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 1
+  UseHalfFloatPrecision: 0
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
@@ -395,15 +394,3 @@ MonoBehaviour:
   maxEmmision: 20
   oxygenMultiplier: 5
   coolingMultiplier: -1
---- !u!114 &-835865852473444702
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5030120896081955590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
