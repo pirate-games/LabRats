@@ -47,7 +47,7 @@ public class KeypadInteract : MonoBehaviour
             keypadOpen = false;
             popupButton.SetActive(false);
             keypad.gameObject.SetActive(false);
-            keypad.clearAll();
+            keypad.ClearAll();
         }
     }
 
@@ -58,6 +58,6 @@ public class KeypadInteract : MonoBehaviour
         keypad.gameObject.SetActive(true);
         keypad.codeLength = length;
         keypad.correctCode = code;
-        keypad.clearAll();
+        keypad.ClearAll();
     }
 }

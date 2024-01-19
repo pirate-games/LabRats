@@ -1,11 +1,16 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
+using Unity.Netcode;
 
-public class KeypadFunctionality : MonoBehaviour
+public class KeypadFunctionality : NetworkBehaviour
 {
+    [SerializeField]
+    private int length;
+    [SerializeField]
+    private string code;
+
     [SerializeField]
     private TextMeshProUGUI input;
 
@@ -15,16 +20,14 @@ public class KeypadFunctionality : MonoBehaviour
     public string correctCode;
 
     private int pressed = 0;
-
-    [HideInInspector]
+    private bool pressing;
     public bool closing;
+
+    public UnityEvent correctCodeEvent;
     // Start is called before the first frame update
     void Start()
     {
-/*        //can be used for individual testing
-        codeLength = 4;
-        correctCode = "1234";*/
-        clearAll();
+        ClearAll();
     }
 
     // Update is called once per frame
@@ -45,10 +48,12 @@ public class KeypadFunctionality : MonoBehaviour
     }
 
     //Reset text field completely
-    public void clearAll()
+    public void ClearAll()
     {
+        codeLength = length;
+        correctCode = code;
         input.text = null;
-        input.color = Color.white;
+        input.color = Color.black;
         pressed = 0;
     }
 
@@ -56,8 +61,10 @@ public class KeypadFunctionality : MonoBehaviour
     IEnumerator CorrectAnswer()
     {
         input.color = Color.green;
+        correctCodeEvent.Invoke();
         yield return new WaitForSeconds(1);
-        exit();
+        Exit();
+
     }
     
     //Short visual feedback for wrong answer
@@ -65,21 +72,60 @@ public class KeypadFunctionality : MonoBehaviour
     {
         input.color = Color.red;
         yield return new WaitForSeconds(1);
-        clearAll();
+        ClearAll();
     }
 
-    //When button is pressed, add that number to the input text
-    public void numberPress(int number)
+    public void ButtonPressed(int number)
     {
-        if (pressed < codeLength)
+        ButtonPressedServerRpc(number);
+    }
+    public void ButtonReleased()
+    {
+        ButtonReleasedServerRpc();
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void ButtonPressedServerRpc(int number, ServerRpcParams serverRpcParams = default)
+    {
+        var clientId = serverRpcParams.Receive.SenderClientId;
+        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
         {
-            input.text = input.text + number;
-            pressed++;
+            ButtonPressedClientRpc(number);
         }
     }
 
+    [ClientRpc]
+    private void ButtonPressedClientRpc(int number)
+    {
+        if (!pressing)
+        {
+            if (pressed < codeLength)
+            {
+                input.text = input.text + number;
+                pressed++;
+            }
+            pressing = true;
+        }
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    public void ButtonReleasedServerRpc(ServerRpcParams serverRpcParams = default)
+    {
+        var clientId = serverRpcParams.Receive.SenderClientId;
+        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        {
+            ButtonReleasedClientRpc();
+        }
+    }
+
+    [ClientRpc]
+    private void ButtonReleasedClientRpc()
+    {
+        pressing = false;
+    }
+
     //Remove the last number from input
-    public void backspace()
+    public void Backspace()
     {
         if (input.text != null && pressed < codeLength)
         {
@@ -88,10 +134,9 @@ public class KeypadFunctionality : MonoBehaviour
         }
     }
 
-    public void exit()
+    public void Exit()
     {
         closing = true;
-        clearAll();
-        this.gameObject.SetActive(false);
+        ClearAll();
     }
 }
