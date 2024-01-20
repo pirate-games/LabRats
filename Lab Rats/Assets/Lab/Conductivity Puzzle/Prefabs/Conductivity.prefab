@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 797911757170843079}
   - component: {fileID: 5761399365827044156}
   - component: {fileID: 2542101321726767502}
-  - component: {fileID: 355147781402222108}
+  - component: {fileID: 7903868919434437525}
   m_Layer: 0
   m_Name: Input Box
   m_TagString: Untagged
@@ -241,13 +241,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 389915993710195346}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -0.10709995, z: 0.0568}
   m_LocalScale: {x: 0.06308, y: 0.06308, z: 0.06308}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5893195235724742160}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &5761399365827044156
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -296,13 +296,38 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7903868919434437525}
+        m_TargetAssemblyTypeName: Socket, Assembly-CSharp
+        m_MethodName: Enter
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onTriggerStay:
     m_PersistentCalls:
       m_Calls: []
   onTriggerExit:
     m_PersistentCalls:
-      m_Calls: []
---- !u!114 &355147781402222108
+      m_Calls:
+      - m_Target: {fileID: 3787540303015404210}
+        m_TargetAssemblyTypeName: Lab.Conductivity_Puzzle.Scripts.BulbController,
+          Assembly-CSharp
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &7903868919434437525
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -311,57 +336,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 389915993710195346}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 60523e0647cc6ab43acc73cb266a32a7, type: 3}
+  m_Script: {fileID: 11500000, guid: bbc05e14fb86ac24caaca65d7013fd8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_InteractionManager: {fileID: 0}
-  m_InteractionLayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_InteractionLayers:
-    m_Bits: 4294967295
-  m_AttachTransform: {fileID: 0}
-  m_KeepSelectedTargetValid: 1
-  m_DisableVisualsWhenBlockedInGroup: 1
-  m_StartingSelectedInteractable: {fileID: 0}
-  m_StartingTargetFilter: {fileID: 0}
-  m_HoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_HoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_StartingHoverFilters: []
-  m_StartingSelectFilters: []
-  m_OnHoverEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnHoverExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectEntered:
-    m_PersistentCalls:
-      m_Calls: []
-  m_OnSelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ShowInteractableHoverMeshes: 1
-  m_InteractableHoverMeshMaterial: {fileID: 0}
-  m_InteractableCantHoverMeshMaterial: {fileID: 0}
-  m_SocketActive: 1
-  m_InteractableHoverScale: 1
-  m_RecycleDelayTime: 1
-  m_HoverSocketSnapping: 1
-  m_SocketSnappingRadius: 0.1
-  m_SocketScaleMode: 0
-  m_FixedScale: {x: 1, y: 1, z: 1}
-  m_TargetBoundsSize: {x: 1, y: 1, z: 1}
+  attachTransform: {fileID: 0}
 --- !u!1 &792526107282791301
 GameObject:
   m_ObjectHideFlags: 0
@@ -372,8 +350,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7913179143199246358}
   - component: {fileID: 3787540303015404210}
-  - component: {fileID: 3420177310508647421}
-  - component: {fileID: 305015314054508423}
+  - component: {fileID: 8477804384303303446}
+  - component: {fileID: 9011149607768449964}
   m_Layer: 0
   m_Name: Bulb
   m_TagString: Untagged
@@ -416,8 +394,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   glassMaterial: {fileID: 2100000, guid: c53572d9c3d046b429522492131c577d, type: 2}
   filamentMaterial: {fileID: 2100000, guid: 404754442b725a64eae9920b34720e20, type: 2}
-  resistanceMultiplier: 5
---- !u!114 &3420177310508647421
+  resistanceMultiplier: 100
+--- !u!114 &8477804384303303446
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -429,7 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1515502712
+  GlobalObjectIdHash: 3652481347
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -437,7 +415,7 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &305015314054508423
+--- !u!114 &9011149607768449964
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -835,8 +813,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5893195235724742160}
-  - component: {fileID: 491839261868697897}
-  - component: {fileID: 1430065838947414948}
+  - component: {fileID: 2535440257560989876}
+  - component: {fileID: 3666837862500464028}
   m_Layer: 0
   m_Name: Conductivity
   m_TagString: Untagged
@@ -865,7 +843,7 @@ Transform:
   - {fileID: 5284182664612371678}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &491839261868697897
+--- !u!114 &2535440257560989876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -877,7 +855,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3196579098
+  GlobalObjectIdHash: 4144007223
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -885,7 +863,7 @@ MonoBehaviour:
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
   AutoObjectParentSync: 1
---- !u!114 &1430065838947414948
+--- !u!114 &3666837862500464028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2098,12 +2076,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1443261324070282750, guid: 255b5c134de76eb4f8848ceb3369051b, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1292497513
+      value: 1004362125
       objectReference: {fileID: 0}
     - target: {fileID: 3740851123193686613, guid: 255b5c134de76eb4f8848ceb3369051b, type: 3}
       propertyPath: elementObject
       value: 
-      objectReference: {fileID: 11400000, guid: 842b47d0bbd96a644a5dcd12678707cf, type: 2}
+      objectReference: {fileID: 11400000, guid: 60a55f74fa192f0439d3ee8df112ef82, type: 2}
     - target: {fileID: 3943709802022746873, guid: 255b5c134de76eb4f8848ceb3369051b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.09999998
@@ -2184,12 +2162,12 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1443261324070282750, guid: 255b5c134de76eb4f8848ceb3369051b, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 2242818694
+      value: 1810489560
       objectReference: {fileID: 0}
     - target: {fileID: 3740851123193686613, guid: 255b5c134de76eb4f8848ceb3369051b, type: 3}
       propertyPath: elementObject
       value: 
-      objectReference: {fileID: 11400000, guid: bc2cdc230a252124aba132da4928e7b5, type: 2}
+      objectReference: {fileID: 11400000, guid: fd2a25cc73a913949b304ce309beca77, type: 2}
     - target: {fileID: 3943709802022746873, guid: 255b5c134de76eb4f8848ceb3369051b, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.09999998
