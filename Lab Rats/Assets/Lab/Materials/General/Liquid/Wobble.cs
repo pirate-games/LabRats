@@ -27,6 +27,7 @@ namespace Lab.Materials.General.Liquid
         private float _time = 0.5f;
 
         [SerializeField] private AudioEvent wobbleSound;
+        [SerializeField] private float wobblePlayMin = 0.15f;
 
         private readonly NetworkVariable<Color> _thisColor = new();
         private readonly NetworkVariable<float> _fillHeight = new();
@@ -122,7 +123,7 @@ namespace Lab.Materials.General.Liquid
 
         private void OnWobble()
         {
-            if (_wobbleAmountToAddX > 0.3f || _wobbleAmountToAddZ > 0.3f)
+            if (_wobbleAmountToAddX > wobblePlayMin || _wobbleAmountToAddZ > wobblePlayMin)
             {
                 if (_audioSource.isPlaying) return;
                 wobbleSound.Play(_audioSource);
