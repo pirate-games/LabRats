@@ -1,8 +1,10 @@
+using Audio;
 using ElementsSystem;
 using UnityEngine;
 
 namespace Lab.Conductivity_Puzzle.Scripts
 {
+    [RequireComponent(typeof(AudioSource))]
     public class BulbController : MonoBehaviour
     {
         private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
@@ -10,9 +12,14 @@ namespace Lab.Conductivity_Puzzle.Scripts
         [Header("Materials")]
         [SerializeField] private Material glassMaterial;
         [SerializeField] private Material filamentMaterial;
+        
+        [Header("Sound")]
+        [SerializeField] private AudioEvent bulbSound;
     
         [Header("Settings")]
         [SerializeField, Range(0, 100)] private float resistanceMultiplier = 50f;
+        
+        private AudioSource _audioSource;
 
 
         private Color _originalGlassColor;
@@ -22,6 +29,8 @@ namespace Lab.Conductivity_Puzzle.Scripts
         {
             _originalGlassColor = glassMaterial.GetColor(EmissionColor);
             _originalFilamentColor = filamentMaterial.GetColor(EmissionColor);
+            
+            _audioSource = GetComponent<AudioSource>();
         }
     
         private void OnDisable()
@@ -39,6 +48,8 @@ namespace Lab.Conductivity_Puzzle.Scripts
             
                 SetLightColor(glassMaterial,glassMaterial.GetColor(EmissionColor) * resistance);
                 SetLightColor(filamentMaterial,filamentMaterial.GetColor(EmissionColor) * resistance * 5);
+                
+                bulbSound.Play(_audioSource);
             }
         }
     

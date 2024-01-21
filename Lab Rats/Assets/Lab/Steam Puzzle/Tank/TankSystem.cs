@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
+using Audio;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Lab.Steam_Puzzle.Tank
 {
+    [RequireComponent(typeof(AudioSource))]
     public class TankSystem: MonoBehaviour
     {
         [SerializeField] private float waterBoilingTemp = 100;
@@ -16,6 +18,9 @@ namespace Lab.Steam_Puzzle.Tank
         [SerializeField] UnityEvent onStopBoiling;
         [SerializeField] UnityEvent<float> onPressureValueChanged;
         [SerializeField] UnityEvent<bool> onMovePlunger;
+        
+        [Header("Sound")]
+        [SerializeField] private AudioEvent boilingSound;
 
         private float pressure;
         private float temperature;
@@ -23,6 +28,12 @@ namespace Lab.Steam_Puzzle.Tank
         private float oxygen;
         private bool boiling;
         private bool plungerMoving;
+        private AudioSource _audioSource;
+        
+        private void Start()
+        {
+            _audioSource = GetComponent<AudioSource>();
+        }
 
         /// <summary>
         ///  The pressure value of the tank 
@@ -109,6 +120,7 @@ namespace Lab.Steam_Puzzle.Tank
                 {
                     boiling = true;
                     onStartBoiling.Invoke();
+                    boilingSound.Play(_audioSource);
                 }
                 else
                 {
