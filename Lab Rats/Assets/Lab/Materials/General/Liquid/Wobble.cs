@@ -122,8 +122,9 @@ namespace Lab.Materials.General.Liquid
 
         private void OnWobble()
         {
-            if (_wobbleAmountToAddX > 0.01f || _wobbleAmountToAddZ > 0.01f)
+            if (_wobbleAmountToAddX > 0.3f || _wobbleAmountToAddZ > 0.3f)
             {
+                if (_audioSource.isPlaying) return;
                 wobbleSound.Play(_audioSource);
             }
         }
