@@ -32,10 +32,6 @@ namespace Mulitplayer
             if (!_thisNetworkObject) return;
             
             _thisNetworkObject.RemoveOwnership();
-            
-            if (!_rigidbody) return;
-
-            _rigidbody.isKinematic = true;
         }
 
         // Call this method to initiate grabbing (e.g., when a VR hand touches the object)
