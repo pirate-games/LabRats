@@ -12,11 +12,10 @@ namespace Mulitplayer
         {
             _thisNetworkObject = GetComponent<NetworkObject>();
             _rigidbody = GetComponent<Rigidbody>();
+            
+            if (!_rigidbody) return;
 
-            if (_rigidbody)
-            {
-                _rigidbody.isKinematic = false;
-            } 
+            _rigidbody.isKinematic = false;
         }
 
         [ServerRpc(RequireOwnership = false)]
@@ -37,16 +36,18 @@ namespace Mulitplayer
         // Call this method to initiate grabbing (e.g., when a VR hand touches the object)
         public void GrabObject()
         {
+            _rigidbody.isKinematic = false;
+            
             if (_thisNetworkObject.IsOwner) return;
-         
             TryGrabServerRpc();
         }
         
         //Stop grabbing (e.g., when a VR hand stops touching the object)
         public void ReleaseObject()
         {
+            _rigidbody.isKinematic = false;
+            
             if (_thisNetworkObject.IsOwner) return;
-         
             TryReleaseServerRpc();
         }
     }
