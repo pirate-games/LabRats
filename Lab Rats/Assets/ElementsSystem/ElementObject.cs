@@ -67,6 +67,7 @@ namespace ElementsSystem
             return other is ElementObject elementObject && elementObject.Element == element;
         }
         
+       // This is required for the above Equals method DO NOT REMOVE
         public override int GetHashCode()
         {
             return base.GetHashCode();
