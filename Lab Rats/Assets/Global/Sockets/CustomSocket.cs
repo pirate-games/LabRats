@@ -6,6 +6,8 @@ namespace Global.Sockets
     public class CustomSocket<T> : MonoBehaviour where T : Component
     {
         [SerializeField] private Transform attachTransform;
+        
+        private Rigidbody _rigidbody;
 
         private void Start()
         {
@@ -13,6 +15,8 @@ namespace Global.Sockets
             {
                 attachTransform = transform;
             }
+            
+            _rigidbody = GetComponent<Rigidbody>();
         }
 
         /// <summary>
@@ -27,6 +31,10 @@ namespace Global.Sockets
                 || m_Interactable.firstInteractorSelecting == null) return;
         
             m_Interactable.interactionManager.SelectExit(m_Interactable.firstInteractorSelecting, m_Interactable);
+            
+            if (!_rigidbody) return;
+            
+            _rigidbody.isKinematic = false; 
         }
     }
 }
