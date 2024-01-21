@@ -1,6 +1,6 @@
 ﻿using ElementsSystem;
 
-namespace Assets.Global.TriggerDetectors
+namespace Global.TriggerDetectors
 {
     public class ElementTriggerDetector : TriggerDetectorT<ElementModel> { }
 }

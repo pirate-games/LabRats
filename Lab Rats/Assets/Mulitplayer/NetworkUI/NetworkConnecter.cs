@@ -1,10 +1,7 @@
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
-using Unity.Services.Authentication;
 using UnityEngine;
-using Unity.Services.Lobbies;
-using Unity.Services.Lobbies.Models;
 using Unity.Services.Relay;
 
 namespace Mulitplayer.NetworkUI

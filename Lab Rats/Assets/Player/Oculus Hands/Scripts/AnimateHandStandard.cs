@@ -1,23 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Netcode;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-
-public class AnimateHandStandard : MonoBehaviour
+namespace Player.Oculus_Hands.Scripts
 {
-    public InputActionProperty pinchAnimationAction;
-    public InputActionProperty gripAnimationAction;
-    public Animator handAnimator;
-
-    // Update is called once per frame
-    void Update()
+    public class AnimateHandStandard : MonoBehaviour
     {
-            float triggerValue = pinchAnimationAction.action.ReadValue<float>();
-            handAnimator.SetFloat("Trigger", triggerValue);
+        public InputActionProperty pinchAnimationAction;
+        public InputActionProperty gripAnimationAction;
+        public Animator handAnimator;
+        
+        // Animator hashes
+        private static readonly int Grip = Animator.StringToHash("Grip");
+        private static readonly int Trigger = Animator.StringToHash("Trigger");
 
-            float gripValue = gripAnimationAction.action.ReadValue<float>();
-            handAnimator.SetFloat("Grip", gripValue);
+        // Update is called once per frame
+        private void Update()
+        {
+            var triggerValue = pinchAnimationAction.action.ReadValue<float>();
+            handAnimator.SetFloat(Trigger, triggerValue);
+
+            var gripValue = gripAnimationAction.action.ReadValue<float>();
+            handAnimator.SetFloat(Grip, gripValue);
+        }
     }
 }

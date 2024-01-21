@@ -1,4 +1,4 @@
-namespace Assets.Global.TriggerDetectors
+namespace Global.TriggerDetectors
 {
     public class CoalTriggerDetector : TriggerDetectorT<Coal> {}
 }

@@ -1,12 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Unity.Netcode.Components;
 
-public class NetworkAnimatorClient : NetworkAnimator
+namespace Player.Oculus_Hands.Scripts
 {
-    protected override bool OnIsServerAuthoritative()
+    public class NetworkAnimatorClient : NetworkAnimator
     {
-        return false;
+        // this ensures that the client is not authoritative over the animator component
+        protected override bool OnIsServerAuthoritative()
+        {
+            return false;
+        }
     }
 }

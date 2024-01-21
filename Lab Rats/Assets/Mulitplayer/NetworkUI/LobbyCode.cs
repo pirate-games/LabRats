@@ -7,9 +7,10 @@ namespace Mulitplayer.NetworkUI
     {
         [SerializeField] private TMP_Text lobbyNameText;
         
-        public void SetLobbyCode(string code)
-        {
-            lobbyNameText.text = $"Lobby: {code}";
-        }
+        /// <summary>
+        ///  Sets the lobby code text
+        /// </summary>
+        /// <param name="code"> the lobby code to be pooped onto the screen </param>
+        public void SetLobbyCode(string code) => lobbyNameText.text = $"Lobby: {code}";
     }
 }

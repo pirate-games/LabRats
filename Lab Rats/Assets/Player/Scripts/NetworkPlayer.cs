@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using Unity.Netcode;
-using Unity.Netcode.Components;
 using UnityEngine;
 
 namespace Player.Scripts
@@ -12,17 +10,12 @@ namespace Player.Scripts
         [SerializeField] private Transform head;
         [SerializeField] private Transform leftHand;
         [SerializeField] private Transform rightHand;
-
-        [Header("Offset Fix")] 
-        [SerializeField] private Vector3 bodyOffset;
         
         [Header("Parts of the XR Rig to disable")]
         [SerializeField] private Renderer[] meshToDisable;
 
         private VRRigReferences _vrRigReferences;
         private bool _isVRRigReferencesNull;
-
-        public static Dictionary<ulong, NetworkPlayer> Players = new();
 
         private void Start()
         {
@@ -32,8 +25,6 @@ namespace Player.Scripts
         public override void OnNetworkSpawn()
         {
             base.OnNetworkSpawn();
-
-            Players[OwnerClientId] = this;
 
             if (!IsOwner) return;
             
