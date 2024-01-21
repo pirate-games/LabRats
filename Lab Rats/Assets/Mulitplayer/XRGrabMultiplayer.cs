@@ -12,18 +12,15 @@ namespace Mulitplayer
         {
             _thisNetworkObject = GetComponent<NetworkObject>();
             _rigidbody = GetComponent<Rigidbody>();
+
+            _rigidbody.isKinematic = false; 
         }
 
         [ServerRpc(RequireOwnership = false)]
         private void TryGrabServerRpc(ServerRpcParams serverRpcParams = default)
         {
             if (!_thisNetworkObject) return;
-            
             _thisNetworkObject.ChangeOwnership(serverRpcParams.Receive.SenderClientId);
-            
-            if (!_rigidbody) return;
-
-            _rigidbody.isKinematic = false;
         }
         
         [ServerRpc(RequireOwnership = false)]
