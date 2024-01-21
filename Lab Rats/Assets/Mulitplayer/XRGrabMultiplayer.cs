@@ -13,7 +13,10 @@ namespace Mulitplayer
             _thisNetworkObject = GetComponent<NetworkObject>();
             _rigidbody = GetComponent<Rigidbody>();
 
-            if (_rigidbody) _rigidbody.isKinematic = false; 
+            if (_rigidbody)
+            {
+                _rigidbody.isKinematic = false;
+            } 
         }
 
         [ServerRpc(RequireOwnership = false)]

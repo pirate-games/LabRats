@@ -1,108 +1,123 @@
-using System.Collections;
-using System.Collections.Generic;
+using Audio;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.Rendering.UI;
 
 //https://www.youtube.com/watch?v=DKSpgFuKeb4
-public class Wobble : NetworkBehaviour
+
+namespace Lab.Materials.General.Liquid
 {
-    Renderer rend;
-    Vector3 lastPos;
-    Vector3 velocity;
-    Vector3 lastRot;
-    Vector3 angularVelocity;
-    public float MaxWobble = 0.03f;
-    public float WobbleSpeed = 1f;
-    public float Recovery = 1f;
-    float wobbleAmountX;
-    float wobbleAmountZ;
-    float wobbleAmountToAddX;
-    float wobbleAmountToAddZ;
-    float pulse;
-    float time = 0.5f;
-
-    NetworkVariable<Color> thisColor = new NetworkVariable<Color>();
-    NetworkVariable<float> fillHeight = new NetworkVariable<float>();
-    NetworkVariable<float> intensity = new NetworkVariable<float>();
-    // Use this for initialization
-
-    private void Start()
+    [RequireComponent(typeof(AudioSource))]
+    public class Wobble : NetworkBehaviour
     {
-        rend = GetComponent<Renderer>();
-    }
-
-    public override void OnNetworkSpawn()
-    {
-        base.OnNetworkSpawn();
-        Debug.Log("Testing");
-        rend = GetComponent<Renderer>();
-
-        if (IsHost)
-        {
-            CalculateValuesServerRpc();
-            SetValue();
-        }
-        else
-        {
-            Debug.Log("SetMaterial");
-            SetValue();
-        }
-    }
-
-    private void SetValue()
-    {
-        Debug.Log("SetValue");
-        rend.material.SetFloat("_EmissionIntemsity", intensity.Value);
-        rend.material.SetFloat("_Fill", fillHeight.Value);
-        rend.material.SetColor("_EmissonColor", thisColor.Value);  // Fix the typo here
-        rend.material.SetColor("_LiquidColor", thisColor.Value);
-        rend.material.SetColor("_SurfaceColor", thisColor.Value);
-    }
-
-    [ServerRpc]
-    private void CalculateValuesServerRpc()
-    {
-        float randomHue = Random.Range(0f, 1f);
-         intensity.Value = Random.Range(3, 9);
-         fillHeight.Value = Random.Range(0.485f, 0.52f);
-        // Set saturation and value to their maximum for full color strength
-        thisColor.Value = Color.HSVToRGB(randomHue, 1f, 1f);
-    }
-    private void Update()
-    {
-        time += Time.deltaTime;
-
-        // decrease wobble over time
-        wobbleAmountToAddX = Mathf.Lerp(wobbleAmountToAddX, 0, Time.deltaTime * (Recovery));
-        wobbleAmountToAddZ = Mathf.Lerp(wobbleAmountToAddZ, 0, Time.deltaTime * (Recovery));
-
-        // make a sine wave of the decreasing wobble
-        pulse = 2 * Mathf.PI * WobbleSpeed;
-        wobbleAmountX = wobbleAmountToAddX * Mathf.Sin(pulse * time);
-        wobbleAmountZ = wobbleAmountToAddZ * Mathf.Sin(pulse * time);
-
-        // send it to the shader
-        rend.material.SetFloat("_WobbleX", wobbleAmountX);
-        rend.material.SetFloat("_WobbleZ", wobbleAmountZ);
+        private Renderer _rend;
+        private Vector3 _lastPos;
+        private Vector3 _velocity;
+        private Vector3 _lastRot;
+        private Vector3 _angularVelocity;
+        private AudioSource _audioSource;
         
-
+        public float maxWobble = 0.03f;
+        public float wobbleSpeed = 1f;
+        public float recovery = 1f;
+        private float _wobbleAmountX;
+        private float _wobbleAmountZ;
+        private float _wobbleAmountToAddX;
+        private float _wobbleAmountToAddZ;
+        private float _pulse;
+        private float _time = 0.5f;
         
+        [SerializeField] private AudioEvent wobbleSound;
 
-        // velocity
-        velocity = (lastPos - transform.position) / Time.deltaTime;
-        angularVelocity = transform.rotation.eulerAngles - lastRot;
+        private readonly NetworkVariable<Color> _thisColor = new();
+        private readonly NetworkVariable<float> _fillHeight = new();
+        private readonly NetworkVariable<float> _intensity = new();
+        
+        private static readonly int EmissionIntensity = Shader.PropertyToID("_EmissionIntemsity");
+        private static readonly int Fill = Shader.PropertyToID("_Fill");
+        private static readonly int EmissionColor = Shader.PropertyToID("_EmissonColor");
+        private static readonly int LiquidColor = Shader.PropertyToID("_LiquidColor");
+        private static readonly int SurfaceColor = Shader.PropertyToID("_SurfaceColor");
+        private static readonly int WobbleX = Shader.PropertyToID("_WobbleX");
+        private static readonly int WobbleZ = Shader.PropertyToID("_WobbleZ");
+
+        private void Start()
+        {
+            _rend = GetComponent<Renderer>();
+            _audioSource = GetComponent<AudioSource>();
+        }
+
+        public override void OnNetworkSpawn()
+        {
+            base.OnNetworkSpawn();
+            
+            _rend = GetComponent<Renderer>();
+
+            if (IsHost)
+            {
+                CalculateValuesServerRpc();
+                SetValue();
+            }
+            else
+            {
+                SetValue();
+            }
+        }
+
+        private void SetValue()
+        {
+            _rend.material.SetFloat(EmissionIntensity, _intensity.Value);
+            _rend.material.SetFloat(Fill, _fillHeight.Value);
+            _rend.material.SetColor(EmissionColor, _thisColor.Value);  
+            _rend.material.SetColor(LiquidColor, _thisColor.Value);
+            _rend.material.SetColor(SurfaceColor, _thisColor.Value);
+        }
+
+        [ServerRpc]
+        private void CalculateValuesServerRpc()
+        {
+            var randomHue = Random.Range(0f, 1f);
+            
+            _intensity.Value = Random.Range(3, 9);
+            _fillHeight.Value = Random.Range(0.485f, 0.52f);
+            
+            // Set saturation and value to their maximum for full color strength
+            _thisColor.Value = Color.HSVToRGB(randomHue, 1f, 1f);
+            
+            // when the wobble starts, play the sound
+            wobbleSound.Play(_audioSource);
+        }
+        private void FixedUpdate()
+        {
+            _time += Time.deltaTime;
+
+            // decrease wobble over time
+            _wobbleAmountToAddX = Mathf.Lerp(_wobbleAmountToAddX, 0, Time.deltaTime * (recovery));
+            _wobbleAmountToAddZ = Mathf.Lerp(_wobbleAmountToAddZ, 0, Time.deltaTime * (recovery));
+
+            // make a sine wave of the decreasing wobble
+            _pulse = 2 * Mathf.PI * wobbleSpeed;
+            _wobbleAmountX = _wobbleAmountToAddX * Mathf.Sin(_pulse * _time);
+            _wobbleAmountZ = _wobbleAmountToAddZ * Mathf.Sin(_pulse * _time);
+
+            // send it to the shader
+            _rend.material.SetFloat(WobbleX, _wobbleAmountX);
+            _rend.material.SetFloat(WobbleZ, _wobbleAmountZ);
+
+            // velocity
+            _velocity = (_lastPos - transform.position) / Time.deltaTime;
+            _angularVelocity = transform.rotation.eulerAngles - _lastRot;
 
 
-        // add clamped velocity to wobble
-        wobbleAmountToAddX += Mathf.Clamp((velocity.x + (angularVelocity.z * 0.2f)) * MaxWobble, -MaxWobble, MaxWobble);
-        wobbleAmountToAddZ += Mathf.Clamp((velocity.z + (angularVelocity.x * 0.2f)) * MaxWobble, -MaxWobble, MaxWobble);
+            // add clamped velocity to wobble
+            _wobbleAmountToAddX += Mathf.Clamp((_velocity.x + (_angularVelocity.z * 0.2f)) * maxWobble, -maxWobble, maxWobble);
+            _wobbleAmountToAddZ += Mathf.Clamp((_velocity.z + (_angularVelocity.x * 0.2f)) * maxWobble, -maxWobble, maxWobble);
 
-        // keep last position
-        lastPos = transform.position;
-        lastRot = transform.rotation.eulerAngles;
+            // keep last position
+            _lastPos = transform.position;
+            _lastRot = transform.rotation.eulerAngles;
+        }
+
+
+
     }
-
-
-
 }
