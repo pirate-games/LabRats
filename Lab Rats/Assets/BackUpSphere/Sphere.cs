@@ -1,3 +1,4 @@
+using Player.Scripts;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -19,36 +20,14 @@ namespace BackUpSphere
             _thisNetworkObject.ChangeOwnership(serverRpcParams.Receive.SenderClientId);
         }
 
-        [ServerRpc(RequireOwnership = false)]
-        private void TryGiveServerRpc()
-        {
-            Debug.Log("removing ownership");
-            _thisNetworkObject.RemoveOwnership();
-        }
-
         // Call this method to initiate grabbing (e.g., when a VR hand touches the object)
         public void GrabObject()
         {
-            if (_thisNetworkObject.IsOwner)
-            {
-                Debug.Log("I'm the owner");
-                TryGiveServerRpc();
-            }
+            if (_thisNetworkObject.IsOwner) return;
             else
             {
                 Debug.Log("Try grab");
                 TryGrabServerRpc();
-            }
-        }
-
-        // Example code to manually sync transform if needed
-        private void Update()
-        {
-            if (_thisNetworkObject.IsOwner)
-            {
-                // Perform actions that require ownership, e.g., syncing transform
-                // thisNetworkObject.transform.position = newPosition;
-                // thisNetworkObject.transform.rotation = newRotation;
             }
         }
     }

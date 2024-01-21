@@ -15,9 +15,12 @@ namespace ElementsSystem
         {
             _model = GetComponent<ElementModel>();
             renderer = GetComponent<Renderer>();
-            
-            renderer.material.color = _model.ElementObject.Color;
-            text.text = _model.ElementObject.Symbol;
+
+            if (_model != null && _model.ElementObject != null)
+            {
+                renderer.material.color = _model.ElementObject.Color;
+                text.text = _model.ElementObject.Symbol;
+            }
         }
     }
 }

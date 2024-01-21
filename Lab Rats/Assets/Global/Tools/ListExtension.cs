@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if UNITY_EDITOR
+using System.Collections;
 using System.Linq;
 using UnityEditorInternal;
 
@@ -7,10 +8,10 @@ namespace Global.Tools
     public static class ListExtension
     {
         /// <summary>
-        ///  Returns a reorder-able list that can be used in the inspector
+        ///  Returns a reorderable list for the given list
         /// </summary>
-        /// <param name="list"> the list that should be shown in the GUI </param>
-        /// <returns> a GUi ready list that can be shown in the inspector </returns>
+        /// <param name="list"> the list to reorder </param>
+        /// <returns></returns>
         public static ReorderableList GetImmutableGUIList(this IList list)
         {
             return new ReorderableList(
@@ -24,12 +25,11 @@ namespace Global.Tools
         }
         
         /// <summary>
-        ///  Returns a reorder-able list that can be used in the inspector 
-        ///  This time in its generic form so you can specify the type of the list
+        ///  Returns a reorderable list for the given list
         /// </summary>
-        /// <param name="list"> the list to be shown in the GUI </param>
-        /// <typeparam name="T"> the specified type of the list </typeparam>
-        /// <returns> a GUI ready list of the specified type that can be shown in the inspector </returns>
+        /// <param name="list"> the list to reorder </param>
+        /// <typeparam name="T"> the type of list  </typeparam>
+        /// <returns></returns>
         public static ReorderableList GetImmutableGUIList<T>(this IList list)
         {
             return new ReorderableList(
@@ -43,3 +43,4 @@ namespace Global.Tools
         }
     }
 }
+#endif

@@ -5,7 +5,6 @@ namespace Global.TriggerDetectors
 {
     public class TriggerDetectorT<T> : MonoBehaviour
     {
-        [Header("Events")]
         [SerializeField] private UnityEvent<T> onTriggerEnter = new();
         [SerializeField] private UnityEvent<T> onTriggerStay = new();
         [SerializeField] private UnityEvent<T> onTriggerExit = new();
