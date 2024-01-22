@@ -28073,6 +28073,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 364875802628797550, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 364875802628797550, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 364875802628797550, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 364875802628797550, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 364875802628797550, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 364875802628797550, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1538929557192363777, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -28151,7 +28175,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: m_Value
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: m_MaxAngle
@@ -28161,6 +28185,10 @@ PrefabInstance:
       propertyPath: m_MinAngle
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1881935518}
     - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
@@ -28174,6 +28202,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: set_volume
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetHeat
       objectReference: {fileID: 0}
@@ -28184,6 +28216,10 @@ PrefabInstance:
     - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GrabObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
@@ -28207,7 +28243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6250849862491109072, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.7071068
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 7742392162569053927, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -42024,6 +42060,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1063027768020692721, guid: c76b08bab6f76ab41ada5a7199c7e03d, type: 3}
   m_PrefabInstance: {fileID: 1875956060}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1881935518 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3332168285267792765, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+  m_PrefabInstance: {fileID: 1239874687}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1883507662
 GameObject:
