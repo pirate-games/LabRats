@@ -86,15 +86,30 @@ public class OvenFunctionality : NetworkBehaviour
     [ClientRpc]
     private void CreateKeyClientRPC()
     {
+        bool pouring = true;
         collider.steel1.SetActive(false);
         collider.steel2.SetActive(false);
-        float t = timer / pouringTime;
-        cauldron.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, 0), new Vector3(18, 0, 0), t));
-        timer += Time.deltaTime;
-        if (timer >= pouringTime)
+        if (pouring)
         {
-            poured = true;
-            timer = 0;
+            float t = timer / pouringTime;
+            cauldron.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, 0), new Vector3(18, 0, 0), t));
+            timer += Time.deltaTime;
+            if (timer >= pouringTime)
+            {
+                poured = true;
+                pouring = false;
+                timer = 0;
+            }
+        }
+        else
+        {
+            float t = timer / pouringTime;
+            cauldron.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(18, 0, 0), new Vector3(0, 0, 0), t));
+            timer += Time.deltaTime;
+            if (timer >= pouringTime)
+            {
+                timer = 0;
+            }
         }
     }
 }
