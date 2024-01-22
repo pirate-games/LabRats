@@ -6,7 +6,7 @@ using Unity.Netcode;
 public class OvenFunctionality : NetworkBehaviour
 {
     [SerializeField]
-    private OvenCollider collider;
+    private OvenCollider insideCollider;
     [SerializeField]
     private GameObject key, door, cauldron;
     [SerializeField]
@@ -31,7 +31,7 @@ public class OvenFunctionality : NetworkBehaviour
     {
         if (isActive)
         {
-            if (collider.steelCount >= 2 && collider.mouldInside && door.transform.rotation.eulerAngles.y >= doorClosed)
+            if (insideCollider.steelCount >= 2 && insideCollider.mouldInside && door.transform.rotation.eulerAngles.y >= doorClosed)
             {
                 CreateKey();
             }
@@ -87,8 +87,8 @@ public class OvenFunctionality : NetworkBehaviour
     private void CreateKeyClientRPC()
     {
         bool pouring = true;
-        collider.steel1.SetActive(false);
-        collider.steel2.SetActive(false);
+        insideCollider.steel1.SetActive(false);
+        insideCollider.steel2.SetActive(false);
         if (pouring)
         {
             float t = timer / pouringTime;
