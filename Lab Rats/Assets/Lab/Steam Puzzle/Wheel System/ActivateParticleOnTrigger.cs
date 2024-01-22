@@ -15,6 +15,7 @@ namespace Lab.Steam_Puzzle.Wheel_System
         private ParticleSystem.VelocityOverLifetimeModule _velocityModule;
         private ParticleSystem _particleSystem;
         private AudioSource _audioSource;
+        private bool _canPlay;
         
         /// <summary>
         ///  Returns true if the particle system is activated by the trigger.
@@ -39,7 +40,17 @@ namespace Lab.Steam_Puzzle.Wheel_System
             if (_particleSystem.isPaused)
             {
                 _particleSystem.Play();
+            }
+
+            if (value < 1 && _canPlay)
+            {
+                _canPlay = false;
                 releaseSound.Play(_audioSource);
+
+            }
+            else if(value == 1)
+            {
+                _canPlay = true;
             }
         }
     }

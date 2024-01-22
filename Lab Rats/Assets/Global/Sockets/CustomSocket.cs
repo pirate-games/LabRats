@@ -6,8 +6,6 @@ namespace Global.Sockets
     public class CustomSocket<T> : MonoBehaviour where T : Component
     {
         [SerializeField] private Transform attachTransform;
-        
-        private Rigidbody _rigidbody;
 
         private void Start()
         {

@@ -126,6 +126,7 @@ namespace Lab.Steam_Puzzle.Tank
                 {
                     // Decrease pressure with time
                     pressure -= pressureLoss * Time.deltaTime;
+                    boilingSound.Stop(_audioSource, true);
                 }
             }
 
