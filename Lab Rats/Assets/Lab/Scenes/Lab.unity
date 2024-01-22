@@ -1516,7 +1516,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5419331889293473514, guid: 76f3439a0ae796e4b81bee3f91f888ee, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5419331889293473514, guid: 76f3439a0ae796e4b81bee3f91f888ee, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.size
@@ -11906,6 +11906,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bulb (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 279012685102732618, guid: e60b2536bccb96145a460bd268c63e7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5735541621271734561, guid: e60b2536bccb96145a460bd268c63e7b, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -14499,6 +14503,10 @@ PrefabInstance:
     - target: {fileID: 279012685102732618, guid: e60b2536bccb96145a460bd268c63e7b, type: 3}
       propertyPath: m_Name
       value: Bulb (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 279012685102732618, guid: e60b2536bccb96145a460bd268c63e7b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5735541621271734561, guid: e60b2536bccb96145a460bd268c63e7b, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -29031,7 +29039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5419331889293473514, guid: 76f3439a0ae796e4b81bee3f91f888ee, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5419331889293473514, guid: 76f3439a0ae796e4b81bee3f91f888ee, type: 3}
       propertyPath: m_SelectExited.m_PersistentCalls.m_Calls.Array.size
