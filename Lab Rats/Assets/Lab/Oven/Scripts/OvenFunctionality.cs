@@ -11,6 +11,8 @@ public class OvenFunctionality : NetworkBehaviour
     private GameObject key, door, cauldron;
     [SerializeField]
     private ParticleSystem flames;
+    [SerializeField]
+    private Transform keySpawn;
 
     private float doorClosed = 88f;
 
@@ -48,7 +50,7 @@ public class OvenFunctionality : NetworkBehaviour
     public void SpawnKeyServerRpc()
     {
         if (!IsHost) { return; }
-        GameObject _key = Instantiate(key);
+        GameObject _key = Instantiate(key, keySpawn.position, keySpawn.rotation);
         if (_key.TryGetComponent(out NetworkObject netObj))
         {
             netObj.Spawn();

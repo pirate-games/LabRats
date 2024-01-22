@@ -15711,7 +15711,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4744702249279207217, guid: 5d8b8314dad0efe42a20650a526c2a2d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.615
+      value: 0.68
       objectReference: {fileID: 0}
     - target: {fileID: 4744702249279207217, guid: 5d8b8314dad0efe42a20650a526c2a2d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18539,6 +18539,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 1074358115
       objectReference: {fileID: 0}
+    - target: {fileID: 5702815466061527830, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: keySpawn
+      value: 
+      objectReference: {fileID: 8678482097020783603}
     - target: {fileID: 5873350251289491749, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2358151319
@@ -35796,7 +35800,7 @@ Transform:
   m_GameObject: {fileID: 1593086087}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.6995361, z: -0, w: 0.7145973}
-  m_LocalPosition: {x: -7.383, y: 0.447, z: 6.211}
+  m_LocalPosition: {x: -7.383, y: 0.499, z: 6.211}
   m_LocalScale: {x: 1.3364052, y: 0.04399752, z: 1.3364052}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -47238,7 +47242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4744702249279207217, guid: 5d8b8314dad0efe42a20650a526c2a2d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.615
+      value: 0.679
       objectReference: {fileID: 0}
     - target: {fileID: 4744702249279207217, guid: 5d8b8314dad0efe42a20650a526c2a2d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -47497,6 +47501,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d75df78ab809e444387f04acf60c7aef, type: 3}
+--- !u!4 &8678482097020783603 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2168653958918989347, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+  m_PrefabInstance: {fileID: 804141135}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
