@@ -39,8 +39,18 @@ public class OvenFunctionality : NetworkBehaviour
             if (poured)
             {
                 isActive = false;
-                Instantiate(key);
+                SpawnKeyServerRpc();
             }
+        }
+    }
+
+    [ServerRpc]
+    public void SpawnKeyServerRpc()
+    {
+        GameObject _key = Instantiate(key);
+        if (_key.TryGetComponent(out NetworkObject netObj))
+        {
+            netObj.Spawn();
         }
     }
 
