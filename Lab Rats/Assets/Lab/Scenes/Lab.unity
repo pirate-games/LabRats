@@ -28089,10 +28089,66 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1538929557192363777, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 46bc24982d204eb4b85b3832fbc2a27c, type: 2}
+    - target: {fileID: 3304402749960192513, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304402749960192513, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304402749960192513, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304402749960192513, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.49817273
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304402749960192513, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.5018204
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304402749960192513, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.49813792
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304402749960192513, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.5018555
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304402749960192513, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304402749960192513, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 89.996
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304402749960192513, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90.422
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332168285267792765, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: Priority
+      value: 177
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332168285267792765, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_Volume
+      value: 0.371
+      objectReference: {fileID: 0}
     - target: {fileID: 3332168285267792765, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: rolloffMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 3332168285267792765, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 5465780265204837575, guid: e2e62be7d7926dc4faec91b5bf7f73ed, type: 2}
     - target: {fileID: 3332168285267792765, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
       value: 0.82432556
@@ -28105,9 +28161,85 @@ PrefabInstance:
       propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
       value: 0.052001953
       objectReference: {fileID: 0}
+    - target: {fileID: 4024175194832927626, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3661149737
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_MaxAngle
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_MinAngle
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1384325699}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SetHeat
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GrabObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Lab.Steam_Puzzle.Tank.TankSystem, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: BackUpSphere.Sphere, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6248623914650052198, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_FirstSelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6250849862491109072, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 6250849862491109072, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 7742392162569053927, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 73120342
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159537069380060400, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4052798
+      objectReference: {fileID: 0}
+    - target: {fileID: 9159537069380060400, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4219563
+      objectReference: {fileID: 0}
     - target: {fileID: 9159537069380060400, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.621
+      value: 8.643
       objectReference: {fileID: 0}
     - target: {fileID: 9159537069380060400, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -31536,7 +31668,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 94
   DopplerLevel: 1
   MinDistance: 0.1
   MaxDistance: 5
