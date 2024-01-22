@@ -31,7 +31,6 @@ public class ButtonInteraction : MonoBehaviour
         interactible.selectEntered.AddListener(Freeze);
     }
 
-    //when hovering button with poke, follow poke
     public void Follow(BaseInteractionEventArgs hover)
     {
         if(hover.interactorObject is XRPokeInteractor)
@@ -51,7 +50,6 @@ public class ButtonInteraction : MonoBehaviour
         }
     }
 
-    //When stopping hovering, go back to original position
     public void Reset(BaseInteractionEventArgs hover)
     {
         if(hover.interactorObject is XRPokeInteractor)
@@ -62,7 +60,6 @@ public class ButtonInteraction : MonoBehaviour
         
     }
 
-    //when selecting, nothing happens
     public void Freeze(BaseInteractionEventArgs hover)
     {
         if(hover.interactorObject is XRPokeInteractor)

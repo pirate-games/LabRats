@@ -6,9 +6,9 @@ using Unity.Netcode;
 public class OvenFunctionality : NetworkBehaviour
 {
     [SerializeField]
-    private OvenCollider insideCollider;
+    private OvenCollider collider;
     [SerializeField]
-    private GameObject key, door, cauldron;
+    private GameObject door, cauldron;
     [SerializeField]
     private ParticleSystem flames;
 
@@ -31,7 +31,7 @@ public class OvenFunctionality : NetworkBehaviour
     {
         if (isActive)
         {
-            if (insideCollider.steelCount >= 2 && insideCollider.mouldInside && door.transform.rotation.eulerAngles.y >= doorClosed)
+            if (collider.steelCount >= 2 && collider.mouldInside && door.transform.rotation.eulerAngles.y >= doorClosed)
             {
                 CreateKey();
             }
@@ -39,19 +39,7 @@ public class OvenFunctionality : NetworkBehaviour
             if (poured)
             {
                 isActive = false;
-                SpawnKeyServerRpc();
             }
-        }
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    public void SpawnKeyServerRpc()
-    {
-        if (!IsHost) { return; }
-        GameObject _key = Instantiate(key);
-        if (_key.TryGetComponent(out NetworkObject netObj))
-        {
-            netObj.Spawn();
         }
     }
 
@@ -66,7 +54,7 @@ public class OvenFunctionality : NetworkBehaviour
         var clientId = serverRpcParams.Receive.SenderClientId;
         if (NetworkManager.ConnectedClients.ContainsKey(clientId))
         {
-            UpdateOvenClientRPC();
+            CreateKeyClientRPC();
         }
     }
 
@@ -97,30 +85,15 @@ public class OvenFunctionality : NetworkBehaviour
     [ClientRpc]
     private void CreateKeyClientRPC()
     {
-        bool pouring = true;
-        insideCollider.steel1.SetActive(false);
-        insideCollider.steel2.SetActive(false);
-        if (pouring)
+        collider.steel1.SetActive(false);
+        collider.steel2.SetActive(false);
+        float t = timer / pouringTime;
+        cauldron.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, 0), new Vector3(18, 0, 0), t));
+        timer += Time.deltaTime;
+        if (timer >= pouringTime)
         {
-            float t = timer / pouringTime;
-            cauldron.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, 0), new Vector3(18, 0, 0), t));
-            timer += Time.deltaTime;
-            if (timer >= pouringTime)
-            {
-                poured = true;
-                pouring = false;
-                timer = 0;
-            }
-        }
-        else
-        {
-            float t = timer / pouringTime;
-            cauldron.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(18, 0, 0), new Vector3(0, 0, 0), t));
-            timer += Time.deltaTime;
-            if (timer >= pouringTime)
-            {
-                timer = 0;
-            }
+            poured = true;
+            timer = 0;
         }
     }
 }
