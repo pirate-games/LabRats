@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2386198512574986050
+--- !u!1001 &4465992375298933775
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 31113243900523980, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 436628352
+      value: 1739380696
       objectReference: {fileID: 0}
     - target: {fileID: 95479394020868018, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: m_Mesh
@@ -18,7 +18,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 458015875573150354, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3017803800
+      value: 1739380696
       objectReference: {fileID: 0}
     - target: {fileID: 1903766374809214135, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: m_LocalPosition.x
@@ -62,19 +62,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2254025413852757526, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 53112078
+      value: 1739380696
       objectReference: {fileID: 0}
-    - target: {fileID: 3230702450538111750, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
-      propertyPath: GlobalObjectIdHash
-      value: 4195196877
+    - target: {fileID: 2254025413852757526, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: AutoObjectParentSync
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3531342310908813623, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+    - target: {fileID: 2356486985643476044, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 3531342310908813623, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+    - target: {fileID: 2356486985643476044, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: m_VersionIndex
-      value: 7451
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230702450538111750, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1739380696
       objectReference: {fileID: 0}
     - target: {fileID: 3550018554347563269, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: m_Mesh
@@ -82,47 +86,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3781206546973818157, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1443600873
+      value: 1739380696
       objectReference: {fileID: 0}
     - target: {fileID: 4009377667013112718, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3000416094
+      value: 1739380696
       objectReference: {fileID: 0}
     - target: {fileID: 4496783129841927290, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 4264447832
+      value: 1739380696
       objectReference: {fileID: 0}
     - target: {fileID: 5873350251289491749, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3718182909
+      value: 1739380696
+      objectReference: {fileID: 0}
+    - target: {fileID: 5873350251289491749, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: AutoObjectParentSync
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6052456659932971081, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: m_Name
-      value: Oven (1) Variant
+      value: Oven (1) Variant 2
       objectReference: {fileID: 0}
     - target: {fileID: 6578219975705405192, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 2493435204
+      value: 1739380696
       objectReference: {fileID: 0}
-    - target: {fileID: 6767055776293046833, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6767055776293046833, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
-      propertyPath: m_VersionIndex
-      value: 4186
-      objectReference: {fileID: 0}
-    - target: {fileID: 7151107299450693158, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
-      propertyPath: m_Mesh
-      value: 
+    - target: {fileID: 6578219975705405192, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: AutoObjectParentSync
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7684449564507212854, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 472959922
+      value: 1739380696
       objectReference: {fileID: 0}
-    - target: {fileID: 7749342246634171475, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
-      propertyPath: m_Mesh
-      value: 
+    - target: {fileID: 7684449564507212854, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: AutoObjectParentSync
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

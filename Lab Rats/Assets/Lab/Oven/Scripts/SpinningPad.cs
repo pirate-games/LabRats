@@ -16,10 +16,21 @@ public class SpinningPad : NetworkBehaviour
     private float spinTime = 2;
     private float timer = 0;
     private float zRotation;
-    // Start is called before the first frame update
-    void Start()
+
+    //NetworkVariable<float> spinTime = new NetworkVariable<float>();
+    //NetworkVariable<float> timer = new NetworkVariable<float>();
+    //NetworkVariable<float> zRotation = new NetworkVariable<float>();
+
+
+    public override void OnNetworkSpawn()
     {
-        zRotation = transform.rotation.z;
+        base.OnNetworkSpawn();
+        if (IsHost)
+        {
+            zRotation = transform.rotation.z;
+            timer = 0;
+            spinTime = 2;
+        }
     }
 
     // Update is called once per frame
@@ -54,49 +65,14 @@ public class SpinningPad : NetworkBehaviour
             }
         }
     }
-    private void OnCollisionStay(Collision collision)
-    {
-        if (!spinning)
-        {
-            if (spinner2)
-            {
-
-                if (collision.gameObject.tag == "Steel")
-                {
-                    KeepSteel();
-                }
-                else
-                {
-                    StartCoroutine(DiscardItem(collision.rigidbody));
-                }
-
-            }
-            else
-            {
-                spinning = true;
-            }
-        }
-    }
 
     private void Spin()
     {
-        SpinServerRPC();
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    public void SpinServerRPC(ServerRpcParams serverRpcParams = default)
-    {
-        var clientId = serverRpcParams.Receive.SenderClientId;
-        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
-        {
-            SpinClientRPC();
-        }
-    }
-
-    [ClientRpc]
-    private void SpinClientRPC()
-    {
         float t = timer / spinTime;
+
+        Debug.Log("A " + new Vector3(0, 0, zRotation));
+        Debug.Log("B " + new Vector3(0, 0, zRotation + 180));
+        Debug.Log("t " + t);
 
         transform.localRotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, zRotation), new Vector3(0, 0, zRotation + 180), t)); //moves right            
 
@@ -105,35 +81,14 @@ public class SpinningPad : NetworkBehaviour
         {
             spinning = false;
             timer = 0;
+            zRotation = transform.rotation.z;
         }
     }
 
     IEnumerator DiscardItem(Rigidbody rb)
     {
         yield return new WaitForSeconds(1);
-        rb.velocity = new Vector3(5, 3, 0);
-        DiscardServerRPC();
-
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    public void DiscardServerRPC(ServerRpcParams serverRpcParams = default)
-    {
-        var clientId = serverRpcParams.Receive.SenderClientId;
-        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
-        {
-            DiscardItenClientRPC();
-        }
-    }
-
-    [ClientRpc]
-    private void DiscardItenClientRPC()
-    {
-        StartCoroutine(DiscardItemCoroutine());
-    }
-
-    IEnumerator DiscardItemCoroutine()
-    {
+        rb.velocity = new Vector3(8, 5, 0);
         foreach (Light light in lights)
         {
             light.color = Color.red;
@@ -146,22 +101,6 @@ public class SpinningPad : NetworkBehaviour
     }
 
     public void KeepSteel()
-    {
-        KeepSteelServerRPC();
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    public void KeepSteelServerRPC(ServerRpcParams serverRpcParams = default)
-    {
-        var clientId = serverRpcParams.Receive.SenderClientId;
-        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
-        {
-            KeepSteelClientRPC();
-        }
-    }
-
-    [ClientRpc]
-    private void KeepSteelClientRPC()
     {
         StartCoroutine(KeepSteelCoroutine());
     }

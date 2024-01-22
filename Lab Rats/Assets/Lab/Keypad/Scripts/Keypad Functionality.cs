@@ -24,27 +24,11 @@ public class KeypadFunctionality : NetworkBehaviour
     public bool closing;
 
     public UnityEvent correctCodeEvent;
+
     // Start is called before the first frame update
     void Start()
     {
         ClearAll();
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        //when input length is equal to the length of the correct code
-        if (pressed >= codeLength)
-        {
-            if(input.text == correctCode)
-            {
-                StartCoroutine(CorrectAnswer());
-            }
-            else
-            {
-                StartCoroutine(WrongAnswer());
-            }
-        }
     }
 
     //Reset text field completely
@@ -57,13 +41,13 @@ public class KeypadFunctionality : NetworkBehaviour
         pressed = 0;
     }
 
-    //Short visual feedback for correct answer
+    //Short visual feedback for correct answer, invoke event assignedd in inspector
     IEnumerator CorrectAnswer()
     {
         input.color = Color.green;
         correctCodeEvent.Invoke();
         yield return new WaitForSeconds(1);
-        Exit();
+        ClearAll();
 
     }
     
@@ -84,6 +68,11 @@ public class KeypadFunctionality : NetworkBehaviour
         ButtonReleasedServerRpc();
     }
 
+    public void Enter()
+    {
+        EnterServerRPC();
+    }
+
     [ServerRpc(RequireOwnership = false)]
     public void ButtonPressedServerRpc(int number, ServerRpcParams serverRpcParams = default)
     {
@@ -94,6 +83,7 @@ public class KeypadFunctionality : NetworkBehaviour
         }
     }
 
+    //button pressed is when you press a number, it is displayed on the screen
     [ClientRpc]
     private void ButtonPressedClientRpc(int number)
     {
@@ -103,6 +93,10 @@ public class KeypadFunctionality : NetworkBehaviour
             {
                 input.text = input.text + number;
                 pressed++;
+            }
+            else
+            {
+                return;
             }
             pressing = true;
         }
@@ -124,7 +118,34 @@ public class KeypadFunctionality : NetworkBehaviour
         pressing = false;
     }
 
-    //Remove the last number from input
+    [ServerRpc(RequireOwnership = false)]
+    public void EnterServerRPC(ServerRpcParams serverRpcParams = default)
+    {
+        var clientId = serverRpcParams.Receive.SenderClientId;
+        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        {
+            EnterClientRPC();
+        }
+    }
+
+    //when pressing the enter button, check if code is correct or not
+    [ClientRpc]
+    private void EnterClientRPC()
+    {
+        if (!pressing)
+        {
+            if (input.text == correctCode)
+            {
+                StartCoroutine(CorrectAnswer());
+            }
+            else
+            {
+                StartCoroutine(WrongAnswer());
+            }
+        }
+    }
+
+    //Remove the last number from input (not used in game)
     public void Backspace()
     {
         if (input.text != null && pressed < codeLength)
@@ -132,11 +153,5 @@ public class KeypadFunctionality : NetworkBehaviour
             pressed--;
             input.text = input.text.Substring(0, input.text.Length - 1);
         }
-    }
-
-    public void Exit()
-    {
-        closing = true;
-        ClearAll();
     }
 }

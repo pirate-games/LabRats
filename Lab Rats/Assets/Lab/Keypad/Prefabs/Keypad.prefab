@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 367183502294328355}
+  - component: {fileID: 7975057922025107989}
   m_Layer: 0
   m_Name: bttn2
   m_TagString: Untagged
@@ -33,6 +34,26 @@ Transform:
   - {fileID: 1926555624840798447}
   m_Father: {fileID: 2471092282579825741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7975057922025107989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620195799128554750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &894419285230217431
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,6 +102,7 @@ GameObject:
   - component: {fileID: 6404535743254150550}
   - component: {fileID: 4448782184600445116}
   - component: {fileID: 3761852036433857539}
+  - component: {fileID: 6855101369997549616}
   m_Layer: 0
   m_Name: bttn5
   m_TagString: Untagged
@@ -315,6 +337,26 @@ MonoBehaviour:
   localAxis: {x: 0, y: 0, z: -1}
   resetSpeed: 5
   followAngleTreshold: 45
+--- !u!114 &6855101369997549616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947199849959602962}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &1080317404305932658
 GameObject:
   m_ObjectHideFlags: 0
@@ -329,6 +371,7 @@ GameObject:
   - component: {fileID: 3376293274759579207}
   - component: {fileID: 9135969718892838205}
   - component: {fileID: 4112067620994708992}
+  - component: {fileID: 114706528805747688}
   m_Layer: 0
   m_Name: bttnEnter
   m_TagString: Untagged
@@ -425,7 +468,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3864792596368076485}
         m_TargetAssemblyTypeName: KeypadFunctionality, Assembly-CSharp
-        m_MethodName: ClearAll
+        m_MethodName: Enter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -437,7 +480,19 @@ MonoBehaviour:
         m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3864792596368076485}
+        m_TargetAssemblyTypeName: KeypadFunctionality, Assembly-CSharp
+        m_MethodName: ButtonReleased
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_FirstFocusEntered:
     m_PersistentCalls:
       m_Calls: []
@@ -551,6 +606,26 @@ MonoBehaviour:
   localAxis: {x: 0, y: 0, z: -1}
   resetSpeed: 5
   followAngleTreshold: 45
+--- !u!114 &114706528805747688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1080317404305932658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &1324259982991166763
 GameObject:
   m_ObjectHideFlags: 0
@@ -565,6 +640,7 @@ GameObject:
   - component: {fileID: 4951004280279990250}
   - component: {fileID: 5979227015863113794}
   - component: {fileID: 55445274107002076}
+  - component: {fileID: 6405179429068137864}
   m_Layer: 0
   m_Name: bttn1
   m_TagString: Untagged
@@ -799,6 +875,26 @@ MonoBehaviour:
   localAxis: {x: 0, y: 0, z: -1}
   resetSpeed: 5
   followAngleTreshold: 45
+--- !u!114 &6405179429068137864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324259982991166763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &1333703405984996548
 GameObject:
   m_ObjectHideFlags: 0
@@ -808,6 +904,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8940793801157445999}
+  - component: {fileID: 7073450277143668687}
   m_Layer: 0
   m_Name: bttn4
   m_TagString: Untagged
@@ -832,6 +929,26 @@ Transform:
   - {fileID: 5483534843782530305}
   m_Father: {fileID: 2471092282579825741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7073450277143668687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333703405984996548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &1456299256501360679
 GameObject:
   m_ObjectHideFlags: 0
@@ -841,6 +958,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 237259319395950540}
+  - component: {fileID: 2554002734691640198}
   m_Layer: 0
   m_Name: bttn7
   m_TagString: Untagged
@@ -865,6 +983,26 @@ Transform:
   - {fileID: 1825017235402836363}
   m_Father: {fileID: 2471092282579825741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2554002734691640198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1456299256501360679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &1492240233017984747
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,6 +1012,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5107969968549826970}
+  - component: {fileID: 8723751873546088425}
   m_Layer: 0
   m_Name: bttn6
   m_TagString: Untagged
@@ -898,6 +1037,26 @@ Transform:
   - {fileID: 3385859023913003936}
   m_Father: {fileID: 2471092282579825741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8723751873546088425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492240233017984747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &1501462136928041665
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,6 +1068,7 @@ GameObject:
   - component: {fileID: 1926555624840798447}
   - component: {fileID: 884102982961010881}
   - component: {fileID: 7638711877330034572}
+  - component: {fileID: 253838687245247119}
   m_Layer: 0
   m_Name: bttn2 (1)
   m_TagString: Untagged
@@ -981,6 +1141,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &253838687245247119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1501462136928041665}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &1948146417246316126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1076,6 +1256,7 @@ GameObject:
   - component: {fileID: 3822114262466189175}
   - component: {fileID: 5601221136402748873}
   - component: {fileID: 999710249420044815}
+  - component: {fileID: 1414635039890304229}
   m_Layer: 0
   m_Name: bttn8 (1)
   m_TagString: Untagged
@@ -1148,6 +1329,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1414635039890304229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2933984135331587891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &2980511245203085914
 GameObject:
   m_ObjectHideFlags: 0
@@ -1159,6 +1360,7 @@ GameObject:
   - component: {fileID: 7217502795789167224}
   - component: {fileID: 5389964625146507917}
   - component: {fileID: 6342002758945953210}
+  - component: {fileID: 1139251702422967541}
   m_Layer: 0
   m_Name: bttn1 (1)
   m_TagString: Untagged
@@ -1231,6 +1433,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1139251702422967541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2980511245203085914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &3005025408232365435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1242,6 +1464,7 @@ GameObject:
   - component: {fileID: 1825017235402836363}
   - component: {fileID: 3446971729333782338}
   - component: {fileID: 7100364277047654651}
+  - component: {fileID: 7066692585261471584}
   m_Layer: 0
   m_Name: bttn7 (1)
   m_TagString: Untagged
@@ -1314,6 +1537,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7066692585261471584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3005025408232365435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &3222842385239613954
 GameObject:
   m_ObjectHideFlags: 0
@@ -1370,6 +1613,7 @@ GameObject:
   - component: {fileID: 1404673586750525887}
   - component: {fileID: 2079609195713443135}
   - component: {fileID: 906751739923705860}
+  - component: {fileID: 6379375955518638663}
   m_Layer: 0
   m_Name: bttn8
   m_TagString: Untagged
@@ -1604,6 +1848,26 @@ MonoBehaviour:
   localAxis: {x: 0, y: 0, z: -1}
   resetSpeed: 5
   followAngleTreshold: 45
+--- !u!114 &6379375955518638663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3533708379810850670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &3614558169786873855
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,6 +1879,7 @@ GameObject:
   - component: {fileID: 4305913495662405123}
   - component: {fileID: 5744341494129203232}
   - component: {fileID: 4936092924911256689}
+  - component: {fileID: 7465177406000614725}
   m_Layer: 0
   m_Name: bttn9 (1)
   m_TagString: Untagged
@@ -1687,6 +1952,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &7465177406000614725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3614558169786873855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &4406013818707609399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1696,6 +1981,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1551653622177941779}
+  - component: {fileID: 5165112806506781051}
   m_Layer: 0
   m_Name: bttn9
   m_TagString: Untagged
@@ -1720,6 +2006,26 @@ Transform:
   - {fileID: 4305913495662405123}
   m_Father: {fileID: 2471092282579825741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5165112806506781051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4406013818707609399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &4796869561714558863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1729,6 +2035,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 117706492593971935}
+  - component: {fileID: 8144375463082645871}
   m_Layer: 0
   m_Name: bttn3
   m_TagString: Untagged
@@ -1753,6 +2060,26 @@ Transform:
   - {fileID: 1737581496690254446}
   m_Father: {fileID: 2471092282579825741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8144375463082645871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4796869561714558863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &5072510457848326288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1762,6 +2089,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2661869658766844246}
+  - component: {fileID: 6854292912763490562}
   m_Layer: 0
   m_Name: bttnEnter
   m_TagString: Untagged
@@ -1786,6 +2114,26 @@ Transform:
   - {fileID: 3124875025282193560}
   m_Father: {fileID: 2471092282579825741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6854292912763490562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5072510457848326288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &5105625093192884241
 GameObject:
   m_ObjectHideFlags: 0
@@ -1795,6 +2143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2610706618400958817}
+  - component: {fileID: 3711886165380118540}
   m_Layer: 0
   m_Name: bttn5
   m_TagString: Untagged
@@ -1819,6 +2168,26 @@ Transform:
   - {fileID: 5373607222818099309}
   m_Father: {fileID: 2471092282579825741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3711886165380118540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5105625093192884241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &5285474675439505298
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,6 +2199,7 @@ GameObject:
   - component: {fileID: 1737581496690254446}
   - component: {fileID: 4712100014584210398}
   - component: {fileID: 3063237101224565253}
+  - component: {fileID: 3890619445041389492}
   m_Layer: 0
   m_Name: bttn3 (1)
   m_TagString: Untagged
@@ -1902,6 +2272,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3890619445041389492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5285474675439505298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &5339466816148035172
 GameObject:
   m_ObjectHideFlags: 0
@@ -1971,8 +2361,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   length: 4
   code: 1234
-  input:
-    m_InternalValue: {fileID: 0}
+  input: {fileID: 0}
   codeLength: 0
   correctCode: 
   closing: 0
@@ -2089,6 +2478,7 @@ GameObject:
   - component: {fileID: 961445523534275229}
   - component: {fileID: 3302697044370212348}
   - component: {fileID: 3950898606659036817}
+  - component: {fileID: 3790917177118321127}
   m_Layer: 0
   m_Name: bttn0
   m_TagString: Untagged
@@ -2323,6 +2713,26 @@ MonoBehaviour:
   localAxis: {x: 0, y: 0, z: -1}
   resetSpeed: 5
   followAngleTreshold: 45
+--- !u!114 &3790917177118321127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5515342556957999860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &5741227908147261421
 GameObject:
   m_ObjectHideFlags: 0
@@ -2337,6 +2747,7 @@ GameObject:
   - component: {fileID: 2820428955773839373}
   - component: {fileID: 4213845235422387492}
   - component: {fileID: 5662177394203407610}
+  - component: {fileID: 6717246587378719424}
   m_Layer: 0
   m_Name: bttn2
   m_TagString: Untagged
@@ -2571,6 +2982,26 @@ MonoBehaviour:
   localAxis: {x: 0, y: 0, z: -1}
   resetSpeed: 5
   followAngleTreshold: 45
+--- !u!114 &6717246587378719424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5741227908147261421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &5896762036167564069
 GameObject:
   m_ObjectHideFlags: 0
@@ -2580,6 +3011,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2709528237185213394}
+  - component: {fileID: 4818766039672206531}
   m_Layer: 0
   m_Name: bttn1
   m_TagString: Untagged
@@ -2604,6 +3036,26 @@ Transform:
   - {fileID: 7217502795789167224}
   m_Father: {fileID: 2471092282579825741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4818766039672206531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5896762036167564069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &5964109473481956121
 GameObject:
   m_ObjectHideFlags: 0
@@ -2615,6 +3067,7 @@ GameObject:
   - component: {fileID: 3385859023913003936}
   - component: {fileID: 3421933444278146931}
   - component: {fileID: 1614824174102516929}
+  - component: {fileID: 519621179455669277}
   m_Layer: 0
   m_Name: bttn6 (1)
   m_TagString: Untagged
@@ -2687,6 +3140,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &519621179455669277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5964109473481956121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &6288121589970726675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2696,6 +3169,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7631211963804165566}
+  - component: {fileID: 384079549198919261}
   m_Layer: 0
   m_Name: bttn0
   m_TagString: Untagged
@@ -2720,6 +3194,26 @@ Transform:
   - {fileID: 7702650787829767394}
   m_Father: {fileID: 2471092282579825741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &384079549198919261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6288121589970726675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &6330627908125652970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,6 +3228,7 @@ GameObject:
   - component: {fileID: 4379931264237806443}
   - component: {fileID: 6180437426474920686}
   - component: {fileID: 2106387755466116615}
+  - component: {fileID: 3807673623027177901}
   m_Layer: 0
   m_Name: bttn6
   m_TagString: Untagged
@@ -2968,6 +3463,26 @@ MonoBehaviour:
   localAxis: {x: 0, y: 0, z: -1}
   resetSpeed: 5
   followAngleTreshold: 45
+--- !u!114 &3807673623027177901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6330627908125652970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &6742539549600483878
 GameObject:
   m_ObjectHideFlags: 0
@@ -2979,6 +3494,7 @@ GameObject:
   - component: {fileID: 5373607222818099309}
   - component: {fileID: 2425619357373599069}
   - component: {fileID: 7009150233439190525}
+  - component: {fileID: 6986174762864037796}
   m_Layer: 0
   m_Name: bttn5 (1)
   m_TagString: Untagged
@@ -3051,6 +3567,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6986174762864037796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6742539549600483878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &7420974900588433208
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,6 +3601,7 @@ GameObject:
   - component: {fileID: 225547600846432946}
   - component: {fileID: 5058873114952197230}
   - component: {fileID: 5144360317995652614}
+  - component: {fileID: 2791917664680480718}
   m_Layer: 0
   m_Name: bttn4
   m_TagString: Untagged
@@ -3299,6 +3836,26 @@ MonoBehaviour:
   localAxis: {x: 0, y: 0, z: -1}
   resetSpeed: 5
   followAngleTreshold: 45
+--- !u!114 &2791917664680480718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420974900588433208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &7494656114808075927
 GameObject:
   m_ObjectHideFlags: 0
@@ -3313,6 +3870,7 @@ GameObject:
   - component: {fileID: 7155078911737120676}
   - component: {fileID: 14065214969318399}
   - component: {fileID: 8155769577793134410}
+  - component: {fileID: 3111981977231792906}
   m_Layer: 0
   m_Name: bttn7
   m_TagString: Untagged
@@ -3547,6 +4105,26 @@ MonoBehaviour:
   localAxis: {x: 0, y: 0, z: -1}
   resetSpeed: 5
   followAngleTreshold: 45
+--- !u!114 &3111981977231792906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494656114808075927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &7861377068198462756
 GameObject:
   m_ObjectHideFlags: 0
@@ -3561,6 +4139,7 @@ GameObject:
   - component: {fileID: 5250470691139509728}
   - component: {fileID: 5811067196903284204}
   - component: {fileID: 830676396922405816}
+  - component: {fileID: 1683656325431443903}
   m_Layer: 0
   m_Name: bttn3
   m_TagString: Untagged
@@ -3795,6 +4374,26 @@ MonoBehaviour:
   localAxis: {x: 0, y: 0, z: -1}
   resetSpeed: 5
   followAngleTreshold: 45
+--- !u!114 &1683656325431443903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7861377068198462756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &8246184242076096128
 GameObject:
   m_ObjectHideFlags: 0
@@ -3804,6 +4403,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6209491124554451922}
+  - component: {fileID: 8450564181896147760}
   m_Layer: 0
   m_Name: bttn8
   m_TagString: Untagged
@@ -3828,6 +4428,26 @@ Transform:
   - {fileID: 3822114262466189175}
   m_Father: {fileID: 2471092282579825741}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8450564181896147760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8246184242076096128}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &8540513516692747981
 GameObject:
   m_ObjectHideFlags: 0
@@ -3842,6 +4462,7 @@ GameObject:
   - component: {fileID: 5514032149559412028}
   - component: {fileID: 1167007736439851409}
   - component: {fileID: 3769983831789884381}
+  - component: {fileID: 6146553842136031279}
   m_Layer: 0
   m_Name: bttn9
   m_TagString: Untagged
@@ -4076,6 +4697,26 @@ MonoBehaviour:
   localAxis: {x: 0, y: 0, z: -1}
   resetSpeed: 5
   followAngleTreshold: 45
+--- !u!114 &6146553842136031279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8540513516692747981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &8799215328116282481
 GameObject:
   m_ObjectHideFlags: 0
@@ -4087,6 +4728,7 @@ GameObject:
   - component: {fileID: 5483534843782530305}
   - component: {fileID: 4580433268421051605}
   - component: {fileID: 2229075589067489313}
+  - component: {fileID: 5252085014224344754}
   m_Layer: 0
   m_Name: bttn4 (1)
   m_TagString: Untagged
@@ -4159,6 +4801,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5252085014224344754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8799215328116282481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &8866171154990766833
 GameObject:
   m_ObjectHideFlags: 0
@@ -4170,6 +4832,7 @@ GameObject:
   - component: {fileID: 3124875025282193560}
   - component: {fileID: 6193741906757472943}
   - component: {fileID: 281524242137223091}
+  - component: {fileID: 5467412575556458618}
   m_Layer: 0
   m_Name: bttnEnter (1)
   m_TagString: Untagged
@@ -4242,6 +4905,26 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5467412575556458618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8866171154990766833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
 --- !u!1 &8898586811897767769
 GameObject:
   m_ObjectHideFlags: 0
@@ -4492,6 +5175,7 @@ GameObject:
   - component: {fileID: 7702650787829767394}
   - component: {fileID: 3759004726063952017}
   - component: {fileID: 2174111296696270687}
+  - component: {fileID: 4816324732822478682}
   m_Layer: 0
   m_Name: bttn0
   m_TagString: Untagged
@@ -4564,3 +5248,23 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4816324732822478682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9205863826608171751}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GlobalObjectIdHash: 2644947896
+  AlwaysReplicateAsRoot: 0
+  SynchronizeTransform: 1
+  ActiveSceneSynchronization: 0
+  SceneMigrationSynchronization: 1
+  SpawnWithObservers: 1
+  DontDestroyWithOwner: 0
+  AutoObjectParentSync: 0
