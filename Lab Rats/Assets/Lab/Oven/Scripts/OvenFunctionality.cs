@@ -39,7 +39,7 @@ public class OvenFunctionality : NetworkBehaviour
             if (poured)
             {
                 isActive = false;
-                key.SetActive(true);
+                Instantiate(key);
             }
         }
     }
