@@ -18,11 +18,12 @@ namespace DoorSystem
       public void SwitchBulbMat()
       {
          bulbMat.SetColor( EmissionColor, bulbOnColour );
+         Debug.Log("hi");
       }
       
       public void ResetBulbMat()
       {
-         bulbMat.SetColor( EmissionColor, _startingColour);
+         bulbMat.SetColor( EmissionColor, _startingColour );
       }
    }
 }
