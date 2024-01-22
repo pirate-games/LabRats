@@ -44,7 +44,7 @@ public class OvenFunctionality : NetworkBehaviour
         }
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     public void SpawnKeyServerRpc()
     {
         if (!IsHost) { return; }
