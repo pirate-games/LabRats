@@ -4,26 +4,25 @@ namespace DoorSystem
 {
    public class ChangeBulbColour : MonoBehaviour
    {
-      [SerializeField] private Material bulbMat;
-      [SerializeField] private Color bulbOnColour;
+      [SerializeField] private Material bulbOnMat;
       
-      private Color _startingColour;
-      private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
-
+      private Material _bulbMat;
+      private Material _startingMat;
+      
       private void Start()
       {
-         _startingColour = bulbMat.GetColor( EmissionColor);
+         _bulbMat = GetComponent<MeshRenderer>().material;
+         _startingMat = _bulbMat;
       }
 
       public void SwitchBulbMat()
       {
-         bulbMat.SetColor( EmissionColor, bulbOnColour );
-         Debug.Log("hi");
+         _bulbMat = bulbOnMat;
       }
       
       public void ResetBulbMat()
       {
-         bulbMat.SetColor( EmissionColor, _startingColour );
+         _bulbMat = _startingMat;
       }
    }
 }
