@@ -145,7 +145,7 @@ public class KeypadFunctionality : NetworkBehaviour
         }
     }
 
-    //Remove the last number from input
+    //Remove the last number from input (not used in game)
     public void Backspace()
     {
         if (input.text != null && pressed < codeLength)
