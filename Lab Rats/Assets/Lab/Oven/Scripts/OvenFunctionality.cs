@@ -8,7 +8,7 @@ public class OvenFunctionality : NetworkBehaviour
     [SerializeField]
     private OvenCollider collider;
     [SerializeField]
-    private GameObject door, cauldron;
+    private GameObject key, door, cauldron;
     [SerializeField]
     private ParticleSystem flames;
 
@@ -39,6 +39,7 @@ public class OvenFunctionality : NetworkBehaviour
             if (poured)
             {
                 isActive = false;
+                key.SetActive(true);
             }
         }
     }
@@ -54,7 +55,7 @@ public class OvenFunctionality : NetworkBehaviour
         var clientId = serverRpcParams.Receive.SenderClientId;
         if (NetworkManager.ConnectedClients.ContainsKey(clientId))
         {
-            CreateKeyClientRPC();
+            UpdateOvenClientRPC();
         }
     }
 

@@ -13,13 +13,20 @@ public class SpinningPad : NetworkBehaviour
 
     private bool spinning;
 
-    private float spinTime = 2;
-    private float timer = 0;
-    private float zRotation;
+    //private float spinTime = 2;
+    //private float timer = 0;
+    //private float zRotation;]
+
+    NetworkVariable<float> spinTime = new NetworkVariable<float>();
+    NetworkVariable<float> timer = new NetworkVariable<float>();
+    NetworkVariable<float> zRotation = new NetworkVariable<float>();
+
     // Start is called before the first frame update
     void Start()
     {
-        zRotation = transform.rotation.z;
+        zRotation.Value = transform.rotation.z;
+        timer.Value = 0;
+        spinTime.Value = 2;
     }
 
     // Update is called once per frame
@@ -54,29 +61,6 @@ public class SpinningPad : NetworkBehaviour
             }
         }
     }
-    private void OnCollisionStay(Collision collision)
-    {
-        if (!spinning)
-        {
-            if (spinner2)
-            {
-
-                if (collision.gameObject.tag == "Steel")
-                {
-                    KeepSteel();
-                }
-                else
-                {
-                    StartCoroutine(DiscardItem(collision.rigidbody));
-                }
-
-            }
-            else
-            {
-                spinning = true;
-            }
-        }
-    }
 
     private void Spin()
     {
@@ -96,22 +80,27 @@ public class SpinningPad : NetworkBehaviour
     [ClientRpc]
     private void SpinClientRPC()
     {
-        float t = timer / spinTime;
+        float t = timer.Value / spinTime.Value;
+        
+        Debug.Log("A "  + new Vector3(0, 0, zRotation.Value));
+        Debug.Log("B " + new Vector3(0, 0, zRotation.Value + 180));
+        Debug.Log("t " + t);
 
-        transform.localRotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, zRotation), new Vector3(0, 0, zRotation + 180), t)); //moves right            
+        transform.localRotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, zRotation.Value), new Vector3(0, 0, zRotation.Value + 180), t)); //moves right            
 
-        timer += Time.deltaTime;
-        if (timer >= spinTime)
+        timer.Value += Time.deltaTime;
+        if (timer.Value >= spinTime.Value)
         {
             spinning = false;
-            timer = 0;
+            timer.Value = 0;
+            zRotation.Value = transform.rotation.z;
         }
     }
 
     IEnumerator DiscardItem(Rigidbody rb)
     {
         yield return new WaitForSeconds(1);
-        rb.velocity = new Vector3(5, 3, 0);
+        rb.velocity = new Vector3(8, 5, 0);
         DiscardServerRPC();
 
     }
