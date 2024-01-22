@@ -21,12 +21,16 @@ public class SpinningPad : NetworkBehaviour
     NetworkVariable<float> timer = new NetworkVariable<float>();
     NetworkVariable<float> zRotation = new NetworkVariable<float>();
 
-    // Start is called before the first frame update
-    void Start()
+
+    public override void OnNetworkSpawn()
     {
-        zRotation.Value = transform.rotation.z;
-        timer.Value = 0;
-        spinTime.Value = 2;
+        base.OnNetworkSpawn();
+        if (IsHost)
+        {
+            zRotation.Value = transform.rotation.z;
+            timer.Value = 0;
+            spinTime.Value = 2;
+        }
     }
 
     // Update is called once per frame
