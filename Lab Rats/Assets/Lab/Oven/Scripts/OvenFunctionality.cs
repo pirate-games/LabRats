@@ -44,15 +44,16 @@ public class OvenFunctionality : NetworkBehaviour
         }
     }
 
-    [ServerRpc(RequireOwnership = false)]
+    [ServerRpc(RequireOwnership = true)]
     public void SpawnKeyServerRpc()
     {
         if (!IsHost) { return; }
         GameObject _key = Instantiate(key);
-        if (_key.TryGetComponent(out NetworkObject netObj))
+        _key.GetComponent<NetworkObject>().Spawn();
+/*        if (_key.TryGetComponent(out NetworkObject netObj))
         {
             netObj.Spawn();
-        }
+        }*/
     }
 
     public void UpdateOven()
