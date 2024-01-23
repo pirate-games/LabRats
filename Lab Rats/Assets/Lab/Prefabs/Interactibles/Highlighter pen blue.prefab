@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 2051871448
+  GlobalObjectIdHash: 1603433263
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -314,6 +314,7 @@ GameObject:
   - component: {fileID: 4909472337475756}
   - component: {fileID: 33945598478230162}
   - component: {fileID: 23715701018146016}
+  - component: {fileID: 6718027912324260840}
   m_Layer: 7
   m_Name: Highlighter_cap_blue
   m_TagString: Untagged
@@ -386,6 +387,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6718027912324260840
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126581210216172}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.037085854, y: 0.01993939, z: 0.04212645}
+  m_Center: {x: 0, y: 0, z: 0.06170389}
 --- !u!1 &1839627537191234
 GameObject:
   m_ObjectHideFlags: 0
@@ -397,6 +419,7 @@ GameObject:
   - component: {fileID: 4936406925184414}
   - component: {fileID: 33894689406474564}
   - component: {fileID: 23770515950335436}
+  - component: {fileID: 4721246011609600205}
   m_Layer: 7
   m_Name: Highlighter_pen_blue
   m_TagString: Untagged
@@ -469,3 +492,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &4721246011609600205
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1839627537191234}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.038136702, y: 0.01999998, z: 0.14310414}
+  m_Center: {x: 0, y: 0, z: 0.0052642412}

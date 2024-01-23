@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4027512918398318}
   - component: {fileID: 33181893326490208}
   - component: {fileID: 23719565045169392}
+  - component: {fileID: 2960169820482544963}
   m_Layer: 7
   m_Name: Pen_blue
   m_TagString: Untagged
@@ -83,6 +84,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2960169820482544963
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1048536661752162}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.014000371, y: 0.014000425, z: 0.26551586}
+  m_Center: {x: 0.0004886817, y: 0.00036637648, z: -0.010572262}
 --- !u!1 &1057500703687002
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +116,7 @@ GameObject:
   - component: {fileID: 4903070730568684}
   - component: {fileID: 33837895866586098}
   - component: {fileID: 23709401534858618}
+  - component: {fileID: 7362554617625487118}
   m_Layer: 7
   m_Name: Pen_cap_blue
   m_TagString: Untagged
@@ -166,6 +189,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7362554617625487118
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057500703687002}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.022515178, y: 0.01844833, z: 0.12518187}
+  m_Center: {x: 0.002475507, y: 0.00036073523, z: 0.12238764}
 --- !u!1 &1597187340103502
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +224,6 @@ GameObject:
   - component: {fileID: -4348704291325186763}
   - component: {fileID: 1951186720864528261}
   - component: {fileID: 6657817723849973465}
-  - component: {fileID: -8449488933808898091}
   m_Layer: 7
   m_Name: Pen blue
   m_TagString: Untagged
@@ -420,7 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1570372037
+  GlobalObjectIdHash: 3943170003
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -470,24 +513,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6e343075ec7cb345a7ab386ae2b12d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!65 &-8449488933808898091
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1597187340103502}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
