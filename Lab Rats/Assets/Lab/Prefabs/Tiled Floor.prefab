@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5271332061883411683}
   - component: {fileID: 9117628712185963334}
   - component: {fileID: 6443705797308307340}
-  - component: {fileID: 3633518830814954277}
+  - component: {fileID: 957646827841930215}
   m_Layer: 0
   m_Name: Tiled Floor
   m_TagString: Untagged
@@ -27,9 +27,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4786297503593035353}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.382891, y: 1, z: 2.244067}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -53,7 +53,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
-  m_StaticShadowCaster: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3633518830814954277
-MeshCollider:
+--- !u!65 &957646827841930215
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -102,7 +102,6 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7333189691841027956, guid: 69dcfa51c2ad55146a151302a5310adf, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 17.238184, y: 0.7322286, z: 10.144735}
+  m_Center: {x: 0.33891758, y: -0.364, z: 0.0017411262}
