@@ -17,7 +17,7 @@ namespace Lab.Conductivity_Puzzle.Scripts
         [SerializeField] private AudioEvent bulbSound;
     
         [Header("Settings")]
-        [SerializeField, Range(0, 100)] private float resistanceMultiplier = 50f;
+        [SerializeField, Range(0, 200)] private float resistanceMultiplier = 50f;
         
         private AudioSource _audioSource;
 
