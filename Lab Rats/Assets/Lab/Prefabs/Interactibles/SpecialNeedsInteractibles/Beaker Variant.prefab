@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5327356964899189556}
   - component: {fileID: 8861978395097106268}
   - component: {fileID: 8878719702907604358}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WaterCollisionBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,6 +151,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: HeavySmoke
       objectReference: {fileID: 0}
+    - target: {fileID: 1329403829653021164, guid: fbff289b9c0b4c04e810ee0e45d5646b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657731332022622593, guid: fbff289b9c0b4c04e810ee0e45d5646b, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6022982370435704620, guid: fbff289b9c0b4c04e810ee0e45d5646b, type: 3}
       propertyPath: lengthInSec
       value: 17
@@ -240,7 +248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815059145483570969, guid: 37af22221518d9748971ff573abee8b5, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 820050542
+      value: 1181602103
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -114356735835469793, guid: 37af22221518d9748971ff573abee8b5, type: 3}
@@ -289,6 +297,7 @@ MonoBehaviour:
   heavySmoke: {fileID: 4911818917889597977}
   lightSmoke: {fileID: 4256269383521925616}
   sparkSound: {fileID: 11400000, guid: 589a89c05a5bffe449148f16b443597d, type: 2}
+  metalDrop: {fileID: 0}
 --- !u!82 &1152735673046959222
 AudioSource:
   m_ObjectHideFlags: 0
@@ -458,6 +467,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Liquid Lab Equip B
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c7377df7a3590c74a96bc48a724d8137, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -531,6 +544,10 @@ PrefabInstance:
     - target: {fileID: 1329403829653021164, guid: a10d30166407b1a479297a7f67641c44, type: 3}
       propertyPath: m_Name
       value: LightSmoke
+      objectReference: {fileID: 0}
+    - target: {fileID: 1329403829653021164, guid: a10d30166407b1a479297a7f67641c44, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
