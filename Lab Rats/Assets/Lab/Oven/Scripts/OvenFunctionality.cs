@@ -33,7 +33,7 @@ public class OvenFunctionality : NetworkBehaviour
     {
         if (isActive)
         {
-            if (insideCollider.steelCount >= 2 && insideCollider.mouldInside && door.transform.rotation.eulerAngles.y >= doorClosed)
+            if (insideCollider.steelCount >= 2 && insideCollider.mould && door.transform.rotation.eulerAngles.y >= doorClosed)
             {
                 CreateKey();
             }

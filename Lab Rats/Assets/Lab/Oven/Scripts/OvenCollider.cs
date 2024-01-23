@@ -7,7 +7,7 @@ public class OvenCollider : MonoBehaviour
     [HideInInspector]
     public int steelCount;
     [HideInInspector]
-    public bool mouldInside;
+    public GameObject mould;
 
     [HideInInspector]
     public GameObject steel1, steel2;
@@ -28,7 +28,7 @@ public class OvenCollider : MonoBehaviour
             steelCount++;
         }else if(other.tag == "Mould")
         {
-            mouldInside = true;
+            mould = other.gameObject;
         }
     }
 
@@ -47,7 +47,7 @@ public class OvenCollider : MonoBehaviour
         }
         if (other.tag == "Mould")
         {
-            mouldInside = false;
+            mould = null;
         }
     }
 
