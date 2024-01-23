@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3238859897
+  GlobalObjectIdHash: 2880444133
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -5322,6 +5322,36 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 4
     m_NumAlphaKeys: 2
+  neonBlueGradient:
+    serializedVersion: 2
+    key0: {r: 0, g: 0.13536787, b: 1, a: 1}
+    key1: {r: 0, g: 0.7142824, b: 0.8901961, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0.6981132, g: 0.6981132, b: 0.6981132, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 12529
+    ctime2: 57632
+    ctime3: 65535
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 2
   bunsonSound: {fileID: 11400000, guid: 8e43e510193217c4b8dd01dd04a72627, type: 2}
   flameElements:
   - atomicNumber: 3
@@ -5330,6 +5360,8 @@ MonoBehaviour:
     color: 1
   - atomicNumber: 12
     color: 6
+  - atomicNumber: 16
+    color: 8
   - atomicNumber: 19
     color: 2
   - atomicNumber: 20
@@ -5342,10 +5374,10 @@ MonoBehaviour:
     color: 0
   - atomicNumber: 55
     color: 3
-  - atomicNumber: 82
-    color: 5
   - atomicNumber: 56
     color: 4
+  - atomicNumber: 82
+    color: 5
 --- !u!82 &404794190933285958
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5452,7 +5484,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2181560151266932984, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1185697794
+      value: 304926547
       objectReference: {fileID: 0}
     - target: {fileID: 2559002913366210681, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -5468,15 +5500,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2561298130491353295, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 2561298130491353295, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4822312607672149397, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1185697794
+      value: 2543529290
       objectReference: {fileID: 0}
     - target: {fileID: 6408460691936140318, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: m_LocalPosition.x

@@ -28,6 +28,7 @@ namespace Lab.Bunson_Puzzle
         [SerializeField] private Gradient greenGradient;
         [SerializeField] private Gradient whiteBlueGradient;
         [SerializeField] private Gradient whiteGradient;
+        [SerializeField] private Gradient neonBlueGradient;
 
         [Header("Bunsen Burner Sound")]
         [SerializeField] private AudioEvent bunsonSound;
@@ -47,7 +48,8 @@ namespace Lab.Bunson_Puzzle
             Green,
             WhiteBlue,
             White,
-            Default
+            Default,
+            NeonBlue
         }
 
         [Serializable]
@@ -120,6 +122,7 @@ namespace Lab.Bunson_Puzzle
                 FlameColor.Green => greenGradient,
                 FlameColor.WhiteBlue => whiteBlueGradient,
                 FlameColor.White => whiteGradient,
+                FlameColor.NeonBlue => neonBlueGradient,
                 _ => defaultGradient
             };
         }
