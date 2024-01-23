@@ -552,6 +552,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 2065211559214303424, guid: cc444f763bd0e7340b9d60b25e654f51, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e440dec131023234991082f15713667e, type: 2}
     - target: {fileID: 2313393776599971573, guid: cc444f763bd0e7340b9d60b25e654f51, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.8601
@@ -594,11 +598,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2984959018590067732, guid: cc444f763bd0e7340b9d60b25e654f51, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1094391358
+      value: 7337120
       objectReference: {fileID: 0}
     - target: {fileID: 3451563446554568980, guid: cc444f763bd0e7340b9d60b25e654f51, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 740938639
+      value: 456292913
       objectReference: {fileID: 0}
     - target: {fileID: 3534319941783639123, guid: cc444f763bd0e7340b9d60b25e654f51, type: 3}
       propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.size

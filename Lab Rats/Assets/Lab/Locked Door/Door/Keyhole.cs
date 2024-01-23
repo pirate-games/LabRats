@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Netcode;
 using Unity.VRTemplate;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -19,7 +20,12 @@ public class Keyhole : MonoBehaviour
     {
         var interactibles = m_Socket.interactablesHovered;
         if (interactibles == null || interactibles.Count == 0 || keyKnob == null) return;
-        interactibles[0].transform.gameObject.SetActive(false);
+        var interactible = interactibles[0];
+
+        // despawn the network obj
+        if (interactible.transform.TryGetComponent<NetworkObject>(out var netObj)) netObj.Despawn(false);
+        interactible.transform.gameObject.SetActive(false);
+        //disable socket enable knob
         m_Socket.enabled = false;
         keyKnob.SetActive(true);
     }
