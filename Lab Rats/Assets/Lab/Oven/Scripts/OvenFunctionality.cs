@@ -41,7 +41,7 @@ public class OvenFunctionality : NetworkBehaviour
             if (poured)
             {
                 isActive = false;
-                SpawnKeyServerRpc();
+                if (IsHost) SpawnKeyServerRpc();
             }
         }
     }
@@ -49,7 +49,6 @@ public class OvenFunctionality : NetworkBehaviour
     [ServerRpc(RequireOwnership = false)]
     public void SpawnKeyServerRpc()
     {
-        if (!IsHost) { return; }
         GameObject _key = Instantiate(key, keySpawn.position, keySpawn.rotation);
         if (_key.TryGetComponent(out NetworkObject netObj))
         {
