@@ -30,5 +30,7 @@ public class Keyhole : MonoBehaviour
         interactible.transform.gameObject.SetActive(false);
         //disable socket enable knob
         m_Socket.enabled = false;
+
+        keyInserted.Invoke();
     }
 }
