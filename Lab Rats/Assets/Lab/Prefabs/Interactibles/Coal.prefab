@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 445122044200717042}
   - component: {fileID: -1021350086279895993}
   - component: {fileID: 6575699324478751567}
+  - component: {fileID: 6492005083802314883}
   m_Layer: 7
   m_Name: Coal
   m_TagString: Coal
@@ -394,3 +395,15 @@ MonoBehaviour:
   maxEmmision: 20
   oxygenMultiplier: 5
   coolingMultiplier: -1
+--- !u!114 &6492005083802314883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5030120896081955590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

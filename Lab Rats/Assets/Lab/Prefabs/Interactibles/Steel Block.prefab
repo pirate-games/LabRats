@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: -3977853356707755173}
   - component: {fileID: -3360366102249654654}
   - component: {fileID: -1306226580240837510}
+  - component: {fileID: -4252267845038204640}
   m_Layer: 7
   m_Name: Steel Block
   m_TagString: Steel
@@ -376,6 +377,18 @@ MonoBehaviour:
   InLocalSpace: 0
   Interpolate: 1
   SlerpPosition: 0
+--- !u!114 &-4252267845038204640
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1203805084425723393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6c0be61502bb534f922ebb746851216, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1873442370667922428
 GameObject:
   m_ObjectHideFlags: 0
