@@ -22,7 +22,7 @@ namespace Player.Scripts
             Hits = Detection(transform.position, detectionDistance, detectionLayers);
         }
 
-        private void FixedUpdate()
+        private void Update()
         {
             _detectionTimer += Time.deltaTime;
 

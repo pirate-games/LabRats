@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace Player.Scripts
@@ -12,14 +11,24 @@ namespace Player.Scripts
         
         private static Vector3 CalculatePushBackDirection(IEnumerable<RaycastHit> hits)
         {
-            return hits.Aggregate(Vector3.zero, (current, hit) => current + new Vector3(current.x, 0, current.z));
+            var combinedNormal = Vector3.zero;
+
+            foreach (var hit in hits)
+            {
+               combinedNormal += new Vector3(hit.normal.x, 0, hit.normal.z);
+            }
+
+            return combinedNormal;
         }
         
-        private void FixedUpdate()
+        private void Update()
         {
             if (headCollisionDetection.Hits.Count <= 0) return;
             
             var pushBackDirection = CalculatePushBackDirection(headCollisionDetection.Hits);
+            
+            Debug.DrawRay(transform.position, pushBackDirection.normalized, Color.red);
+            
             characterController.Move(pushBackDirection.normalized * (pushBackForce * Time.deltaTime));
         }
     }
