@@ -15,7 +15,7 @@ namespace Player.Scripts
 
             foreach (var hit in hits)
             {
-               combinedNormal += new Vector3(hit.normal.x, 0, hit.normal.z);
+               combinedNormal += new Vector3(hit.normal.x, hit.normal.y, hit.normal.z);
             }
 
             return combinedNormal;
@@ -26,8 +26,6 @@ namespace Player.Scripts
             if (headCollisionDetection.Hits.Count <= 0) return;
             
             var pushBackDirection = CalculatePushBackDirection(headCollisionDetection.Hits);
-            
-            Debug.DrawRay(transform.position, pushBackDirection.normalized, Color.red);
             
             characterController.Move(pushBackDirection.normalized * (pushBackForce * Time.deltaTime));
         }
