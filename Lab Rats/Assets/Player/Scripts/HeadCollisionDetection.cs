@@ -15,7 +15,7 @@ namespace Player.Scripts
 
         private float _detectionTimer;
 
-        public List<RaycastHit> Hits { get; set; } = new();
+        public List<RaycastHit> Hits { get; private set; } = new();
 
         private void Start()
         {
@@ -29,6 +29,7 @@ namespace Player.Scripts
             if (!(_detectionTimer > detectionDelay)) return;
 
             Hits = Detection(transform.position, detectionDistance, detectionLayers);
+            
             _detectionTimer = 0;
         }
 
@@ -47,9 +48,12 @@ namespace Player.Scripts
             {
                 // directions that will be checked
                 transform.forward,
+                -transform.forward,
                 transform.right,
                 -transform.right,
-                transform.up
+                
+                transform.up,
+                -transform.up
             };
 
             foreach (var direction in directions)
