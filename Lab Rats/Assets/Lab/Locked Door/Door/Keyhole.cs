@@ -33,16 +33,30 @@ public class Keyhole : NetworkBehaviour
             key = netObj;
             DespawnKeyServerRpc();
         }
-        interactible.transform.gameObject.SetActive(false);
-        //disable socket enable knob
-        m_Socket.enabled = false;
+        else
+        {
+            interactible.transform.gameObject.SetActive(false);
+            //disable socket enable knob
+            m_Socket.enabled = false;
 
-        keyInserted.Invoke();
+            keyInserted.Invoke();
+        }
     }
 
     [ServerRpc]
     void DespawnKeyServerRpc()
     {
-        if (key) key.Despawn(false);
+        if (!key) return;
+        key.Despawn(false);
+        DespawnKeyClientRpc();
+    }
+    [ClientRpc]
+    void DespawnKeyClientRpc()
+    {
+        key.transform.gameObject.SetActive(false);
+        //disable socket enable knob
+        m_Socket.enabled = false;
+
+        keyInserted.Invoke();
     }
 }
