@@ -7,12 +7,14 @@ using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
 [RequireComponent(typeof(XRSocketInteractor))]
-public class Keyhole : MonoBehaviour
+public class Keyhole : NetworkBehaviour
 {
     XRSocketInteractor m_Socket;
 
     [SerializeField]
     UnityEvent keyInserted;
+
+    private NetworkObject key;
 
     private void Start()
     {
@@ -26,11 +28,21 @@ public class Keyhole : MonoBehaviour
         var interactible = interactibles[0];
 
         // despawn the network obj
-        if (interactible.transform.TryGetComponent<NetworkObject>(out var netObj)) netObj.Despawn(false);
+        if (interactible.transform.TryGetComponent<NetworkObject>(out var netObj) && IsHost)
+        {
+            key = netObj;
+            DespawnKeyServerRpc();
+        }
         interactible.transform.gameObject.SetActive(false);
         //disable socket enable knob
         m_Socket.enabled = false;
 
         keyInserted.Invoke();
+    }
+
+    [ServerRpc]
+    void DespawnKeyServerRpc()
+    {
+        if (key) key.Despawn(false);
     }
 }
