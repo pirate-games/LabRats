@@ -13,13 +13,13 @@ public class SpinningPad : NetworkBehaviour
 
     private bool spinning;
 
-    //private float spinTime = 2;
-    //private float timer = 0;
-    //private float zRotation;
+    private float spinTime = 2;
+    private float timer = 0;
+    private float zRotation;
 
-    NetworkVariable<float> spinTime = new NetworkVariable<float>();
-    NetworkVariable<float> timer = new NetworkVariable<float>();
-    NetworkVariable<float> zRotation = new NetworkVariable<float>();
+    //NetworkVariable<float> spinTime = new NetworkVariable<float>();
+    //NetworkVariable<float> timer = new NetworkVariable<float>();
+    //NetworkVariable<float> zRotation = new NetworkVariable<float>();
 
 
     public override void OnNetworkSpawn()
@@ -27,9 +27,9 @@ public class SpinningPad : NetworkBehaviour
         base.OnNetworkSpawn();
         if (IsHost)
         {
-            zRotation.Value = transform.rotation.z;
-            timer.Value = 0;
-            spinTime.Value = 2;
+            zRotation = transform.rotation.z;
+            timer = 0;
+            spinTime = 2;
         }
     }
 
@@ -68,20 +68,20 @@ public class SpinningPad : NetworkBehaviour
 
     private void Spin()
     {
-        float t = timer.Value / spinTime.Value;
+        float t = timer / spinTime;
 
-        Debug.Log("A " + new Vector3(0, 0, zRotation.Value));
-        Debug.Log("B " + new Vector3(0, 0, zRotation.Value + 180));
+        Debug.Log("A " + new Vector3(0, 0, zRotation));
+        Debug.Log("B " + new Vector3(0, 0, zRotation + 180));
         Debug.Log("t " + t);
 
-        transform.localRotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, zRotation.Value), new Vector3(0, 0, zRotation.Value + 180), t)); //moves right            
+        transform.localRotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, zRotation), new Vector3(0, 0, zRotation + 180), t)); //moves right            
 
-        timer.Value += Time.deltaTime;
-        if (timer.Value >= spinTime.Value)
+        timer += Time.deltaTime;
+        if (timer >= spinTime)
         {
             spinning = false;
-            timer.Value = 0;
-            zRotation.Value = transform.rotation.z;
+            timer = 0;
+            zRotation = transform.rotation.z;
         }
     }
 
