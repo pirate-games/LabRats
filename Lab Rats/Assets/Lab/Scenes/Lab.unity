@@ -11199,6 +11199,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 734539483311397240, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 734539483311397240, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_PhysicsTriggerInteraction
       value: 2
       objectReference: {fileID: 0}
@@ -11271,6 +11275,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2885731508829889374, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2885731508829889374, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -11325,6 +11333,10 @@ PrefabInstance:
     - target: {fileID: 2885731508829889374, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3150970489233096661, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3150970489233096661, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_HoverEntered.m_PersistentCalls.m_Calls.Array.size
@@ -11453,6 +11465,10 @@ PrefabInstance:
     - target: {fileID: 8599360764580199142, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_StartingInteractionOverridesMap.Array.data[0].groupMember
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8654819624763074701, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8654819624763074701, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_PhysicsTriggerInteraction
