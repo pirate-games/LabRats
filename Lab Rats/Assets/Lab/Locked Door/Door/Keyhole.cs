@@ -43,7 +43,7 @@ public class Keyhole : NetworkBehaviour
         }
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     void DespawnKeyServerRpc()
     {
         if (!key) return;
