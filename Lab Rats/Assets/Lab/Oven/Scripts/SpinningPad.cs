@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -22,15 +23,11 @@ public class SpinningPad : NetworkBehaviour
     //NetworkVariable<float> zRotation = new NetworkVariable<float>();
 
 
-    public override void OnNetworkSpawn()
+    private void Start()
     {
-        base.OnNetworkSpawn();
-        if (IsHost)
-        {
-            zRotation = transform.rotation.z;
-            timer = 0;
-            spinTime = 2;
-        }
+        zRotation = transform.rotation.z;
+        timer = 0;
+        spinTime = 2;
     }
 
     // Update is called once per frame
