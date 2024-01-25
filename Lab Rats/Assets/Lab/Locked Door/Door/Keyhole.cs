@@ -28,21 +28,35 @@ public class Keyhole : NetworkBehaviour
         var interactible = interactibles[0];
 
         // despawn the network obj
-        if (interactible.transform.TryGetComponent<NetworkObject>(out var netObj) && IsHost)
+        if (interactible.transform.TryGetComponent<NetworkObject>(out var netObj))
         {
             key = netObj;
-            DespawnKeyServerRpc();
+            interactible.transform.position = new Vector3(2000, 2000, 3000);
+            m_Socket.enabled = false;
+            keyInserted.Invoke();
         }
-        interactible.transform.gameObject.SetActive(false);
-        //disable socket enable knob
-        m_Socket.enabled = false;
+        else
+        {
+            interactible.transform.gameObject.SetActive(false);
+            //disable socket enable knob
+            m_Socket.enabled = false;
 
-        keyInserted.Invoke();
+            keyInserted.Invoke();
+        }
     }
 
-    [ServerRpc]
+    [ServerRpc(RequireOwnership = false)]
     void DespawnKeyServerRpc()
     {
-        if (key) key.Despawn(false);
+        if (!key) return;
+        //key.Despawn(false);
+        //DespawnKeyClientRpc();
+    }
+    [ClientRpc]
+    void DespawnKeyClientRpc()
+    {
+        key.transform.gameObject.SetActive(false);
+        //disable socket enable knob
+        
     }
 }
