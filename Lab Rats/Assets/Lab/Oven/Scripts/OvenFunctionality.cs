@@ -1,127 +1,114 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using Unity.Netcode;
+using UnityEngine;
 
-public class OvenFunctionality : NetworkBehaviour
+namespace Lab.Oven.Scripts
 {
-    [SerializeField]
-    private OvenCollider insideCollider;
-    [SerializeField]
-    private GameObject key, door, cauldron;
-    [SerializeField]
-    private ParticleSystem flames;
-    [SerializeField]
-    private Transform keySpawn;
-
-    private float doorClosed = 88f;
-
-    private bool isActive;
-
-    private float pouringTime = 3;
-    private float timer = 0;
-    private bool poured;
-
-    // Start is called before the first frame update
-    void Start()
+    public class OvenFunctionality : NetworkBehaviour
     {
-        flames.Stop();
-    }
+        [SerializeField] private OvenCollider insideCollider;
+        [SerializeField] private GameObject key, door, cauldron;
+        [SerializeField] private ParticleSystem flames;
+        [SerializeField] private Transform keySpawn;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (isActive)
+        private float doorClosed = 88f;
+
+        private bool isActive;
+
+        private float pouringTime = 3;
+        private float timer = 0;
+        private bool poured;
+
+        // Start is called before the first frame update
+        void Start()
         {
-            if (insideCollider.steelCount >= 2 && insideCollider.mould && door.transform.rotation.eulerAngles.y >= doorClosed)
+            flames.Stop();
+        }
+
+        // Update is called once per frame
+        void Update()
+        {
+            if (isActive)
             {
-                CreateKey();
-            }
+                if (insideCollider.steelCount >= 2 && insideCollider.mould &&
+                    door.transform.rotation.eulerAngles.y >= doorClosed)
+                {
+                    CreateKey();
+                }
 
-            if (poured)
+                if (poured)
+                {
+                    isActive = false;
+                    if (IsHost) SpawnKeyServerRpc();
+                }
+            }
+        }
+
+        [ServerRpc(RequireOwnership = false)]
+        public void SpawnKeyServerRpc()
+        {
+            GameObject _key = Instantiate(key, keySpawn.position, keySpawn.rotation);
+            if (_key.TryGetComponent(out NetworkObject netObj))
             {
-                isActive = false;
-                if (IsHost) SpawnKeyServerRpc();
+                netObj.Spawn();
             }
         }
-    }
 
-    [ServerRpc(RequireOwnership = false)]
-    public void SpawnKeyServerRpc()
-    {
-        GameObject _key = Instantiate(key, keySpawn.position, keySpawn.rotation);
-        if (_key.TryGetComponent(out NetworkObject netObj))
+        public void UpdateOven()
         {
-            netObj.Spawn();
+            UpdateOvenServerRPC();
         }
-    }
 
-    public void UpdateOven()
-    {
-        UpdateOvenServerRPC();
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    public void UpdateOvenServerRPC(ServerRpcParams serverRpcParams = default)
-    {
-        var clientId = serverRpcParams.Receive.SenderClientId;
-        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        [ServerRpc(RequireOwnership = false)]
+        public void UpdateOvenServerRPC(ServerRpcParams serverRpcParams = default)
         {
-            UpdateOvenClientRPC();
+            var clientId = serverRpcParams.Receive.SenderClientId;
+            if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+            {
+                UpdateOvenClientRPC();
+            }
         }
-    }
 
-    [ClientRpc]
-    public void UpdateOvenClientRPC()
-    {
-        isActive = true;
-        flames.Play();
-        ParticleSystem.EmissionModule em = flames.emission;
-        em.enabled = true;
-    }
-
-    public void CreateKey()
-    {
-        CreateKeyServerRPC();
-    }
-
-    [ServerRpc(RequireOwnership = false)]
-    public void CreateKeyServerRPC(ServerRpcParams serverRpcParams = default)
-    {
-        var clientId = serverRpcParams.Receive.SenderClientId;
-        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+        [ClientRpc]
+        public void UpdateOvenClientRPC()
         {
-            CreateKeyClientRPC();
+            isActive = true;
+            flames.Play();
+            ParticleSystem.EmissionModule em = flames.emission;
+            em.enabled = true;
         }
-    }
 
-    [ClientRpc]
-    private void CreateKeyClientRPC()
-    {
-        bool pouring = true;
-        insideCollider.steel1.SetActive(false);
-        insideCollider.steel2.SetActive(false);
-        if (pouring)
+        public void CreateKey()
         {
-            float t = timer / pouringTime;
-            cauldron.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, 0), new Vector3(18, 0, 0), t));
+            CreateKeyServerRPC();
+        }
+
+        [ServerRpc(RequireOwnership = false)]
+        public void CreateKeyServerRPC(ServerRpcParams serverRpcParams = default)
+        {
+            var clientId = serverRpcParams.Receive.SenderClientId;
+            if (NetworkManager.ConnectedClients.ContainsKey(clientId))
+            {
+                CreateKeyClientRPC();
+            }
+        }
+
+        [ClientRpc]
+        private void CreateKeyClientRPC()
+        {
+            insideCollider.steel1.SetActive(false);
+            insideCollider.steel2.SetActive(false);
+
+            var t = timer / pouringTime;
+            
+            cauldron.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, 0), 
+                new Vector3(18, 0, 0), t));
+            
             timer += Time.deltaTime;
-            if (timer >= pouringTime)
-            {
-                poured = true;
-                pouring = false;
-                timer = 0;
-            }
-        }
-        else
-        {
-            float t = timer / pouringTime;
-            cauldron.transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(18, 0, 0), new Vector3(0, 0, 0), t));
-            timer += Time.deltaTime;
-            if (timer >= pouringTime)
-            {
-                timer = 0;
-            }
+
+            if (!(timer >= pouringTime)) return;
+            
+            poured = true;
+            timer = 0;
         }
     }
 }
