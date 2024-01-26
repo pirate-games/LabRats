@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Audio;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,10 +18,16 @@ namespace Lab.Oven.Scripts
         
         [Header("Events")]
         [SerializeField] private UnityEvent onQuotaReached;
+
+        [Header("Sounds")] 
+        [SerializeField] private AudioEvent ovenCooking;
+        [SerializeField] private AudioEvent keySpawn;
+        
         
         private float _timer; 
         private bool _poured;
         private bool _quotaReached;
+        private AudioSource _audioSource;
         
         /// <summary>
         ///  True if the code is correct on the keypad.
@@ -31,6 +38,13 @@ namespace Lab.Oven.Scripts
         ///  True if the mould is present in the XR socket.
         /// </summary>
         public NetworkVariable<bool> MouldPresent = new();
+        
+        private void Start()
+        {
+            _audioSource = GetComponent<AudioSource>();
+            
+            if (_audioSource == null) _audioSource = gameObject.AddComponent<AudioSource>();
+        }
 
         public void SteelEntered(GameObject steel)
         {
@@ -49,12 +63,14 @@ namespace Lab.Oven.Scripts
             if (steelBlocks.Count >= requiredSteelAmount && !_quotaReached)
             {
                 onQuotaReached?.Invoke();
+                ovenCooking.Play(_audioSource);
                 _quotaReached = true;
             }
             
             if (_quotaReached && MouldPresent.Value && CorrectCode)
             {
                 Pour();
+                keySpawn.Play(_audioSource);
             }
         }
 
