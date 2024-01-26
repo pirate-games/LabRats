@@ -1,119 +1,113 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using Unity.Netcode;
+using UnityEngine;
 
-public class SpinningPad : NetworkBehaviour
+namespace Lab.Oven.Scripts
 {
-    [SerializeField]
-    private List<Light> lights;
-
-    [SerializeField]
-    private bool spinner2;
-
-    private bool spinning;
-
-    private float spinTime = 2;
-    private float timer = 0;
-    private float zRotation;
-
-    //NetworkVariable<float> spinTime = new NetworkVariable<float>();
-    //NetworkVariable<float> timer = new NetworkVariable<float>();
-    //NetworkVariable<float> zRotation = new NetworkVariable<float>();
-
-
-    private void Start()
+    public class SpinningPad : NetworkBehaviour
     {
-        zRotation = transform.rotation.z;
-        timer = 0;
-        spinTime = 2;
-    }
+        [SerializeField] private List<Light> lights;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (spinning)
+        [SerializeField] private bool spinner2;
+
+        private bool spinning;
+        private float spinTime = 2;
+        private float timer;
+        private float zRotation;
+
+
+        private void Start()
         {
-            Spin();
+            zRotation = transform.rotation.z;
+            timer = 0;
+            spinTime = 2;
         }
-    }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (!spinning)
+        void Update()
         {
-            if (spinner2)
+            if (spinning)
             {
+                Spin();
+            }
+        }
 
-                if (collision.gameObject.tag == "Steel")
+        private void OnCollisionEnter(Collision collision)
+        {
+            if (!spinning)
+            {
+                if (spinner2)
                 {
-                    KeepSteel();
+
+                    if (collision.gameObject.tag == "Steel")
+                    {
+                        KeepSteel();
+                    }
+                    else
+                    {
+                        StartCoroutine(DiscardItem(collision.rigidbody));
+                    }
+
                 }
                 else
                 {
-                   StartCoroutine(DiscardItem(collision.rigidbody));
+                    spinning = true;
                 }
-
             }
-            else
+        }
+
+        private void Spin()
+        {
+            float t = timer / spinTime;
+
+            transform.localRotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, zRotation), new Vector3(0, 0, zRotation + 180), t)); //moves right            
+
+            timer += Time.deltaTime;
+            if (timer >= spinTime)
             {
-                spinning = true;
+                spinning = false;
+                timer = 0;
+                zRotation = transform.rotation.z;
             }
         }
-    }
 
-    private void Spin()
-    {
-        float t = timer / spinTime;
-
-        Debug.Log("A " + new Vector3(0, 0, zRotation));
-        Debug.Log("B " + new Vector3(0, 0, zRotation + 180));
-        Debug.Log("t " + t);
-
-        transform.localRotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, zRotation), new Vector3(0, 0, zRotation + 180), t)); //moves right            
-
-        timer += Time.deltaTime;
-        if (timer >= spinTime)
+        IEnumerator DiscardItem(Rigidbody rb)
         {
-            spinning = false;
-            timer = 0;
-            zRotation = transform.rotation.z;
+            yield return new WaitForSeconds(1);
+            rb.velocity = new Vector3(8, 5, 0);
+            foreach (Light light in lights)
+            {
+                light.color = Color.red;
+            }
+            yield return new WaitForSeconds(1);
+            foreach (Light light in lights)
+            {
+                light.color = Color.white;
+            }
         }
-    }
 
-    IEnumerator DiscardItem(Rigidbody rb)
-    {
-        yield return new WaitForSeconds(1);
-        rb.velocity = new Vector3(8, 5, 0);
-        foreach (Light light in lights)
+        public void KeepSteel()
         {
-            light.color = Color.red;
+            StartCoroutine(KeepSteelCoroutine());
         }
-        yield return new WaitForSeconds(1);
-        foreach (Light light in lights)
-        {
-            light.color = Color.white;
-        }
-    }
 
-    public void KeepSteel()
-    {
-        StartCoroutine(KeepSteelCoroutine());
-    }
-
-    IEnumerator KeepSteelCoroutine()
-    {
-        yield return new WaitForSeconds(1);
-        spinning = true;
-        foreach (Light light in lights)
+        IEnumerator KeepSteelCoroutine()
         {
-            light.color = Color.green;
-        }
-        yield return new WaitForSeconds(1);
-        foreach (Light light in lights)
-        {
-            light.color = Color.white;
+            yield return new WaitForSeconds(1);
+        
+            spinning = true;
+        
+            foreach (Light light in lights)
+            {
+                light.color = Color.green;
+            }
+        
+            yield return new WaitForSeconds(1);
+        
+            foreach (Light light in lights)
+            {
+                light.color = Color.white;
+            }
         }
     }
 }

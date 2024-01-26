@@ -12,7 +12,7 @@ public class Keyhole : NetworkBehaviour
     XRSocketInteractor m_Socket;
 
     [SerializeField]
-    UnityEvent keyInserted;
+  UnityEvent keyInserted;
 
     private void Start()
     {

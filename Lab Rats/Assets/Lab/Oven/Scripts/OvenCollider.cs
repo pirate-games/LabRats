@@ -1,55 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class OvenCollider : MonoBehaviour
+namespace Lab.Oven.Scripts
 {
-    [HideInInspector]
-    public int steelCount;
-    [HideInInspector]
-    public GameObject mould;
-
-    [HideInInspector]
-    public GameObject steel1, steel2;
-
-
-    private void OnTriggerEnter(Collider other)
+    public class OvenCollider : MonoBehaviour
     {
-        if(other.tag == "Steel")
+        [HideInInspector] public int steelCount;
+        [HideInInspector] public GameObject mould;
+        [HideInInspector] public GameObject steel1, steel2;
+
+
+        private void OnTriggerEnter(Collider other)
         {
-            if (steel1 == null)
+            if(other.tag == "Steel")
             {
-                steel1 = other.gameObject;
+                if (steel1 == null)
+                {
+                    steel1 = other.gameObject;
+                }
+                else if(steel2 == null)
+                {
+                    steel2 = other.gameObject;
+                }
+                steelCount++;
             }
-            else if(steel2 == null)
+            else if(other.tag == "Mould")
             {
-                steel2 = other.gameObject;
+                mould = other.gameObject;
             }
-            steelCount++;
-        }else if(other.tag == "Mould")
+        }
+
+        private void OnTriggerExit(Collider other)
         {
-            mould = other.gameObject;
+            if (other.tag == "Steel")
+            {
+                if (other.gameObject == steel1)
+                {
+                    steel1 = null;
+                }
+                else if(other.gameObject == steel2)
+                {
+                    steel2 = null;
+                }
+                steelCount--;
+            }
+            if (other.tag == "Mould")
+            {
+                mould = null;
+            }
         }
     }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "Steel")
-        {
-            if (other.gameObject == steel1)
-            {
-                steel1 = null;
-            }else if(other.gameObject == steel2)
-            {
-                steel2 = null;
-            }
-            steelCount--;
-        }
-        if (other.tag == "Mould")
-        {
-            mould = null;
-        }
-    }
-
-
 }
