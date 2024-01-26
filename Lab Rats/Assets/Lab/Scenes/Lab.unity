@@ -37352,6 +37352,10 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 29034285
       objectReference: {fileID: 0}
+    - target: {fileID: 2461971613501500329, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2998807404102957413, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 2933628934
@@ -37412,6 +37416,34 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3286870311
       objectReference: {fileID: 0}
+    - target: {fileID: 5447539355252317286, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: SyncScaleX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447539355252317286, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: SyncScaleY
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447539355252317286, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: SyncScaleZ
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447539355252317286, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: ScaleThreshold
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447539355252317286, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: PositionThreshold
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447539355252317286, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: RotAngleThreshold
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5447539355252317286, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: UseHalfFloatPrecision
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5567133300933100440, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 4087111364
@@ -37447,6 +37479,10 @@ PrefabInstance:
     - target: {fileID: 6578219975705405192, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 132079184
+      objectReference: {fileID: 0}
+    - target: {fileID: 6578219975705405192, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: AutoObjectParentSync
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6890708236150864588, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -37492,7 +37528,8 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 2637681795
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5447539355252317286, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
