@@ -47,20 +47,15 @@ namespace Lab.Oven.Scripts
             }
         }
 
-        //public void InsertMould()
-        //{
-        //    InsertMouldServerRpc();
-        //}
-        //[ServerRpc(RequireOwnership = false)]
-        //private void InsertMouldServerRpc()
-        //{
-        //    InsertMouldClientRpc();
-        //}
-        //[ClientRpc]
-        //private void InsertMouldClientRpc()
-        //{
-        //    MouldPresent = true;
-        //}
+        public void InsertMould()
+        {
+            InsertMouldServerRpc(true);
+        }
+        [ServerRpc(RequireOwnership = false)]
+        private void InsertMouldServerRpc(bool value)
+        {
+            MouldPresent.Value = value;
+        }
 
         private void Pour()
         {

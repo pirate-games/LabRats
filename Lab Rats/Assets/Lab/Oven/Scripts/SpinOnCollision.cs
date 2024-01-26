@@ -31,7 +31,13 @@ namespace Lab.Oven.Scripts
         
         protected virtual void ItemEntered(Collision other)
         {
-            Spinning.Value = true;
+            StartSpinningServerRpc(true);
+        }
+
+        [ServerRpc(RequireOwnership = false)]
+        private void StartSpinningServerRpc(bool value)
+        {
+            Spinning.Value = value;
         }
 
         private void SpinPad()
