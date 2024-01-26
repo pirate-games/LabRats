@@ -1,10 +1,10 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Lab.Oven.Scripts
 {
     public class SpinOnCollision : MonoBehaviour
     {
+        [Header("Main Settings")]
         [SerializeField] private float spinDuration = 2f;
 
         private float _timer;
@@ -20,8 +20,7 @@ namespace Lab.Oven.Scripts
 
         private void FixedUpdate()
         {
-            if (!Spinning) return;
-            SpinPad();
+            if (Spinning) SpinPad();
         }
 
         private void OnCollisionEnter(Collision other)

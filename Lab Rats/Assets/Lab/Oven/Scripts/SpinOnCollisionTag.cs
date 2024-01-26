@@ -7,12 +7,13 @@ namespace Lab.Oven.Scripts
 {
     public class SpinOnCollisionTag : SpinOnCollision
     {
+        [Header("Light Settings")]
         [SerializeField] private List<Light> lights;
         [SerializeField] private Color lightOnColor;
         [SerializeField] private UnityEvent onLightsOn;
         [SerializeField] private UnityEvent onLightsOff;
 
-        private UnityEvent _onDiscardItem;
+
         private Color _lightOffColor;
         private Coroutine _discardItemCoroutine;
         
@@ -25,13 +26,13 @@ namespace Lab.Oven.Scripts
         {
             if (other.gameObject.CompareTag("Steel")) Spinning = true;
 
-            else _onDiscardItem?.Invoke();
-
-            _discardItemCoroutine = StartCoroutine(DiscardItem(other.rigidbody));
+            else _discardItemCoroutine = StartCoroutine(DiscardItem(other.rigidbody));
         }
 
         private IEnumerator DiscardItem(Rigidbody rb)
         {
+            Spinning = false;
+            
             yield return new WaitForSeconds(1);
 
             rb.velocity = new Vector3(8, 5, 0);
@@ -45,17 +46,17 @@ namespace Lab.Oven.Scripts
 
         public void UpdateLightColor()
         {
-            foreach (var light in lights)
+            foreach (var l in lights)
             {
-                light.color = lightOnColor;
+                l.color = lightOnColor;
             }
         }
         
         public void ResetLightColor()
         {
-            foreach (var light in lights)
+            foreach (var l in lights)
             {
-                light.color = _lightOffColor;
+                l.color = _lightOffColor;
             }
         }
     }
