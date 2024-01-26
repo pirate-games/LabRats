@@ -35,7 +35,7 @@ namespace Lab.Oven.Scripts
         }
 
         [ServerRpc(RequireOwnership = false)]
-        private void StartSpinningServerRpc(bool value)
+        protected void StartSpinningServerRpc(bool value)
         {
             Spinning.Value = value;
         }
@@ -51,7 +51,7 @@ namespace Lab.Oven.Scripts
 
             if (!(_timer >= spinDuration)) return;
             
-            Spinning.Value = false;
+            StartSpinningServerRpc(false);
             _timer = 0;
             _zRotation = transform.rotation.z;
         }

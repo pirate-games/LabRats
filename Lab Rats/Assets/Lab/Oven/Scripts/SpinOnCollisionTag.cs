@@ -24,7 +24,7 @@ namespace Lab.Oven.Scripts
 
         protected override void ItemEntered(Collision other)
         {
-            if (other.gameObject.CompareTag("Steel")) Spinning.Value = true;
+            if (other.gameObject.CompareTag("Steel")) StartSpinningServerRpc(true);
 
             else _discardItemCoroutine = StartCoroutine(DiscardItem(other.rigidbody));
         }
