@@ -11,6 +11,10 @@ namespace Lab.Oven.Scripts
         [SerializeField] private int requiredSteelAmount = 2;
         [SerializeField] private float pouringTime = 3;
         
+        [Header("Key Settings")]
+        [SerializeField] private GameObject key;
+        [SerializeField] private Transform keySpawnPoint;
+        
         [Header("Events")]
         [SerializeField] private UnityEvent onQuotaReached;
         
@@ -18,7 +22,14 @@ namespace Lab.Oven.Scripts
         private bool _poured;
         private bool _quotaReached;
         
+        /// <summary>
+        ///  True if the code is correct on the keypad.
+        /// </summary>
         public bool CorrectCode { get; set; }
+        
+        /// <summary>
+        ///  True if the mould is present in the XR socket.
+        /// </summary>
         public NetworkVariable<bool> MouldPresent = new();
 
         public void SteelEntered(GameObject steel)
@@ -57,6 +68,17 @@ namespace Lab.Oven.Scripts
         {
             MouldPresent.Value = value;
         }
+        
+        [ServerRpc(RequireOwnership = false)]
+        private void SpawnKeyServeRpc()
+        {
+            Instantiate(key, keySpawnPoint.position, keySpawnPoint.rotation);
+            
+            if (key.TryGetComponent(out NetworkObject networkObject))
+            {
+                networkObject.Spawn();
+            }
+        }
 
         private void Pour()
         {
@@ -71,6 +93,11 @@ namespace Lab.Oven.Scripts
             
             _poured = true;
             _timer = 0;
+            
+            if (IsHost)
+            {
+                SpawnKeyServeRpc();
+            }
         }
     }
 }

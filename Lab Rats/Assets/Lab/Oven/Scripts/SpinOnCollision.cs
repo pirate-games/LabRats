@@ -11,7 +11,7 @@ namespace Lab.Oven.Scripts
         private float _timer;
         private float _zRotation;
 
-        protected NetworkVariable<bool> Spinning = new();
+        private NetworkVariable<bool> Spinning = new();
 
         private void Start()
         {
