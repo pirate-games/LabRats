@@ -23,7 +23,6 @@ namespace Lab.Oven.Scripts
         [SerializeField] private AudioEvent ovenCooking;
         [SerializeField] private AudioEvent keySpawn;
         
-        
         private float _timer; 
         private bool _poured;
         private bool _quotaReached;
@@ -63,14 +62,13 @@ namespace Lab.Oven.Scripts
             if (steelBlocks.Count >= requiredSteelAmount && !_quotaReached)
             {
                 onQuotaReached?.Invoke();
-                ovenCooking.Play(_audioSource);
                 _quotaReached = true;
             }
             
             if (_quotaReached && MouldPresent.Value && CorrectCode)
             {
+                ovenCooking.Play(_audioSource);
                 Pour();
-                keySpawn.Play(_audioSource);
             }
         }
 
@@ -99,21 +97,20 @@ namespace Lab.Oven.Scripts
         private void Pour()
         {
             var t = _timer / pouringTime;
-            
-            transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, 0), 
+
+            transform.rotation = Quaternion.Euler(Vector3.Lerp(new Vector3(0, 0, 0),
                 new Vector3(18, 0, 0), t));
-            
+
             _timer += Time.deltaTime;
 
             if (!(_timer >= pouringTime)) return;
             
-            _poured = true;
             _timer = 0;
+            _poured = true;
+
+            if (IsHost) SpawnKeyServerRpc();
             
-            if (IsHost)
-            {
-                SpawnKeyServerRpc();
-            }
+            if(!_audioSource.isPlaying) keySpawn.Play(_audioSource);
         }
     }
 }
