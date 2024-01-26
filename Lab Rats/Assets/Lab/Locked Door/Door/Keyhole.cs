@@ -14,8 +14,6 @@ public class Keyhole : NetworkBehaviour
     [SerializeField]
     UnityEvent keyInserted;
 
-    private NetworkObject key;
-
     private void Start()
     {
         m_Socket = GetComponent<XRSocketInteractor>();
@@ -27,36 +25,21 @@ public class Keyhole : NetworkBehaviour
         if (interactibles == null || interactibles.Count == 0) return;
         var interactible = interactibles[0];
 
-        // despawn the network obj
-        if (interactible.transform.TryGetComponent<NetworkObject>(out var netObj))
-        {
-            key = netObj;
-            interactible.transform.position = new Vector3(2000, 2000, 3000);
-            m_Socket.enabled = false;
-            keyInserted.Invoke();
-        }
-        else
-        {
-            interactible.transform.gameObject.SetActive(false);
-            //disable socket enable knob
-            m_Socket.enabled = false;
-
-            keyInserted.Invoke();
-        }
+        if(interactible.transform.TryGetComponent(out NetworkObject key))
+            DespawnKeyServerRpc(key);
     }
 
     [ServerRpc(RequireOwnership = false)]
-    void DespawnKeyServerRpc()
+    void DespawnKeyServerRpc(NetworkObjectReference keyRef)
     {
-        if (!key) return;
-        //key.Despawn(false);
-        //DespawnKeyClientRpc();
+        if(keyRef.TryGet(out var key)) 
+            key.Despawn();
+        DespawnKeyClientRpc(keyRef);
     }
     [ClientRpc]
-    void DespawnKeyClientRpc()
+    void DespawnKeyClientRpc(NetworkObjectReference keyRef)
     {
-        key.transform.gameObject.SetActive(false);
-        //disable socket enable knob
-        
+        m_Socket.enabled = false;
+        keyInserted.Invoke();
     }
 }
