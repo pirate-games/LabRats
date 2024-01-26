@@ -5,7 +5,7 @@ namespace Lab.Oven.Scripts
 {
     public class OvenFunctionality : NetworkBehaviour
     {
-        [SerializeField] private OvenCollider insideCollider;
+        //[SerializeField] private OvenCollider insideCollider;
         [SerializeField] private GameObject key, door, cauldron;
         [SerializeField] private ParticleSystem flames;
         [SerializeField] private Transform keySpawn;
@@ -29,11 +29,11 @@ namespace Lab.Oven.Scripts
         {
             if (isActive)
             {
-                if (insideCollider.steelCount >= 2 && insideCollider.mould &&
-                    door.transform.rotation.eulerAngles.y >= doorClosed)
-                {
+                //if (insideCollider.steelCount >= 2 && insideCollider.mould &&
+                    //door.transform.rotation.eulerAngles.y >= doorClosed)
+                //{
                     CreateKey();
-                }
+                //}
 
                 if (poured)
                 {
@@ -95,8 +95,8 @@ namespace Lab.Oven.Scripts
         [ClientRpc]
         private void CreateKeyClientRPC()
         {
-            insideCollider.steel1.SetActive(false);
-            insideCollider.steel2.SetActive(false);
+            //insideCollider.steel1.SetActive(false);
+            //insideCollider.steel2.SetActive(false);
 
             var t = timer / pouringTime;
             
