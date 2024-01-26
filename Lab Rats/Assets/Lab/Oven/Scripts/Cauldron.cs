@@ -70,7 +70,7 @@ namespace Lab.Oven.Scripts
         }
         
         [ServerRpc(RequireOwnership = false)]
-        private void SpawnKeyServeRpc()
+        private void SpawnKeyServerRpc()
         {
             Instantiate(key, keySpawnPoint.position, keySpawnPoint.rotation);
             
@@ -96,7 +96,7 @@ namespace Lab.Oven.Scripts
             
             if (IsHost)
             {
-                SpawnKeyServeRpc();
+                SpawnKeyServerRpc();
             }
         }
     }

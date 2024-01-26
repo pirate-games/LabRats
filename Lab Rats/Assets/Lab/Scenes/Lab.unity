@@ -37376,6 +37376,14 @@ PrefabInstance:
       propertyPath: GlobalObjectIdHash
       value: 3367350507
       objectReference: {fileID: 0}
+    - target: {fileID: 3942763220666469413, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: key
+      value: 
+      objectReference: {fileID: 6582309365285294796, guid: 26d8bd5777ec8bf4cb8607e055f5e8b1, type: 3}
+    - target: {fileID: 3942763220666469413, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: keySpawnPoint
+      value: 
+      objectReference: {fileID: 1257443862}
     - target: {fileID: 4009377667013112718, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 3248301551
@@ -37528,6 +37536,10 @@ PrefabInstance:
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: InsertMould
       objectReference: {fileID: 0}
+    - target: {fileID: 8789493395283680009, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8929203008106333068, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
       propertyPath: GlobalObjectIdHash
       value: 4000731899
@@ -37544,6 +37556,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+--- !u!4 &1257443862 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3969752483956310299, guid: 6690fa1f2a4e75d4a8bc0095a94a5c93, type: 3}
+  m_PrefabInstance: {fileID: 1257443861}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1259126401
 PrefabInstance:
   m_ObjectHideFlags: 0
