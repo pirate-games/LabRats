@@ -52,6 +52,7 @@ namespace Lab.Oven.Scripts
             if (!(_timer >= spinDuration)) return;
             
             StartSpinningServerRpc(false);
+            
             _timer = 0;
             _zRotation = transform.rotation.z;
         }

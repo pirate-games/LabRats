@@ -51,6 +51,7 @@ namespace Lab.Oven.Scripts
         {
             InsertMouldServerRpc(true);
         }
+        
         [ServerRpc(RequireOwnership = false)]
         private void InsertMouldServerRpc(bool value)
         {
