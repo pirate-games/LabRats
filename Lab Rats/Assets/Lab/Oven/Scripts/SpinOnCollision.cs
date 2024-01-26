@@ -1,16 +1,17 @@
-﻿using UnityEngine;
+﻿using Unity.Netcode;
+using UnityEngine;
 
 namespace Lab.Oven.Scripts
 {
-    public class SpinOnCollision : MonoBehaviour
+    public class SpinOnCollision : NetworkBehaviour
     {
         [Header("Main Settings")]
         [SerializeField] private float spinDuration = 2f;
 
         private float _timer;
         private float _zRotation;
-        
-        protected bool Spinning { get; set; }
+
+        protected NetworkVariable<bool> Spinning = new();
 
         private void Start()
         {
@@ -20,7 +21,7 @@ namespace Lab.Oven.Scripts
 
         private void FixedUpdate()
         {
-            if (Spinning) SpinPad();
+            if (Spinning.Value) SpinPad();
         }
 
         private void OnCollisionEnter(Collision other)
@@ -30,7 +31,7 @@ namespace Lab.Oven.Scripts
         
         protected virtual void ItemEntered(Collision other)
         {
-            Spinning = true;
+            Spinning.Value = true;
         }
 
         private void SpinPad()
@@ -44,7 +45,7 @@ namespace Lab.Oven.Scripts
 
             if (!(_timer >= spinDuration)) return;
             
-            Spinning = false;
+            Spinning.Value = false;
             _timer = 0;
             _zRotation = transform.rotation.z;
         }

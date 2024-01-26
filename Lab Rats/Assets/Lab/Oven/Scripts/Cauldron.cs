@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 
 namespace Lab.Oven.Scripts
 {
-    public class Cauldron: MonoBehaviour
+    public class Cauldron: NetworkBehaviour
     {
         [SerializeField] private List<GameObject> steelBlocks;
         [SerializeField] private int requiredSteelAmount = 2;
@@ -18,7 +19,7 @@ namespace Lab.Oven.Scripts
         private bool _quotaReached;
         
         public bool CorrectCode { get; set; }
-        public bool MouldPresent { get; set; }
+        public NetworkVariable<bool> MouldPresent = new();
 
         public void SteelEntered(GameObject steel)
         {
@@ -40,12 +41,27 @@ namespace Lab.Oven.Scripts
                 _quotaReached = true;
             }
             
-            if (_quotaReached && MouldPresent && CorrectCode)
+            if (_quotaReached && MouldPresent.Value && CorrectCode)
             {
                 Pour();
             }
         }
-        
+
+        //public void InsertMould()
+        //{
+        //    InsertMouldServerRpc();
+        //}
+        //[ServerRpc(RequireOwnership = false)]
+        //private void InsertMouldServerRpc()
+        //{
+        //    InsertMouldClientRpc();
+        //}
+        //[ClientRpc]
+        //private void InsertMouldClientRpc()
+        //{
+        //    MouldPresent = true;
+        //}
+
         private void Pour()
         {
             var t = _timer / pouringTime;
