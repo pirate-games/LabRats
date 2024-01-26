@@ -32,4 +32,14 @@ public class SlerpToPos : MonoBehaviour
 
         transform.SetPositionAndRotation(newPos, newRot);
     }
+    
+    public void StartMoving(bool overrideTransform = false)
+    {
+        if (overrideTransform)
+        {
+            startTransform = transform;
+        }
+        
+        Moving = true;
+    }
 }

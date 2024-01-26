@@ -31,8 +31,6 @@ namespace Lab.Oven.Scripts
 
         private IEnumerator DiscardItem(Rigidbody rb)
         {
-            //Spinning = false;
-            
             yield return new WaitForSeconds(1);
 
             rb.velocity = new Vector3(8, 5, 0);
