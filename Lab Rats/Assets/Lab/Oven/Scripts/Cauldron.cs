@@ -72,7 +72,7 @@ namespace Lab.Oven.Scripts
         [ServerRpc(RequireOwnership = false)]
         private void SpawnKeyServerRpc()
         {
-            Instantiate(key, keySpawnPoint.position, keySpawnPoint.rotation);
+            key = Instantiate(key, keySpawnPoint.position, keySpawnPoint.rotation);
             
             if (key.TryGetComponent(out NetworkObject networkObject))
             {
