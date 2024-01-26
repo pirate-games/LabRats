@@ -31,7 +31,7 @@ namespace Lab.Oven.Scripts
 
         private IEnumerator DiscardItem(Rigidbody rb)
         {
-            Spinning = false;
+            //Spinning = false;
             
             yield return new WaitForSeconds(1);
 
