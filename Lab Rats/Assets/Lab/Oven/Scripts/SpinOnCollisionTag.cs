@@ -7,16 +7,17 @@ namespace Lab.Oven.Scripts
 {
     public class SpinOnCollisionTag : SpinOnCollision
     {
-        [Header("Light Settings")]
+        [Header("Light Settings")] 
         [SerializeField] private List<Light> lights;
         [SerializeField] private Color lightOnColor;
+
+        [Header("Light Events")] 
         [SerializeField] private UnityEvent onLightsOn;
         [SerializeField] private UnityEvent onLightsOff;
 
-
         private Color _lightOffColor;
         private Coroutine _discardItemCoroutine;
-        
+
         private void Start()
         {
             _lightOffColor = lights[0].color;
@@ -29,6 +30,11 @@ namespace Lab.Oven.Scripts
             else _discardItemCoroutine = StartCoroutine(DiscardItem(other.rigidbody));
         }
 
+        /// <summary>
+        ///  Discard the item after a delay.
+        /// </summary>
+        /// <param name="rb"> the rigidbody of the item that needs to be discarded </param>
+        /// <returns></returns>
         private IEnumerator DiscardItem(Rigidbody rb)
         {
             yield return new WaitForSeconds(1);
@@ -42,6 +48,9 @@ namespace Lab.Oven.Scripts
             onLightsOff?.Invoke();
         }
 
+        /// <summary>
+        ///  Update the light color to the on color.
+        /// </summary>
         public void UpdateLightColor()
         {
             foreach (var l in lights)
@@ -49,7 +58,10 @@ namespace Lab.Oven.Scripts
                 l.color = lightOnColor;
             }
         }
-        
+
+        /// <summary>
+        ///  Reset the light color to the default color.
+        /// </summary>
         public void ResetLightColor()
         {
             foreach (var l in lights)

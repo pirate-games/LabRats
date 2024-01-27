@@ -1,21 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class KeyKnob : MonoBehaviour
+namespace Lab.Locked_Door.Door
 {
-    [SerializeField]
-    UnityEvent onOpenDoors;
-
-    private bool _isOpen = new();
-
-    public void CheckOpenDoors(float value)
+    public class KeyKnob : MonoBehaviour
     {
-        if (value == 1 && !_isOpen)
+        [SerializeField] private UnityEvent onOpenDoors;
+
+        private bool _isOpen;
+
+        public void CheckOpenDoors(float value)
         {
-            _isOpen = true; 
-            onOpenDoors.Invoke();
+            if (value == 1 && !_isOpen)
+            {
+                _isOpen = true; 
+                onOpenDoors.Invoke();
+            }
         }
     }
 }
