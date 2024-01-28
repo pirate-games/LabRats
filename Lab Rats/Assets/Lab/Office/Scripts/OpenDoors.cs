@@ -21,7 +21,6 @@ public class OpenDoors : MonoBehaviour
         if (buttonLeft.hasBeenPressed && buttonRight.hasBeenPressed)
         {
             _opening = true;
-            Debug.Log(" yeet");
         }
     }
 

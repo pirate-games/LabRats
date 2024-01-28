@@ -11256,6 +11256,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4336582864430544244, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7313654230448209575, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
       propertyPath: m_Name
       value: Complete XR Origin Set Up
@@ -45983,7 +45987,7 @@ GameObject:
   - component: {fileID: 1611239417}
   - component: {fileID: 1611239418}
   m_Layer: 0
-  m_Name: Trigger
+  m_Name: End Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46038,7 +46042,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endSound: {fileID: 11400000, guid: 06bdc2eac0b600545a3ed02e78ac2a12, type: 2}
-  OnEnter:
+  onEnter:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 915854060}
@@ -46065,9 +46069,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  XRlayer:
-    serializedVersion: 2
-    m_Bits: 64
+  playerTag: Player
 --- !u!82 &1611239418
 AudioSource:
   m_ObjectHideFlags: 0
@@ -46079,7 +46081,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -46088,7 +46090,7 @@ AudioSource:
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 1
+  MinDistance: 1.3452263
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
