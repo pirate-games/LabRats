@@ -31,10 +31,18 @@ public class Astroyd : NetworkBehaviour
         // Teleport to start position when reaching the end
         if (time >= 1.2)
         {
-            time = 0;
-            transform.position = startPos;
-            trail.Clear();
+            ResetAstroidClientRpc();
         }
     }
+
+    [ClientRpc]
+    private void ResetAstroidClientRpc()
+    {
+        time = 0;
+        transform.position = startPos;
+        trail.Clear();
+    }
+
+    
 }
 
