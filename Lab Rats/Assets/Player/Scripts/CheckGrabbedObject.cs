@@ -1,30 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using ElementsSystem;
+using Lab.Hints;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class CheckGrabbedObject : MonoBehaviour
+namespace Player.Scripts
 {
-    [SerializeField] private XRDirectInteractor interactor;
+    public class CheckGrabbedObject : MonoBehaviour
+    {
+        [SerializeField] private XRDirectInteractor interactor;
 
-    private void Start()
-    {
-        interactor = GetComponent<XRDirectInteractor>();
-        
-        interactor.selectEntered.AddListener(OnGrabbedObject);
-    }
-    
-    private void OnGrabbedObject(SelectEnterEventArgs args)
-    {
-        if (args.interactableObject.transform.gameObject.TryGetComponent(out ElementModel grabbedObject))
+        [SerializeField] private ElementHighlighter highlighter;
+
+        private void Start()
         {
-            ElementObject element = grabbedObject.ElementObject;
-            
-            //notes for the me of tomorrow, want to pass on this information to ElementHighlighter
-            
-            Debug.Log( $"{element.name}  number {element.atomicNumber}" );
+            interactor = GetComponent<XRDirectInteractor>();
+        
+            interactor.selectEntered.AddListener(OnGrabbedObject);
+        }
+    
+        private void OnGrabbedObject(SelectEnterEventArgs args)
+        {
+            if (args.interactableObject.transform.gameObject.TryGetComponent(out ElementModel grabbedObject))
+            {
+                ElementObject element = grabbedObject.ElementObject;
+                highlighter.HighlightElement(element.atomicNumber);
+                Debug.Log( $"{element.name}  number {element.atomicNumber}" );
   
+            }
         }
     }
 }
