@@ -60070,6 +60070,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 668262303}
     m_Modifications:
+    - target: {fileID: 2309289586729299556, guid: 757fc78b7dd4fe74cbd35468f96bd3a8, type: 3}
+      propertyPath: m_Volume
+      value: 0.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309289586729299556, guid: 757fc78b7dd4fe74cbd35468f96bd3a8, type: 3}
+      propertyPath: MaxDistance
+      value: 7.4963684
+      objectReference: {fileID: 0}
+    - target: {fileID: 2309289586729299556, guid: 757fc78b7dd4fe74cbd35468f96bd3a8, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -2171508477103185190, guid: e2e62be7d7926dc4faec91b5bf7f73ed, type: 2}
     - target: {fileID: 4798860651175795850, guid: 757fc78b7dd4fe74cbd35468f96bd3a8, type: 3}
       propertyPath: dialogue
       value: 
@@ -60108,15 +60120,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7070514429756583218, guid: 757fc78b7dd4fe74cbd35468f96bd3a8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 50.266
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 7070514429756583218, guid: 757fc78b7dd4fe74cbd35468f96bd3a8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.26
+      value: 1.87
       objectReference: {fileID: 0}
     - target: {fileID: 7070514429756583218, guid: 757fc78b7dd4fe74cbd35468f96bd3a8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3.479
+      value: -6.67
       objectReference: {fileID: 0}
     - target: {fileID: 7070514429756583218, guid: 757fc78b7dd4fe74cbd35468f96bd3a8, type: 3}
       propertyPath: m_LocalRotation.w
