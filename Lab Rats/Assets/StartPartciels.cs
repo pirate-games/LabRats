@@ -8,9 +8,8 @@ public class StartPartciels : MonoBehaviour
 {
     private AudioSource _audioSource;
     [SerializeField] private AudioEvent endSound;
-    
-    [SerializeField] private UnityEvent OnEnter;
-    [SerializeField] public LayerMask XRlayer;
+    [SerializeField] private UnityEvent onEnter;
+    [SerializeField] private string playerTag;
 
     private void Start()
     {
@@ -18,9 +17,11 @@ public class StartPartciels : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == XRlayer )
+        Debug.Log(other.gameObject.tag);
+        if (other.gameObject.CompareTag(playerTag) )
         {
-            OnEnter.Invoke();
+            Debug.Log(" yippee");
+            onEnter.Invoke();
             if (_audioSource.isPlaying) return;
             endSound.Play(_audioSource);
         }

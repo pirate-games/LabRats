@@ -1,45 +1,44 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
-using Unity.VRTemplate;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
-[RequireComponent(typeof(XRSocketInteractor))]
-public class Keyhole : NetworkBehaviour
+namespace Lab.Locked_Door.Door
 {
-    XRSocketInteractor m_Socket;
-
-    [SerializeField]
-  UnityEvent keyInserted;
-
-    private void Start()
+    [RequireComponent(typeof(XRSocketInteractor))]
+    public class Keyhole : NetworkBehaviour
     {
-        m_Socket = GetComponent<XRSocketInteractor>();
-    }
+        private XRSocketInteractor m_Socket;
 
-    public void ItemSelected()
-    {
-        var interactibles = m_Socket.interactablesHovered;
-        if (interactibles == null || interactibles.Count == 0) return;
-        var interactible = interactibles[0];
+        [SerializeField] private UnityEvent keyInserted;
 
-        if(interactible.transform.TryGetComponent(out NetworkObject key))
-            DespawnKeyServerRpc(key);
-    }
+        private void Start()
+        {
+            m_Socket = GetComponent<XRSocketInteractor>();
+        }
 
-    [ServerRpc(RequireOwnership = false)]
-    void DespawnKeyServerRpc(NetworkObjectReference keyRef)
-    {
-        if(keyRef.TryGet(out var key)) 
-            key.Despawn();
-        DespawnKeyClientRpc(keyRef);
-    }
-    [ClientRpc]
-    void DespawnKeyClientRpc(NetworkObjectReference keyRef)
-    {
-        m_Socket.enabled = false;
-        keyInserted.Invoke();
+        public void ItemSelected()
+        {
+            var interactibles = m_Socket.interactablesHovered;
+            if (interactibles == null || interactibles.Count == 0) return;
+            var interactible = interactibles[0];
+
+            if(interactible.transform.TryGetComponent(out NetworkObject key))
+                DespawnKeyServerRpc(key);
+        }
+
+        [ServerRpc(RequireOwnership = false)]
+        private void DespawnKeyServerRpc(NetworkObjectReference keyRef)
+        {
+            if(keyRef.TryGet(out var key)) 
+                key.Despawn();
+            DespawnKeyClientRpc(keyRef);
+        }
+        [ClientRpc]
+        private void DespawnKeyClientRpc(NetworkObjectReference keyRef)
+        {
+            m_Socket.enabled = false;
+            keyInserted.Invoke();
+        }
     }
 }

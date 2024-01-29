@@ -3,7 +3,6 @@ using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
 using UnityEngine;
 using Unity.Services.Relay;
-
 namespace Mulitplayer.NetworkUI
 {
     public class NetworkConnecter : MonoBehaviour
@@ -49,7 +48,7 @@ namespace Mulitplayer.NetworkUI
             }
             catch (RelayServiceException e)
             {
-                Debug.LogError(e.Message);
+                Debug.LogError(e.Message + "...the relay service is not available");
             }
         }
 
@@ -69,7 +68,7 @@ namespace Mulitplayer.NetworkUI
             }
             catch (RelayServiceException e)
             {
-                Debug.LogError(e.Message);
+                Debug.LogError(e.Message + " ...the relay service is not available to join");
             }
         }
     }
