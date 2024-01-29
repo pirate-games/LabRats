@@ -85,7 +85,7 @@ namespace Lab.Oven.Scripts
 
             if (_quotaReached && MouldPresent.Value && CorrectCode)
             {
-                ovenCooking.Play(_audioSource);
+                if (!_audioSource.isPlaying) ovenCooking.Play(_audioSource);
                 Pour();
             }
         }
@@ -129,7 +129,7 @@ namespace Lab.Oven.Scripts
             _poured = true;
 
             if (IsHost) SpawnKeyServerRpc();
-            if (!_audioSource.isPlaying) keySpawn.Play(_audioSource);
+            keySpawn.Play(_audioSource);
         }
     }
 }
