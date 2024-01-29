@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Netcode;
 using UnityEngine;
-public class Astroyd : NetworkBehaviour
+public class Astroyd : MonoBehaviour
 {
     [SerializeField] Vector3 startPos;
     [SerializeField] Vector3 endPos;
@@ -21,7 +20,6 @@ public class Astroyd : NetworkBehaviour
     }
     private void Update()
     {
-        if (!IsHost) return;
         time += Time.deltaTime/flightTime; // PingPong between 0 and 1
         transform.position = Vector3.Lerp(startPos, endPos, time);
 
@@ -29,21 +27,12 @@ public class Astroyd : NetworkBehaviour
         transform.Rotate(rotationSpeed * Time.deltaTime);
 
         // Teleport to start position when reaching the end
-        if (time >= 2)
+        if (time >= 1.2)
         {
-            ResetAstroidClientRpc();
+            time = 0;
+            transform.position = startPos;
+            trail.Clear();
         }
     }
-
-    [ClientRpc]
-    private void ResetAstroidClientRpc()
-    {
-        time = 0;
-        trail.Clear();
-        transform.position = startPos;
-
-    }
-
-    
 }
 
