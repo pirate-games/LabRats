@@ -1,6 +1,4 @@
 using Audio;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
@@ -11,7 +9,7 @@ public class IntroSpeakers : MonoBehaviour
     [SerializeField] UnityEvent onStoppedPlaying;
 
     private AudioSource _audioSource;
-    private bool _isPlaying = false;
+    private bool _isPlaying;
 
     private void Start()
     {

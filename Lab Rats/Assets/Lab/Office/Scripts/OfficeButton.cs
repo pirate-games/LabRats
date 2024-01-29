@@ -2,7 +2,6 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 
-
 public class OfficeButton : NetworkBehaviour
 {
     [SerializeField] private UnityEvent onButtonPress;

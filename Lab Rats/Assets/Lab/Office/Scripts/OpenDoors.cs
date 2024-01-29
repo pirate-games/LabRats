@@ -1,32 +1,33 @@
-using System.Collections;
-using System.Collections.Generic;
-using Lab.Office.Scripts;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class OpenDoors : MonoBehaviour
 {
+    [SerializeField] private UnityEvent onPlayersReady;
     [SerializeField] private GameObject doorLeft, doorRight;
     [SerializeField] private OfficeButton buttonLeft, buttonRight;
     private Quaternion _doorLTargetRotation, _doorRTargetRotation;
+    
 
-    private bool _opening;
+    public bool opening { private get; set; }
 
     private void Start()
     {
         _doorLTargetRotation = Quaternion.Euler(0,-130,0);
         _doorRTargetRotation = Quaternion.Euler(0, 130,0);
     }
+    
     public void ArePlayersReady()
     {
         if (buttonLeft.hasBeenPressed && buttonRight.hasBeenPressed)
         {
-            _opening = true;
+            onPlayersReady.Invoke();
         }
     }
-
+    
     private void FixedUpdate()
     {
-        if (_opening && doorLeft.transform.localRotation != _doorLTargetRotation
+        if (opening && doorLeft.transform.localRotation != _doorLTargetRotation
                     && doorRight.transform.localRotation != _doorRTargetRotation)
         {
             Open();
