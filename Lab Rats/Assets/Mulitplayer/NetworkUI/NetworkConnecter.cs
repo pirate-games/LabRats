@@ -3,6 +3,7 @@ using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
 using UnityEngine;
 using Unity.Services.Relay;
+using UnityEngine.SceneManagement;
 namespace Mulitplayer.NetworkUI
 {
     public class NetworkConnecter : MonoBehaviour
@@ -13,6 +14,8 @@ namespace Mulitplayer.NetworkUI
         [SerializeField] private int maximumConnections = 2;
         [SerializeField] private UnityTransport transport;
         [SerializeField] private LobbyCode lobbyCode;
+
+        private string serverlessScene;
 
         /// <summary>
         ///  The join code of the lobby
@@ -25,6 +28,8 @@ namespace Mulitplayer.NetworkUI
         private async void Start()
         {
             await InitialiseGame.AuthenticateUser();
+
+            serverlessScene = SceneManager.GetActiveScene().name;
         }
 
         /// <summary>
@@ -69,6 +74,32 @@ namespace Mulitplayer.NetworkUI
             catch (RelayServiceException e)
             {
                 Debug.LogError(e.Message + " ...the relay service is not available to join");
+            }
+        }
+
+        /// <summary>
+        /// Disconnect one player from the lobby
+        /// </summary>
+        public void Disconnect()
+        {
+            try
+            {
+                var id = NetworkManager.Singleton.LocalClientId;
+
+                NetworkManager.Singleton.DisconnectClient(id);
+
+                if (NetworkManager.Singleton.IsHost)
+                {
+                    NetworkManager.Singleton.Shutdown();
+                }
+
+                string currentScene = SceneManager.GetActiveScene().name;
+                SceneManager.UnloadSceneAsync(currentScene);
+                SceneManager.LoadScene(serverlessScene);
+            }
+            catch (RelayServiceException e)
+            {
+                Debug.LogError(e.Message + "...the relay service is not available to leave lobby <3");
             }
         }
     }
