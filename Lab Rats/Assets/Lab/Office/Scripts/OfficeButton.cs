@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 
-public class OfficeButton : MonoBehaviour
+public class OfficeButton : NetworkBehaviour
 {
     [SerializeField] private UnityEvent onButtonPress;
     public bool hasBeenPressed { get; private set; }
@@ -23,7 +23,7 @@ public class OfficeButton : MonoBehaviour
     private void SyncButtonValueServerRpc(bool state, ServerRpcParams serverRpcParams = default)
     {
         var clientId = serverRpcParams.Receive.SenderClientId;
-        if (NetworkManager.Singleton.ConnectedClients.ContainsKey(clientId))
+        if (NetworkManager.ConnectedClients.ContainsKey(clientId))
         {
             SyncButtonValueClientRpc(state);
         }
