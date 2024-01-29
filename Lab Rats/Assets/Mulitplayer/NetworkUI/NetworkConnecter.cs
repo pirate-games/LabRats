@@ -15,7 +15,7 @@ namespace Mulitplayer.NetworkUI
         [SerializeField] private UnityTransport transport;
         [SerializeField] private LobbyCode lobbyCode;
 
-        private string serverlessScene;
+        [SerializeField]private string serverlessScene;
 
         /// <summary>
         ///  The join code of the lobby
@@ -29,7 +29,6 @@ namespace Mulitplayer.NetworkUI
         {
             await InitialiseGame.AuthenticateUser();
 
-            serverlessScene = SceneManager.GetActiveScene().name;
         }
 
         /// <summary>
@@ -85,17 +84,23 @@ namespace Mulitplayer.NetworkUI
             try
             {
                 var id = NetworkManager.Singleton.LocalClientId;
-
-                NetworkManager.Singleton.DisconnectClient(id);
+                string currentScene = SceneManager.GetActiveScene().name;
 
                 if (NetworkManager.Singleton.IsHost)
                 {
+                    Debug.Log("delete server");
                     NetworkManager.Singleton.Shutdown();
                 }
+                else
+                {
+                    NetworkManager.Singleton.DisconnectClient(id);
+                }
 
-                string currentScene = SceneManager.GetActiveScene().name;
                 SceneManager.UnloadSceneAsync(currentScene);
-                SceneManager.LoadScene(serverlessScene);
+                if (SceneManager.UnloadSceneAsync(currentScene).isDone)
+                {
+                    SceneManager.LoadScene(serverlessScene);
+                }
             }
             catch (RelayServiceException e)
             {
