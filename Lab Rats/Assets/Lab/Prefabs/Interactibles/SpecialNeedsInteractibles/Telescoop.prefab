@@ -359,7 +359,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 6880571724108265940}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -924,6 +925,14 @@ PrefabInstance:
       value: 3993173109
       objectReference: {fileID: 0}
     - target: {fileID: 2559002913366210681, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
+      propertyPath: m_Colliders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559002913366210681, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
+      propertyPath: m_Colliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 5203026622279593006}
+    - target: {fileID: 2559002913366210681, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.size
       value: 0
       objectReference: {fileID: 0}
@@ -1067,5 +1076,10 @@ PrefabInstance:
 --- !u!4 &2415376258074205020 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6408460691936140318, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
+  m_PrefabInstance: {fileID: 8748891964839331650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &5203026622279593006 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 3557443234406116204, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
   m_PrefabInstance: {fileID: 8748891964839331650}
   m_PrefabAsset: {fileID: 0}

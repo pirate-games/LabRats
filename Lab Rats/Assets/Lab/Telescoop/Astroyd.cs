@@ -11,6 +11,7 @@ public class Astroyd : MonoBehaviour
     [SerializeField] private TrailRenderer trail;
     [SerializeField] public Gradient colorTrail;
     private float time = 0;
+    private float speed;
 
     private void Start()
     {
@@ -26,7 +27,7 @@ public class Astroyd : MonoBehaviour
         transform.Rotate(rotationSpeed * Time.deltaTime);
 
         // Teleport to start position when reaching the end
-        if (time >= 1)
+        if (time >= 1.2)
         {
             time = 0;
             transform.position = startPos;
