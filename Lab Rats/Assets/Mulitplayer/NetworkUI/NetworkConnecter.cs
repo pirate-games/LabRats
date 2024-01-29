@@ -1,9 +1,12 @@
+using System.Collections.Generic;
+using System.Collections;
 using Unity.Netcode;
 using Unity.Netcode.Transports.UTP;
 using Unity.Networking.Transport.Relay;
 using UnityEngine;
 using Unity.Services.Relay;
 using UnityEngine.SceneManagement;
+
 namespace Mulitplayer.NetworkUI
 {
     public class NetworkConnecter : MonoBehaviour
@@ -15,7 +18,7 @@ namespace Mulitplayer.NetworkUI
         [SerializeField] private UnityTransport transport;
         [SerializeField] private LobbyCode lobbyCode;
 
-        [SerializeField]private string serverlessScene;
+        [SerializeField] private string serverlessScene;
 
         /// <summary>
         ///  The join code of the lobby
@@ -29,6 +32,7 @@ namespace Mulitplayer.NetworkUI
         {
             await InitialiseGame.AuthenticateUser();
 
+            serverlessScene = SceneManager.GetSceneByName("Lab Disconnect").name;
         }
 
         /// <summary>
@@ -42,13 +46,13 @@ namespace Mulitplayer.NetworkUI
                 var allocation = await RelayService.Instance.CreateAllocationAsync(maximumConnections);
                 var joinCode = await RelayService.Instance.GetJoinCodeAsync(allocation.AllocationId);
                 var serverData = new RelayServerData(allocation, ConnectionType);
-                
+
                 // transport the server data to the transport so it can connect to the server
-                transport.SetRelayServerData(serverData);   
-                
+                transport.SetRelayServerData(serverData);
+
                 // start the host and set the join code
                 JoinCode = joinCode;
-                NetworkManager.Singleton.StartHost(); 
+                NetworkManager.Singleton.StartHost();
             }
             catch (RelayServiceException e)
             {
@@ -86,26 +90,27 @@ namespace Mulitplayer.NetworkUI
                 var id = NetworkManager.Singleton.LocalClientId;
                 string currentScene = SceneManager.GetActiveScene().name;
 
-                if (NetworkManager.Singleton.IsHost)
-                {
-                    Debug.Log("delete server");
-                    NetworkManager.Singleton.Shutdown();
-                }
-                else
-                {
-                    NetworkManager.Singleton.DisconnectClient(id);
-                }
+                Debug.Log("delete server");
+                NetworkManager.Singleton.DisconnectClient(id);
+                NetworkManager.Singleton.Shutdown();
+                
 
-                SceneManager.UnloadSceneAsync(currentScene);
-                if (SceneManager.UnloadSceneAsync(currentScene).isDone)
-                {
-                    SceneManager.LoadScene(serverlessScene);
-                }
+                //SceneManager.UnloadSceneAsync(currentScene);
+                StartCoroutine(SceneSwitch(currentScene));
+                //SceneManager.LoadSceneAsync(serverlessScene);
+
             }
             catch (RelayServiceException e)
             {
                 Debug.LogError(e.Message + "...the relay service is not available to leave lobby <3");
             }
+        }
+
+        private IEnumerator SceneSwitch(string scene)
+        {
+            AsyncOperation load = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Single);
+            yield return load;
+            //SceneManager.UnloadSceneAsync(scene);
         }
     }
 }
