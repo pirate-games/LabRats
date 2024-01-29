@@ -29,7 +29,7 @@ public class Astroyd : NetworkBehaviour
         transform.Rotate(rotationSpeed * Time.deltaTime);
 
         // Teleport to start position when reaching the end
-        if (time >= 1.2)
+        if (time >= 2)
         {
             ResetAstroidClientRpc();
         }
@@ -39,8 +39,9 @@ public class Astroyd : NetworkBehaviour
     private void ResetAstroidClientRpc()
     {
         time = 0;
-        transform.position = startPos;
         trail.Clear();
+        transform.position = startPos;
+
     }
 
     
