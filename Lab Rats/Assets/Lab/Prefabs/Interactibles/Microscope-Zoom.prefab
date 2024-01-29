@@ -28,7 +28,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
   m_LocalPosition: {x: 0.0007, y: 0.5485, z: 0.18818}
-  m_LocalScale: {x: 0.021062076, y: 0.00095486734, z: 0.021062076}
+  m_LocalScale: {x: 0.043129273, y: 0.0019553027, z: 0.043129273}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3924374047584260593}
@@ -528,7 +528,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_InteractionManager: {fileID: 0}
-  m_Colliders: []
+  m_Colliders:
+  - {fileID: 3532307570344216164}
+  - {fileID: 3120895769903504162}
+  - {fileID: 9112844253935728617}
+  - {fileID: 336513241252042152}
+  - {fileID: 1703651791643014904}
+  - {fileID: 8797878726943975608}
+  - {fileID: 7094314148642810321}
   m_InteractionLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -703,7 +710,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 1376251332
+  GlobalObjectIdHash: 2769171904
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -979,8 +986,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2181560151266932984, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 1878100452
+      value: 2769171904
       objectReference: {fileID: 0}
+    - target: {fileID: 2559002913366210681, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
+      propertyPath: m_Colliders.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2559002913366210681, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
+      propertyPath: m_Colliders.Array.data[0]
+      value: 
+      objectReference: {fileID: 7331933857747899126}
     - target: {fileID: 2559002913366210681, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -1055,7 +1070,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4822312607672149397, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 399285285
+      value: 2769171904
       objectReference: {fileID: 0}
     - target: {fileID: 6408460691936140318, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: m_LocalScale.x
@@ -1133,6 +1148,11 @@ PrefabInstance:
 --- !u!4 &896704727771112836 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6408460691936140318, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
+  m_PrefabInstance: {fileID: 6097540989673388442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &7331933857747899126 stripped
+SphereCollider:
+  m_CorrespondingSourceObject: {fileID: 3557443234406116204, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
   m_PrefabInstance: {fileID: 6097540989673388442}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &8583217324264014307 stripped

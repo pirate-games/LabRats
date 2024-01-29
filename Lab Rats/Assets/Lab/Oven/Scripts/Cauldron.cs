@@ -28,7 +28,7 @@ namespace Lab.Oven.Scripts
         private bool _poured;
         private bool _quotaReached;
         
-        private List<GameObject> _steelBlocks;
+        private List<GameObject> _steelBlocks = new();
 
         private Vector3 _startPos;
         private Vector3 _endPos;
