@@ -71,5 +71,21 @@ namespace Mulitplayer.NetworkUI
                 Debug.LogError(e.Message + " ...the relay service is not available to join");
             }
         }
+
+        /// <summary>
+        /// Disconnect one player from the lobby
+        /// </summary>
+        public void Disconnect()
+        {
+            try
+            {
+                var id = NetworkManager.Singleton.LocalClientId;
+                NetworkManager.Singleton.DisconnectClient(id);
+            }
+            catch (RelayServiceException e)
+            {
+                Debug.LogError(e.Message + "...the relay service is not available to leave lobby <3");
+            }
+        }
     }
 }
