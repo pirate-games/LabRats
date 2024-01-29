@@ -108,7 +108,7 @@ namespace Mulitplayer.NetworkUI
 
         private IEnumerator SceneSwitch(string scene)
         {
-            AsyncOperation load = SceneManager.LoadSceneAsync("Lab Disconnect", LoadSceneMode.Single);
+            AsyncOperation load = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Single);
             yield return load;
             //SceneManager.UnloadSceneAsync(scene);
         }
