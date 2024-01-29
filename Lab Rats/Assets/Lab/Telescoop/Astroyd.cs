@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Netcode;
 using UnityEngine;
-public class Astroyd : NetworkBehaviour
+public class Astroyd : MonoBehaviour
 {
     [SerializeField] Vector3 startPos;
     [SerializeField] Vector3 endPos;
@@ -21,7 +20,6 @@ public class Astroyd : NetworkBehaviour
     }
     private void Update()
     {
-        if (!IsHost) return;
         time += Time.deltaTime/flightTime; // PingPong between 0 and 1
         transform.position = Vector3.Lerp(startPos, endPos, time);
 
