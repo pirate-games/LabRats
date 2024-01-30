@@ -18,8 +18,6 @@ namespace Mulitplayer.NetworkUI
         [SerializeField] private UnityTransport transport;
         [SerializeField] private LobbyCode lobbyCode;
 
-        [SerializeField] private string serverlessScene;
-
         /// <summary>
         ///  The join code of the lobby
         /// </summary>
@@ -31,8 +29,6 @@ namespace Mulitplayer.NetworkUI
         private async void Start()
         {
             await InitialiseGame.AuthenticateUser();
-
-            serverlessScene = SceneManager.GetSceneByName("Lab Disconnect").name;
         }
 
         /// <summary>
@@ -78,39 +74,6 @@ namespace Mulitplayer.NetworkUI
             {
                 Debug.LogError(e.Message + " ...the relay service is not available to join");
             }
-        }
-
-        /// <summary>
-        /// Disconnect one player from the lobby
-        /// </summary>
-        public void Disconnect()
-        {
-            try
-            {
-                var id = NetworkManager.Singleton.LocalClientId;
-                string currentScene = SceneManager.GetActiveScene().name;
-
-                Debug.Log("delete server");
-                NetworkManager.Singleton.DisconnectClient(id);
-                NetworkManager.Singleton.Shutdown();
-                
-
-                //SceneManager.UnloadSceneAsync(currentScene);
-                StartCoroutine(SceneSwitch(currentScene));
-                //SceneManager.LoadSceneAsync(serverlessScene);
-
-            }
-            catch (RelayServiceException e)
-            {
-                Debug.LogError(e.Message + "...the relay service is not available to leave lobby <3");
-            }
-        }
-
-        private IEnumerator SceneSwitch(string scene)
-        {
-            AsyncOperation load = SceneManager.LoadSceneAsync(scene, LoadSceneMode.Single);
-            yield return load;
-            //SceneManager.UnloadSceneAsync(scene);
         }
     }
 }

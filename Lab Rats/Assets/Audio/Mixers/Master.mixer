@@ -192,13 +192,13 @@ AudioMixerSnapshotController:
     6d1e0a84e27724d49aa6d9ec41777aa5: 0.094
     3f6792b4d33a1f844b86bfbda3630ab7: 0.00001
     0b0252f547b3f8c4982b0772209f43f0: 2.01
-    b0774706a0f8f5f42aa943d3cf016555: 944
+    b0774706a0f8f5f42aa943d3cf016555: 7
     86ec516649221a147b7e30b6145d9efb: 0.97
     aaaf40b6cb3414849a8ecb946b17defd: 135
     a0d33457ca4434f4c997d186a77175ca: 0.027
     4874dc97ab7573448b5d45911f5d2aa9: 7.4
     06186a58431854d4c8ec8d744e2ea1f5: 0.176
-    1d25ea69fab817e40a0c23d3ac6f7541: 0.147
+    1d25ea69fab817e40a0c23d3ac6f7541: 0.097
     139c7f6950b541c45b67eeb4bdcf0fa9: 20
     1b89d00a8aa3daf47b45c03a2f3409a9: 0.293
     2d25152ac60b0f44ab2e1ff6f2d64199: 0.21200001
@@ -206,57 +206,9 @@ AudioMixerSnapshotController:
     472383dc64458604298a64385952f41d: 12988
     f1eb39dc76555d642a7a4f88f7ff2121: 91
     4891f80d07cded244b7212ccd9673c6e: 0.327
-    2fd5456d311e86d44a734263902e2356: -52.6
-    04a6adbf90ca754449dbd1a6cfde7865: 0.964
+    2fd5456d311e86d44a734263902e2356: -40.2
+    04a6adbf90ca754449dbd1a6cfde7865: 0.989
   m_TransitionOverrides: {}
---- !u!244 &945264147663519556
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_EffectID: 304db83b01fafcf4b8b96df9d1be48c8
-  m_EffectName: OculusSpatializerReflection
-  m_MixLevel: de6cdcdee37f80a46a905e6c8d3bd856
-  m_Parameters:
-  - m_ParameterName: GScale
-    m_GUID: 3f6792b4d33a1f844b86bfbda3630ab7
-  - m_ParameterName: E.Rflt On
-    m_GUID: 1bd2fe2a5c728dc4e9f26a81faa20b24
-  - m_ParameterName: E.Rflt Rev On
-    m_GUID: 50f8c6c25441fa044865a87b3c5e945a
-  - m_ParameterName: Room X
-    m_GUID: 09086b7cdb6145b438c21c8861a64360
-  - m_ParameterName: Room Y
-    m_GUID: a87613899f1ec2246b59eb1b23292125
-  - m_ParameterName: Room Z
-    m_GUID: fcb870339ee8eb84f88343996c2ab6ae
-  - m_ParameterName: Left
-    m_GUID: 4891f80d07cded244b7212ccd9673c6e
-  - m_ParameterName: Right
-    m_GUID: 1b89d00a8aa3daf47b45c03a2f3409a9
-  - m_ParameterName: Up
-    m_GUID: 06186a58431854d4c8ec8d744e2ea1f5
-  - m_ParameterName: Down
-    m_GUID: 90bf19f0c83bf264caaa7d515a7f62a9
-  - m_ParameterName: Behind
-    m_GUID: 6d1e0a84e27724d49aa6d9ec41777aa5
-  - m_ParameterName: Front
-    m_GUID: 86ec516649221a147b7e30b6145d9efb
-  - m_ParameterName: Shared Rev Min
-    m_GUID: e070b0ad446ebfe499b1f391d9ac7281
-  - m_ParameterName: Shared Rev Max
-    m_GUID: 4f062dd0654016848b660ef577ecc542
-  - m_ParameterName: Shared Rev Wet
-    m_GUID: 15e229c644b6c80429de4549efcba508
-  - m_ParameterName: Prop Quality
-    m_GUID: f1eb39dc76555d642a7a4f88f7ff2121
-  - m_ParameterName: Voice Limit
-    m_GUID: aaaf40b6cb3414849a8ecb946b17defd
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
 --- !u!243 &5465780265204837575
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -275,7 +227,6 @@ AudioMixerGroupController:
   - {fileID: -6299302907506790072}
   - {fileID: -5672050138134521889}
   - {fileID: -6390804275679844499}
-  - {fileID: 945264147663519556}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0

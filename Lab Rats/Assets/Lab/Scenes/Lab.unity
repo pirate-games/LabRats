@@ -34752,7 +34752,6 @@ MonoBehaviour:
   maximumConnections: 2
   transport: {fileID: 1149310906}
   lobbyCode: {fileID: 1071471918}
-  serverlessScene: 
 --- !u!1 &1152116149
 GameObject:
   m_ObjectHideFlags: 0
@@ -38244,11 +38243,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3332168285267792765, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: m_Volume
-      value: 0.371
+      value: 0.642
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332168285267792765, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3332168285267792765, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: rolloffMode
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3332168285267792765, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3332168285267792765, guid: a7dbdd508737b0d49b444c4263d812f1, type: 3}
       propertyPath: OutputAudioMixerGroup
@@ -62017,9 +62024,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: -2171508477103185190, guid: e2e62be7d7926dc4faec91b5bf7f73ed, type: 2}
     - target: {fileID: 4798860651175795850, guid: 757fc78b7dd4fe74cbd35468f96bd3a8, type: 3}
+      propertyPath: music
+      value: 
+      objectReference: {fileID: 11400000, guid: 51fd76bf0c264334fa1e4d67a4668a54, type: 2}
+    - target: {fileID: 4798860651175795850, guid: 757fc78b7dd4fe74cbd35468f96bd3a8, type: 3}
       propertyPath: dialogue
       value: 
       objectReference: {fileID: 11400000, guid: 41412dceb252a33439a44350be93ba11, type: 2}
+    - target: {fileID: 4798860651175795850, guid: 757fc78b7dd4fe74cbd35468f96bd3a8, type: 3}
+      propertyPath: musicSource
+      value: 
+      objectReference: {fileID: 1881935518}
     - target: {fileID: 4798860651175795850, guid: 757fc78b7dd4fe74cbd35468f96bd3a8, type: 3}
       propertyPath: onStoppedPlaying.m_PersistentCalls.m_Calls.Array.size
       value: 1
