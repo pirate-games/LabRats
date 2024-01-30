@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class UpdateCamera : MonoBehaviour
 {
-    [SerializeField] private Camera _camera;
-    [SerializeField] private XRKnob _zoomKnob;
+    private Camera _camera;
     [Tooltip("The lower the number the lower the FOV will be, and thus zooming in")]
     [SerializeField] private Vector2 _minMaxZoom = new Vector2(3, 0.1f);
 
@@ -18,10 +17,9 @@ public class UpdateCamera : MonoBehaviour
         }
     }
 
-    public void UpdateCameraFOV()
+    public void UpdateCameraFOV(float value)
     {
-        Debug.Log("Zooming");
-        _camera.fieldOfView = Mathf.Lerp(_minMaxZoom.x, _minMaxZoom.y, _zoomKnob.value);
+        if (_camera) _camera.fieldOfView = Mathf.Lerp(_minMaxZoom.x, _minMaxZoom.y, value);
     }
 }
 
