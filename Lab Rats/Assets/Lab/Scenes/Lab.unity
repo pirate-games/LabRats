@@ -11843,6 +11843,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+--- !u!1 &452463680 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 833351718616795185, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+  m_PrefabInstance: {fileID: 452463679}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &452463681 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8772215659545164228, guid: 895f6f3c2d334633b5800312285058d2, type: 3}
+  m_PrefabInstance: {fileID: 452463679}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &454791485 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2210497428898150799, guid: 807cdc328e0490446908e85c686ae1ae, type: 3}
@@ -55284,6 +55294,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Projector
       objectReference: {fileID: 0}
+    - target: {fileID: 5368803766307269399, guid: 8b7788bb27646a64c9ff4983e464f1bf, type: 3}
+      propertyPath: controllerLeft
+      value: 
+      objectReference: {fileID: 452463681}
+    - target: {fileID: 5368803766307269399, guid: 8b7788bb27646a64c9ff4983e464f1bf, type: 3}
+      propertyPath: controllerRight
+      value: 
+      objectReference: {fileID: 452463680}
     - target: {fileID: 5578013886520842573, guid: 8b7788bb27646a64c9ff4983e464f1bf, type: 3}
       propertyPath: m_Name
       value: Element Positions

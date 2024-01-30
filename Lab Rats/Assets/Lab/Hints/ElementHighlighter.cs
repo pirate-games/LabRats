@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Player.Scripts;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 
@@ -9,6 +10,10 @@ namespace Lab.Hints
     {
         [SerializeField] private GameObject positionList;
         [SerializeField] private GameObject highlighter;
+
+        [Header("Direct Interactors")]
+        [SerializeField] private GameObject controllerLeft;
+        [SerializeField] private GameObject controllerRight;
         
         // Dictionary storing the atomic number and the worldspace coordinates for the highlighter
         private readonly Dictionary<int, Vector3> _elementDict = new();
@@ -25,17 +30,19 @@ namespace Lab.Hints
                 var elementPosition = child.position;
                 _elementDict.Add(elementNumber, elementPosition);
             }
+            
+            controllerLeft.gameObject.GetComponent<CheckGrabbedObject>().OnGrabbedElement.AddListener(HighlightElement);
+            controllerRight.gameObject.GetComponent<CheckGrabbedObject>().OnGrabbedElement.AddListener(HighlightElement);
         }
 
         /// <summary>
         /// Sets the highlighter's position to a designated element position in the main scene.
         /// </summary>
         /// <param name="num">Element atomic number</param>
-        public void HighlightElement(int num)
+        private void HighlightElement(int num)
         {
             var element = _elementDict[num];
-            highlighter.transform.position = new(element.x, element.y, 
-                highlighter.transform.position.z);
+            highlighter.transform.position = new(element.x, element.y, highlighter.transform.position.z);
         }
     }
 }
