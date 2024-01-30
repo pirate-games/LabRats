@@ -33,8 +33,8 @@ namespace Lab.Office.Scripts
         [ClientRpc]
         private void PlayClientRpc()
         {
-            dialogue.Play(_audioSource);
-            music.Play(musicSource);
+            if (!_audioSource.isPlaying) dialogue.Play(_audioSource);
+            if (!musicSource.isPlaying) music.Play(musicSource);
             _isPlaying = true;
         }
 

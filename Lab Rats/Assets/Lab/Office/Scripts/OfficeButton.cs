@@ -10,7 +10,6 @@ public class OfficeButton : NetworkBehaviour
     public void OnButtonPress()
     {
         SyncButtonValueServerRpc(true);
-        onButtonPress.Invoke();
     }
 
     public void OnButtonRelease()
@@ -36,6 +35,7 @@ public class OfficeButton : NetworkBehaviour
     [ClientRpc]
     private void SyncButtonValueClientRpc(bool state)
     {
+        onButtonPress.Invoke();
         hasBeenPressed = state;
     }
 }
