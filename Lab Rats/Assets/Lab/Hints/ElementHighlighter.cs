@@ -8,9 +8,15 @@ namespace Lab.Hints
     public class ElementHighlighter : MonoBehaviour
     {
         [SerializeField] private GameObject positionList;
-        private readonly Dictionary<int, Vector3> _elementDict = new();
         [SerializeField] private GameObject highlighter;
+        
+        // Dictionary storing the atomic number and the worldspace coordinates for the highlighter
+        private readonly Dictionary<int, Vector3> _elementDict = new();
 
+        /// <summary>
+        /// Once game starts, it fills up the dictionary by getting the children of positionList
+        /// It uses the name of the GameObject and its position to fill up the dict
+        /// </summary>
         private void Start()
         {
             foreach (Transform child in positionList.transform)
@@ -21,6 +27,10 @@ namespace Lab.Hints
             }
         }
 
+        /// <summary>
+        /// Sets the highlighter's position to a designated element position in the main scene.
+        /// </summary>
+        /// <param name="num">Element atomic number</param>
         public void HighlightElement(int num)
         {
             var element = _elementDict[num];

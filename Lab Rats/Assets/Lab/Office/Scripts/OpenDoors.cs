@@ -3,13 +3,14 @@ using UnityEngine.Events;
 
 public class OpenDoors : MonoBehaviour
 {
+    
     [SerializeField] private UnityEvent onPlayersReady;
+    public bool opening { private get; set; }
+    
     [SerializeField] private GameObject doorLeft, doorRight;
     [SerializeField] private OfficeButton buttonLeft, buttonRight;
     private Quaternion _doorLTargetRotation, _doorRTargetRotation;
-    
 
-    public bool opening { private get; set; }
 
     private void Start()
     {
@@ -20,6 +21,9 @@ public class OpenDoors : MonoBehaviour
         buttonRight.onButtonPress.AddListener(ArePlayersReady);
     }
     
+    /// <summary>
+    /// Whenever players are ready, this method calls for the intro audio to be played.
+    /// </summary>
     public void ArePlayersReady()
     {
         if (buttonLeft.hasBeenPressed && buttonRight.hasBeenPressed)

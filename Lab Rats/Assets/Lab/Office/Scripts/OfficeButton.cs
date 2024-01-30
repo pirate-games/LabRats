@@ -17,7 +17,12 @@ public class OfficeButton : NetworkBehaviour
     {
         SyncButtonValueServerRpc(false);
     }
-
+    
+    /// <summary>
+    /// ServerRpc that syncs the button's hasBeenPressed state across the server
+    /// </summary>
+    /// <param name="state"></param>
+    /// <param name="serverRpcParams"></param>
     [ServerRpc(RequireOwnership = false)]
     private void SyncButtonValueServerRpc(bool state, ServerRpcParams serverRpcParams = default)
     {
