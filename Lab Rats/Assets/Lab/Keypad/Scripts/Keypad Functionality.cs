@@ -61,6 +61,7 @@ public class KeypadFunctionality : NetworkBehaviour
 
     public void ButtonPressed(int number)
     {
+        Debug.Log(number);
         ButtonPressedServerRpc(number);
     }
     public void ButtonReleased()

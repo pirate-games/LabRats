@@ -197,7 +197,6 @@ GameObject:
   - component: {fileID: 3880770091529431788}
   - component: {fileID: 3781206546973818157}
   - component: {fileID: 5537697595978265311}
-  - component: {fileID: 9085707261586598969}
   m_Layer: 0
   m_Name: SpinPad
   m_TagString: Untagged
@@ -324,36 +323,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinDuration: 2
---- !u!114 &9085707261586598969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3254002941136304421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acb35059ee0249d887d34e10ff5599be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.01
-  RotAngleThreshold: 0.1
-  ScaleThreshold: 0.1
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  Interpolate: 1
-  SlerpPosition: 0
 --- !u!1 &4009663446307616497
 GameObject:
   m_ObjectHideFlags: 0
@@ -367,7 +336,6 @@ GameObject:
   - component: {fileID: 6884202428683144117}
   - component: {fileID: 8405606214760483855}
   - component: {fileID: 6578219975705405192}
-  - component: {fileID: 5447539355252317286}
   m_Layer: 0
   m_Name: Flame
   m_TagString: Untagged
@@ -407,7 +375,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -5236,37 +5204,7 @@ MonoBehaviour:
   SceneMigrationSynchronization: 1
   SpawnWithObservers: 1
   DontDestroyWithOwner: 0
-  AutoObjectParentSync: 1
---- !u!114 &5447539355252317286
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4009663446307616497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acb35059ee0249d887d34e10ff5599be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 1
-  SyncScaleY: 1
-  SyncScaleZ: 1
-  PositionThreshold: 0.001
-  RotAngleThreshold: 0.01
-  ScaleThreshold: 0.01
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  Interpolate: 1
-  SlerpPosition: 0
+  AutoObjectParentSync: 0
 --- !u!1 &4377517040593313463
 GameObject:
   m_ObjectHideFlags: 0
@@ -5519,8 +5457,8 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 3942763220666469413}
         m_TargetAssemblyTypeName: Lab.Oven.Scripts.Cauldron, Assembly-CSharp
-        m_MethodName: set_MouldPresent
-        m_Mode: 6
+        m_MethodName: InsertMould
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6254,7 +6192,6 @@ GameObject:
   - component: {fileID: 1045247426212702941}
   - component: {fileID: 4496783129841927290}
   - component: {fileID: 5044413138597465680}
-  - component: {fileID: 2549340313482808435}
   m_Layer: 0
   m_Name: SpinPad (1)
   m_TagString: Untagged
@@ -6416,36 +6353,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2549340313482808435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6653419492862803294}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acb35059ee0249d887d34e10ff5599be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SyncPositionX: 1
-  SyncPositionY: 1
-  SyncPositionZ: 1
-  SyncRotAngleX: 1
-  SyncRotAngleY: 1
-  SyncRotAngleZ: 1
-  SyncScaleX: 0
-  SyncScaleY: 0
-  SyncScaleZ: 0
-  PositionThreshold: 0.01
-  RotAngleThreshold: 0.1
-  ScaleThreshold: 0.1
-  UseQuaternionSynchronization: 0
-  UseQuaternionCompression: 0
-  UseHalfFloatPrecision: 0
-  InLocalSpace: 0
-  Interpolate: 1
-  SlerpPosition: 0
 --- !u!1 &6784796641992664666
 GameObject:
   m_ObjectHideFlags: 0
@@ -13815,7 +13722,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 361
+  m_VersionIndex: 364
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -13889,7 +13796,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2168653958918989347
 Transform:
   m_ObjectHideFlags: 0
@@ -14461,6 +14368,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4734876002044977615, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 9135969718892838205, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 1167007736439851409, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 2079609195713443135, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 14065214969318399, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 6180437426474920686, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 4448782184600445116, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 5058873114952197230, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 5811067196903284204, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 4213845235422387492, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 5979227015863113794, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 3302697044370212348, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 3376293274759579207, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 5514032149559412028, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 1404673586750525887, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 7155078911737120676, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 4379931264237806443, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 6404535743254150550, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 225547600846432946, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 5250470691139509728, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 2820428955773839373, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 4951004280279990250, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
+    - {fileID: 961445523534275229, guid: 38b22bb3b9361e7478495095d98c284a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -14760,6 +14689,10 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 2037515504250512327, guid: 73002e8deb5aad745bb9b370be17c431, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2682ea6104cb87b4588001e50a87bddf, type: 2}
+    - target: {fileID: 2037515504250512327, guid: 73002e8deb5aad745bb9b370be17c431, type: 3}
       propertyPath: m_fontColor.b
       value: 0
       objectReference: {fileID: 0}
@@ -14775,6 +14708,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 2037515504250512327, guid: 73002e8deb5aad745bb9b370be17c431, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -7838835327683649800, guid: 2682ea6104cb87b4588001e50a87bddf, type: 2}
     - target: {fileID: 2037515504250512327, guid: 73002e8deb5aad745bb9b370be17c431, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4278190080
@@ -14993,9 +14930,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90e87cd2e314370b0a45eaecff49d87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  steelBlocks: []
   requiredSteelAmount: 2
   pouringTime: 3
+  key: {fileID: 6582309365285294796, guid: 26d8bd5777ec8bf4cb8607e055f5e8b1, type: 3}
+  keySpawnPoint: {fileID: 3969752483956310299}
   onQuotaReached:
     m_PersistentCalls:
       m_Calls:
@@ -15023,6 +14961,10 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  ovenCooking: {fileID: 11400000, guid: 192aeef06da7883458ac6b0e41da9964, type: 2}
+  keySpawn: {fileID: 11400000, guid: 53ae6c5c12a531043b57cf781b30454e, type: 2}
+  MouldPresent:
+    m_InternalValue: 0
 --- !u!1001 &6128919309584503477
 PrefabInstance:
   m_ObjectHideFlags: 0
