@@ -268,7 +268,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3993173109
+  GlobalObjectIdHash: 1223438732
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3993173109
+  GlobalObjectIdHash: 3199001621
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -692,7 +692,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3993173109
+  GlobalObjectIdHash: 2085716304
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -841,8 +841,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c7a343eb0db53949b387b4b74b1fca3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _camera: {fileID: 0}
-  _zoomKnob: {fileID: 6550812711195082555}
   _minMaxZoom: {x: 3, y: 0.1}
 --- !u!1 &9100891624947671763
 GameObject:
@@ -920,7 +918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5a57f767e5e46a458fc5d3c628d0cbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GlobalObjectIdHash: 3993173109
+  GlobalObjectIdHash: 203697415
   AlwaysReplicateAsRoot: 0
   SynchronizeTransform: 1
   ActiveSceneSynchronization: 0
@@ -938,7 +936,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2181560151266932984, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3993173109
+      value: 2006909720
       objectReference: {fileID: 0}
     - target: {fileID: 2559002913366210681, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: m_Colliders.Array.size
@@ -958,7 +956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2559002913366210681, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2559002913366210681, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: m_OnValueChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1026,7 +1024,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4822312607672149397, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: GlobalObjectIdHash
-      value: 3993173109
+      value: 466168311
       objectReference: {fileID: 0}
     - target: {fileID: 6408460691936140318, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
       propertyPath: m_LocalScale.x
@@ -1111,14 +1109,3 @@ SphereCollider:
   m_CorrespondingSourceObject: {fileID: 3557443234406116204, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
   m_PrefabInstance: {fileID: 8748891964839331650}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6550812711195082555 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2559002913366210681, guid: 880859a78ba215e4ebd4efd83651a34d, type: 3}
-  m_PrefabInstance: {fileID: 8748891964839331650}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e888dc0064d84d041818fa202b52d6be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
