@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using Audio;
-public class StartPartciels : MonoBehaviour
+public class StartParticles : MonoBehaviour
 {
     private AudioSource _audioSource;
     [SerializeField] private AudioEvent endSound;
