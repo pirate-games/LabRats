@@ -4,7 +4,7 @@ using UnityEngine.Events;
 
 public class OfficeButton : NetworkBehaviour
 {
-    [SerializeField] private UnityEvent onButtonPress;
+    [HideInInspector] public UnityEvent onButtonPress;
     public bool hasBeenPressed { get; private set; }
 
     public void OnButtonPress()

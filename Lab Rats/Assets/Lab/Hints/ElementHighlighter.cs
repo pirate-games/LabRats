@@ -27,7 +27,5 @@ namespace Lab.Hints
             highlighter.transform.position = new(element.x, element.y, 
                 highlighter.transform.position.z);
         }
-
-
     }
 }

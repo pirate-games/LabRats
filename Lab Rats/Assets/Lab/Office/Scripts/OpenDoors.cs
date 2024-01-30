@@ -15,6 +15,9 @@ public class OpenDoors : MonoBehaviour
     {
         _doorLTargetRotation = Quaternion.Euler(0,-130,0);
         _doorRTargetRotation = Quaternion.Euler(0, 130,0);
+        
+        buttonLeft.onButtonPress.AddListener(ArePlayersReady);
+        buttonRight.onButtonPress.AddListener(ArePlayersReady);
     }
     
     public void ArePlayersReady()
