@@ -34868,11 +34868,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b655a35cbec038e47b72041ba63a1465, type: 2}
     - target: {fileID: 1698362820299264918, guid: 656814b311a6fcc45a217d74e77ac9d3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.792107
+      value: 1.7919724
       objectReference: {fileID: 0}
     - target: {fileID: 1698362820299264918, guid: 656814b311a6fcc45a217d74e77ac9d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.6564
+      value: -13.65597
       objectReference: {fileID: 0}
     - target: {fileID: 1698362820299264918, guid: 656814b311a6fcc45a217d74e77ac9d3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -41225,11 +41225,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: b655a35cbec038e47b72041ba63a1465, type: 2}
     - target: {fileID: 1698362820299264918, guid: 656814b311a6fcc45a217d74e77ac9d3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.7217866
+      value: 1.7212888
       objectReference: {fileID: 0}
     - target: {fileID: 1698362820299264918, guid: 656814b311a6fcc45a217d74e77ac9d3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.665
+      value: -24.66588
       objectReference: {fileID: 0}
     - target: {fileID: 1698362820299264918, guid: 656814b311a6fcc45a217d74e77ac9d3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -51789,7 +51789,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 838686929437650284, guid: 9a496d470a15db145a939cdf821f0977, type: 3}
       propertyPath: onButtonPress.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 838686929437650284, guid: 9a496d470a15db145a939cdf821f0977, type: 3}
       propertyPath: onButtonPress.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
@@ -51826,6 +51826,22 @@ PrefabInstance:
     - target: {fileID: 1571207343443178869, guid: 9a496d470a15db145a939cdf821f0977, type: 3}
       propertyPath: m_InteractionLayers.m_Bits
       value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571207343443178869, guid: 9a496d470a15db145a939cdf821f0977, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571207343443178869, guid: 9a496d470a15db145a939cdf821f0977, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571207343443178869, guid: 9a496d470a15db145a939cdf821f0977, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1571207343443178869, guid: 9a496d470a15db145a939cdf821f0977, type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: ButtonController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 1643230440652018620, guid: 9a496d470a15db145a939cdf821f0977, type: 3}
       propertyPath: onButtonPress.m_PersistentCalls.m_Calls.Array.size

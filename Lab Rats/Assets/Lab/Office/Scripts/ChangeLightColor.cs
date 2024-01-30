@@ -5,30 +5,30 @@ namespace Lab.Office.Scripts
     public class ChangeLightColor : MonoBehaviour
     {
 
-        [SerializeField] private Material bulbMat;
-        [SerializeField] private Color bulbOnColour;
+        [SerializeField] private Material material;
+        [SerializeField] private Color newColour;
 
         private Color _startingColour;
         private static readonly int EmissionColor = Shader.PropertyToID("_EmissionColor");
 
         private void Start()
         {
-            _startingColour = bulbMat.GetColor(EmissionColor);
+            _startingColour = material.GetColor(EmissionColor);
         }
 
         private void OnDisable()
         {
-            ResetBulbMat();
+            ResetEmissionColour();
         }
 
-        public void SwitchBulbMat()
+        public void SwitchEmissionColour()
         {
-            bulbMat.SetColor(EmissionColor, bulbOnColour);
+            material.SetColor(EmissionColor, newColour);
         }
 
-        public void ResetBulbMat()
+        public void ResetEmissionColour()
         {
-            bulbMat.SetColor(EmissionColor, _startingColour);
+            material.SetColor(EmissionColor, _startingColour);
         }
     }
 }

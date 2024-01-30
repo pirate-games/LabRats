@@ -17,10 +17,8 @@ public class StartPartciels : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.tag);
         if (other.gameObject.CompareTag(playerTag) )
         {
-            Debug.Log(" yippee");
             onEnter.Invoke();
             if (_audioSource.isPlaying) return;
             endSound.Play(_audioSource);
