@@ -1,5 +1,5 @@
 using System;
-using Lab.Knob;
+using Lab.Interactibles.Knob;
 using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;

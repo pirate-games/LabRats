@@ -1,11 +1,9 @@
-using System;
-using ElementsSystem;
-using Lab.Hints;
+using Global.ElementsSystem;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.XR.Interaction.Toolkit;
 
-namespace Player.Scripts
+namespace Global.Player.Scripts
 {
     public class CheckGrabbedObject : MonoBehaviour
     {

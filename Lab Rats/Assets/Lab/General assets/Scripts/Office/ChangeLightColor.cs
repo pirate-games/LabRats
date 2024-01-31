@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Lab.Office.Scripts
+namespace Lab.General_assets.Scripts.Office
 {
     public class ChangeLightColor : MonoBehaviour
     {

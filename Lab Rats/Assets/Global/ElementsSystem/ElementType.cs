@@ -1,4 +1,4 @@
-﻿namespace ElementsSystem
+﻿namespace Global.ElementsSystem
 {
     /// <summary>
     /// The type of element.

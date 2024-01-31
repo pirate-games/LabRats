@@ -3,7 +3,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Lab.Office.Scripts
+namespace Lab.General_assets.Scripts.Office
 {
     public class IntroSpeakers : MonoBehaviour
     {

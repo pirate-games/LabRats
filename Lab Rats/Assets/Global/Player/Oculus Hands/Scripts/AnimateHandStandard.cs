@@ -1,8 +1,7 @@
-
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Player.Oculus_Hands.Scripts
+namespace Global.Player.Oculus_Hands.Scripts
 {
     public class AnimateHandStandard : MonoBehaviour
     {

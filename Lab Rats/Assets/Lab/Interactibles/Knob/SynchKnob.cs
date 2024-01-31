@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using Unity.VRTemplate;
 
-namespace Lab.Knob
+namespace Lab.Interactibles.Knob
 {
     public class SynchKnob : NetworkBehaviour
     {

@@ -1,6 +1,6 @@
 using Unity.Netcode.Components;
 
-namespace Player.Oculus_Hands.Scripts
+namespace Global.Player.Oculus_Hands.Scripts
 {
     public class NetworkAnimatorClient : NetworkAnimator
     {

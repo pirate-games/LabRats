@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace ElementsSystem
+namespace Global.ElementsSystem
 {
     /// <summary>
     /// Static class responsible for generating and managing ElementObjects.

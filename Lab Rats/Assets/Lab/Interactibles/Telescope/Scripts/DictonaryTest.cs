@@ -1,51 +1,54 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DictonaryTest : MonoBehaviour
+namespace Lab.Interactibles.Telescope.Scripts
 {
-    public List<GameObject> gameObjects = new List<GameObject>();
-
-    private Dictionary<string, GameObject> gameObjectDictionary;
-
-    private void Start()
+    public class DictonaryTest : MonoBehaviour
     {
-        BuildDictionary();
-    }
+        public List<GameObject> gameObjects = new List<GameObject>();
 
-    private void BuildDictionary()
-    {
-        // Create a dictionary to store GameObjects by their names
-        gameObjectDictionary = new Dictionary<string, GameObject>();
+        private Dictionary<string, GameObject> gameObjectDictionary;
 
-        foreach (GameObject obj in gameObjects)
+        private void Start()
         {
-            // Assuming the names of the GameObjects represent numbers
-            string objectName = obj.name;
+            BuildDictionary();
+        }
 
-            // Add to the dictionary
-            if (!gameObjectDictionary.ContainsKey(objectName))
+        private void BuildDictionary()
+        {
+            // Create a dictionary to store GameObjects by their names
+            gameObjectDictionary = new Dictionary<string, GameObject>();
+
+            foreach (GameObject obj in gameObjects)
             {
-                gameObjectDictionary.Add(objectName, obj);
+                // Assuming the names of the GameObjects represent numbers
+                string objectName = obj.name;
+
+                // Add to the dictionary
+                if (!gameObjectDictionary.ContainsKey(objectName))
+                {
+                    gameObjectDictionary.Add(objectName, obj);
+                }
+                else
+                {
+                    // Handle duplicate names if needed
+                    Debug.LogWarning("Duplicate name found: " + objectName);
+                }
+            }
+        }
+
+        // Function to search for a value whenever you want
+        public void SearchValue(string lookForNumber)
+        {
+            // Check if the number is in the dictionary
+            if (gameObjectDictionary.TryGetValue(lookForNumber, out GameObject foundObject))
+            {
+                Debug.Log("Found the GameObject with the name: " + lookForNumber);
             }
             else
             {
-                // Handle duplicate names if needed
-                Debug.LogWarning("Duplicate name found: " + objectName);
+                Debug.Log("GameObject with the name not found: " + lookForNumber);
             }
-        }
-    }
-
-    // Function to search for a value whenever you want
-    public void SearchValue(string lookForNumber)
-    {
-        // Check if the number is in the dictionary
-        if (gameObjectDictionary.TryGetValue(lookForNumber, out GameObject foundObject))
-        {
-            Debug.Log("Found the GameObject with the name: " + lookForNumber);
-        }
-        else
-        {
-            Debug.Log("GameObject with the name not found: " + lookForNumber);
         }
     }
 }

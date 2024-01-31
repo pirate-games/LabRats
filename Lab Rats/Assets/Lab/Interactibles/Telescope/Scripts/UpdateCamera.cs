@@ -1,25 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VRTemplate;
 using UnityEngine;
 
-public class UpdateCamera : MonoBehaviour
+namespace Lab.Interactibles.Telescope.Scripts
 {
-    private Camera _camera;
-    [Tooltip("The lower the number the lower the FOV will be, and thus zooming in")]
-    [SerializeField] private Vector2 _minMaxZoom = new Vector2(3, 0.1f);
-
-    private void Start()
+    public class UpdateCamera : MonoBehaviour
     {
-        if (_camera == null)
+        private Camera _camera;
+        [Tooltip("The lower the number the lower the FOV will be, and thus zooming in")]
+        [SerializeField] private Vector2 _minMaxZoom = new Vector2(3, 0.1f);
+
+        private void Start()
         {
-            _camera = GetComponent<Camera>();
+            if (_camera == null)
+            {
+                _camera = GetComponent<Camera>();
+            }
         }
-    }
 
-    public void UpdateCameraFOV(float value)
-    {
-        if (_camera) _camera.fieldOfView = Mathf.Lerp(_minMaxZoom.x, _minMaxZoom.y, value);
+        public void UpdateCameraFOV(float value)
+        {
+            if (_camera) _camera.fieldOfView = Mathf.Lerp(_minMaxZoom.x, _minMaxZoom.y, value);
+        }
     }
 }
 

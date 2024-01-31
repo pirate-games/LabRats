@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Player.Scripts;
+using Global.Player.Scripts;
 using Unity.XR.CoreUtils;
 using UnityEngine;
 

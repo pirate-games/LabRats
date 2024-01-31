@@ -1,5 +1,5 @@
 using Audio;
-using ElementsSystem;
+using Global.ElementsSystem;
 using UnityEngine;
 
 namespace Lab.Conductivity_Puzzle.Scripts

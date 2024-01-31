@@ -1,7 +1,7 @@
 using Global.Tools;
 using UnityEngine;
 
-namespace Player.Scripts
+namespace Global.Player.Scripts
 {
     /// <summary>
     ///  This class is used to store the references to the VR Rig parts

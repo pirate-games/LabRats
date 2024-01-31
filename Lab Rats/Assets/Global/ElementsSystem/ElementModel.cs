@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ElementsSystem
+namespace Global.ElementsSystem
 {
     public class ElementModel : MonoBehaviour
     {

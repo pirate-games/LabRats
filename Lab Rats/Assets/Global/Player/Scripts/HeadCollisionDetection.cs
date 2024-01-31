@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-namespace Player.Scripts
+namespace Global.Player.Scripts
 {
     public class HeadCollisionDetection : MonoBehaviour
     {

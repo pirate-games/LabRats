@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace ElementsSystem
+namespace Global.ElementsSystem
 {
     [RequireComponent(typeof(ElementModel))]
     public class ElementView: MonoBehaviour
